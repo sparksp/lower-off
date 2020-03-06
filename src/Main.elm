@@ -3,6 +3,7 @@ module Main exposing (main)
 import Anchor exposing (Anchor)
 import Browser
 import ChainConnector exposing (ChainConnector)
+import Climb exposing (Climb)
 import Connector exposing (Connector)
 import Element exposing (Element, column, fill, padding, paragraph, spacing, text, width)
 import Element.Border as Border
@@ -42,15 +43,6 @@ newScenario climb anchor problems =
     Scenario { climb = climb, anchor = anchor, problems = problems }
 
 
-{-| Style of the climb.
--}
-type Climb
-    = LeadAndClean
-    | LeadAndSetup
-    | Second -- Always assume clean
-    | TopRope -- Always assume clean
-
-
 {-| What condition is the equipment in?
 -}
 type Condition e
@@ -83,7 +75,7 @@ randomProblem =
 
 randomClimb : Random.Generator Climb
 randomClimb =
-    Random.uniform LeadAndClean [ LeadAndSetup, Second, TopRope ]
+    Random.uniform Climb.LeadAndClean [ Climb.LeadAndSetup, Climb.Second, Climb.TopRope ]
 
 
 randomAnchor : Random.Generator Anchor
@@ -168,20 +160,7 @@ pageTitle =
 
 viewClimb : Climb -> Element Msg
 viewClimb climb =
-    paragraph []
-        [ case climb of
-            LeadAndSetup ->
-                text "You are leading this climb and others will be climbing it after you."
-
-            LeadAndClean ->
-                text "You are leading this climb but no one is following you, please clean it when you've finished."
-
-            Second ->
-                text "You are seconding this climb, please clean it when you've finished."
-
-            TopRope ->
-                text "You are the last person to top-rope this climb, please clean it when you've finished."
-        ]
+    paragraph [] [ text (Climb.string climb) ]
 
 
 viewAnchor : Anchor -> Element Msg
