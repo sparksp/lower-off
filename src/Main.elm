@@ -57,6 +57,11 @@ randomProblem =
     Random.uniform Problem.NoScrewgate [ Problem.NoLanyard, Problem.NoQuickdraws, Problem.NoBelayerComms ]
 
 
+randomClimb : Random.Generator Climb
+randomClimb =
+    Random.uniform LeadAndClean [ LeadAndSetup, Second, TopRope ]
+
+
 
 --- PROGRAM
 
@@ -89,8 +94,17 @@ initScenario =
         }
 
 
+randomize : Cmd Msg
+randomize =
+    Cmd.batch
+        [ Random.generate NewProblems randomProblemList
+        , Random.generate NewClimb randomClimb
+        ]
+
+
 type Msg
     = Randomize
+    | NewClimb Climb
     | NewProblems (List Problem)
 
 
@@ -98,7 +112,10 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg (Scenario scenario) =
     case msg of
         Randomize ->
-            ( Scenario scenario, Random.generate NewProblems randomProblemList )
+            ( Scenario scenario, randomize )
+
+        NewClimb climb ->
+            ( Scenario { scenario | climb = climb }, Cmd.none )
 
         NewProblems problems ->
             ( Scenario { scenario | problems = problems }, Cmd.none )
