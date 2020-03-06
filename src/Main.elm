@@ -3,11 +3,16 @@ module Main exposing (main)
 import Anchor exposing (Anchor)
 import Browser
 import Connector
-import Element exposing (Element, column, fill, padding, paddingXY, paragraph, spacing, text, width)
+import Element exposing (Element, column, fill, padding, paragraph, spacing, text, width)
+import Element.Border as Border
 import Element.Font as Font
+import Element.Input as Input
 import Element.Region as Region
 import Fixing
 import Html exposing (Html)
+import List.Extra
+import Problem exposing (Problem)
+import Random
 
 
 
@@ -40,13 +45,16 @@ type Condition e
     | Worn e
 
 
-{-| Extra problems that might occur.
--}
-type Problem
-    = NoScrewgate
-    | NoLanyard
-    | NoQuickdraws
-    | NoBelayerComms
+randomProblemList : Random.Generator (List Problem)
+randomProblemList =
+    Random.int 0 4
+        |> Random.andThen (\len -> Random.list len randomProblem)
+        |> Random.andThen (Random.constant << List.Extra.uniqueBy Problem.string)
+
+
+randomProblem : Random.Generator Problem
+randomProblem =
+    Random.uniform Problem.NoScrewgate [ Problem.NoLanyard, Problem.NoQuickdraws, Problem.NoBelayerComms ]
 
 
 
@@ -55,11 +63,21 @@ type Problem
 
 main : Program () Model Msg
 main =
-    Browser.sandbox { init = initScenario, update = update, view = view }
+    Browser.element { init = init, subscriptions = subscriptions, update = update, view = view }
 
 
 type alias Model =
     Scenario
+
+
+subscriptions : Model -> Sub Msg
+subscriptions _ =
+    Sub.none
+
+
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( initScenario, Cmd.none )
 
 
 initScenario : Scenario
@@ -67,19 +85,23 @@ initScenario =
     Scenario
         { climb = LeadAndClean
         , anchor = Anchor.Joined Fixing.Bolt Connector.BigRing
-        , problems = [ NoScrewgate, NoLanyard, NoQuickdraws, NoBelayerComms ]
+        , problems = []
         }
 
 
 type Msg
-    = NoOp
+    = Randomize
+    | NewProblems (List Problem)
 
 
-update : Msg -> Model -> Model
-update msg model =
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg (Scenario scenario) =
     case msg of
-        NoOp ->
-            model
+        Randomize ->
+            ( Scenario scenario, Random.generate NewProblems randomProblemList )
+
+        NewProblems problems ->
+            ( Scenario { scenario | problems = problems }, Cmd.none )
 
 
 pageTitle : Element Msg
@@ -118,34 +140,35 @@ listProblems problems =
 
 viewProblem : Problem -> Element Msg
 viewProblem problem =
-    case problem of
-        NoScrewgate ->
-            paragraph [] [ text "You have no spare screwgates on you." ]
-
-        NoLanyard ->
-            paragraph [] [ text "You've forgotten your sling / lanyard." ]
-
-        NoQuickdraws ->
-            paragraph [] [ text "You have run out of quickdraws." ]
-
-        NoBelayerComms ->
-            paragraph [] [ text "You cannot see or hear your belayer." ]
+    paragraph [] [ text (Problem.string problem) ]
 
 
 viewScenario : Scenario -> Element Msg
 viewScenario (Scenario s) =
-    Element.textColumn [ width fill, spacing 10, paddingXY 0 10 ]
+    Element.textColumn [ width fill, spacing 10 ]
         [ viewClimb s.climb
         , viewAnchor s.anchor
         , listProblems s.problems
         ]
 
 
+viewRandomizeButton : Element Msg
+viewRandomizeButton =
+    Input.button
+        [ padding 5
+        , Border.width 1
+        , Border.rounded 3
+        , Border.color <| Element.rgb255 200 200 200
+        ]
+        { onPress = Just Randomize, label = text "Randomize" }
+
+
 view : Model -> Html Msg
 view model =
-    Element.layout [ padding 10 ]
-        (column [ width fill ]
+    Element.layout []
+        (column [ width fill, padding 10, spacing 10 ]
             [ pageTitle
+            , viewRandomizeButton
             , viewScenario model
             ]
         )
