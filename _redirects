@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://eager-swirles-2feaaa.netlify.com/* https://lower-off.phills.me.uk/:splat 301!
