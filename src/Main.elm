@@ -28,6 +28,11 @@ type Scenario
         }
 
 
+newScenario : Climb -> Anchor -> List Problem -> Scenario
+newScenario climb anchor problems =
+    Scenario { climb = climb, anchor = anchor, problems = problems }
+
+
 {-| Style of the climb.
 -}
 type Climb
@@ -44,6 +49,15 @@ type Condition e
     | Broken e
     | Rusty e
     | Worn e
+
+
+randomScenario : Random.Generator Scenario
+randomScenario =
+    Random.map3
+        newScenario
+        randomClimb
+        randomAnchor
+        randomProblemList
 
 
 randomProblemList : Random.Generator (List Problem)
@@ -132,34 +146,22 @@ initScenario =
 
 randomize : Cmd Msg
 randomize =
-    Cmd.batch
-        [ Random.generate NewProblems randomProblemList
-        , Random.generate NewClimb randomClimb
-        , Random.generate NewAnchor randomAnchor
-        ]
+    Random.generate NewScenario randomScenario
 
 
 type Msg
     = Randomize
-    | NewAnchor Anchor
-    | NewClimb Climb
-    | NewProblems (List Problem)
+    | NewScenario Scenario
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg (Scenario scenario) =
+update msg model =
     case msg of
         Randomize ->
-            ( Scenario scenario, randomize )
+            ( model, randomize )
 
-        NewAnchor anchor ->
-            ( Scenario { scenario | anchor = anchor }, Cmd.none )
-
-        NewClimb climb ->
-            ( Scenario { scenario | climb = climb }, Cmd.none )
-
-        NewProblems problems ->
-            ( Scenario { scenario | problems = problems }, Cmd.none )
+        NewScenario scenario ->
+            ( scenario, Cmd.none )
 
 
 pageTitle : Element Msg
