@@ -63,7 +63,7 @@ randomScenario =
 
 randomProblemList : Random.Generator (List Problem)
 randomProblemList =
-    Random.int 0 1
+    Random.weighted ( 100, 0 ) [ ( 10, 1 ) ]
         |> Random.andThen (\len -> Random.list len randomProblem)
         |> Random.andThen (Random.constant << List.Extra.uniqueBy Problem.string)
 
@@ -80,11 +80,11 @@ randomClimb =
 
 randomAnchor : Random.Generator Anchor
 randomAnchor =
-    Random.uniform
-        (Random.constant Anchor.None)
-        [ Random.map2 Anchor.Single randomFixing randomChainConnector
-        , Random.map2 Anchor.Twin randomFixing randomChainConnector
-        , Random.map2 Anchor.Joined randomFixing randomConnector
+    Random.weighted
+        ( 10, Random.constant Anchor.None )
+        [ ( 10, Random.map2 Anchor.Single randomFixing randomChainConnector )
+        , ( 50, Random.map2 Anchor.Twin randomFixing randomChainConnector )
+        , ( 30, Random.map2 Anchor.Joined randomFixing randomConnector )
         ]
         |> Random.andThen identity
 
@@ -96,20 +96,22 @@ randomFixing =
 
 randomChainConnector : Random.Generator ChainConnector
 randomChainConnector =
-    Random.uniform ChainConnector.NoChain [ ChainConnector.Chain ]
+    Random.weighted
+        ( 10, ChainConnector.NoChain )
+        [ ( 1, ChainConnector.Chain ) ]
         |> Random.andThen
             (\chain -> Random.map chain randomConnector)
 
 
 randomConnector : Random.Generator Connector
 randomConnector =
-    Random.uniform
-        Connector.NoConnector
-        [ Connector.BigRing
-        , Connector.RamsHorn
-        , Connector.Screwgate
-        , Connector.SmallLink
-        , Connector.Snapgate
+    Random.weighted
+        ( 10, Connector.NoConnector )
+        [ ( 50, Connector.BigRing )
+        , ( 10, Connector.RamsHorn )
+        , ( 20, Connector.Screwgate )
+        , ( 30, Connector.SmallLink )
+        , ( 10, Connector.Snapgate )
         ]
 
 
