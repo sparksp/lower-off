@@ -18,7 +18,7 @@ string : Anchor -> String
 string anchor =
     case anchor of
         None ->
-            "the anchor has been cut off"
+            "the anchor has been cut off."
 
         Single fixing chainConnector ->
             ChainConnector.singular chainConnector ++ " attached to a " ++ Fixing.singular fixing ++ "."
