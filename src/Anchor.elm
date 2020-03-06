@@ -1,4 +1,4 @@
-module Anchor exposing (Anchor(..), singular)
+module Anchor exposing (Anchor(..), string)
 
 import ChainConnector exposing (ChainConnector)
 import Connector exposing (Connector)
@@ -14,8 +14,8 @@ type Anchor
     | Joined Fixing Connector -- 2 fixings, 1 connector
 
 
-singular : Anchor -> String
-singular anchor =
+string : Anchor -> String
+string anchor =
     case anchor of
         None ->
             "the anchor has been cut off"

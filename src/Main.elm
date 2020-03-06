@@ -108,7 +108,7 @@ viewClimb climb =
 
 viewAnchor : Anchor -> Element Msg
 viewAnchor anchor =
-    paragraph [] [ text ("You get to the top of your climb and find " ++ Anchor.singular anchor) ]
+    paragraph [] [ text ("You get to the top of your climb and find " ++ Anchor.string anchor) ]
 
 
 listProblems : List Problem -> Element Msg
