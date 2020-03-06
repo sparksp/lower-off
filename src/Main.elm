@@ -2,13 +2,14 @@ module Main exposing (main)
 
 import Anchor exposing (Anchor)
 import Browser
-import Connector
+import ChainConnector exposing (ChainConnector)
+import Connector exposing (Connector)
 import Element exposing (Element, column, fill, padding, paragraph, spacing, text, width)
 import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
 import Element.Region as Region
-import Fixing
+import Fixing exposing (Fixing)
 import Html exposing (Html)
 import List.Extra
 import Problem exposing (Problem)
@@ -62,6 +63,41 @@ randomClimb =
     Random.uniform LeadAndClean [ LeadAndSetup, Second, TopRope ]
 
 
+randomAnchor : Random.Generator Anchor
+randomAnchor =
+    Random.uniform
+        (Random.constant Anchor.None)
+        [ Random.map2 Anchor.Single randomFixing randomChainConnector
+        , Random.map2 Anchor.Twin randomFixing randomChainConnector
+        , Random.map2 Anchor.Joined randomFixing randomConnector
+        ]
+        |> Random.andThen identity
+
+
+randomFixing : Random.Generator Fixing
+randomFixing =
+    Random.uniform Fixing.Hanger [ Fixing.Bolt, Fixing.Staple ]
+
+
+randomChainConnector : Random.Generator ChainConnector
+randomChainConnector =
+    Random.uniform ChainConnector.NoChain [ ChainConnector.Chain ]
+        |> Random.andThen
+            (\chain -> Random.map chain randomConnector)
+
+
+randomConnector : Random.Generator Connector
+randomConnector =
+    Random.uniform
+        Connector.NoConnector
+        [ Connector.BigRing
+        , Connector.RamsHorn
+        , Connector.Screwgate
+        , Connector.SmallLink
+        , Connector.Snapgate
+        ]
+
+
 
 --- PROGRAM
 
@@ -99,11 +135,13 @@ randomize =
     Cmd.batch
         [ Random.generate NewProblems randomProblemList
         , Random.generate NewClimb randomClimb
+        , Random.generate NewAnchor randomAnchor
         ]
 
 
 type Msg
     = Randomize
+    | NewAnchor Anchor
     | NewClimb Climb
     | NewProblems (List Problem)
 
@@ -113,6 +151,9 @@ update msg (Scenario scenario) =
     case msg of
         Randomize ->
             ( Scenario scenario, randomize )
+
+        NewAnchor anchor ->
+            ( Scenario { scenario | anchor = anchor }, Cmd.none )
 
         NewClimb climb ->
             ( Scenario { scenario | climb = climb }, Cmd.none )
