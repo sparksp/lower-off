@@ -20,6 +20,15 @@ import Random
 --- SCENARIOS
 
 
+type alias Model =
+    RandomData Scenario
+
+
+type RandomData a
+    = Loading
+    | Success a
+
+
 type Scenario
     = Scenario
         { climb : Climb
@@ -62,7 +71,7 @@ randomScenario =
 
 randomProblemList : Random.Generator (List Problem)
 randomProblemList =
-    Random.int 0 4
+    Random.int 0 1
         |> Random.andThen (\len -> Random.list len randomProblem)
         |> Random.andThen (Random.constant << List.Extra.uniqueBy Problem.string)
 
@@ -121,10 +130,6 @@ main =
     Browser.element { init = init, subscriptions = subscriptions, update = update, view = view }
 
 
-type alias Model =
-    Scenario
-
-
 subscriptions : Model -> Sub Msg
 subscriptions _ =
     Sub.none
@@ -132,21 +137,12 @@ subscriptions _ =
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( initScenario, Cmd.none )
+    randomize
 
 
-initScenario : Scenario
-initScenario =
-    Scenario
-        { climb = LeadAndClean
-        , anchor = Anchor.Joined Fixing.Bolt Connector.BigRing
-        , problems = []
-        }
-
-
-randomize : Cmd Msg
+randomize : ( Model, Cmd Msg )
 randomize =
-    Random.generate NewScenario randomScenario
+    ( Loading, Random.generate NewScenario randomScenario )
 
 
 type Msg
@@ -155,13 +151,13 @@ type Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
+update msg _ =
     case msg of
         Randomize ->
-            ( model, randomize )
+            randomize
 
         NewScenario scenario ->
-            ( scenario, Cmd.none )
+            ( Success scenario, Cmd.none )
 
 
 pageTitle : Element Msg
@@ -212,15 +208,34 @@ viewScenario (Scenario s) =
         ]
 
 
-viewRandomizeButton : Element Msg
-viewRandomizeButton =
+viewRandomizeButton : RandomData a -> Element Msg
+viewRandomizeButton remote =
+    let
+        action =
+            case remote of
+                Loading ->
+                    Nothing
+
+                _ ->
+                    Just Randomize
+    in
     Input.button
         [ padding 5
         , Border.width 1
         , Border.rounded 3
         , Border.color <| Element.rgb255 200 200 200
         ]
-        { onPress = Just Randomize, label = text "Randomize" }
+        { onPress = action, label = text "Randomize" }
+
+
+viewRemoteScenario : Model -> Element Msg
+viewRemoteScenario remoteModel =
+    case remoteModel of
+        Loading ->
+            paragraph [] [ text "Loading..." ]
+
+        Success scenario ->
+            viewScenario scenario
 
 
 view : Model -> Html Msg
@@ -228,7 +243,7 @@ view model =
     Element.layout []
         (column [ width fill, padding 10, spacing 10 ]
             [ pageTitle
-            , viewRandomizeButton
-            , viewScenario model
+            , viewRandomizeButton model
+            , viewRemoteScenario model
             ]
         )
