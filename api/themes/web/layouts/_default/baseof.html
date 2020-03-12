@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {{- if eq .Title site.Title -}}
+        {{- site.Title -}}
+        {{- else -}}
+        {{- with .Title -}}{{- . }} &bull; {{ end -}}{{- site.Title -}}
+        {{- end -}}
+    </title>
+</head>
+
+<body>
+    <div id="content">
+        {{- block "main" . }}{{- end }}
+    </div>
+</body>
+
+</html>
