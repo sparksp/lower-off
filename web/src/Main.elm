@@ -2,19 +2,19 @@ module Main exposing (main)
 
 import Anchor exposing (Anchor)
 import Browser
-import ChainConnector exposing (ChainConnector)
 import Climb exposing (Climb)
-import Connector exposing (Connector)
-import Element exposing (Element, column, fill, padding, paragraph, spacing, text, width)
+import Element exposing (Element, column, fill, maximum, padding, paragraph, spacing, text, width)
 import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
 import Element.Region as Region
-import Fixing exposing (Fixing)
 import Html exposing (Html)
+import Http
 import List.Extra
 import Problem exposing (Problem)
 import Random
+import RemoteData exposing (RemoteData)
+import Url
 
 
 
@@ -22,42 +22,30 @@ import Random
 
 
 type alias Model =
-    RandomData Scenario
-
-
-type RandomData a
-    = Loading
-    | Success a
+    { anchors : RemoteData Http.Error (List Anchor)
+    , scenario : RemoteData String Scenario
+    }
 
 
 type Scenario
     = Scenario
         { climb : Climb
-        , anchor : Anchor
+        , anchor : Maybe Anchor
         , problems : List Problem
         }
 
 
-newScenario : Climb -> Anchor -> List Problem -> Scenario
+newScenario : Climb -> Maybe Anchor -> List Problem -> Scenario
 newScenario climb anchor problems =
     Scenario { climb = climb, anchor = anchor, problems = problems }
 
 
-{-| What condition is the equipment in?
--}
-type Condition e
-    = Good e
-    | Broken e
-    | Rusty e
-    | Worn e
-
-
-randomScenario : Random.Generator Scenario
-randomScenario =
+randomScenario : List Anchor -> Random.Generator Scenario
+randomScenario anchors =
     Random.map3
         newScenario
         randomClimb
-        randomAnchor
+        (randomAnchor anchors)
         randomProblemList
 
 
@@ -78,41 +66,40 @@ randomClimb =
     Random.uniform Climb.LeadAndClean [ Climb.LeadAndSetup, Climb.Second, Climb.TopRope ]
 
 
-randomAnchor : Random.Generator Anchor
-randomAnchor =
-    Random.weighted
-        ( 10, Random.constant Anchor.None )
-        [ ( 10, Random.map2 Anchor.Single randomFixing randomChainConnector )
-        , ( 50, Random.map2 Anchor.Twin randomFixing randomChainConnector )
-        , ( 30, Random.map2 Anchor.Joined randomFixing randomConnector )
-        ]
-        |> Random.andThen identity
+randomAnchor : List Anchor -> Random.Generator (Maybe Anchor)
+randomAnchor anchors =
+    randomListItem anchors
 
 
-randomFixing : Random.Generator Fixing
-randomFixing =
-    Random.uniform Fixing.Hanger [ Fixing.Bolt, Fixing.Staple ]
+{-| Generate a random item from the given list. Returns `Nothing` if the list is empty.
+-}
+randomListItem : List a -> Random.Generator (Maybe a)
+randomListItem list =
+    Random.int 0 (List.length list - 1)
+        |> Random.andThen (Random.constant << (\n -> List.drop n list |> List.head))
 
 
-randomChainConnector : Random.Generator ChainConnector
-randomChainConnector =
-    Random.weighted
-        ( 10, ChainConnector.NoChain )
-        [ ( 1, ChainConnector.Chain ) ]
-        |> Random.andThen
-            (\chain -> Random.map chain randomConnector)
-
-
-randomConnector : Random.Generator Connector
-randomConnector =
-    Random.weighted
-        ( 10, Connector.NoConnector )
-        [ ( 50, Connector.BigRing )
-        , ( 10, Connector.RamsHorn )
-        , ( 20, Connector.Screwgate )
-        , ( 30, Connector.SmallLink )
-        , ( 10, Connector.Snapgate )
-        ]
+loadAnchors : List Anchor
+loadAnchors =
+    [ Anchor.anchor
+        { protocol = Url.Http
+        , host = "localhost"
+        , port_ = Just 1313
+        , path = "/anchor/2/One-Big-Ring_hu3e4e415f84f1c8c0e7c3f7ddf91c56bb_342574_1024x0_resize_q75_box.jpg"
+        , query = Nothing
+        , fragment = Nothing
+        }
+        (Anchor.Alt "Two bolts well set in the rock, connected together with Mallions, and finally a large ring")
+    , Anchor.anchor
+        { protocol = Url.Http
+        , host = "localhost"
+        , port_ = Just 1313
+        , path = "/anchor/1/Twin-Big-Rings_hu6f3200f75227d583b43875615127aa7f_169537_800x0_resize_q75_box.jpg"
+        , query = Nothing
+        , fragment = Nothing
+        }
+        (Anchor.Alt "Twin Big Rings")
+    ]
 
 
 
@@ -132,11 +119,21 @@ subscriptions _ =
 init : () -> ( Model, Cmd Msg )
 init _ =
     randomize
+        { anchors = RemoteData.Success loadAnchors
+        , scenario = RemoteData.NotAsked
+        }
 
 
-randomize : ( Model, Cmd Msg )
-randomize =
-    ( Loading, Random.generate NewScenario randomScenario )
+randomize : Model -> ( Model, Cmd Msg )
+randomize model =
+    case model.anchors of
+        RemoteData.Success anchors ->
+            ( { model | scenario = RemoteData.Loading }
+            , Random.generate NewScenario (randomScenario anchors)
+            )
+
+        _ ->
+            ( model, Cmd.none )
 
 
 type Msg
@@ -145,13 +142,13 @@ type Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg _ =
+update msg model =
     case msg of
         Randomize ->
-            randomize
+            randomize model
 
         NewScenario scenario ->
-            ( Success scenario, Cmd.none )
+            ( { model | scenario = RemoteData.Success scenario }, Cmd.none )
 
 
 pageTitle : Element Msg
@@ -165,9 +162,14 @@ viewClimb climb =
     paragraph [] [ text (Climb.string climb) ]
 
 
-viewAnchor : Anchor -> Element Msg
-viewAnchor anchor =
-    paragraph [] [ text ("You get to the top of your climb and find " ++ Anchor.string anchor) ]
+viewAnchor : Maybe Anchor -> Element Msg
+viewAnchor maybeAnchor =
+    case maybeAnchor of
+        Just anchor ->
+            Anchor.toElement anchor
+
+        Nothing ->
+            paragraph [] [ text "The anchor is missing." ]
 
 
 listProblems : List Problem -> Element Msg
@@ -184,21 +186,22 @@ viewScenario : Scenario -> Element Msg
 viewScenario (Scenario s) =
     Element.textColumn [ width fill, spacing 10 ]
         [ viewClimb s.climb
-        , viewAnchor s.anchor
+        , paragraph [] [ text "You get to the top of your climb and find..." ]
         , listProblems s.problems
+        , viewAnchor s.anchor
         ]
 
 
-viewRandomizeButton : RandomData a -> Element Msg
+viewRandomizeButton : RemoteData e a -> Element Msg
 viewRandomizeButton remote =
     let
         action =
             case remote of
-                Loading ->
-                    Nothing
+                RemoteData.Success _ ->
+                    Just Randomize
 
                 _ ->
-                    Just Randomize
+                    Nothing
     in
     Input.button
         [ padding 5
@@ -209,22 +212,28 @@ viewRandomizeButton remote =
         { onPress = action, label = text "Randomize" }
 
 
-viewRemoteScenario : Model -> Element Msg
+viewRemoteScenario : RemoteData String Scenario -> Element Msg
 viewRemoteScenario remoteModel =
     case remoteModel of
-        Loading ->
+        RemoteData.NotAsked ->
             paragraph [] [ text "Loading..." ]
 
-        Success scenario ->
+        RemoteData.Loading ->
+            paragraph [] [ text "Loading..." ]
+
+        RemoteData.Failure error ->
+            paragraph [] [ text "Oops! Something went wrong: ", text error ]
+
+        RemoteData.Success scenario ->
             viewScenario scenario
 
 
 view : Model -> Html Msg
 view model =
     Element.layout []
-        (column [ width fill, padding 10, spacing 10 ]
+        (column [ width (maximum 800 fill), padding 10, spacing 10 ]
             [ pageTitle
-            , viewRandomizeButton model
-            , viewRemoteScenario model
+            , viewRemoteScenario model.scenario
+            , viewRandomizeButton model.scenario
             ]
         )
