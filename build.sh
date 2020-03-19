@@ -4,7 +4,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 mkdir -p $DIR/dist
 
 # API
-hugo -b $URL/ -d $DIR/dist/api/ -s $DIR/api/
+hugo -b $URL/api/ -d $DIR/dist/api/ -s $DIR/api/
 
 # WEB
 ( cd $DIR/web && npm i && npm run build )
