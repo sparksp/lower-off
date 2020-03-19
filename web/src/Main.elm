@@ -180,7 +180,7 @@ viewScenario : Scenario -> Element Msg
 viewScenario (Scenario s) =
     Element.textColumn [ width fill, spacing 10 ]
         [ viewClimb s.climb
-        , paragraph [] [ text "You get to the top of your climb and find..." ]
+        , paragraph [] [ text "When get to the top of your climb you find..." ]
         , listProblems s.problems
         , viewAnchor s.anchor
         ]
@@ -194,26 +194,46 @@ viewRandomizeButton remote =
                 RemoteData.Success _ ->
                     Just Randomize
 
+                RemoteData.NotAsked ->
+                    Just Randomize
+
                 _ ->
                     Nothing
+
+        label =
+            case remote of
+                RemoteData.NotAsked ->
+                    "Load Scenario"
+
+                RemoteData.Success _ ->
+                    "Load Scenario"
+
+                RemoteData.Failure _ ->
+                    "Try again"
+
+                RemoteData.Loading ->
+                    "Loading..."
     in
     Input.button
         [ padding 5
         , Border.width 1
         , Border.rounded 3
         , Border.color <| Element.rgb255 200 200 200
+        , Element.alignBottom
+        , width fill
+        , Font.center
         ]
-        { onPress = action, label = text "Randomize" }
+        { onPress = action, label = text label }
 
 
 viewRemoteScenario : RemoteData String Scenario -> Element Msg
 viewRemoteScenario remoteModel =
     case remoteModel of
         RemoteData.NotAsked ->
-            paragraph [] [ text "" ]
+            Element.none
 
         RemoteData.Loading ->
-            paragraph [] [ text "Shuffling..." ]
+            Element.none
 
         RemoteData.Failure error ->
             paragraph [] [ text "Oops! Something went wrong: ", text error ]
@@ -225,7 +245,7 @@ viewRemoteScenario remoteModel =
 view : Model -> Html Msg
 view model =
     Element.layout []
-        (column [ width (maximum 800 fill), padding 10, spacing 10 ]
+        (column [ width (maximum 800 fill), Element.height fill, padding 10, spacing 10 ]
             [ pageTitle
             , viewRemoteScenario model.scenario
             , viewRandomizeButton model.scenario
