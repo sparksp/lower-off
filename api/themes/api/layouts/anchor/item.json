@@ -1,0 +1,27 @@
+{
+    "title": {{ .Title | jsonify }},
+    "type": {{ .Type | jsonify }},
+    "permalink" : {{ .Permalink | jsonify }},
+    "image": {
+    {{- range $resource := first 1 (.Resources.ByType "image") }}
+        "title": {{ .Title | jsonify }},
+        "alt": {{ .Params.alt | jsonify }},
+        "sizes": {
+            {{- $image := $resource }}
+            {{- range $i, $size := (slice 320 480 640 800 1024 1280 1360 1440 1600 1920) }}
+            {{- if ge $resource.Width . }}
+            {{- $image = $resource.Resize (printf "%dx" $size) }}
+            {{- if $i }}, {{ end -}}"{{ $image.Width }}": {{ $image.Permalink | jsonify }}
+            {{- end }}
+            {{- end }}
+        },
+        "src": {{ $image.Permalink | jsonify }}
+    {{- end }}
+    },
+    "tags": [
+        {{- range $i, $tag := (.GetTerms "tags") }}
+        {{- if $i }}, {{ end }}
+        {{ .LinkTitle | jsonify }}
+        {{- end }}
+    ]
+}

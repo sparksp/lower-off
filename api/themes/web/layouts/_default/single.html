@@ -1,0 +1,43 @@
+{{ define "main" }}
+
+<article>
+    <header>
+        <h1>{{ .Title }}</h1>
+        {{ with .PublishDate | default nil }}
+        <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+            {{ .Format "2 January, 2006" }}
+        </time>
+        {{ end }}
+
+        {{ with (.GetTerms "tags") }}
+        <p class="tags">Tags: 
+        {{ range $i, $tag := . }}
+        {{- if $i }}, {{ end }}
+        <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        {{ end }}
+        </p>
+        {{ end }}
+    </header>
+    {{ range $resource := .Resources.ByType "image" }}
+    {{ $id := delimit (shuffle (seq 1 9)) "" }}
+    <figure role="figure" aria-labelledby="caption-{{ $id }}">
+        <img
+            {{ with .Params.alt }}alt="{{ . }}"{{ end }}
+            srcset="
+                {{- $image := $resource }}
+                {{- range $i, $size := (slice 320 480 640 800 1024 1280 1360 1440 1600 1920) }}
+                {{- if ge $resource.Width . }}
+                {{- $image = $resource.Resize (printf "%dx" $size) }}
+                {{- if $i }}, {{ end -}}{{ $image.RelPermalink }} {{ $image.Width }}w
+                {{- end }}
+                {{- end }}
+                "
+            src="{{ $image.RelPermalink }}" width="{{ $image.Width }}"
+            sizes="100vw" style="max-width: 100%">
+        <figcaption id="caption-{{ $id }}">{{ .Title }}</figcaption>
+    </figure>
+    {{ end }}
+    {{ .Content }}
+</article>
+
+{{ end }}

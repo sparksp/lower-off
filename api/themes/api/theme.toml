@@ -1,0 +1,12 @@
+name = "Lower-off API"
+license = "MIT"
+licenselink = "https://github.com/sparksp/lower-off/blob/master/LICENSE"
+description = ""
+homepage = "https://github.com/sparksp/lower-off/"
+tags = []
+features = []
+min_version = "0.67.0"
+
+[author]
+  name = "Phill Sparks"
+  homepage = "https://phills.me.uk/"
