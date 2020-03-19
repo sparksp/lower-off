@@ -1,3 +1,12 @@
 [build]
   publish = "dist"
-  command = "npm run build"
+  command = "sh build.sh"
+
+[build.environment]
+  HUGO_VERSION = "0.67.1"
+
+[context.deploy-preview]
+  command = "URL=$DEPLOY_PRIME_URL sh build.sh"
+
+[context.branch-deploy]
+  command = "URL=$DEPLOY_PRIME_URL sh build.sh"

@@ -1,4 +1,4 @@
-baseURL = "https://lower-off-api.phills.me.uk/"
+baseURL = "https://lower-off.phills.me.uk/api/"
 languageCode = "en-gb"
 title = "Lower-off Scenarios"
 theme = ["api"]
