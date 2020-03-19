@@ -1,11 +1,11 @@
 baseURL = "https://lower-off-api.phills.me.uk/"
 languageCode = "en-gb"
 title = "Lower-off Scenarios"
-theme = ["api", "web"]
+theme = ["api"]
 
 [outputs]
-  page = ["json", "html"]
-  section = ["json", "html"]
-  home = ["json", "html"]
-  taxonomy = ["json", "html"]
-  taxonomyTerm = ["json", "html"]
+  page = ["json"]
+  section = ["json"]
+  home = ["json"]
+  taxonomy = ["json"]
+  taxonomyTerm = ["json"]
