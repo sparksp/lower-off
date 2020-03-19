@@ -3,7 +3,7 @@
     "type": {{ .Type | jsonify }},
     "permalink" : {{ .Permalink | jsonify }},
     "image": {
-    {{ range $resource := first 1 (.Resources.ByType "image") }}
+    {{- range $resource := first 1 (.Resources.ByType "image") }}
         "title": {{ .Title | jsonify }},
         "alt": {{ .Params.alt | jsonify }},
         "sizes": {
@@ -14,13 +14,14 @@
             {{- if $i }}, {{ end -}}"{{ $image.Width }}": {{ $image.Permalink | jsonify }}
             {{- end }}
             {{- end }}
-        }
-    {{ end }}
+        },
+        "src": {{ $image.Permalink | jsonify }}
+    {{- end }}
     },
     "tags": [
-        {{ range $i, $tag := (.GetTerms "tags") }}
+        {{- range $i, $tag := (.GetTerms "tags") }}
         {{- if $i }}, {{ end }}
         {{ .LinkTitle | jsonify }}
-        {{ end }}
+        {{- end }}
     ]
 }
