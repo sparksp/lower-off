@@ -1,11 +1,11 @@
 #!/bin/bash
 if [ -z $URL ]; then echo "ERROR: No URL set"; exit 1; fi
-ROOT=$(dirname $BASH_SOURCE)
-mkdir -p $ROOT/dist
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+mkdir -p $DIR/dist
 
 # API
-hugo -b $URL/ -d $ROOT/dist/api/ -s $ROOT/api/
+hugo -b $URL/ -d $DIR/dist/api/ -s $DIR/api/
 
 # WEB
-( cd $ROOT/web && npm i && npm run build )
-cp -a $ROOT/web/dist/ $ROOT/dist/
+( cd $DIR/web && npm i && npm run build )
+cp -a $DIR/web/dist/ $DIR/dist/
