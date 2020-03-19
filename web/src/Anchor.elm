@@ -1,6 +1,7 @@
 module Anchor exposing (Alt(..), Anchor(..), Title(..), anchor, string, toElement)
 
 import Element exposing (Element, fill, image, width)
+import Element.Keyed exposing (el)
 import Url exposing (Url)
 
 
@@ -41,4 +42,11 @@ altString (Alt text) =
 
 toElement : Anchor -> Element msg
 toElement (Anchor { alt, src }) =
-    image [ width fill ] { src = Url.toString src, description = altString alt }
+    let
+        src_ =
+            Url.toString src
+    in
+    el [ width fill ]
+        ( src_
+        , image [ width fill ] { src = src_, description = altString alt }
+        )
