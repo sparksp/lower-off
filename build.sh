@@ -8,4 +8,4 @@ hugo -b $URL/ -d $DIR/dist/api/ -s $DIR/api/
 
 # WEB
 ( cd $DIR/web && npm i && npm run build )
-cp -Rv $DIR/web/dist/ $DIR/dist/
+cp -Rv $DIR/web/dist/* $DIR/dist/
