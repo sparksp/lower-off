@@ -1,6 +1,7 @@
 module Main exposing (main)
 
 import Anchor exposing (Anchor)
+import Anchor.API
 import Browser
 import Climb exposing (Climb)
 import Element exposing (Element, column, fill, maximum, padding, paragraph, spacing, text, width)
@@ -14,7 +15,6 @@ import List.Extra
 import Problem exposing (Problem)
 import Random
 import RemoteData exposing (RemoteData)
-import Url
 
 
 
@@ -79,29 +79,6 @@ randomListItem list =
         |> Random.andThen (Random.constant << (\n -> List.drop n list |> List.head))
 
 
-loadAnchors : List Anchor
-loadAnchors =
-    [ Anchor.anchor
-        { protocol = Url.Http
-        , host = "localhost"
-        , port_ = Just 1313
-        , path = "/anchor/2/One-Big-Ring_hu3e4e415f84f1c8c0e7c3f7ddf91c56bb_342574_1024x0_resize_q75_box.jpg"
-        , query = Nothing
-        , fragment = Nothing
-        }
-        (Anchor.Alt "Two bolts well set in the rock, connected together with Mallions, and finally a large ring")
-    , Anchor.anchor
-        { protocol = Url.Http
-        , host = "localhost"
-        , port_ = Just 1313
-        , path = "/anchor/1/Twin-Big-Rings_hu6f3200f75227d583b43875615127aa7f_169537_800x0_resize_q75_box.jpg"
-        , query = Nothing
-        , fragment = Nothing
-        }
-        (Anchor.Alt "Twin Big Rings")
-    ]
-
-
 
 --- PROGRAM
 
@@ -116,10 +93,20 @@ subscriptions _ =
     Sub.none
 
 
+loadAnchors : Model -> ( Model, Cmd Msg )
+loadAnchors model =
+    ( { model
+        | anchors = RemoteData.Loading
+        , scenario = RemoteData.NotAsked
+      }
+    , Anchor.API.fetch "./api" GotAnchors
+    )
+
+
 init : () -> ( Model, Cmd Msg )
 init _ =
-    randomize
-        { anchors = RemoteData.Success loadAnchors
+    loadAnchors
+        { anchors = RemoteData.NotAsked
         , scenario = RemoteData.NotAsked
         }
 
@@ -137,13 +124,20 @@ randomize model =
 
 
 type Msg
-    = Randomize
+    = GotAnchors (Result Http.Error (List Anchor))
+    | Randomize
     | NewScenario Scenario
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
+        GotAnchors (Ok anchors) ->
+            randomize { model | anchors = RemoteData.Success anchors }
+
+        GotAnchors (Err error) ->
+            ( { model | anchors = RemoteData.Failure error }, Cmd.none )
+
         Randomize ->
             randomize model
 
@@ -216,10 +210,10 @@ viewRemoteScenario : RemoteData String Scenario -> Element Msg
 viewRemoteScenario remoteModel =
     case remoteModel of
         RemoteData.NotAsked ->
-            paragraph [] [ text "Loading..." ]
+            paragraph [] [ text "" ]
 
         RemoteData.Loading ->
-            paragraph [] [ text "Loading..." ]
+            paragraph [] [ text "Shuffling..." ]
 
         RemoteData.Failure error ->
             paragraph [] [ text "Oops! Something went wrong: ", text error ]

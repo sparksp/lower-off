@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "parcel build entry.html --out-file index.html",
-    "dev": "parcel entry.html --out-file index.html",
+    "dev": "(hugo -b http://localhost:1234/api/ -d ../web/dist/api -s ../api) && parcel entry.html --out-file index.html",
     "test": "elm-test"
   },
   "author": "Phill Sparks <me@phills.me.uk>",
