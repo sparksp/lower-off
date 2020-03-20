@@ -205,17 +205,6 @@ viewScenario (Scenario s) =
 viewRandomizeButton : RemoteData e a -> Element Msg
 viewRandomizeButton remote =
     let
-        action =
-            case remote of
-                RemoteData.Success _ ->
-                    Just Randomize
-
-                RemoteData.NotAsked ->
-                    Just Randomize
-
-                _ ->
-                    Nothing
-
         label =
             case remote of
                 RemoteData.NotAsked ->
@@ -242,7 +231,7 @@ viewRandomizeButton remote =
             , Font.center
             , Font.color <| El.rgb255 255 255 255
             ]
-            { onPress = action, label = El.text label }
+            { onPress = Just Randomize, label = El.text label }
         ]
 
 
