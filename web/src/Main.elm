@@ -4,7 +4,8 @@ import Anchor exposing (Anchor)
 import Anchor.API
 import Browser
 import Climb exposing (Climb)
-import Element exposing (Element, column, fill, maximum, padding, paragraph, spacing, text, width)
+import Element as El exposing (Element)
+import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
@@ -145,15 +146,30 @@ update msg model =
             ( { model | scenario = RemoteData.Success scenario }, Cmd.none )
 
 
+edges : { top : Int, right : Int, bottom : Int, left : Int }
+edges =
+    { top = 0, right = 0, bottom = 0, left = 0 }
+
+
 pageTitle : Element Msg
 pageTitle =
-    paragraph [ width fill, Font.size 32, Region.heading 1 ]
-        [ text "Lower-off Scenario" ]
+    El.row
+        [ El.width El.fill
+        , El.padding 5
+        , Border.widthEach { edges | bottom = 1 }
+        , Background.color <| El.rgb255 222 100 26
+        , Font.color <| El.rgb255 255 255 255
+        ]
+        [ Input.button [ El.width El.fill, Font.size 32, Font.center, Region.heading 1 ]
+            { onPress = Just Randomize
+            , label = El.text "Lower-off Scenario"
+            }
+        ]
 
 
 viewClimb : Climb -> Element Msg
 viewClimb climb =
-    paragraph [] [ text (Climb.string climb) ]
+    El.paragraph [] [ El.text (Climb.string climb) ]
 
 
 viewAnchor : Maybe Anchor -> Element Msg
@@ -163,24 +179,24 @@ viewAnchor maybeAnchor =
             Anchor.toElement anchor
 
         Nothing ->
-            paragraph [] [ text "The anchor is missing." ]
+            El.paragraph [] [ El.text "The anchor is missing." ]
 
 
 listProblems : List Problem -> Element Msg
 listProblems problems =
-    Element.textColumn [ spacing 10 ] (List.map viewProblem problems)
+    El.column [ El.spacing 5 ] (List.map viewProblem problems)
 
 
 viewProblem : Problem -> Element Msg
 viewProblem problem =
-    paragraph [] [ text (Problem.string problem) ]
+    El.paragraph [] [ El.text (Problem.string problem) ]
 
 
 viewScenario : Scenario -> Element Msg
 viewScenario (Scenario s) =
-    Element.textColumn [ width fill, spacing 10 ]
+    El.textColumn [ El.width El.fill, El.spacing 5 ]
         [ viewClimb s.climb
-        , paragraph [] [ text "When get to the top of your climb you find..." ]
+        , El.paragraph [] [ El.text "When get to the top of your climb you find..." ]
         , listProblems s.problems
         , viewAnchor s.anchor
         ]
@@ -203,10 +219,10 @@ viewRandomizeButton remote =
         label =
             case remote of
                 RemoteData.NotAsked ->
-                    "Load Scenario"
+                    "New Scenario"
 
                 RemoteData.Success _ ->
-                    "Load Scenario"
+                    "New Scenario"
 
                 RemoteData.Failure _ ->
                     "Try again"
@@ -214,38 +230,46 @@ viewRandomizeButton remote =
                 RemoteData.Loading ->
                     "Loading..."
     in
-    Input.button
-        [ padding 5
-        , Border.width 1
-        , Border.rounded 3
-        , Border.color <| Element.rgb255 200 200 200
-        , Element.alignBottom
-        , width fill
-        , Font.center
+    El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
+        [ Input.button
+            [ Background.color <| El.rgb255 36 160 237
+            , Border.color <| El.rgb255 200 200 200
+            , Border.rounded 3
+            , Border.width 1
+            , El.centerX
+            , El.padding 5
+            , El.width (El.maximum 800 El.fill)
+            , Font.center
+            , Font.color <| El.rgb255 255 255 255
+            ]
+            { onPress = action, label = El.text label }
         ]
-        { onPress = action, label = text label }
 
 
 viewRemoteScenario : RemoteData String Scenario -> Element Msg
 viewRemoteScenario remoteModel =
-    case remoteModel of
-        RemoteData.NotAsked ->
-            Element.none
+    El.row [ El.width (El.maximum 800 El.fill), El.centerX ]
+        [ El.column [ El.width El.fill, El.padding 5, El.spacing 5 ]
+            [ case remoteModel of
+                RemoteData.NotAsked ->
+                    El.none
 
-        RemoteData.Loading ->
-            Element.none
+                RemoteData.Loading ->
+                    El.none
 
-        RemoteData.Failure error ->
-            paragraph [] [ text "Oops! Something went wrong: ", text error ]
+                RemoteData.Failure error ->
+                    El.paragraph [] [ El.text "Oops! Something went wrong: ", El.text error ]
 
-        RemoteData.Success scenario ->
-            viewScenario scenario
+                RemoteData.Success scenario ->
+                    viewScenario scenario
+            ]
+        ]
 
 
 view : Model -> Html Msg
 view model =
-    Element.layout []
-        (column [ width (maximum 800 fill), Element.height fill, padding 10, spacing 10 ]
+    El.layout []
+        (El.column [ El.width El.fill, El.height El.fill ]
             [ pageTitle
             , viewRemoteScenario model.scenario
             , viewRandomizeButton model.scenario
