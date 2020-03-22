@@ -105,30 +105,41 @@ init _ =
     )
 
 
-randomize : Model -> ( Model, Cmd Msg )
-randomize model =
+withAnchors : (List Anchor -> r) -> (() -> r) -> Model -> r
+withAnchors mapper default model =
     case model of
         AnchorsReady anchors ->
-            ( AnchorsReady anchors, Random.generate NewScenario (randomScenario anchors) )
+            mapper anchors
 
         ScenarioPick anchors _ ->
-            ( AnchorsReady anchors, Random.generate NewScenario (randomScenario anchors) )
+            mapper anchors
 
         _ ->
-            ( model, Cmd.none )
+            default ()
+
+
+randomize : Model -> ( Model, Cmd Msg )
+randomize model =
+    model
+        |> withAnchors
+            (\anchors ->
+                ( AnchorsReady anchors, Random.generate NewScenario (randomScenario anchors) )
+            )
+            (\() ->
+                ( model, Cmd.none )
+            )
 
 
 setScenario : Scenario -> Model -> Model
 setScenario scenario model =
-    case model of
-        AnchorsReady anchors ->
-            ScenarioPick anchors scenario
-
-        ScenarioPick anchors _ ->
-            ScenarioPick anchors scenario
-
-        _ ->
-            model
+    model
+        |> withAnchors
+            (\anchors ->
+                ScenarioPick anchors scenario
+            )
+            (\() ->
+                model
+            )
 
 
 type Msg
@@ -211,35 +222,28 @@ viewScenario (Scenario s) =
 
 viewRandomizeButton : Model -> Element Msg
 viewRandomizeButton model =
-    let
-        label =
-            case model of
-                ScenarioPick _ _ ->
-                    "New Scenario"
+    case model of
+        Failure _ ->
+            El.none
 
-                AnchorsReady _ ->
-                    "New Scenario"
+        Loading ->
+            El.none
 
-                Failure _ ->
-                    "Try again"
-
-                Loading ->
-                    "Loading..."
-    in
-    El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
-        [ Input.button
-            [ Background.color <| El.rgb255 36 160 237
-            , Border.color <| El.rgb255 200 200 200
-            , Border.rounded 3
-            , Border.width 1
-            , El.centerX
-            , El.padding 5
-            , El.width (El.maximum 800 El.fill)
-            , Font.center
-            , Font.color <| El.rgb255 255 255 255
-            ]
-            { onPress = Just Randomize, label = El.text label }
-        ]
+        _ ->
+            El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
+                [ Input.button
+                    [ Background.color <| El.rgb255 36 160 237
+                    , Border.color <| El.rgb255 200 200 200
+                    , Border.rounded 3
+                    , Border.width 1
+                    , El.centerX
+                    , El.padding 5
+                    , El.width (El.maximum 800 El.fill)
+                    , Font.center
+                    , Font.color <| El.rgb255 255 255 255
+                    ]
+                    { onPress = Just Randomize, label = El.text "New Scenario" }
+                ]
 
 
 viewRemoteScenario : Model -> Element Msg
@@ -247,14 +251,17 @@ viewRemoteScenario model =
     El.row [ El.width (El.maximum 800 El.fill), El.centerX ]
         [ El.column [ El.width El.fill, El.padding 5, El.spacing 5 ]
             [ case model of
+                Loading ->
+                    El.paragraph [ Font.center ] [ El.text "Please wait: racking up..." ]
+
                 Failure error ->
                     El.paragraph [] [ El.text "Oops! Something went wrong: ", El.text (Debug.toString error) ]
 
+                AnchorsReady _ ->
+                    El.none
+
                 ScenarioPick _ scenario ->
                     viewScenario scenario
-
-                _ ->
-                    El.none
             ]
         ]
 
