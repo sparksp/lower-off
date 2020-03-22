@@ -15,7 +15,6 @@ import Http
 import List.Extra
 import Problem exposing (Problem)
 import Random
-import RemoteData exposing (RemoteData)
 
 
 
@@ -23,9 +22,14 @@ import RemoteData exposing (RemoteData)
 
 
 type alias Model =
-    { anchors : RemoteData Http.Error (List Anchor)
-    , scenario : RemoteData String Scenario
-    }
+    State
+
+
+type State
+    = Loading
+    | Failure Http.Error
+    | AnchorsReady (List Anchor)
+    | ScenarioPick (List Anchor) Scenario
 
 
 type Scenario
@@ -94,34 +98,48 @@ subscriptions _ =
     Sub.none
 
 
-loadAnchors : Model -> ( Model, Cmd Msg )
-loadAnchors model =
-    ( { model
-        | anchors = RemoteData.Loading
-        , scenario = RemoteData.NotAsked
-      }
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( Loading
     , Anchor.API.fetch "./api" GotAnchors
     )
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    loadAnchors
-        { anchors = RemoteData.NotAsked
-        , scenario = RemoteData.NotAsked
-        }
+withAnchors : (List Anchor -> r) -> (() -> r) -> Model -> r
+withAnchors mapper default model =
+    case model of
+        AnchorsReady anchors ->
+            mapper anchors
+
+        ScenarioPick anchors _ ->
+            mapper anchors
+
+        _ ->
+            default ()
 
 
 randomize : Model -> ( Model, Cmd Msg )
 randomize model =
-    case model.anchors of
-        RemoteData.Success anchors ->
-            ( { model | scenario = RemoteData.Loading }
-            , Random.generate NewScenario (randomScenario anchors)
+    model
+        |> withAnchors
+            (\anchors ->
+                ( AnchorsReady anchors, Random.generate NewScenario (randomScenario anchors) )
+            )
+            (\() ->
+                ( model, Cmd.none )
             )
 
-        _ ->
-            ( model, Cmd.none )
+
+setScenario : Scenario -> Model -> Model
+setScenario scenario model =
+    model
+        |> withAnchors
+            (\anchors ->
+                ScenarioPick anchors scenario
+            )
+            (\() ->
+                model
+            )
 
 
 type Msg
@@ -134,16 +152,16 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         GotAnchors (Ok anchors) ->
-            randomize { model | anchors = RemoteData.Success anchors }
+            randomize (AnchorsReady anchors)
 
         GotAnchors (Err error) ->
-            ( { model | anchors = RemoteData.Failure error }, Cmd.none )
+            ( Failure error, Cmd.none )
 
         Randomize ->
             randomize model
 
         NewScenario scenario ->
-            ( { model | scenario = RemoteData.Success scenario }, Cmd.none )
+            ( setScenario scenario model, Cmd.none )
 
 
 edges : { top : Int, right : Int, bottom : Int, left : Int }
@@ -202,54 +220,47 @@ viewScenario (Scenario s) =
         ]
 
 
-viewRandomizeButton : RemoteData e a -> Element Msg
-viewRandomizeButton remote =
-    let
-        label =
-            case remote of
-                RemoteData.NotAsked ->
-                    "New Scenario"
+viewRandomizeButton : Model -> Element Msg
+viewRandomizeButton model =
+    case model of
+        Failure _ ->
+            El.none
 
-                RemoteData.Success _ ->
-                    "New Scenario"
+        Loading ->
+            El.none
 
-                RemoteData.Failure _ ->
-                    "Try again"
-
-                RemoteData.Loading ->
-                    "Loading..."
-    in
-    El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
-        [ Input.button
-            [ Background.color <| El.rgb255 36 160 237
-            , Border.color <| El.rgb255 200 200 200
-            , Border.rounded 3
-            , Border.width 1
-            , El.centerX
-            , El.padding 5
-            , El.width (El.maximum 800 El.fill)
-            , Font.center
-            , Font.color <| El.rgb255 255 255 255
-            ]
-            { onPress = Just Randomize, label = El.text label }
-        ]
+        _ ->
+            El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
+                [ Input.button
+                    [ Background.color <| El.rgb255 36 160 237
+                    , Border.color <| El.rgb255 200 200 200
+                    , Border.rounded 3
+                    , Border.width 1
+                    , El.centerX
+                    , El.padding 5
+                    , El.width (El.maximum 800 El.fill)
+                    , Font.center
+                    , Font.color <| El.rgb255 255 255 255
+                    ]
+                    { onPress = Just Randomize, label = El.text "New Scenario" }
+                ]
 
 
-viewRemoteScenario : RemoteData String Scenario -> Element Msg
-viewRemoteScenario remoteModel =
+viewRemoteScenario : Model -> Element Msg
+viewRemoteScenario model =
     El.row [ El.width (El.maximum 800 El.fill), El.centerX ]
         [ El.column [ El.width El.fill, El.padding 5, El.spacing 5 ]
-            [ case remoteModel of
-                RemoteData.NotAsked ->
+            [ case model of
+                Loading ->
+                    El.paragraph [ Font.center ] [ El.text "Please wait: racking up..." ]
+
+                Failure _ ->
+                    El.paragraph [ Font.center ] [ El.text "Oops! Something went wrong." ]
+
+                AnchorsReady _ ->
                     El.none
 
-                RemoteData.Loading ->
-                    El.none
-
-                RemoteData.Failure error ->
-                    El.paragraph [] [ El.text "Oops! Something went wrong: ", El.text error ]
-
-                RemoteData.Success scenario ->
+                ScenarioPick _ scenario ->
                     viewScenario scenario
             ]
         ]
@@ -260,7 +271,7 @@ view model =
     El.layout []
         (El.column [ El.width El.fill, El.height El.fill ]
             [ pageTitle
-            , viewRemoteScenario model.scenario
-            , viewRandomizeButton model.scenario
+            , viewRemoteScenario model
+            , viewRandomizeButton model
             ]
         )
