@@ -1,6 +1,11 @@
 {
   "name": "lower-off",
   "version": "0.0.1",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/sparksp/lower-off.git",
+    "directory": "web"
+  },
   "description": "Random Sport Lower-off Scenarios",
   "main": "index.js",
   "scripts": {
