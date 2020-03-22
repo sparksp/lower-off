@@ -254,8 +254,8 @@ viewRemoteScenario model =
                 Loading ->
                     El.paragraph [ Font.center ] [ El.text "Please wait: racking up..." ]
 
-                Failure error ->
-                    El.paragraph [] [ El.text "Oops! Something went wrong: ", El.text (Debug.toString error) ]
+                Failure _ ->
+                    El.paragraph [ Font.center ] [ El.text "Oops! Something went wrong." ]
 
                 AnchorsReady _ ->
                     El.none
