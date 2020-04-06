@@ -1,12 +1,15 @@
 {
   "name": "lower-off",
   "version": "0.0.1",
-  "repository": {
-    "type" : "git",
-    "url" : "https://github.com/sparksp/lower-off.git",
-    "directory": "web"
-  },
   "description": "Random Sport Lower-off Scenarios",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sparksp/lower-off.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sparksp/lower-off/issues"
+  },
+  "homepage": "https://github.com/sparksp/lower-off#readme",
   "main": "index.js",
   "scripts": {
     "build": "parcel build entry.html --out-file index.html",
