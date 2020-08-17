@@ -90,12 +90,12 @@ randomListItem list =
 
 main : Program () Model Msg
 main =
-    Browser.element { init = init, subscriptions = subscriptions, update = update, view = view }
-
-
-subscriptions : Model -> Sub Msg
-subscriptions _ =
-    Sub.none
+    Browser.element
+        { init = init
+        , subscriptions = \_ -> Sub.none
+        , update = update
+        , view = view
+        }
 
 
 init : () -> ( Model, Cmd Msg )
