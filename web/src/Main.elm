@@ -1,4 +1,4 @@
-module Main exposing (main)
+module Main exposing (Model, Msg, main)
 
 import Anchor exposing (Anchor)
 import Anchor.API
@@ -175,8 +175,8 @@ pageTitle =
         [ El.width El.fill
         , El.padding 5
         , Border.widthEach { edges | bottom = 1 }
-        , Background.color <| El.rgb255 222 100 26
-        , Font.color <| El.rgb255 255 255 255
+        , Background.color (El.rgb255 222 100 26)
+        , Font.color (El.rgb255 255 255 255)
         ]
         [ Input.button [ El.width El.fill, Font.size 32, Font.center, Region.heading 1 ]
             { onPress = Just Randomize
@@ -232,15 +232,15 @@ viewRandomizeButton model =
         _ ->
             El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
                 [ Input.button
-                    [ Background.color <| El.rgb255 36 160 237
-                    , Border.color <| El.rgb255 200 200 200
+                    [ Background.color (El.rgb255 36 160 237)
+                    , Border.color (El.rgb255 200 200 200)
                     , Border.rounded 3
                     , Border.width 1
                     , El.centerX
                     , El.padding 5
                     , El.width (El.maximum 800 El.fill)
                     , Font.center
-                    , Font.color <| El.rgb255 255 255 255
+                    , Font.color (El.rgb255 255 255 255)
                     ]
                     { onPress = Just Randomize, label = El.text "New Scenario" }
                 ]
