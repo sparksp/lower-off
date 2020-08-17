@@ -1,4 +1,4 @@
-module Anchor exposing (Alt(..), Anchor(..), Title(..), anchor, string, toElement)
+module Anchor exposing (Alt(..), Anchor(..), Title(..), anchor, toElement)
 
 import Element exposing (Element, fill, image, width)
 import Element.Keyed exposing (el)
@@ -28,11 +28,6 @@ anchor src title alt =
         , alt = alt
         , src = src
         }
-
-
-string : Anchor -> String
-string (Anchor { alt }) =
-    altString alt
 
 
 altString : Alt -> String

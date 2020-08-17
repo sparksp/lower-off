@@ -2,7 +2,7 @@ module Anchor.API exposing (fetch)
 
 import Anchor
 import Http
-import Json.Decode as JD exposing (Decoder, field, string)
+import Json.Decode as JD exposing (Decoder)
 import Json.Decode.Extra as JDX
 import Url exposing (Url)
 
@@ -41,14 +41,14 @@ srcDecoder =
 
 titleDecoder : Decoder Anchor.Title
 titleDecoder =
-    JD.map Anchor.Title <|
-        JD.field "title" JD.string
+    JD.map Anchor.Title (JD.field "title" JD.string)
 
 
 altDecoder : Decoder Anchor.Alt
 altDecoder =
-    JD.map Anchor.Alt <|
-        JD.oneOf
+    JD.map Anchor.Alt
+        (JD.oneOf
             [ JD.at [ "image", "alt" ] JD.string
             , JD.at [ "image", "title" ] JD.string
             ]
+        )
