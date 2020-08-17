@@ -1,12 +1,13 @@
 [build]
+  base = "web/"
   publish = "dist"
-  command = "sh build.sh"
+  command = "yarn build"
 
 [build.environment]
   HUGO_VERSION = "0.67.1"
 
 [context.deploy-preview]
-  command = "URL=$DEPLOY_PRIME_URL sh build.sh"
+  command = "URL=$DEPLOY_PRIME_URL yarn build"
 
 [context.branch-deploy]
-  command = "URL=$DEPLOY_PRIME_URL sh build.sh"
+  command = "URL=$DEPLOY_PRIME_URL yarn build"
