@@ -12,8 +12,14 @@
   "homepage": "https://github.com/sparksp/lower-off#readme",
   "main": "index.js",
   "scripts": {
-    "build": "parcel build entry.html --out-file index.html",
-    "dev": "(hugo -b http://localhost:1234/api/ -d ../web/dist/api -s ../api) && parcel entry.html --out-file index.html",
+    "prebuild:api": "if [ -z $URL ]; then echo \"ERROR: No URL set\"; exit 1; fi",
+    "build:api": "hugo -b $URL/api/ -d ../web/dist/api/ -s ../api/",
+    "build:web": "parcel build entry.html --out-file index.html",
+    "prebuild": "rimraf dist",
+    "build": "run-s build:*",
+    "dev:api": "hugo -b http://localhost:1234/api/ -d ../web/dist/api -s ../api",
+    "dev:web": "parcel entry.html --out-file index.html",
+    "dev": "run-s dev:*",
     "test": "elm-test"
   },
   "author": "Phill Sparks <me@phills.me.uk>",
@@ -24,7 +30,9 @@
     "elm-format": "^0.8.3",
     "elm-hot": "^1.1.5",
     "elm-test": "^0.19.1-revision2",
+    "npm-run-all": "^4.1.5",
     "parcel": "^1.12.4",
+    "rimraf": "^3.0.2",
     "src": "^1.1.2"
   }
 }
