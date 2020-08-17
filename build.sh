@@ -7,5 +7,5 @@ mkdir -p $DIR/dist
 hugo -b $URL/api/ -d $DIR/dist/api/ -s $DIR/api/
 
 # WEB
-( cd $DIR/web && npm i && npm run build )
+( cd $DIR/web && yarn && yarn run build )
 cp -Rv $DIR/web/dist/* $DIR/dist/
