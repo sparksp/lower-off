@@ -38,7 +38,6 @@ srcDecoder =
     JD.at [ "image", "src" ] JDX.url
 
 
-
 altDecoder : Decoder Anchor.Alt
 altDecoder =
     JD.map Anchor.Alt
