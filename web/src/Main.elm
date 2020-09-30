@@ -27,7 +27,7 @@ type alias Model =
 
 type State
     = Loading
-    | Failure Http.Error
+    | Failure
     | AnchorsReady (List Anchor)
     | ScenarioPick (List Anchor) Scenario
 
@@ -154,8 +154,8 @@ update msg model =
         GotAnchors (Ok anchors) ->
             randomize (AnchorsReady anchors)
 
-        GotAnchors (Err error) ->
-            ( Failure error, Cmd.none )
+        GotAnchors (Err _) ->
+            ( Failure, Cmd.none )
 
         Randomize ->
             randomize model
@@ -223,7 +223,7 @@ viewScenario (Scenario s) =
 viewRandomizeButton : Model -> Element Msg
 viewRandomizeButton model =
     case model of
-        Failure _ ->
+        Failure ->
             El.none
 
         Loading ->
@@ -254,7 +254,7 @@ viewRemoteScenario model =
                 Loading ->
                     El.paragraph [ Font.center ] [ El.text "Please wait: racking up..." ]
 
-                Failure _ ->
+                Failure ->
                     El.paragraph [ Font.center ] [ El.text "Oops! Something went wrong." ]
 
                 AnchorsReady _ ->

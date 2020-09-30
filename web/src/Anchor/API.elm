@@ -27,10 +27,9 @@ anchorListDecoder =
 
 anchorDecoder : Decoder Anchor.Anchor
 anchorDecoder =
-    JD.map3
+    JD.map2
         Anchor.anchor
         srcDecoder
-        titleDecoder
         altDecoder
 
 
@@ -38,10 +37,6 @@ srcDecoder : Decoder Url
 srcDecoder =
     JD.at [ "image", "src" ] JDX.url
 
-
-titleDecoder : Decoder Anchor.Title
-titleDecoder =
-    JD.map Anchor.Title (JD.field "title" JD.string)
 
 
 altDecoder : Decoder Anchor.Alt

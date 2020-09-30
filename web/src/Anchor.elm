@@ -1,12 +1,8 @@
-module Anchor exposing (Alt(..), Anchor(..), Title(..), anchor, toElement)
+module Anchor exposing (Alt(..), Anchor(..), anchor, toElement)
 
 import Element exposing (Element, fill, image, width)
 import Element.Keyed exposing (el)
 import Url exposing (Url)
-
-
-type Title
-    = Title String
 
 
 type Alt
@@ -15,17 +11,15 @@ type Alt
 
 type Anchor
     = Anchor
-        { title : Title
-        , alt : Alt
+        { alt : Alt
         , src : Url
         }
 
 
-anchor : Url -> Title -> Alt -> Anchor
-anchor src title alt =
+anchor : Url -> Alt -> Anchor
+anchor src alt =
     Anchor
-        { title = title
-        , alt = alt
+        { alt = alt
         , src = src
         }
 
@@ -38,6 +32,7 @@ altString (Alt text) =
 toElement : Anchor -> Element msg
 toElement (Anchor { alt, src }) =
     let
+        src_ : String
         src_ =
             Url.toString src
     in
