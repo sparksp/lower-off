@@ -1,0 +1,6 @@
+#!/bin/sh
+# Generate a hash of the api's contents so that Netlify knows something has
+# changed.
+git ls-files -s api/ | md5sum > web/api.md5
+git add web/api.md5
+
