@@ -214,8 +214,8 @@ viewScenario : Scenario -> Element Msg
 viewScenario (Scenario s) =
     El.textColumn [ El.width El.fill, El.spacing 5 ]
         [ viewClimb s.climb
-        , El.paragraph [] [ El.text "When get to the top of your climb you find..." ]
         , listProblems s.problems
+        , El.paragraph [] [ El.text "When get to the top of your climb you find..." ]
         , viewAnchor s.anchor
         ]
 
