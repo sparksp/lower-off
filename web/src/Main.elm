@@ -9,8 +9,9 @@ import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
-import Element.Region as Region
 import Html exposing (Html)
+import Html.Events as Events
+import Html.Tailwind as TW
 import Http
 import List.Extra
 import Problem exposing (Problem)
@@ -169,19 +170,22 @@ edges =
     { top = 0, right = 0, bottom = 0, left = 0 }
 
 
-pageTitle : Element Msg
+pageTitle : Html Msg
 pageTitle =
-    El.row
-        [ El.width El.fill
-        , El.padding 5
-        , Border.widthEach { edges | bottom = 1 }
-        , Background.color (El.rgb255 222 100 26)
-        , Font.color (El.rgb255 255 255 255)
+    Html.h1
+        [ TW.wFull
+        , TW.p5
+        , TW.borderB
+        , TW.bgOrange600
+        , TW.textWhite
         ]
-        [ Input.button [ El.width El.fill, Font.size 32, Font.center, Region.heading 1 ]
-            { onPress = Just Randomize
-            , label = El.text "Lower-off Scenario"
-            }
+        [ Html.button
+            [ TW.wFull
+            , TW.textXl
+            , TW.contentCenter
+            , Events.onClick Randomize
+            ]
+            [ Html.text "Lower-off Scenario" ]
         ]
 
 
@@ -220,58 +224,61 @@ viewScenario (Scenario s) =
         ]
 
 
-viewRandomizeButton : Model -> Element Msg
+viewRandomizeButton : Model -> Html Msg
 viewRandomizeButton model =
-    case model of
-        Failure ->
-            El.none
+    El.layout []
+        (case model of
+            Failure ->
+                El.none
 
-        Loading ->
-            El.none
+            Loading ->
+                El.none
 
-        _ ->
-            El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
-                [ Input.button
-                    [ Background.color (El.rgb255 36 160 237)
-                    , Border.color (El.rgb255 200 200 200)
-                    , Border.rounded 3
-                    , Border.width 1
-                    , El.centerX
-                    , El.padding 5
-                    , El.width (El.maximum 800 El.fill)
-                    , Font.center
-                    , Font.color (El.rgb255 255 255 255)
+            _ ->
+                El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
+                    [ Input.button
+                        [ Background.color (El.rgb255 36 160 237)
+                        , Border.color (El.rgb255 200 200 200)
+                        , Border.rounded 3
+                        , Border.width 1
+                        , El.centerX
+                        , El.padding 5
+                        , El.width (El.maximum 800 El.fill)
+                        , Font.center
+                        , Font.color (El.rgb255 255 255 255)
+                        ]
+                        { onPress = Just Randomize, label = El.text "New Scenario" }
                     ]
-                    { onPress = Just Randomize, label = El.text "New Scenario" }
-                ]
+        )
 
 
-viewRemoteScenario : Model -> Element Msg
+viewRemoteScenario : Model -> Html Msg
 viewRemoteScenario model =
-    El.row [ El.width (El.maximum 800 El.fill), El.centerX ]
-        [ El.column [ El.width El.fill, El.padding 5, El.spacing 5 ]
-            [ case model of
-                Loading ->
-                    El.paragraph [ Font.center ] [ El.text "Please wait: racking up..." ]
+    El.layout []
+        (El.row [ El.width (El.maximum 800 El.fill), El.centerX ]
+            [ El.column [ El.width El.fill, El.padding 5, El.spacing 5 ]
+                [ case model of
+                    Loading ->
+                        El.paragraph [ Font.center ] [ El.text "Please wait: racking up..." ]
 
-                Failure ->
-                    El.paragraph [ Font.center ] [ El.text "Oops! Something went wrong." ]
+                    Failure ->
+                        El.paragraph [ Font.center ] [ El.text "Oops! Something went wrong." ]
 
-                AnchorsReady _ ->
-                    El.none
+                    AnchorsReady _ ->
+                        El.none
 
-                ScenarioPick _ scenario ->
-                    viewScenario scenario
+                    ScenarioPick _ scenario ->
+                        viewScenario scenario
+                ]
             ]
-        ]
+        )
 
 
 view : Model -> Html Msg
 view model =
-    El.layout []
-        (El.column [ El.width El.fill, El.height El.fill ]
-            [ pageTitle
-            , viewRemoteScenario model
-            , viewRandomizeButton model
-            ]
-        )
+    Html.div
+        []
+        [ pageTitle
+        , viewRemoteScenario model
+        , viewRandomizeButton model
+        ]
