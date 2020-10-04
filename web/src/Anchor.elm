@@ -1,7 +1,9 @@
-module Anchor exposing (Alt(..), Anchor(..), anchor, toElement)
+module Anchor exposing (Alt(..), Anchor(..), anchor, toHtml)
 
-import Element exposing (Element, fill, image, width)
-import Element.Keyed exposing (el)
+import Html as Html exposing (Html)
+import Html.Attributes as Attr
+import Html.Keyed
+import Html.Tailwind as TW
 import Url exposing (Url)
 
 
@@ -29,14 +31,22 @@ altString (Alt text) =
     text
 
 
-toElement : Anchor -> Element msg
-toElement (Anchor { alt, src }) =
+toHtml : Anchor -> Html msg
+toHtml (Anchor { alt, src }) =
     let
         src_ : String
         src_ =
             Url.toString src
     in
-    el [ width fill ]
-        ( src_
-        , image [ width fill ] { src = src_, description = altString alt }
-        )
+    Html.Keyed.node
+        "figure"
+        [ TW.wFull ]
+        [ ( src_
+          , Html.img
+                [ TW.wFull
+                , Attr.src src_
+                , Attr.alt (altString alt)
+                ]
+                []
+          )
+        ]

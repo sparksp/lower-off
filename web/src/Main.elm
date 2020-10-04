@@ -189,53 +189,55 @@ pageTitle =
         ]
 
 
-viewClimb : Climb -> Element Msg
-viewClimb climb =
-    El.paragraph [] [ El.text (Climb.string climb) ]
+viewTextLine : String -> Html Msg
+viewTextLine =
+    Html.text >> List.singleton >> Html.p []
 
 
-viewAnchor : Maybe Anchor -> Element Msg
+viewClimb : Climb -> Html Msg
+viewClimb =
+    Climb.string >> viewTextLine
+
+
+viewProblem : Problem -> Html Msg
+viewProblem =
+    Problem.string >> viewTextLine
+
+
+viewAnchor : Maybe Anchor -> Html Msg
 viewAnchor maybeAnchor =
     case maybeAnchor of
         Just anchor ->
-            Anchor.toElement anchor
+            Anchor.toHtml anchor
 
         Nothing ->
-            El.paragraph [] [ El.text "The anchor is missing." ]
+            viewTextLine "The anchor is missing."
 
 
-listProblems : List Problem -> Element Msg
-listProblems problems =
-    El.column [ El.spacing 5 ] (List.map viewProblem problems)
-
-
-viewProblem : Problem -> Element Msg
-viewProblem problem =
-    El.paragraph [] [ El.text (Problem.string problem) ]
-
-
-viewScenario : Scenario -> Element Msg
+viewScenario : Scenario -> Html Msg
 viewScenario (Scenario s) =
-    El.textColumn [ El.width El.fill, El.spacing 5 ]
-        [ viewClimb s.climb
-        , listProblems s.problems
-        , El.paragraph [] [ El.text "When get to the top of your climb you find..." ]
-        , viewAnchor s.anchor
-        ]
+    Html.div
+        []
+        (viewClimb s.climb
+            :: List.map viewProblem s.problems
+            ++ [ viewTextLine "When get to the top of your climb you find..."
+               , viewAnchor s.anchor
+               ]
+        )
 
 
 viewRandomizeButton : Model -> Html Msg
 viewRandomizeButton model =
-    El.layout []
-        (case model of
-            Failure ->
-                El.none
+    case model of
+        Failure ->
+            Html.text ""
 
-            Loading ->
-                El.none
+        Loading ->
+            Html.text ""
 
-            _ ->
-                El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
+        _ ->
+            El.layout []
+                (El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
                     [ Input.button
                         [ Background.color (El.rgb255 36 160 237)
                         , Border.color (El.rgb255 200 200 200)
@@ -249,29 +251,31 @@ viewRandomizeButton model =
                         ]
                         { onPress = Just Randomize, label = El.text "New Scenario" }
                     ]
-        )
+                )
 
 
 viewRemoteScenario : Model -> Html Msg
 viewRemoteScenario model =
-    El.layout []
-        (El.row [ El.width (El.maximum 800 El.fill), El.centerX ]
-            [ El.column [ El.width El.fill, El.padding 5, El.spacing 5 ]
-                [ case model of
-                    Loading ->
-                        El.paragraph [ Font.center ] [ El.text "Please wait: racking up..." ]
+    Html.div
+        [ TW.flex
+        , TW.flexCol
+        , TW.itemsCenter
+        , TW.py5
+        , TW.mdPx5
+        ]
+        [ case model of
+            Loading ->
+                viewTextLine "Please wait: racking up..."
 
-                    Failure ->
-                        El.paragraph [ Font.center ] [ El.text "Oops! Something went wrong." ]
+            Failure ->
+                viewTextLine "Oops! Something went wrong."
 
-                    AnchorsReady _ ->
-                        El.none
+            AnchorsReady _ ->
+                Html.text ""
 
-                    ScenarioPick _ scenario ->
-                        viewScenario scenario
-                ]
-            ]
-        )
+            ScenarioPick _ scenario ->
+                viewScenario scenario
+        ]
 
 
 view : Model -> Html Msg
