@@ -191,7 +191,7 @@ pageTitle =
 
 viewTextLine : String -> Html Msg
 viewTextLine =
-    Html.text >> List.singleton >> Html.p []
+    Html.text >> List.singleton >> Html.p [ TW.my2 ]
 
 
 viewClimb : Climb -> Html Msg
@@ -214,16 +214,19 @@ viewAnchor maybeAnchor =
             viewTextLine "The anchor is missing."
 
 
-viewScenario : Scenario -> Html Msg
+viewScenario : Scenario -> List (Html Msg)
 viewScenario (Scenario s) =
-    Html.div
-        []
+    [ Html.div
+        [ TW.mdPx0
+        , TW.px2
+        , TW.wFull
+        ]
         (viewClimb s.climb
             :: List.map viewProblem s.problems
-            ++ [ viewTextLine "When get to the top of your climb you find..."
-               , viewAnchor s.anchor
-               ]
+            ++ [ viewTextLine "When get to the top of your climb you find..." ]
         )
+    , viewAnchor s.anchor
+    ]
 
 
 viewRandomizeButton : Model -> Html Msg
@@ -260,22 +263,23 @@ viewRemoteScenario model =
         [ TW.flex
         , TW.flexCol
         , TW.itemsCenter
-        , TW.py5
-        , TW.mdPx5
+        , TW.pb5
+        , TW.mdPx3
+        , TW.wFull
         ]
-        [ case model of
+        (case model of
             Loading ->
-                viewTextLine "Please wait: racking up..."
+                [ viewTextLine "Please wait: racking up..." ]
 
             Failure ->
-                viewTextLine "Oops! Something went wrong."
+                [ viewTextLine "Oops! Something went wrong." ]
 
             AnchorsReady _ ->
-                Html.text ""
+                []
 
             ScenarioPick _ scenario ->
                 viewScenario scenario
-        ]
+        )
 
 
 view : Model -> Html Msg
