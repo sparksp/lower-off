@@ -160,11 +160,6 @@ update msg model =
             ( setScenario scenario model, Cmd.none )
 
 
-edges : { top : Int, right : Int, bottom : Int, left : Int }
-edges =
-    { top = 0, right = 0, bottom = 0, left = 0 }
-
-
 pageTitle : Html Msg
 pageTitle =
     Html.h1

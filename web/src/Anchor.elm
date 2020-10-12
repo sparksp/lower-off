@@ -1,6 +1,6 @@
 module Anchor exposing (Alt(..), Anchor(..), anchor, toHtml)
 
-import Html as Html exposing (Html)
+import Html exposing (Html)
 import Html.Attributes as Attr
 import Html.Keyed
 import Html.Tailwind as TW
