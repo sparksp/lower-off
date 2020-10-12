@@ -4,11 +4,6 @@ import Anchor exposing (Anchor)
 import Anchor.API
 import Browser
 import Climb exposing (Climb)
-import Element as El exposing (Element)
-import Element.Background as Background
-import Element.Border as Border
-import Element.Font as Font
-import Element.Input as Input
 import Html exposing (Html)
 import Html.Events as Events
 import Html.Tailwind as TW
@@ -174,7 +169,7 @@ pageTitle : Html Msg
 pageTitle =
     Html.h1
         [ TW.wFull
-        , TW.p5
+        , TW.p1
         , TW.borderB
         , TW.bgOrange600
         , TW.textWhite
@@ -239,22 +234,27 @@ viewRandomizeButton model =
             Html.text ""
 
         _ ->
-            El.layout []
-                (El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
-                    [ Input.button
-                        [ Background.color (El.rgb255 36 160 237)
-                        , Border.color (El.rgb255 200 200 200)
-                        , Border.rounded 3
-                        , Border.width 1
-                        , El.centerX
-                        , El.padding 5
-                        , El.width (El.maximum 800 El.fill)
-                        , Font.center
-                        , Font.color (El.rgb255 255 255 255)
-                        ]
-                        { onPress = Just Randomize, label = El.text "New Scenario" }
+            Html.div
+                [ TW.alignBottom
+                , TW.px3
+                , TW.pb3
+                , TW.flex
+                , TW.flexCol
+                , TW.wFull
+                ]
+                [ Html.button
+                    [ Events.onClick Randomize
+                    , TW.bgBlue500
+                    , TW.borderGray300
+                    , TW.border
+                    , TW.p1
+                    , TW.rounded
+                    , TW.textCenter
+                    , TW.textWhite
                     ]
-                )
+                    [ Html.text "New Scenario"
+                    ]
+                ]
 
 
 viewRemoteScenario : Model -> Html Msg
