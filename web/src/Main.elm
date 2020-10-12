@@ -235,6 +235,7 @@ viewRandomizeButton model =
                 , TW.pb3
                 , TW.flex
                 , TW.flexCol
+                , TW.smMaxWLg
                 , TW.wFull
                 ]
                 [ Html.button
@@ -255,11 +256,9 @@ viewRandomizeButton model =
 viewRemoteScenario : Model -> Html Msg
 viewRemoteScenario model =
     Html.div
-        [ TW.flex
-        , TW.flexCol
-        , TW.itemsCenter
-        , TW.pb5
+        [ TW.pb5
         , TW.mdPx3
+        , TW.smMaxWLg
         , TW.wFull
         ]
         (case model of
@@ -280,7 +279,10 @@ viewRemoteScenario model =
 view : Model -> Html Msg
 view model =
     Html.div
-        []
+        [ TW.flex
+        , TW.flexCol
+        , TW.itemsCenter
+        ]
         [ pageTitle
         , viewRemoteScenario model
         , viewRandomizeButton model
