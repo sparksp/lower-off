@@ -11,6 +11,8 @@ import Http
 import List.Extra
 import Problem exposing (Problem)
 import Random
+import Svg.Tailwind as SvgTW
+import Ui.Icons
 
 
 
@@ -231,7 +233,6 @@ viewRandomizeButton model =
         _ ->
             Html.div
                 [ TW.alignBottom
-                , TW.px3
                 , TW.pb3
                 , TW.flex
                 , TW.flexCol
@@ -240,15 +241,15 @@ viewRandomizeButton model =
                 ]
                 [ Html.button
                     [ Events.onClick Randomize
-                    , TW.bgBlue500
-                    , TW.borderGray300
-                    , TW.border
+                    , TW.textRight
+                    , TW.textBlack
+                    , TW.flex
+                    , TW.flexRow
+                    , TW.itemsEnd
                     , TW.p1
-                    , TW.rounded
-                    , TW.textCenter
-                    , TW.textWhite
                     ]
-                    [ Html.text "New Scenario"
+                    [ Html.span [ TW.flexGrow ] [ Html.text "Next Scenario" ]
+                    , Ui.Icons.next [ SvgTW.w6, SvgTW.h6, SvgTW.ml1, SvgTW.flexNone ]
                     ]
                 ]
 
