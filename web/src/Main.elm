@@ -170,6 +170,7 @@ pageTitle =
         , TW.borderB
         , TW.bgOrange600
         , TW.textWhite
+        , TW.smMb3
         ]
         [ Html.button
             [ TW.wFull
@@ -181,7 +182,7 @@ pageTitle =
         ]
 
 
-viewTextLine : String -> Html Msg
+viewTextLine : String -> Html msg
 viewTextLine =
     Html.text >> List.singleton >> Html.p [ TW.my2 ]
 
@@ -209,8 +210,7 @@ viewAnchor maybeAnchor =
 viewScenario : Scenario -> List (Html Msg)
 viewScenario (Scenario s) =
     [ Html.div
-        [ TW.mdPx0
-        , TW.px2
+        [ TW.px3
         , TW.wFull
         ]
         (viewClimb s.climb
@@ -254,23 +254,33 @@ viewRandomizeButton model =
                 ]
 
 
+viewStatusMessage : String -> Html msg
+viewStatusMessage message =
+    Html.div
+        [ TW.px3
+        , TW.wFull
+        ]
+        [ viewTextLine message ]
+
+
 viewRemoteScenario : Model -> Html Msg
 viewRemoteScenario model =
     Html.div
-        [ TW.pb5
-        , TW.mdPx3
-        , TW.smMaxWLg
+        [ TW.smMaxWLg
         , TW.wFull
+        , TW.bgWhite
+        , TW.shadowMd
+        , TW.mb3
         ]
         (case model of
             Loading ->
-                [ viewTextLine "Please wait: racking up..." ]
-
-            Failure ->
-                [ viewTextLine "Oops! Something went wrong." ]
+                [ viewStatusMessage "Please wait: racking up..." ]
 
             AnchorsReady _ ->
-                []
+                [ viewStatusMessage "Please wait: racking up..." ]
+
+            Failure ->
+                [ viewStatusMessage "Oops! Something went wrong." ]
 
             ScenarioPick _ scenario ->
                 viewScenario scenario
