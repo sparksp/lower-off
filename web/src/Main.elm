@@ -4,17 +4,15 @@ import Anchor exposing (Anchor)
 import Anchor.API
 import Browser
 import Climb exposing (Climb)
-import Element as El exposing (Element)
-import Element.Background as Background
-import Element.Border as Border
-import Element.Font as Font
-import Element.Input as Input
-import Element.Region as Region
 import Html exposing (Html)
+import Html.Events as Events
+import Html.Tailwind as TW
 import Http
 import List.Extra
 import Problem exposing (Problem)
 import Random
+import Svg.Tailwind as SvgTW
+import Ui.Icons
 
 
 
@@ -164,114 +162,172 @@ update msg model =
             ( setScenario scenario model, Cmd.none )
 
 
-edges : { top : Int, right : Int, bottom : Int, left : Int }
-edges =
-    { top = 0, right = 0, bottom = 0, left = 0 }
-
-
-pageTitle : Element Msg
+pageTitle : Html Msg
 pageTitle =
-    El.row
-        [ El.width El.fill
-        , El.padding 5
-        , Border.widthEach { edges | bottom = 1 }
-        , Background.color (El.rgb255 222 100 26)
-        , Font.color (El.rgb255 255 255 255)
+    Html.h1
+        [ TW.wFull
+        , TW.p1
+        , TW.borderB
+        , TW.bgOrange600
+        , TW.textWhite
+        , TW.smMb3
         ]
-        [ Input.button [ El.width El.fill, Font.size 32, Font.center, Region.heading 1 ]
-            { onPress = Just Randomize
-            , label = El.text "Lower-off Scenario"
-            }
+        [ Html.button
+            [ TW.wFull
+            , TW.textXl
+            , TW.flex
+            , TW.flexCol
+            , TW.itemsCenter
+            , Events.onClick Randomize
+            ]
+            [ Html.div
+                [ TW.wFull
+                , TW.smMaxWLg
+                , TW.flex
+                , TW.flexRow
+                , TW.itemsCenter
+                ]
+                [ Ui.Icons.empty
+                    [ SvgTW.w6
+                    , SvgTW.h6
+                    , SvgTW.mr1
+                    , SvgTW.flexNone
+                    ]
+                , Html.span
+                    [ TW.flexGrow
+                    ]
+                    [ Html.text "Lower-off Scenario"
+                    ]
+                , Ui.Icons.refresh
+                    [ SvgTW.w6
+                    , SvgTW.h6
+                    , SvgTW.ml1
+                    , SvgTW.flexNone
+                    ]
+                ]
+            ]
         ]
 
 
-viewClimb : Climb -> Element Msg
-viewClimb climb =
-    El.paragraph [] [ El.text (Climb.string climb) ]
+viewTextLine : String -> Html msg
+viewTextLine =
+    Html.text >> List.singleton >> Html.p [ TW.my2 ]
 
 
-viewAnchor : Maybe Anchor -> Element Msg
+viewClimb : Climb -> Html Msg
+viewClimb =
+    Climb.string >> viewTextLine
+
+
+viewProblem : Problem -> Html Msg
+viewProblem =
+    Problem.string >> viewTextLine
+
+
+viewAnchor : Maybe Anchor -> Html Msg
 viewAnchor maybeAnchor =
     case maybeAnchor of
         Just anchor ->
-            Anchor.toElement anchor
+            Anchor.toHtml anchor
 
         Nothing ->
-            El.paragraph [] [ El.text "The anchor is missing." ]
+            viewTextLine "The anchor is missing."
 
 
-listProblems : List Problem -> Element Msg
-listProblems problems =
-    El.column [ El.spacing 5 ] (List.map viewProblem problems)
-
-
-viewProblem : Problem -> Element Msg
-viewProblem problem =
-    El.paragraph [] [ El.text (Problem.string problem) ]
-
-
-viewScenario : Scenario -> Element Msg
+viewScenario : Scenario -> List (Html Msg)
 viewScenario (Scenario s) =
-    El.textColumn [ El.width El.fill, El.spacing 5 ]
-        [ viewClimb s.climb
-        , listProblems s.problems
-        , El.paragraph [] [ El.text "When get to the top of your climb you find..." ]
-        , viewAnchor s.anchor
+    [ Html.div
+        [ TW.px3
+        , TW.wFull
         ]
+        (viewClimb s.climb
+            :: List.map viewProblem s.problems
+            ++ [ viewTextLine "When get to the top of your climb you find..." ]
+        )
+    , viewAnchor s.anchor
+    ]
 
 
-viewRandomizeButton : Model -> Element Msg
+viewRandomizeButton : Model -> Html Msg
 viewRandomizeButton model =
     case model of
         Failure ->
-            El.none
+            Html.text ""
 
         Loading ->
-            El.none
+            Html.text ""
 
         _ ->
-            El.row [ El.width El.fill, El.alignBottom, El.padding 5 ]
-                [ Input.button
-                    [ Background.color (El.rgb255 36 160 237)
-                    , Border.color (El.rgb255 200 200 200)
-                    , Border.rounded 3
-                    , Border.width 1
-                    , El.centerX
-                    , El.padding 5
-                    , El.width (El.maximum 800 El.fill)
-                    , Font.center
-                    , Font.color (El.rgb255 255 255 255)
+            Html.div
+                [ TW.pb3
+                , TW.flex
+                , TW.flexCol
+                , TW.wFull
+                , TW.smMaxWLg
+                ]
+                [ Html.button
+                    [ Events.onClick Randomize
+                    , TW.textBlack
+                    , TW.flex
+                    , TW.p1
                     ]
-                    { onPress = Just Randomize, label = El.text "New Scenario" }
+                    [ Html.div
+                        [ TW.flexGrow
+                        , TW.textRight
+                        ]
+                        [ Html.text "Next Scenario"
+                        ]
+                    , Ui.Icons.next
+                        [ SvgTW.w6
+                        , SvgTW.h6
+                        , SvgTW.ml1
+                        , SvgTW.flexNone
+                        ]
+                    ]
                 ]
 
 
-viewRemoteScenario : Model -> Element Msg
-viewRemoteScenario model =
-    El.row [ El.width (El.maximum 800 El.fill), El.centerX ]
-        [ El.column [ El.width El.fill, El.padding 5, El.spacing 5 ]
-            [ case model of
-                Loading ->
-                    El.paragraph [ Font.center ] [ El.text "Please wait: racking up..." ]
-
-                Failure ->
-                    El.paragraph [ Font.center ] [ El.text "Oops! Something went wrong." ]
-
-                AnchorsReady _ ->
-                    El.none
-
-                ScenarioPick _ scenario ->
-                    viewScenario scenario
-            ]
+viewStatusMessage : String -> Html msg
+viewStatusMessage message =
+    Html.div
+        [ TW.px3
+        , TW.wFull
         ]
+        [ viewTextLine message ]
+
+
+viewRemoteScenario : Model -> Html Msg
+viewRemoteScenario model =
+    Html.div
+        [ TW.smMaxWLg
+        , TW.wFull
+        , TW.bgWhite
+        , TW.shadowMd
+        , TW.mb3
+        ]
+        (case model of
+            Loading ->
+                [ viewStatusMessage "Please wait: racking up..." ]
+
+            AnchorsReady _ ->
+                [ viewStatusMessage "Please wait: racking up..." ]
+
+            Failure ->
+                [ viewStatusMessage "Oops! Something went wrong." ]
+
+            ScenarioPick _ scenario ->
+                viewScenario scenario
+        )
 
 
 view : Model -> Html Msg
 view model =
-    El.layout []
-        (El.column [ El.width El.fill, El.height El.fill ]
-            [ pageTitle
-            , viewRemoteScenario model
-            , viewRandomizeButton model
-            ]
-        )
+    Html.div
+        [ TW.flex
+        , TW.flexCol
+        , TW.itemsCenter
+        ]
+        [ pageTitle
+        , viewRemoteScenario model
+        , viewRandomizeButton model
+        ]
