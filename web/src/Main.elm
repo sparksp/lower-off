@@ -175,10 +175,37 @@ pageTitle =
         [ Html.button
             [ TW.wFull
             , TW.textXl
-            , TW.contentCenter
+            , TW.flex
+            , TW.flexCol
+            , TW.itemsCenter
             , Events.onClick Randomize
             ]
-            [ Html.text "Lower-off Scenario" ]
+            [ Html.div
+                [ TW.wFull
+                , TW.smMaxWLg
+                , TW.flex
+                , TW.flexRow
+                , TW.itemsCenter
+                ]
+                [ Ui.Icons.empty
+                    [ SvgTW.w6
+                    , SvgTW.h6
+                    , SvgTW.mr1
+                    , SvgTW.flexNone
+                    ]
+                , Html.span
+                    [ TW.flexGrow
+                    ]
+                    [ Html.text "Lower-off Scenario"
+                    ]
+                , Ui.Icons.refresh
+                    [ SvgTW.w6
+                    , SvgTW.h6
+                    , SvgTW.ml1
+                    , SvgTW.flexNone
+                    ]
+                ]
+            ]
         ]
 
 
@@ -232,24 +259,30 @@ viewRandomizeButton model =
 
         _ ->
             Html.div
-                [ TW.alignBottom
-                , TW.pb3
+                [ TW.pb3
                 , TW.flex
                 , TW.flexCol
-                , TW.smMaxWLg
                 , TW.wFull
+                , TW.smMaxWLg
                 ]
                 [ Html.button
                     [ Events.onClick Randomize
-                    , TW.textRight
                     , TW.textBlack
                     , TW.flex
-                    , TW.flexRow
-                    , TW.itemsEnd
                     , TW.p1
                     ]
-                    [ Html.span [ TW.flexGrow ] [ Html.text "Next Scenario" ]
-                    , Ui.Icons.next [ SvgTW.w6, SvgTW.h6, SvgTW.ml1, SvgTW.flexNone ]
+                    [ Html.div
+                        [ TW.flexGrow
+                        , TW.textRight
+                        ]
+                        [ Html.text "Next Scenario"
+                        ]
+                    , Ui.Icons.next
+                        [ SvgTW.w6
+                        , SvgTW.h6
+                        , SvgTW.ml1
+                        , SvgTW.flexNone
+                        ]
                     ]
                 ]
 
