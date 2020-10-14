@@ -13,7 +13,7 @@
   "scripts": {
     "prebuild:api": "if [ -z $URL ]; then echo \"ERROR: No URL set\"; exit 1; fi",
     "build:api": "hugo -b $URL/api/ -d ../web/dist/api/ -s ../api/",
-    "build:web": "parcel build src/index.html",
+    "build:web": "parcel build src/index.html --public-url $URL/",
     "prebuild": "rimraf dist",
     "build": "run-s build:*",
     "dev:api": "hugo -b http://localhost:1234/api/ -d ../web/dist/api -s ../api",
