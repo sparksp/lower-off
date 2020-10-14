@@ -175,9 +175,6 @@ pageTitle =
         [ Html.button
             [ TW.wFull
             , TW.textXl
-            , TW.flex
-            , TW.flexCol
-            , TW.itemsCenter
             , Events.onClick Randomize
             ]
             [ Html.div
@@ -186,6 +183,7 @@ pageTitle =
                 , TW.flex
                 , TW.flexRow
                 , TW.itemsCenter
+                , TW.mxAuto
                 ]
                 [ Ui.Icons.empty
                     [ SvgTW.w6
@@ -270,6 +268,7 @@ viewRandomizeButton model =
                     , TW.textBlack
                     , TW.flex
                     , TW.p1
+                    , TW.wFull
                     ]
                     [ Html.div
                         [ TW.flexGrow
