@@ -40,6 +40,6 @@
     "postcss-elm-tailwind": "^0.10.0",
     "rimraf": "^3.0.2",
     "src": "^1.1.2",
-    "tailwindcss": "^1.8.10"
+    "tailwindcss": "^1.9.5"
   }
 }
