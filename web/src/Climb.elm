@@ -6,7 +6,9 @@ module Climb exposing (Climb(..), string)
 
 type Climb
     = LeadAndClean
-    | LeadAndSetup
+    | LeadAndLead
+    | LeadAndSecond
+    | LeadAndTopRope
     | Second -- Always assume clean
     | TopRope -- Always assume clean
 
@@ -14,11 +16,17 @@ type Climb
 string : Climb -> String
 string climb =
     case climb of
-        LeadAndSetup ->
-            "You are leading this climb and others will be climbing it after you."
-
         LeadAndClean ->
-            "You are leading this climb but no one is following you, please clean it when you've finished."
+            "You are the last person to lead this climb, please clean it when you've finished."
+
+        LeadAndLead ->
+            "You are leading this climb and others want to lead it after you."
+
+        LeadAndSecond ->
+            "You are leading this climb and others want to second it after you."
+
+        LeadAndTopRope ->
+            "You are leading this climb and others want to top-rope it after you."
 
         Second ->
             "You are seconding this climb, please clean it when you've finished."

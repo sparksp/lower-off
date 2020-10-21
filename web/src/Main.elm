@@ -61,12 +61,24 @@ randomProblemList =
 
 randomProblem : Random.Generator Problem
 randomProblem =
-    Random.uniform Problem.NoScrewgate [ Problem.NoLanyard, Problem.NoQuickdraws, Problem.NoBelayerComms ]
+    Random.uniform
+        Problem.NoScrewgate
+        [ Problem.NoLanyard
+        , Problem.NoQuickdraws
+        , Problem.NoBelayerComms
+        ]
 
 
 randomClimb : Random.Generator Climb
 randomClimb =
-    Random.uniform Climb.LeadAndClean [ Climb.LeadAndSetup, Climb.Second, Climb.TopRope ]
+    Random.uniform
+        Climb.LeadAndClean
+        [ Climb.LeadAndLead
+        , Climb.LeadAndSecond
+        , Climb.LeadAndTopRope
+        , Climb.Second
+        , Climb.TopRope
+        ]
 
 
 randomAnchor : List Anchor -> Random.Generator (Maybe Anchor)
