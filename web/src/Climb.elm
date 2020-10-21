@@ -1,27 +1,49 @@
-module Climb exposing (Climb(..), string)
+module Climb exposing (Climb(..), random, string)
 
 {-| Style of the climb.
 -}
 
+import Random
+
 
 type Climb
     = LeadAndClean
-    | LeadAndSetup
+    | LeadAndLead
+    | LeadAndSecond
+    | LeadAndTopRope
     | Second -- Always assume clean
     | TopRope -- Always assume clean
+
+
+random : Random.Generator Climb
+random =
+    Random.uniform
+        LeadAndClean
+        [ LeadAndLead
+        , LeadAndSecond
+        , LeadAndTopRope
+        , Second
+        , TopRope
+        ]
 
 
 string : Climb -> String
 string climb =
     case climb of
-        LeadAndSetup ->
-            "You are leading this climb and others will be climbing it after you."
-
         LeadAndClean ->
-            "You are leading this climb but no one is following you, please clean it when you've finished."
+            "You are the last person to lead this climb, please clean / strip it when you've finished."
+
+        LeadAndLead ->
+            "You are leading this climb and others want to lead it after you."
+
+        LeadAndSecond ->
+            "You are leading this climb and others want to second it after you."
+
+        LeadAndTopRope ->
+            "You are leading this climb and others want to top-rope it after you."
 
         Second ->
-            "You are seconding this climb, please clean it when you've finished."
+            "You are seconding this climb, please clean / strip it when you've finished."
 
         TopRope ->
-            "You are the last person to top-rope this climb, please clean it when you've finished."
+            "You are the last person to top-rope this climb, please clean / strip it when you've finished."

@@ -47,7 +47,7 @@ randomScenario : List Anchor -> Random.Generator Scenario
 randomScenario anchors =
     Random.map3
         newScenario
-        randomClimb
+        Climb.random
         (randomAnchor anchors)
         randomProblemList
 
@@ -55,18 +55,8 @@ randomScenario anchors =
 randomProblemList : Random.Generator (List Problem)
 randomProblemList =
     Random.weighted ( 100, 0 ) [ ( 10, 1 ) ]
-        |> Random.andThen (\len -> Random.list len randomProblem)
+        |> Random.andThen (\len -> Random.list len Problem.random)
         |> Random.andThen (Random.constant << List.Extra.uniqueBy Problem.string)
-
-
-randomProblem : Random.Generator Problem
-randomProblem =
-    Random.uniform Problem.NoScrewgate [ Problem.NoLanyard, Problem.NoQuickdraws, Problem.NoBelayerComms ]
-
-
-randomClimb : Random.Generator Climb
-randomClimb =
-    Random.uniform Climb.LeadAndClean [ Climb.LeadAndSetup, Climb.Second, Climb.TopRope ]
 
 
 randomAnchor : List Anchor -> Random.Generator (Maybe Anchor)

@@ -1,7 +1,9 @@
-module Problem exposing (Problem(..), string)
+module Problem exposing (Problem(..), random, string)
 
 {-| Extra problems that might occur.
 -}
+
+import Random
 
 
 type Problem
@@ -9,6 +11,16 @@ type Problem
     | NoLanyard
     | NoQuickdraws
     | NoBelayerComms
+
+
+random : Random.Generator Problem
+random =
+    Random.uniform
+        NoScrewgate
+        [ NoLanyard
+        , NoQuickdraws
+        , NoBelayerComms
+        ]
 
 
 string : Problem -> String
