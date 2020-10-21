@@ -1,7 +1,9 @@
-module Climb exposing (Climb(..), string)
+module Climb exposing (Climb(..), random, string)
 
 {-| Style of the climb.
 -}
+
+import Random
 
 
 type Climb
@@ -11,6 +13,18 @@ type Climb
     | LeadAndTopRope
     | Second -- Always assume clean
     | TopRope -- Always assume clean
+
+
+random : Random.Generator Climb
+random =
+    Random.uniform
+        LeadAndClean
+        [ LeadAndLead
+        , LeadAndSecond
+        , LeadAndTopRope
+        , Second
+        , TopRope
+        ]
 
 
 string : Climb -> String
