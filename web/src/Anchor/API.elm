@@ -35,7 +35,9 @@ anchorDecoder =
 
 srcDecoder : Decoder Url
 srcDecoder =
-    JD.at [ "image", "src" ] JDX.url
+    JD.at
+        [ "image", "src" ]
+        JDX.url
 
 
 altDecoder : Decoder Anchor.Alt
