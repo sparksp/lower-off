@@ -4,14 +4,14 @@ import Anchor exposing (Anchor)
 import Anchor.API
 import Browser
 import Climb exposing (Climb)
-import Html exposing (Html)
-import Html.Attributes as Attr
-import Html.Events as Events
+import Html.Styled as Html exposing (Html)
+import Html.Styled.Attributes as Attr
+import Html.Styled.Events as Events
 import Http
 import List.Extra
 import Problem exposing (Problem)
 import Random
-import Svg.Attributes as SvgAttr
+import Svg.Styled.Attributes as SvgAttr
 import Tailwind as TW
 import Ui.Icons
 
@@ -83,7 +83,7 @@ main =
         { init = init
         , subscriptions = \_ -> Sub.none
         , update = update
-        , view = view
+        , view = view >> Html.toUnstyled
         }
 
 

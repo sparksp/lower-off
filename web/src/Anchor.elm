@@ -1,8 +1,8 @@
 module Anchor exposing (Alt(..), Anchor(..), anchor, toHtml)
 
-import Html exposing (Html)
-import Html.Attributes as Attr
-import Html.Keyed
+import Html.Styled as Html exposing (Html)
+import Html.Styled.Attributes as Attr
+import Html.Styled.Keyed as Keyed
 import Tailwind as TW
 import Url exposing (Url)
 
@@ -38,7 +38,7 @@ toHtml (Anchor { alt, src }) =
         src_ =
             Url.toString src
     in
-    Html.Keyed.node
+    Keyed.node
         "figure"
         [ Attr.class TW.wFull ]
         [ ( src_
