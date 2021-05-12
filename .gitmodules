@@ -1,4 +1,0 @@
-[submodule "web/review"]
-	path = web/review
-	url = https://github.com/sparksp/elm-review-config.git
-	branch = master
