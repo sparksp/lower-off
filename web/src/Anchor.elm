@@ -3,7 +3,7 @@ module Anchor exposing (Alt(..), Anchor(..), anchor, toHtml)
 import Html exposing (Html)
 import Html.Attributes as Attr
 import Html.Keyed
-import Html.Tailwind as TW
+import Tailwind as TW
 import Url exposing (Url)
 
 
@@ -40,10 +40,10 @@ toHtml (Anchor { alt, src }) =
     in
     Html.Keyed.node
         "figure"
-        [ TW.wFull ]
+        [ Attr.class TW.wFull ]
         [ ( src_
           , Html.img
-                [ TW.wFull
+                [ Attr.class TW.wFull
                 , Attr.src src_
                 , Attr.alt (altString alt)
                 ]
