@@ -4,14 +4,17 @@ import Anchor exposing (Anchor)
 import Anchor.API
 import Browser
 import Climb exposing (Climb)
-import Html exposing (Html)
-import Html.Events as Events
-import Html.Tailwind as TW
+import Css.Global
+import Html.Styled as Html exposing (Html)
+import Html.Styled.Attributes as Attr
+import Html.Styled.Events as Events
 import Http
 import List.Extra
 import Problem exposing (Problem)
 import Random
-import Svg.Tailwind as SvgTW
+import Svg.Styled.Attributes as SvgAttr
+import Tailwind.Breakpoints as Breakpoints
+import Tailwind.Utilities as Tw
 import Ui.Icons
 
 
@@ -82,7 +85,7 @@ main =
         { init = init
         , subscriptions = \_ -> Sub.none
         , update = update
-        , view = view
+        , view = view >> Html.toUnstyled
         }
 
 
@@ -155,42 +158,52 @@ update msg model =
 pageTitle : Html Msg
 pageTitle =
     Html.h1
-        [ TW.wFull
-        , TW.p1
-        , TW.borderB
-        , TW.bgOrange600
-        , TW.textWhite
-        , TW.smMb3
+        [ Attr.css
+            [ Tw.w_full
+            , Tw.p_1
+            , Tw.border_b
+            , Tw.bg_orange_600
+            , Tw.text_white
+            , Breakpoints.sm [ Tw.mb_3 ]
+            ]
         ]
         [ Html.button
-            [ TW.wFull
-            , TW.textXl
+            [ Attr.css
+                [ Tw.w_full
+                , Tw.text_xl
+                ]
             , Events.onClick Randomize
             ]
             [ Html.div
-                [ TW.wFull
-                , TW.smMaxWLg
-                , TW.flex
-                , TW.flexRow
-                , TW.itemsCenter
-                , TW.mxAuto
+                [ Attr.css
+                    [ Tw.w_full
+                    , Breakpoints.sm [ Tw.max_w_lg ]
+                    , Tw.flex
+                    , Tw.flex_row
+                    , Tw.items_center
+                    , Tw.mx_auto
+                    ]
                 ]
                 [ Ui.Icons.empty
-                    [ SvgTW.w6
-                    , SvgTW.h6
-                    , SvgTW.mr1
-                    , SvgTW.flexNone
+                    [ SvgAttr.css
+                        [ Tw.w_6
+                        , Tw.h_6
+                        , Tw.mr_1
+                        , Tw.flex_none
+                        ]
                     ]
                 , Html.span
-                    [ TW.flexGrow
+                    [ Attr.css [ Tw.flex_grow ]
                     ]
                     [ Html.text "Lower-off Scenario"
                     ]
                 , Ui.Icons.refresh
-                    [ SvgTW.w6
-                    , SvgTW.h6
-                    , SvgTW.ml1
-                    , SvgTW.flexNone
+                    [ SvgAttr.css
+                        [ Tw.w_6
+                        , Tw.h_6
+                        , Tw.ml_1
+                        , Tw.flex_none
+                        ]
                     ]
                 ]
             ]
@@ -199,7 +212,7 @@ pageTitle =
 
 viewTextLine : String -> Html msg
 viewTextLine =
-    Html.text >> List.singleton >> Html.p [ TW.my2 ]
+    Html.text >> List.singleton >> Html.p [ Attr.css [ Tw.my_2 ] ]
 
 
 viewClimb : Climb -> Html Msg
@@ -225,8 +238,10 @@ viewAnchor maybeAnchor =
 viewScenario : Scenario -> List (Html Msg)
 viewScenario (Scenario s) =
     [ Html.div
-        [ TW.px3
-        , TW.wFull
+        [ Attr.css
+            [ Tw.px_3
+            , Tw.w_full
+            ]
         ]
         (viewClimb s.climb
             :: List.map viewProblem s.problems
@@ -245,42 +260,60 @@ viewRandomizeButton model =
         Loading ->
             Html.text ""
 
-        _ ->
-            Html.div
-                [ TW.pb3
-                , TW.flex
-                , TW.flexCol
-                , TW.wFull
-                , TW.smMaxWLg
+        AnchorsReady _ ->
+            randomizeButton
+
+        ScenarioPick _ _ ->
+            randomizeButton
+
+
+randomizeButton : Html Msg
+randomizeButton =
+    Html.div
+        [ Attr.css
+            [ Tw.pb_3
+            , Tw.flex
+            , Tw.flex_col
+            , Tw.w_full
+            , Breakpoints.sm [ Tw.max_w_lg ]
+            ]
+        ]
+        [ Html.button
+            [ Events.onClick Randomize
+            , Attr.css
+                [ Tw.text_black
+                , Tw.flex
+                , Tw.p_1
+                , Tw.w_full
                 ]
-                [ Html.button
-                    [ Events.onClick Randomize
-                    , TW.textBlack
-                    , TW.flex
-                    , TW.p1
-                    , TW.wFull
-                    ]
-                    [ Html.div
-                        [ TW.flexGrow
-                        , TW.textRight
-                        ]
-                        [ Html.text "Next Scenario"
-                        ]
-                    , Ui.Icons.next
-                        [ SvgTW.w6
-                        , SvgTW.h6
-                        , SvgTW.ml1
-                        , SvgTW.flexNone
-                        ]
+            ]
+            [ Html.div
+                [ Attr.css
+                    [ Tw.flex_grow
+                    , Tw.text_right
                     ]
                 ]
+                [ Html.text "Next Scenario"
+                ]
+            , Ui.Icons.next
+                [ SvgAttr.css
+                    [ Tw.w_6
+                    , Tw.h_6
+                    , Tw.ml_1
+                    , Tw.flex_none
+                    ]
+                ]
+            ]
+        ]
 
 
 viewStatusMessage : String -> Html msg
 viewStatusMessage message =
     Html.div
-        [ TW.px3
-        , TW.wFull
+        [ Attr.css
+            [ Tw.px_3
+            , Tw.w_full
+            ]
         ]
         [ viewTextLine message ]
 
@@ -288,11 +321,13 @@ viewStatusMessage message =
 viewRemoteScenario : Model -> Html Msg
 viewRemoteScenario model =
     Html.div
-        [ TW.smMaxWLg
-        , TW.wFull
-        , TW.bgWhite
-        , TW.shadowMd
-        , TW.mb3
+        [ Attr.css
+            [ Breakpoints.sm [ Tw.max_w_lg ]
+            , Tw.w_full
+            , Tw.bg_white
+            , Tw.shadow_md
+            , Tw.mb_3
+            ]
         ]
         (case model of
             Loading ->
@@ -312,11 +347,14 @@ viewRemoteScenario model =
 view : Model -> Html Msg
 view model =
     Html.div
-        [ TW.flex
-        , TW.flexCol
-        , TW.itemsCenter
+        [ Attr.css
+            [ Tw.flex
+            , Tw.flex_col
+            , Tw.items_center
+            ]
         ]
-        [ pageTitle
+        [ Css.Global.global (Css.Global.body [ Tw.bg_orange_100 ] :: Tw.globalStyles)
+        , pageTitle
         , viewRemoteScenario model
         , viewRandomizeButton model
         ]

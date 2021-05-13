@@ -8,9 +8,9 @@ module Ui.Icons exposing
 {-| Icons used in this project.
 -}
 
-import Html exposing (Html)
-import Svg
-import Svg.Attributes exposing (d, fill, viewBox)
+import Html.Styled exposing (Html)
+import Svg.Styled as Svg
+import Svg.Styled.Attributes exposing (d, fill, viewBox)
 
 
 {-| Icon
