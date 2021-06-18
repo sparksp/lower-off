@@ -41,6 +41,6 @@
     "postcss": "^8.3.5",
     "rimraf": "^3.0.2",
     "src": "^1.1.2",
-    "tailwindcss": "^2.1.4"
+    "tailwindcss": "^2.2.0"
   }
 }
