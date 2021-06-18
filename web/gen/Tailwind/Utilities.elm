@@ -28,6 +28,7 @@ module Tailwind.Utilities exposing
     , backdrop_blur_3xl
     , backdrop_blur_lg
     , backdrop_blur_md
+    , backdrop_blur_none
     , backdrop_blur_sm
     , backdrop_blur_xl
     , backdrop_brightness_0
@@ -184,6 +185,9 @@ module Tailwind.Utilities exposing
     , bg_orange_700
     , bg_orange_800
     , bg_orange_900
+    , bg_origin_border
+    , bg_origin_content
+    , bg_origin_padding
     , bg_pink_100
     , bg_pink_200
     , bg_pink_300
@@ -248,6 +252,7 @@ module Tailwind.Utilities exposing
     , blur_3xl
     , blur_lg
     , blur_md
+    , blur_none
     , blur_sm
     , blur_xl
     , border
@@ -3854,6 +3859,7 @@ This module contains
 @docs backdrop_blur_3xl
 @docs backdrop_blur_lg
 @docs backdrop_blur_md
+@docs backdrop_blur_none
 @docs backdrop_blur_sm
 @docs backdrop_blur_xl
 @docs backdrop_brightness_0
@@ -4010,6 +4016,9 @@ This module contains
 @docs bg_orange_700
 @docs bg_orange_800
 @docs bg_orange_900
+@docs bg_origin_border
+@docs bg_origin_content
+@docs bg_origin_padding
 @docs bg_pink_100
 @docs bg_pink_200
 @docs bg_pink_300
@@ -4074,6 +4083,7 @@ This module contains
 @docs blur_3xl
 @docs blur_lg
 @docs blur_md
+@docs blur_none
 @docs blur_sm
 @docs blur_xl
 @docs border
@@ -7800,7 +7810,7 @@ globalStyles =
         [ Css.property "box-sizing" "border-box"
         , Css.property "border-width" "0"
         , Css.property "border-style" "solid"
-        , Css.property "border-color" "#edf2f7"
+        , Css.property "border-color" "currentColor"
         ]
     , Css.Global.selector "hr"
         [ Css.property "border-top-width" "1px"
@@ -7845,10 +7855,14 @@ globalStyles =
         [ Css.property "max-width" "100%"
         , Css.property "height" "auto"
         ]
-    , Css.Global.selector "*"
+    , Css.Global.selector "*, ::before, ::after"
+        [ Css.property "--tw-border-opacity" "1"
+        , Css.property "border-color" "rgba(237, 242, 247, var(--tw-border-opacity))"
+        ]
+    , Css.Global.selector "*, ::before, ::after"
         [ Css.property "--tw-shadow" "0 0 #0000"
         ]
-    , Css.Global.selector "*"
+    , Css.Global.selector "*, ::before, ::after"
         [ Css.property "--tw-ring-inset" "var(--tw-empty,/*!*/ /*!*/)"
         , Css.property "--tw-ring-offset-width" "0px"
         , Css.property "--tw-ring-offset-color" "#fff"
@@ -8356,6 +8370,22 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 backdrop_blur_md : Css.Style
 backdrop_blur_md =
     Css.property "--tw-backdrop-blur" "blur(12px)"
+
+
+{-| This class has the effect of following css declaration:
+
+```css
+.backdrop-blur-none {
+  --tw-backdrop-blur: blur(0)
+}
+```
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+backdrop_blur_none : Css.Style
+backdrop_blur_none =
+    Css.property "--tw-backdrop-blur" "blur(0)"
 
 
 {-| This class has the effect of following css declaration:
@@ -11061,6 +11091,54 @@ bg_orange_900 =
 {-| This class has the effect of following css declaration:
 
 ```css
+.bg-origin-border {
+  background-origin: border-box
+}
+```
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+bg_origin_border : Css.Style
+bg_origin_border =
+    Css.property "background-origin" "border-box"
+
+
+{-| This class has the effect of following css declaration:
+
+```css
+.bg-origin-content {
+  background-origin: content-box
+}
+```
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+bg_origin_content : Css.Style
+bg_origin_content =
+    Css.property "background-origin" "content-box"
+
+
+{-| This class has the effect of following css declaration:
+
+```css
+.bg-origin-padding {
+  background-origin: padding-box
+}
+```
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+bg_origin_padding : Css.Style
+bg_origin_padding =
+    Css.property "background-origin" "padding-box"
+
+
+{-| This class has the effect of following css declaration:
+
+```css
 .bg-pink-100 {
   --tw-bg-opacity: 1;
   background-color: rgba(255, 245, 247, var(--tw-bg-opacity))
@@ -12264,6 +12342,22 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 blur_md : Css.Style
 blur_md =
     Css.property "--tw-blur" "blur(12px)"
+
+
+{-| This class has the effect of following css declaration:
+
+```css
+.blur-none {
+  --tw-blur: blur(0)
+}
+```
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+blur_none : Css.Style
+blur_none =
+    Css.property "--tw-blur" "blur(0)"
 
 
 {-| This class has the effect of following css declaration:
@@ -27179,8 +27273,8 @@ inset_px =
 
 ```css
 .inset-x-0 {
-  right: 0px;
-  left: 0px
+  left: 0px;
+  right: 0px
 }
 ```
 
@@ -27190,8 +27284,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_0 : Css.Style
 inset_x_0 =
     Css.batch
-        [ Css.property "right" "0px"
-        , Css.property "left" "0px"
+        [ Css.property "left" "0px"
+        , Css.property "right" "0px"
         ]
 
 
@@ -27199,8 +27293,8 @@ inset_x_0 =
 
 ```css
 .inset-x-0\.5 {
-  right: 0.125rem;
-  left: 0.125rem
+  left: 0.125rem;
+  right: 0.125rem
 }
 ```
 
@@ -27210,8 +27304,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_0_dot_5 : Css.Style
 inset_x_0_dot_5 =
     Css.batch
-        [ Css.property "right" "0.125rem"
-        , Css.property "left" "0.125rem"
+        [ Css.property "left" "0.125rem"
+        , Css.property "right" "0.125rem"
         ]
 
 
@@ -27219,8 +27313,8 @@ inset_x_0_dot_5 =
 
 ```css
 .inset-x-1 {
-  right: 0.25rem;
-  left: 0.25rem
+  left: 0.25rem;
+  right: 0.25rem
 }
 ```
 
@@ -27230,8 +27324,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_1 : Css.Style
 inset_x_1 =
     Css.batch
-        [ Css.property "right" "0.25rem"
-        , Css.property "left" "0.25rem"
+        [ Css.property "left" "0.25rem"
+        , Css.property "right" "0.25rem"
         ]
 
 
@@ -27239,8 +27333,8 @@ inset_x_1 =
 
 ```css
 .inset-x-10 {
-  right: 2.5rem;
-  left: 2.5rem
+  left: 2.5rem;
+  right: 2.5rem
 }
 ```
 
@@ -27250,8 +27344,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_10 : Css.Style
 inset_x_10 =
     Css.batch
-        [ Css.property "right" "2.5rem"
-        , Css.property "left" "2.5rem"
+        [ Css.property "left" "2.5rem"
+        , Css.property "right" "2.5rem"
         ]
 
 
@@ -27259,8 +27353,8 @@ inset_x_10 =
 
 ```css
 .inset-x-11 {
-  right: 2.75rem;
-  left: 2.75rem
+  left: 2.75rem;
+  right: 2.75rem
 }
 ```
 
@@ -27270,8 +27364,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_11 : Css.Style
 inset_x_11 =
     Css.batch
-        [ Css.property "right" "2.75rem"
-        , Css.property "left" "2.75rem"
+        [ Css.property "left" "2.75rem"
+        , Css.property "right" "2.75rem"
         ]
 
 
@@ -27279,8 +27373,8 @@ inset_x_11 =
 
 ```css
 .inset-x-12 {
-  right: 3rem;
-  left: 3rem
+  left: 3rem;
+  right: 3rem
 }
 ```
 
@@ -27290,8 +27384,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_12 : Css.Style
 inset_x_12 =
     Css.batch
-        [ Css.property "right" "3rem"
-        , Css.property "left" "3rem"
+        [ Css.property "left" "3rem"
+        , Css.property "right" "3rem"
         ]
 
 
@@ -27299,8 +27393,8 @@ inset_x_12 =
 
 ```css
 .inset-x-14 {
-  right: 3.5rem;
-  left: 3.5rem
+  left: 3.5rem;
+  right: 3.5rem
 }
 ```
 
@@ -27310,8 +27404,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_14 : Css.Style
 inset_x_14 =
     Css.batch
-        [ Css.property "right" "3.5rem"
-        , Css.property "left" "3.5rem"
+        [ Css.property "left" "3.5rem"
+        , Css.property "right" "3.5rem"
         ]
 
 
@@ -27319,8 +27413,8 @@ inset_x_14 =
 
 ```css
 .inset-x-16 {
-  right: 4rem;
-  left: 4rem
+  left: 4rem;
+  right: 4rem
 }
 ```
 
@@ -27330,8 +27424,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_16 : Css.Style
 inset_x_16 =
     Css.batch
-        [ Css.property "right" "4rem"
-        , Css.property "left" "4rem"
+        [ Css.property "left" "4rem"
+        , Css.property "right" "4rem"
         ]
 
 
@@ -27339,8 +27433,8 @@ inset_x_16 =
 
 ```css
 .inset-x-1\.5 {
-  right: 0.375rem;
-  left: 0.375rem
+  left: 0.375rem;
+  right: 0.375rem
 }
 ```
 
@@ -27350,8 +27444,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_1_dot_5 : Css.Style
 inset_x_1_dot_5 =
     Css.batch
-        [ Css.property "right" "0.375rem"
-        , Css.property "left" "0.375rem"
+        [ Css.property "left" "0.375rem"
+        , Css.property "right" "0.375rem"
         ]
 
 
@@ -27359,8 +27453,8 @@ inset_x_1_dot_5 =
 
 ```css
 .inset-x-1\/2 {
-  right: 50%;
-  left: 50%
+  left: 50%;
+  right: 50%
 }
 ```
 
@@ -27370,8 +27464,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_1over2 : Css.Style
 inset_x_1over2 =
     Css.batch
-        [ Css.property "right" "50%"
-        , Css.property "left" "50%"
+        [ Css.property "left" "50%"
+        , Css.property "right" "50%"
         ]
 
 
@@ -27379,8 +27473,8 @@ inset_x_1over2 =
 
 ```css
 .inset-x-1\/3 {
-  right: 33.333333%;
-  left: 33.333333%
+  left: 33.333333%;
+  right: 33.333333%
 }
 ```
 
@@ -27390,8 +27484,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_1over3 : Css.Style
 inset_x_1over3 =
     Css.batch
-        [ Css.property "right" "33.333333%"
-        , Css.property "left" "33.333333%"
+        [ Css.property "left" "33.333333%"
+        , Css.property "right" "33.333333%"
         ]
 
 
@@ -27399,8 +27493,8 @@ inset_x_1over3 =
 
 ```css
 .inset-x-1\/4 {
-  right: 25%;
-  left: 25%
+  left: 25%;
+  right: 25%
 }
 ```
 
@@ -27410,8 +27504,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_1over4 : Css.Style
 inset_x_1over4 =
     Css.batch
-        [ Css.property "right" "25%"
-        , Css.property "left" "25%"
+        [ Css.property "left" "25%"
+        , Css.property "right" "25%"
         ]
 
 
@@ -27419,8 +27513,8 @@ inset_x_1over4 =
 
 ```css
 .inset-x-2 {
-  right: 0.5rem;
-  left: 0.5rem
+  left: 0.5rem;
+  right: 0.5rem
 }
 ```
 
@@ -27430,8 +27524,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_2 : Css.Style
 inset_x_2 =
     Css.batch
-        [ Css.property "right" "0.5rem"
-        , Css.property "left" "0.5rem"
+        [ Css.property "left" "0.5rem"
+        , Css.property "right" "0.5rem"
         ]
 
 
@@ -27439,8 +27533,8 @@ inset_x_2 =
 
 ```css
 .inset-x-20 {
-  right: 5rem;
-  left: 5rem
+  left: 5rem;
+  right: 5rem
 }
 ```
 
@@ -27450,8 +27544,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_20 : Css.Style
 inset_x_20 =
     Css.batch
-        [ Css.property "right" "5rem"
-        , Css.property "left" "5rem"
+        [ Css.property "left" "5rem"
+        , Css.property "right" "5rem"
         ]
 
 
@@ -27459,8 +27553,8 @@ inset_x_20 =
 
 ```css
 .inset-x-24 {
-  right: 6rem;
-  left: 6rem
+  left: 6rem;
+  right: 6rem
 }
 ```
 
@@ -27470,8 +27564,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_24 : Css.Style
 inset_x_24 =
     Css.batch
-        [ Css.property "right" "6rem"
-        , Css.property "left" "6rem"
+        [ Css.property "left" "6rem"
+        , Css.property "right" "6rem"
         ]
 
 
@@ -27479,8 +27573,8 @@ inset_x_24 =
 
 ```css
 .inset-x-28 {
-  right: 7rem;
-  left: 7rem
+  left: 7rem;
+  right: 7rem
 }
 ```
 
@@ -27490,8 +27584,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_28 : Css.Style
 inset_x_28 =
     Css.batch
-        [ Css.property "right" "7rem"
-        , Css.property "left" "7rem"
+        [ Css.property "left" "7rem"
+        , Css.property "right" "7rem"
         ]
 
 
@@ -27499,8 +27593,8 @@ inset_x_28 =
 
 ```css
 .inset-x-2\.5 {
-  right: 0.625rem;
-  left: 0.625rem
+  left: 0.625rem;
+  right: 0.625rem
 }
 ```
 
@@ -27510,8 +27604,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_2_dot_5 : Css.Style
 inset_x_2_dot_5 =
     Css.batch
-        [ Css.property "right" "0.625rem"
-        , Css.property "left" "0.625rem"
+        [ Css.property "left" "0.625rem"
+        , Css.property "right" "0.625rem"
         ]
 
 
@@ -27519,8 +27613,8 @@ inset_x_2_dot_5 =
 
 ```css
 .inset-x-2\/3 {
-  right: 66.666667%;
-  left: 66.666667%
+  left: 66.666667%;
+  right: 66.666667%
 }
 ```
 
@@ -27530,8 +27624,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_2over3 : Css.Style
 inset_x_2over3 =
     Css.batch
-        [ Css.property "right" "66.666667%"
-        , Css.property "left" "66.666667%"
+        [ Css.property "left" "66.666667%"
+        , Css.property "right" "66.666667%"
         ]
 
 
@@ -27539,8 +27633,8 @@ inset_x_2over3 =
 
 ```css
 .inset-x-2\/4 {
-  right: 50%;
-  left: 50%
+  left: 50%;
+  right: 50%
 }
 ```
 
@@ -27550,8 +27644,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_2over4 : Css.Style
 inset_x_2over4 =
     Css.batch
-        [ Css.property "right" "50%"
-        , Css.property "left" "50%"
+        [ Css.property "left" "50%"
+        , Css.property "right" "50%"
         ]
 
 
@@ -27559,8 +27653,8 @@ inset_x_2over4 =
 
 ```css
 .inset-x-3 {
-  right: 0.75rem;
-  left: 0.75rem
+  left: 0.75rem;
+  right: 0.75rem
 }
 ```
 
@@ -27570,8 +27664,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_3 : Css.Style
 inset_x_3 =
     Css.batch
-        [ Css.property "right" "0.75rem"
-        , Css.property "left" "0.75rem"
+        [ Css.property "left" "0.75rem"
+        , Css.property "right" "0.75rem"
         ]
 
 
@@ -27579,8 +27673,8 @@ inset_x_3 =
 
 ```css
 .inset-x-32 {
-  right: 8rem;
-  left: 8rem
+  left: 8rem;
+  right: 8rem
 }
 ```
 
@@ -27590,8 +27684,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_32 : Css.Style
 inset_x_32 =
     Css.batch
-        [ Css.property "right" "8rem"
-        , Css.property "left" "8rem"
+        [ Css.property "left" "8rem"
+        , Css.property "right" "8rem"
         ]
 
 
@@ -27599,8 +27693,8 @@ inset_x_32 =
 
 ```css
 .inset-x-36 {
-  right: 9rem;
-  left: 9rem
+  left: 9rem;
+  right: 9rem
 }
 ```
 
@@ -27610,8 +27704,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_36 : Css.Style
 inset_x_36 =
     Css.batch
-        [ Css.property "right" "9rem"
-        , Css.property "left" "9rem"
+        [ Css.property "left" "9rem"
+        , Css.property "right" "9rem"
         ]
 
 
@@ -27619,8 +27713,8 @@ inset_x_36 =
 
 ```css
 .inset-x-3\.5 {
-  right: 0.875rem;
-  left: 0.875rem
+  left: 0.875rem;
+  right: 0.875rem
 }
 ```
 
@@ -27630,8 +27724,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_3_dot_5 : Css.Style
 inset_x_3_dot_5 =
     Css.batch
-        [ Css.property "right" "0.875rem"
-        , Css.property "left" "0.875rem"
+        [ Css.property "left" "0.875rem"
+        , Css.property "right" "0.875rem"
         ]
 
 
@@ -27639,8 +27733,8 @@ inset_x_3_dot_5 =
 
 ```css
 .inset-x-3\/4 {
-  right: 75%;
-  left: 75%
+  left: 75%;
+  right: 75%
 }
 ```
 
@@ -27650,8 +27744,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_3over4 : Css.Style
 inset_x_3over4 =
     Css.batch
-        [ Css.property "right" "75%"
-        , Css.property "left" "75%"
+        [ Css.property "left" "75%"
+        , Css.property "right" "75%"
         ]
 
 
@@ -27659,8 +27753,8 @@ inset_x_3over4 =
 
 ```css
 .inset-x-4 {
-  right: 1rem;
-  left: 1rem
+  left: 1rem;
+  right: 1rem
 }
 ```
 
@@ -27670,8 +27764,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_4 : Css.Style
 inset_x_4 =
     Css.batch
-        [ Css.property "right" "1rem"
-        , Css.property "left" "1rem"
+        [ Css.property "left" "1rem"
+        , Css.property "right" "1rem"
         ]
 
 
@@ -27679,8 +27773,8 @@ inset_x_4 =
 
 ```css
 .inset-x-40 {
-  right: 10rem;
-  left: 10rem
+  left: 10rem;
+  right: 10rem
 }
 ```
 
@@ -27690,8 +27784,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_40 : Css.Style
 inset_x_40 =
     Css.batch
-        [ Css.property "right" "10rem"
-        , Css.property "left" "10rem"
+        [ Css.property "left" "10rem"
+        , Css.property "right" "10rem"
         ]
 
 
@@ -27699,8 +27793,8 @@ inset_x_40 =
 
 ```css
 .inset-x-44 {
-  right: 11rem;
-  left: 11rem
+  left: 11rem;
+  right: 11rem
 }
 ```
 
@@ -27710,8 +27804,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_44 : Css.Style
 inset_x_44 =
     Css.batch
-        [ Css.property "right" "11rem"
-        , Css.property "left" "11rem"
+        [ Css.property "left" "11rem"
+        , Css.property "right" "11rem"
         ]
 
 
@@ -27719,8 +27813,8 @@ inset_x_44 =
 
 ```css
 .inset-x-48 {
-  right: 12rem;
-  left: 12rem
+  left: 12rem;
+  right: 12rem
 }
 ```
 
@@ -27730,8 +27824,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_48 : Css.Style
 inset_x_48 =
     Css.batch
-        [ Css.property "right" "12rem"
-        , Css.property "left" "12rem"
+        [ Css.property "left" "12rem"
+        , Css.property "right" "12rem"
         ]
 
 
@@ -27739,8 +27833,8 @@ inset_x_48 =
 
 ```css
 .inset-x-5 {
-  right: 1.25rem;
-  left: 1.25rem
+  left: 1.25rem;
+  right: 1.25rem
 }
 ```
 
@@ -27750,8 +27844,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_5 : Css.Style
 inset_x_5 =
     Css.batch
-        [ Css.property "right" "1.25rem"
-        , Css.property "left" "1.25rem"
+        [ Css.property "left" "1.25rem"
+        , Css.property "right" "1.25rem"
         ]
 
 
@@ -27759,8 +27853,8 @@ inset_x_5 =
 
 ```css
 .inset-x-52 {
-  right: 13rem;
-  left: 13rem
+  left: 13rem;
+  right: 13rem
 }
 ```
 
@@ -27770,8 +27864,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_52 : Css.Style
 inset_x_52 =
     Css.batch
-        [ Css.property "right" "13rem"
-        , Css.property "left" "13rem"
+        [ Css.property "left" "13rem"
+        , Css.property "right" "13rem"
         ]
 
 
@@ -27779,8 +27873,8 @@ inset_x_52 =
 
 ```css
 .inset-x-56 {
-  right: 14rem;
-  left: 14rem
+  left: 14rem;
+  right: 14rem
 }
 ```
 
@@ -27790,8 +27884,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_56 : Css.Style
 inset_x_56 =
     Css.batch
-        [ Css.property "right" "14rem"
-        , Css.property "left" "14rem"
+        [ Css.property "left" "14rem"
+        , Css.property "right" "14rem"
         ]
 
 
@@ -27799,8 +27893,8 @@ inset_x_56 =
 
 ```css
 .inset-x-6 {
-  right: 1.5rem;
-  left: 1.5rem
+  left: 1.5rem;
+  right: 1.5rem
 }
 ```
 
@@ -27810,8 +27904,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_6 : Css.Style
 inset_x_6 =
     Css.batch
-        [ Css.property "right" "1.5rem"
-        , Css.property "left" "1.5rem"
+        [ Css.property "left" "1.5rem"
+        , Css.property "right" "1.5rem"
         ]
 
 
@@ -27819,8 +27913,8 @@ inset_x_6 =
 
 ```css
 .inset-x-60 {
-  right: 15rem;
-  left: 15rem
+  left: 15rem;
+  right: 15rem
 }
 ```
 
@@ -27830,8 +27924,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_60 : Css.Style
 inset_x_60 =
     Css.batch
-        [ Css.property "right" "15rem"
-        , Css.property "left" "15rem"
+        [ Css.property "left" "15rem"
+        , Css.property "right" "15rem"
         ]
 
 
@@ -27839,8 +27933,8 @@ inset_x_60 =
 
 ```css
 .inset-x-64 {
-  right: 16rem;
-  left: 16rem
+  left: 16rem;
+  right: 16rem
 }
 ```
 
@@ -27850,8 +27944,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_64 : Css.Style
 inset_x_64 =
     Css.batch
-        [ Css.property "right" "16rem"
-        , Css.property "left" "16rem"
+        [ Css.property "left" "16rem"
+        , Css.property "right" "16rem"
         ]
 
 
@@ -27859,8 +27953,8 @@ inset_x_64 =
 
 ```css
 .inset-x-7 {
-  right: 1.75rem;
-  left: 1.75rem
+  left: 1.75rem;
+  right: 1.75rem
 }
 ```
 
@@ -27870,8 +27964,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_7 : Css.Style
 inset_x_7 =
     Css.batch
-        [ Css.property "right" "1.75rem"
-        , Css.property "left" "1.75rem"
+        [ Css.property "left" "1.75rem"
+        , Css.property "right" "1.75rem"
         ]
 
 
@@ -27879,8 +27973,8 @@ inset_x_7 =
 
 ```css
 .inset-x-72 {
-  right: 18rem;
-  left: 18rem
+  left: 18rem;
+  right: 18rem
 }
 ```
 
@@ -27890,8 +27984,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_72 : Css.Style
 inset_x_72 =
     Css.batch
-        [ Css.property "right" "18rem"
-        , Css.property "left" "18rem"
+        [ Css.property "left" "18rem"
+        , Css.property "right" "18rem"
         ]
 
 
@@ -27899,8 +27993,8 @@ inset_x_72 =
 
 ```css
 .inset-x-8 {
-  right: 2rem;
-  left: 2rem
+  left: 2rem;
+  right: 2rem
 }
 ```
 
@@ -27910,8 +28004,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_8 : Css.Style
 inset_x_8 =
     Css.batch
-        [ Css.property "right" "2rem"
-        , Css.property "left" "2rem"
+        [ Css.property "left" "2rem"
+        , Css.property "right" "2rem"
         ]
 
 
@@ -27919,8 +28013,8 @@ inset_x_8 =
 
 ```css
 .inset-x-80 {
-  right: 20rem;
-  left: 20rem
+  left: 20rem;
+  right: 20rem
 }
 ```
 
@@ -27930,8 +28024,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_80 : Css.Style
 inset_x_80 =
     Css.batch
-        [ Css.property "right" "20rem"
-        , Css.property "left" "20rem"
+        [ Css.property "left" "20rem"
+        , Css.property "right" "20rem"
         ]
 
 
@@ -27939,8 +28033,8 @@ inset_x_80 =
 
 ```css
 .inset-x-9 {
-  right: 2.25rem;
-  left: 2.25rem
+  left: 2.25rem;
+  right: 2.25rem
 }
 ```
 
@@ -27950,8 +28044,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_9 : Css.Style
 inset_x_9 =
     Css.batch
-        [ Css.property "right" "2.25rem"
-        , Css.property "left" "2.25rem"
+        [ Css.property "left" "2.25rem"
+        , Css.property "right" "2.25rem"
         ]
 
 
@@ -27959,8 +28053,8 @@ inset_x_9 =
 
 ```css
 .inset-x-96 {
-  right: 24rem;
-  left: 24rem
+  left: 24rem;
+  right: 24rem
 }
 ```
 
@@ -27970,8 +28064,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_96 : Css.Style
 inset_x_96 =
     Css.batch
-        [ Css.property "right" "24rem"
-        , Css.property "left" "24rem"
+        [ Css.property "left" "24rem"
+        , Css.property "right" "24rem"
         ]
 
 
@@ -27979,8 +28073,8 @@ inset_x_96 =
 
 ```css
 .inset-x-auto {
-  right: auto;
-  left: auto
+  left: auto;
+  right: auto
 }
 ```
 
@@ -27990,8 +28084,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_auto : Css.Style
 inset_x_auto =
     Css.batch
-        [ Css.property "right" "auto"
-        , Css.property "left" "auto"
+        [ Css.property "left" "auto"
+        , Css.property "right" "auto"
         ]
 
 
@@ -27999,8 +28093,8 @@ inset_x_auto =
 
 ```css
 .inset-x-full {
-  right: 100%;
-  left: 100%
+  left: 100%;
+  right: 100%
 }
 ```
 
@@ -28010,8 +28104,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_full : Css.Style
 inset_x_full =
     Css.batch
-        [ Css.property "right" "100%"
-        , Css.property "left" "100%"
+        [ Css.property "left" "100%"
+        , Css.property "right" "100%"
         ]
 
 
@@ -28019,8 +28113,8 @@ inset_x_full =
 
 ```css
 .inset-x-px {
-  right: 1px;
-  left: 1px
+  left: 1px;
+  right: 1px
 }
 ```
 
@@ -28030,8 +28124,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 inset_x_px : Css.Style
 inset_x_px =
     Css.batch
-        [ Css.property "right" "1px"
-        , Css.property "left" "1px"
+        [ Css.property "left" "1px"
+        , Css.property "right" "1px"
         ]
 
 
@@ -37860,8 +37954,8 @@ neg_inset_px =
 
 ```css
 .-inset-x-0 {
-  right: 0px;
-  left: 0px
+  left: 0px;
+  right: 0px
 }
 ```
 
@@ -37871,8 +37965,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_0 : Css.Style
 neg_inset_x_0 =
     Css.batch
-        [ Css.property "right" "0px"
-        , Css.property "left" "0px"
+        [ Css.property "left" "0px"
+        , Css.property "right" "0px"
         ]
 
 
@@ -37880,8 +37974,8 @@ neg_inset_x_0 =
 
 ```css
 .-inset-x-0\.5 {
-  right: -0.125rem;
-  left: -0.125rem
+  left: -0.125rem;
+  right: -0.125rem
 }
 ```
 
@@ -37891,8 +37985,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_0_dot_5 : Css.Style
 neg_inset_x_0_dot_5 =
     Css.batch
-        [ Css.property "right" "-0.125rem"
-        , Css.property "left" "-0.125rem"
+        [ Css.property "left" "-0.125rem"
+        , Css.property "right" "-0.125rem"
         ]
 
 
@@ -37900,8 +37994,8 @@ neg_inset_x_0_dot_5 =
 
 ```css
 .-inset-x-1 {
-  right: -0.25rem;
-  left: -0.25rem
+  left: -0.25rem;
+  right: -0.25rem
 }
 ```
 
@@ -37911,8 +38005,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_1 : Css.Style
 neg_inset_x_1 =
     Css.batch
-        [ Css.property "right" "-0.25rem"
-        , Css.property "left" "-0.25rem"
+        [ Css.property "left" "-0.25rem"
+        , Css.property "right" "-0.25rem"
         ]
 
 
@@ -37920,8 +38014,8 @@ neg_inset_x_1 =
 
 ```css
 .-inset-x-10 {
-  right: -2.5rem;
-  left: -2.5rem
+  left: -2.5rem;
+  right: -2.5rem
 }
 ```
 
@@ -37931,8 +38025,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_10 : Css.Style
 neg_inset_x_10 =
     Css.batch
-        [ Css.property "right" "-2.5rem"
-        , Css.property "left" "-2.5rem"
+        [ Css.property "left" "-2.5rem"
+        , Css.property "right" "-2.5rem"
         ]
 
 
@@ -37940,8 +38034,8 @@ neg_inset_x_10 =
 
 ```css
 .-inset-x-11 {
-  right: -2.75rem;
-  left: -2.75rem
+  left: -2.75rem;
+  right: -2.75rem
 }
 ```
 
@@ -37951,8 +38045,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_11 : Css.Style
 neg_inset_x_11 =
     Css.batch
-        [ Css.property "right" "-2.75rem"
-        , Css.property "left" "-2.75rem"
+        [ Css.property "left" "-2.75rem"
+        , Css.property "right" "-2.75rem"
         ]
 
 
@@ -37960,8 +38054,8 @@ neg_inset_x_11 =
 
 ```css
 .-inset-x-12 {
-  right: -3rem;
-  left: -3rem
+  left: -3rem;
+  right: -3rem
 }
 ```
 
@@ -37971,8 +38065,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_12 : Css.Style
 neg_inset_x_12 =
     Css.batch
-        [ Css.property "right" "-3rem"
-        , Css.property "left" "-3rem"
+        [ Css.property "left" "-3rem"
+        , Css.property "right" "-3rem"
         ]
 
 
@@ -37980,8 +38074,8 @@ neg_inset_x_12 =
 
 ```css
 .-inset-x-14 {
-  right: -3.5rem;
-  left: -3.5rem
+  left: -3.5rem;
+  right: -3.5rem
 }
 ```
 
@@ -37991,8 +38085,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_14 : Css.Style
 neg_inset_x_14 =
     Css.batch
-        [ Css.property "right" "-3.5rem"
-        , Css.property "left" "-3.5rem"
+        [ Css.property "left" "-3.5rem"
+        , Css.property "right" "-3.5rem"
         ]
 
 
@@ -38000,8 +38094,8 @@ neg_inset_x_14 =
 
 ```css
 .-inset-x-16 {
-  right: -4rem;
-  left: -4rem
+  left: -4rem;
+  right: -4rem
 }
 ```
 
@@ -38011,8 +38105,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_16 : Css.Style
 neg_inset_x_16 =
     Css.batch
-        [ Css.property "right" "-4rem"
-        , Css.property "left" "-4rem"
+        [ Css.property "left" "-4rem"
+        , Css.property "right" "-4rem"
         ]
 
 
@@ -38020,8 +38114,8 @@ neg_inset_x_16 =
 
 ```css
 .-inset-x-1\.5 {
-  right: -0.375rem;
-  left: -0.375rem
+  left: -0.375rem;
+  right: -0.375rem
 }
 ```
 
@@ -38031,8 +38125,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_1_dot_5 : Css.Style
 neg_inset_x_1_dot_5 =
     Css.batch
-        [ Css.property "right" "-0.375rem"
-        , Css.property "left" "-0.375rem"
+        [ Css.property "left" "-0.375rem"
+        , Css.property "right" "-0.375rem"
         ]
 
 
@@ -38040,8 +38134,8 @@ neg_inset_x_1_dot_5 =
 
 ```css
 .-inset-x-1\/2 {
-  right: -50%;
-  left: -50%
+  left: -50%;
+  right: -50%
 }
 ```
 
@@ -38051,8 +38145,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_1over2 : Css.Style
 neg_inset_x_1over2 =
     Css.batch
-        [ Css.property "right" "-50%"
-        , Css.property "left" "-50%"
+        [ Css.property "left" "-50%"
+        , Css.property "right" "-50%"
         ]
 
 
@@ -38060,8 +38154,8 @@ neg_inset_x_1over2 =
 
 ```css
 .-inset-x-1\/3 {
-  right: -33.333333%;
-  left: -33.333333%
+  left: -33.333333%;
+  right: -33.333333%
 }
 ```
 
@@ -38071,8 +38165,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_1over3 : Css.Style
 neg_inset_x_1over3 =
     Css.batch
-        [ Css.property "right" "-33.333333%"
-        , Css.property "left" "-33.333333%"
+        [ Css.property "left" "-33.333333%"
+        , Css.property "right" "-33.333333%"
         ]
 
 
@@ -38080,8 +38174,8 @@ neg_inset_x_1over3 =
 
 ```css
 .-inset-x-1\/4 {
-  right: -25%;
-  left: -25%
+  left: -25%;
+  right: -25%
 }
 ```
 
@@ -38091,8 +38185,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_1over4 : Css.Style
 neg_inset_x_1over4 =
     Css.batch
-        [ Css.property "right" "-25%"
-        , Css.property "left" "-25%"
+        [ Css.property "left" "-25%"
+        , Css.property "right" "-25%"
         ]
 
 
@@ -38100,8 +38194,8 @@ neg_inset_x_1over4 =
 
 ```css
 .-inset-x-2 {
-  right: -0.5rem;
-  left: -0.5rem
+  left: -0.5rem;
+  right: -0.5rem
 }
 ```
 
@@ -38111,8 +38205,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_2 : Css.Style
 neg_inset_x_2 =
     Css.batch
-        [ Css.property "right" "-0.5rem"
-        , Css.property "left" "-0.5rem"
+        [ Css.property "left" "-0.5rem"
+        , Css.property "right" "-0.5rem"
         ]
 
 
@@ -38120,8 +38214,8 @@ neg_inset_x_2 =
 
 ```css
 .-inset-x-20 {
-  right: -5rem;
-  left: -5rem
+  left: -5rem;
+  right: -5rem
 }
 ```
 
@@ -38131,8 +38225,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_20 : Css.Style
 neg_inset_x_20 =
     Css.batch
-        [ Css.property "right" "-5rem"
-        , Css.property "left" "-5rem"
+        [ Css.property "left" "-5rem"
+        , Css.property "right" "-5rem"
         ]
 
 
@@ -38140,8 +38234,8 @@ neg_inset_x_20 =
 
 ```css
 .-inset-x-24 {
-  right: -6rem;
-  left: -6rem
+  left: -6rem;
+  right: -6rem
 }
 ```
 
@@ -38151,8 +38245,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_24 : Css.Style
 neg_inset_x_24 =
     Css.batch
-        [ Css.property "right" "-6rem"
-        , Css.property "left" "-6rem"
+        [ Css.property "left" "-6rem"
+        , Css.property "right" "-6rem"
         ]
 
 
@@ -38160,8 +38254,8 @@ neg_inset_x_24 =
 
 ```css
 .-inset-x-28 {
-  right: -7rem;
-  left: -7rem
+  left: -7rem;
+  right: -7rem
 }
 ```
 
@@ -38171,8 +38265,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_28 : Css.Style
 neg_inset_x_28 =
     Css.batch
-        [ Css.property "right" "-7rem"
-        , Css.property "left" "-7rem"
+        [ Css.property "left" "-7rem"
+        , Css.property "right" "-7rem"
         ]
 
 
@@ -38180,8 +38274,8 @@ neg_inset_x_28 =
 
 ```css
 .-inset-x-2\.5 {
-  right: -0.625rem;
-  left: -0.625rem
+  left: -0.625rem;
+  right: -0.625rem
 }
 ```
 
@@ -38191,8 +38285,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_2_dot_5 : Css.Style
 neg_inset_x_2_dot_5 =
     Css.batch
-        [ Css.property "right" "-0.625rem"
-        , Css.property "left" "-0.625rem"
+        [ Css.property "left" "-0.625rem"
+        , Css.property "right" "-0.625rem"
         ]
 
 
@@ -38200,8 +38294,8 @@ neg_inset_x_2_dot_5 =
 
 ```css
 .-inset-x-2\/3 {
-  right: -66.666667%;
-  left: -66.666667%
+  left: -66.666667%;
+  right: -66.666667%
 }
 ```
 
@@ -38211,8 +38305,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_2over3 : Css.Style
 neg_inset_x_2over3 =
     Css.batch
-        [ Css.property "right" "-66.666667%"
-        , Css.property "left" "-66.666667%"
+        [ Css.property "left" "-66.666667%"
+        , Css.property "right" "-66.666667%"
         ]
 
 
@@ -38220,8 +38314,8 @@ neg_inset_x_2over3 =
 
 ```css
 .-inset-x-2\/4 {
-  right: -50%;
-  left: -50%
+  left: -50%;
+  right: -50%
 }
 ```
 
@@ -38231,8 +38325,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_2over4 : Css.Style
 neg_inset_x_2over4 =
     Css.batch
-        [ Css.property "right" "-50%"
-        , Css.property "left" "-50%"
+        [ Css.property "left" "-50%"
+        , Css.property "right" "-50%"
         ]
 
 
@@ -38240,8 +38334,8 @@ neg_inset_x_2over4 =
 
 ```css
 .-inset-x-3 {
-  right: -0.75rem;
-  left: -0.75rem
+  left: -0.75rem;
+  right: -0.75rem
 }
 ```
 
@@ -38251,8 +38345,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_3 : Css.Style
 neg_inset_x_3 =
     Css.batch
-        [ Css.property "right" "-0.75rem"
-        , Css.property "left" "-0.75rem"
+        [ Css.property "left" "-0.75rem"
+        , Css.property "right" "-0.75rem"
         ]
 
 
@@ -38260,8 +38354,8 @@ neg_inset_x_3 =
 
 ```css
 .-inset-x-32 {
-  right: -8rem;
-  left: -8rem
+  left: -8rem;
+  right: -8rem
 }
 ```
 
@@ -38271,8 +38365,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_32 : Css.Style
 neg_inset_x_32 =
     Css.batch
-        [ Css.property "right" "-8rem"
-        , Css.property "left" "-8rem"
+        [ Css.property "left" "-8rem"
+        , Css.property "right" "-8rem"
         ]
 
 
@@ -38280,8 +38374,8 @@ neg_inset_x_32 =
 
 ```css
 .-inset-x-36 {
-  right: -9rem;
-  left: -9rem
+  left: -9rem;
+  right: -9rem
 }
 ```
 
@@ -38291,8 +38385,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_36 : Css.Style
 neg_inset_x_36 =
     Css.batch
-        [ Css.property "right" "-9rem"
-        , Css.property "left" "-9rem"
+        [ Css.property "left" "-9rem"
+        , Css.property "right" "-9rem"
         ]
 
 
@@ -38300,8 +38394,8 @@ neg_inset_x_36 =
 
 ```css
 .-inset-x-3\.5 {
-  right: -0.875rem;
-  left: -0.875rem
+  left: -0.875rem;
+  right: -0.875rem
 }
 ```
 
@@ -38311,8 +38405,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_3_dot_5 : Css.Style
 neg_inset_x_3_dot_5 =
     Css.batch
-        [ Css.property "right" "-0.875rem"
-        , Css.property "left" "-0.875rem"
+        [ Css.property "left" "-0.875rem"
+        , Css.property "right" "-0.875rem"
         ]
 
 
@@ -38320,8 +38414,8 @@ neg_inset_x_3_dot_5 =
 
 ```css
 .-inset-x-3\/4 {
-  right: -75%;
-  left: -75%
+  left: -75%;
+  right: -75%
 }
 ```
 
@@ -38331,8 +38425,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_3over4 : Css.Style
 neg_inset_x_3over4 =
     Css.batch
-        [ Css.property "right" "-75%"
-        , Css.property "left" "-75%"
+        [ Css.property "left" "-75%"
+        , Css.property "right" "-75%"
         ]
 
 
@@ -38340,8 +38434,8 @@ neg_inset_x_3over4 =
 
 ```css
 .-inset-x-4 {
-  right: -1rem;
-  left: -1rem
+  left: -1rem;
+  right: -1rem
 }
 ```
 
@@ -38351,8 +38445,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_4 : Css.Style
 neg_inset_x_4 =
     Css.batch
-        [ Css.property "right" "-1rem"
-        , Css.property "left" "-1rem"
+        [ Css.property "left" "-1rem"
+        , Css.property "right" "-1rem"
         ]
 
 
@@ -38360,8 +38454,8 @@ neg_inset_x_4 =
 
 ```css
 .-inset-x-40 {
-  right: -10rem;
-  left: -10rem
+  left: -10rem;
+  right: -10rem
 }
 ```
 
@@ -38371,8 +38465,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_40 : Css.Style
 neg_inset_x_40 =
     Css.batch
-        [ Css.property "right" "-10rem"
-        , Css.property "left" "-10rem"
+        [ Css.property "left" "-10rem"
+        , Css.property "right" "-10rem"
         ]
 
 
@@ -38380,8 +38474,8 @@ neg_inset_x_40 =
 
 ```css
 .-inset-x-44 {
-  right: -11rem;
-  left: -11rem
+  left: -11rem;
+  right: -11rem
 }
 ```
 
@@ -38391,8 +38485,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_44 : Css.Style
 neg_inset_x_44 =
     Css.batch
-        [ Css.property "right" "-11rem"
-        , Css.property "left" "-11rem"
+        [ Css.property "left" "-11rem"
+        , Css.property "right" "-11rem"
         ]
 
 
@@ -38400,8 +38494,8 @@ neg_inset_x_44 =
 
 ```css
 .-inset-x-48 {
-  right: -12rem;
-  left: -12rem
+  left: -12rem;
+  right: -12rem
 }
 ```
 
@@ -38411,8 +38505,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_48 : Css.Style
 neg_inset_x_48 =
     Css.batch
-        [ Css.property "right" "-12rem"
-        , Css.property "left" "-12rem"
+        [ Css.property "left" "-12rem"
+        , Css.property "right" "-12rem"
         ]
 
 
@@ -38420,8 +38514,8 @@ neg_inset_x_48 =
 
 ```css
 .-inset-x-5 {
-  right: -1.25rem;
-  left: -1.25rem
+  left: -1.25rem;
+  right: -1.25rem
 }
 ```
 
@@ -38431,8 +38525,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_5 : Css.Style
 neg_inset_x_5 =
     Css.batch
-        [ Css.property "right" "-1.25rem"
-        , Css.property "left" "-1.25rem"
+        [ Css.property "left" "-1.25rem"
+        , Css.property "right" "-1.25rem"
         ]
 
 
@@ -38440,8 +38534,8 @@ neg_inset_x_5 =
 
 ```css
 .-inset-x-52 {
-  right: -13rem;
-  left: -13rem
+  left: -13rem;
+  right: -13rem
 }
 ```
 
@@ -38451,8 +38545,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_52 : Css.Style
 neg_inset_x_52 =
     Css.batch
-        [ Css.property "right" "-13rem"
-        , Css.property "left" "-13rem"
+        [ Css.property "left" "-13rem"
+        , Css.property "right" "-13rem"
         ]
 
 
@@ -38460,8 +38554,8 @@ neg_inset_x_52 =
 
 ```css
 .-inset-x-56 {
-  right: -14rem;
-  left: -14rem
+  left: -14rem;
+  right: -14rem
 }
 ```
 
@@ -38471,8 +38565,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_56 : Css.Style
 neg_inset_x_56 =
     Css.batch
-        [ Css.property "right" "-14rem"
-        , Css.property "left" "-14rem"
+        [ Css.property "left" "-14rem"
+        , Css.property "right" "-14rem"
         ]
 
 
@@ -38480,8 +38574,8 @@ neg_inset_x_56 =
 
 ```css
 .-inset-x-6 {
-  right: -1.5rem;
-  left: -1.5rem
+  left: -1.5rem;
+  right: -1.5rem
 }
 ```
 
@@ -38491,8 +38585,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_6 : Css.Style
 neg_inset_x_6 =
     Css.batch
-        [ Css.property "right" "-1.5rem"
-        , Css.property "left" "-1.5rem"
+        [ Css.property "left" "-1.5rem"
+        , Css.property "right" "-1.5rem"
         ]
 
 
@@ -38500,8 +38594,8 @@ neg_inset_x_6 =
 
 ```css
 .-inset-x-60 {
-  right: -15rem;
-  left: -15rem
+  left: -15rem;
+  right: -15rem
 }
 ```
 
@@ -38511,8 +38605,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_60 : Css.Style
 neg_inset_x_60 =
     Css.batch
-        [ Css.property "right" "-15rem"
-        , Css.property "left" "-15rem"
+        [ Css.property "left" "-15rem"
+        , Css.property "right" "-15rem"
         ]
 
 
@@ -38520,8 +38614,8 @@ neg_inset_x_60 =
 
 ```css
 .-inset-x-64 {
-  right: -16rem;
-  left: -16rem
+  left: -16rem;
+  right: -16rem
 }
 ```
 
@@ -38531,8 +38625,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_64 : Css.Style
 neg_inset_x_64 =
     Css.batch
-        [ Css.property "right" "-16rem"
-        , Css.property "left" "-16rem"
+        [ Css.property "left" "-16rem"
+        , Css.property "right" "-16rem"
         ]
 
 
@@ -38540,8 +38634,8 @@ neg_inset_x_64 =
 
 ```css
 .-inset-x-7 {
-  right: -1.75rem;
-  left: -1.75rem
+  left: -1.75rem;
+  right: -1.75rem
 }
 ```
 
@@ -38551,8 +38645,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_7 : Css.Style
 neg_inset_x_7 =
     Css.batch
-        [ Css.property "right" "-1.75rem"
-        , Css.property "left" "-1.75rem"
+        [ Css.property "left" "-1.75rem"
+        , Css.property "right" "-1.75rem"
         ]
 
 
@@ -38560,8 +38654,8 @@ neg_inset_x_7 =
 
 ```css
 .-inset-x-72 {
-  right: -18rem;
-  left: -18rem
+  left: -18rem;
+  right: -18rem
 }
 ```
 
@@ -38571,8 +38665,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_72 : Css.Style
 neg_inset_x_72 =
     Css.batch
-        [ Css.property "right" "-18rem"
-        , Css.property "left" "-18rem"
+        [ Css.property "left" "-18rem"
+        , Css.property "right" "-18rem"
         ]
 
 
@@ -38580,8 +38674,8 @@ neg_inset_x_72 =
 
 ```css
 .-inset-x-8 {
-  right: -2rem;
-  left: -2rem
+  left: -2rem;
+  right: -2rem
 }
 ```
 
@@ -38591,8 +38685,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_8 : Css.Style
 neg_inset_x_8 =
     Css.batch
-        [ Css.property "right" "-2rem"
-        , Css.property "left" "-2rem"
+        [ Css.property "left" "-2rem"
+        , Css.property "right" "-2rem"
         ]
 
 
@@ -38600,8 +38694,8 @@ neg_inset_x_8 =
 
 ```css
 .-inset-x-80 {
-  right: -20rem;
-  left: -20rem
+  left: -20rem;
+  right: -20rem
 }
 ```
 
@@ -38611,8 +38705,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_80 : Css.Style
 neg_inset_x_80 =
     Css.batch
-        [ Css.property "right" "-20rem"
-        , Css.property "left" "-20rem"
+        [ Css.property "left" "-20rem"
+        , Css.property "right" "-20rem"
         ]
 
 
@@ -38620,8 +38714,8 @@ neg_inset_x_80 =
 
 ```css
 .-inset-x-9 {
-  right: -2.25rem;
-  left: -2.25rem
+  left: -2.25rem;
+  right: -2.25rem
 }
 ```
 
@@ -38631,8 +38725,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_9 : Css.Style
 neg_inset_x_9 =
     Css.batch
-        [ Css.property "right" "-2.25rem"
-        , Css.property "left" "-2.25rem"
+        [ Css.property "left" "-2.25rem"
+        , Css.property "right" "-2.25rem"
         ]
 
 
@@ -38640,8 +38734,8 @@ neg_inset_x_9 =
 
 ```css
 .-inset-x-96 {
-  right: -24rem;
-  left: -24rem
+  left: -24rem;
+  right: -24rem
 }
 ```
 
@@ -38651,8 +38745,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_96 : Css.Style
 neg_inset_x_96 =
     Css.batch
-        [ Css.property "right" "-24rem"
-        , Css.property "left" "-24rem"
+        [ Css.property "left" "-24rem"
+        , Css.property "right" "-24rem"
         ]
 
 
@@ -38660,8 +38754,8 @@ neg_inset_x_96 =
 
 ```css
 .-inset-x-full {
-  right: -100%;
-  left: -100%
+  left: -100%;
+  right: -100%
 }
 ```
 
@@ -38671,8 +38765,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_full : Css.Style
 neg_inset_x_full =
     Css.batch
-        [ Css.property "right" "-100%"
-        , Css.property "left" "-100%"
+        [ Css.property "left" "-100%"
+        , Css.property "right" "-100%"
         ]
 
 
@@ -38680,8 +38774,8 @@ neg_inset_x_full =
 
 ```css
 .-inset-x-px {
-  right: -1px;
-  left: -1px
+  left: -1px;
+  right: -1px
 }
 ```
 
@@ -38691,8 +38785,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 neg_inset_x_px : Css.Style
 neg_inset_x_px =
     Css.batch
-        [ Css.property "right" "-1px"
-        , Css.property "left" "-1px"
+        [ Css.property "left" "-1px"
+        , Css.property "right" "-1px"
         ]
 
 
