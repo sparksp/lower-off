@@ -7826,6 +7826,9 @@ globalStyles =
     , Css.Global.selector "button,\n[role=\"button\"]"
         [ Css.property "cursor" "pointer"
         ]
+    , Css.Global.selector ":-moz-focusring"
+        [ Css.property "outline" "auto"
+        ]
     , Css.Global.selector "table"
         [ Css.property "border-collapse" "collapse"
         ]
