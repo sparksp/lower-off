@@ -15,7 +15,7 @@
             "elm/url": "1.0.0",
             "elm-community/json-extra": "4.3.0",
             "elm-community/list-extra": "8.5.1",
-            "rtfeldman/elm-css": "17.0.0"
+            "rtfeldman/elm-css": "17.0.1"
         },
         "indirect": {
             "elm/bytes": "1.0.8",
