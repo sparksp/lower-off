@@ -11,7 +11,7 @@ jobs:
         working-directory: web
 
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
 
       - name: Extract branch name
         shell: bash
@@ -67,7 +67,7 @@ jobs:
 
     steps:
 
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
 
       - name: Extract branch name
         shell: bash
@@ -114,7 +114,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
 
       - name: Extract branch name
         shell: bash
