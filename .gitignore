@@ -5,3 +5,4 @@ node_modules
 public
 .idea/
 .parcel-cache
+.hugo_build.lock
