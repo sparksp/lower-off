@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/cache@v2.1.7
+      - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: web/node_modules
@@ -22,7 +22,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-web--node_modules-
 
-      - uses: actions/cache@v2.1.7
+      - uses: actions/cache@v3
         with:
           path: ~/.elm
           key: ${{ runner.os }}-elm--home-${{ hashFiles('**/elm.json', 'web/elm-tooling.json') }}
