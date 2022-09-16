@@ -34,7 +34,7 @@
     "autoprefixer": "^10.4.11",
     "elm": "^0.19.1-5",
     "elm-hot": "^1.1.6",
-    "elm-review": "^2.7.4",
+    "elm-review": "^2.7.5",
     "elm-tailwind-modules": "^0.4.0",
     "elm-tooling": "^1.8.0",
     "node-elm-compiler": "^5.0.6",
