@@ -23,3 +23,8 @@ updates:
     directory: "/web"
     schedule:
       interval: "daily"
+
+  - package-ecosystem: "elm"
+    directory: "/web/review"
+    schedule:
+      interval: "daily"
