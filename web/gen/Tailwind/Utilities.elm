@@ -116,9 +116,9 @@ module Tailwind.Utilities exposing
     , bg_clip_content
     , bg_clip_padding
     , bg_clip_text
+    , bg_color
     , bg_contain
     , bg_cover
-    , bg_current
     , bg_fixed
     , bg_gradient_to_b
     , bg_gradient_to_bl
@@ -234,7 +234,6 @@ module Tailwind.Utilities exposing
     , bg_teal_800
     , bg_teal_900
     , bg_top
-    , bg_transparent
     , bg_white
     , bg_yellow_100
     , bg_yellow_200
@@ -276,7 +275,7 @@ module Tailwind.Utilities exposing
     , border_blue_800
     , border_blue_900
     , border_collapse
-    , border_current
+    , border_color
     , border_dashed
     , border_dotted
     , border_double
@@ -385,7 +384,6 @@ module Tailwind.Utilities exposing
     , border_teal_700
     , border_teal_800
     , border_teal_900
-    , border_transparent
     , border_white
     , border_yellow_100
     , border_yellow_200
@@ -546,7 +544,7 @@ module Tailwind.Utilities exposing
     , divide_blue_700
     , divide_blue_800
     , divide_blue_900
-    , divide_current
+    , divide_color
     , divide_dashed
     , divide_dotted
     , divide_double
@@ -639,7 +637,6 @@ module Tailwind.Utilities exposing
     , divide_teal_700
     , divide_teal_800
     , divide_teal_900
-    , divide_transparent
     , divide_white
     , divide_x
     , divide_x_0
@@ -681,7 +678,7 @@ module Tailwind.Utilities exposing
     , ease_in_out
     , ease_linear
     , ease_out
-    , fill_current
+    , fill_color
     , filter
     , filter_none
     , fixed
@@ -717,100 +714,7 @@ module Tailwind.Utilities exposing
     , font_semibold
     , font_serif
     , font_thin
-    , from_black
-    , from_blue_100
-    , from_blue_200
-    , from_blue_300
-    , from_blue_400
-    , from_blue_500
-    , from_blue_600
-    , from_blue_700
-    , from_blue_800
-    , from_blue_900
-    , from_current
-    , from_gray_100
-    , from_gray_200
-    , from_gray_300
-    , from_gray_400
-    , from_gray_500
-    , from_gray_600
-    , from_gray_700
-    , from_gray_800
-    , from_gray_900
-    , from_green_100
-    , from_green_200
-    , from_green_300
-    , from_green_400
-    , from_green_500
-    , from_green_600
-    , from_green_700
-    , from_green_800
-    , from_green_900
-    , from_indigo_100
-    , from_indigo_200
-    , from_indigo_300
-    , from_indigo_400
-    , from_indigo_500
-    , from_indigo_600
-    , from_indigo_700
-    , from_indigo_800
-    , from_indigo_900
-    , from_orange_100
-    , from_orange_200
-    , from_orange_300
-    , from_orange_400
-    , from_orange_500
-    , from_orange_600
-    , from_orange_700
-    , from_orange_800
-    , from_orange_900
-    , from_pink_100
-    , from_pink_200
-    , from_pink_300
-    , from_pink_400
-    , from_pink_500
-    , from_pink_600
-    , from_pink_700
-    , from_pink_800
-    , from_pink_900
-    , from_purple_100
-    , from_purple_200
-    , from_purple_300
-    , from_purple_400
-    , from_purple_500
-    , from_purple_600
-    , from_purple_700
-    , from_purple_800
-    , from_purple_900
-    , from_red_100
-    , from_red_200
-    , from_red_300
-    , from_red_400
-    , from_red_500
-    , from_red_600
-    , from_red_700
-    , from_red_800
-    , from_red_900
-    , from_teal_100
-    , from_teal_200
-    , from_teal_300
-    , from_teal_400
-    , from_teal_500
-    , from_teal_600
-    , from_teal_700
-    , from_teal_800
-    , from_teal_900
-    , from_transparent
-    , from_white
-    , from_yellow_100
-    , from_yellow_200
-    , from_yellow_300
-    , from_yellow_400
-    , from_yellow_500
-    , from_yellow_600
-    , from_yellow_700
-    , from_yellow_800
-    , from_yellow_900
+    , from_color
     , gap_0
     , gap_0_dot_5
     , gap_1
@@ -2501,7 +2405,7 @@ module Tailwind.Utilities exposing
     , placeholder_blue_700
     , placeholder_blue_800
     , placeholder_blue_900
-    , placeholder_current
+    , placeholder_color
     , placeholder_gray_100
     , placeholder_gray_200
     , placeholder_gray_300
@@ -2589,7 +2493,6 @@ module Tailwind.Utilities exposing
     , placeholder_teal_700
     , placeholder_teal_800
     , placeholder_teal_900
-    , placeholder_transparent
     , placeholder_white
     , placeholder_yellow_100
     , placeholder_yellow_200
@@ -2807,7 +2710,7 @@ module Tailwind.Utilities exposing
     , ring_blue_700
     , ring_blue_800
     , ring_blue_900
-    , ring_current
+    , ring_color
     , ring_gray_100
     , ring_gray_200
     , ring_gray_300
@@ -2841,100 +2744,7 @@ module Tailwind.Utilities exposing
     , ring_offset_2
     , ring_offset_4
     , ring_offset_8
-    , ring_offset_black
-    , ring_offset_blue_100
-    , ring_offset_blue_200
-    , ring_offset_blue_300
-    , ring_offset_blue_400
-    , ring_offset_blue_500
-    , ring_offset_blue_600
-    , ring_offset_blue_700
-    , ring_offset_blue_800
-    , ring_offset_blue_900
-    , ring_offset_current
-    , ring_offset_gray_100
-    , ring_offset_gray_200
-    , ring_offset_gray_300
-    , ring_offset_gray_400
-    , ring_offset_gray_500
-    , ring_offset_gray_600
-    , ring_offset_gray_700
-    , ring_offset_gray_800
-    , ring_offset_gray_900
-    , ring_offset_green_100
-    , ring_offset_green_200
-    , ring_offset_green_300
-    , ring_offset_green_400
-    , ring_offset_green_500
-    , ring_offset_green_600
-    , ring_offset_green_700
-    , ring_offset_green_800
-    , ring_offset_green_900
-    , ring_offset_indigo_100
-    , ring_offset_indigo_200
-    , ring_offset_indigo_300
-    , ring_offset_indigo_400
-    , ring_offset_indigo_500
-    , ring_offset_indigo_600
-    , ring_offset_indigo_700
-    , ring_offset_indigo_800
-    , ring_offset_indigo_900
-    , ring_offset_orange_100
-    , ring_offset_orange_200
-    , ring_offset_orange_300
-    , ring_offset_orange_400
-    , ring_offset_orange_500
-    , ring_offset_orange_600
-    , ring_offset_orange_700
-    , ring_offset_orange_800
-    , ring_offset_orange_900
-    , ring_offset_pink_100
-    , ring_offset_pink_200
-    , ring_offset_pink_300
-    , ring_offset_pink_400
-    , ring_offset_pink_500
-    , ring_offset_pink_600
-    , ring_offset_pink_700
-    , ring_offset_pink_800
-    , ring_offset_pink_900
-    , ring_offset_purple_100
-    , ring_offset_purple_200
-    , ring_offset_purple_300
-    , ring_offset_purple_400
-    , ring_offset_purple_500
-    , ring_offset_purple_600
-    , ring_offset_purple_700
-    , ring_offset_purple_800
-    , ring_offset_purple_900
-    , ring_offset_red_100
-    , ring_offset_red_200
-    , ring_offset_red_300
-    , ring_offset_red_400
-    , ring_offset_red_500
-    , ring_offset_red_600
-    , ring_offset_red_700
-    , ring_offset_red_800
-    , ring_offset_red_900
-    , ring_offset_teal_100
-    , ring_offset_teal_200
-    , ring_offset_teal_300
-    , ring_offset_teal_400
-    , ring_offset_teal_500
-    , ring_offset_teal_600
-    , ring_offset_teal_700
-    , ring_offset_teal_800
-    , ring_offset_teal_900
-    , ring_offset_transparent
-    , ring_offset_white
-    , ring_offset_yellow_100
-    , ring_offset_yellow_200
-    , ring_offset_yellow_300
-    , ring_offset_yellow_400
-    , ring_offset_yellow_500
-    , ring_offset_yellow_600
-    , ring_offset_yellow_700
-    , ring_offset_yellow_800
-    , ring_offset_yellow_900
+    , ring_offset_color
     , ring_opacity_0
     , ring_opacity_10
     , ring_opacity_100
@@ -2995,7 +2805,6 @@ module Tailwind.Utilities exposing
     , ring_teal_700
     , ring_teal_800
     , ring_teal_900
-    , ring_transparent
     , ring_white
     , ring_yellow_100
     , ring_yellow_200
@@ -3267,7 +3076,7 @@ module Tailwind.Utilities exposing
     , stroke_0
     , stroke_1
     , stroke_2
-    , stroke_current
+    , stroke_color
     , subpixel_antialiased
     , table
     , table_auto
@@ -3298,7 +3107,7 @@ module Tailwind.Utilities exposing
     , text_blue_800
     , text_blue_900
     , text_center
-    , text_current
+    , text_color
     , text_gray_100
     , text_gray_200
     , text_gray_300
@@ -3391,7 +3200,6 @@ module Tailwind.Utilities exposing
     , text_teal_700
     , text_teal_800
     , text_teal_900
-    , text_transparent
     , text_white
     , text_xl
     , text_xs
@@ -3404,100 +3212,7 @@ module Tailwind.Utilities exposing
     , text_yellow_700
     , text_yellow_800
     , text_yellow_900
-    , to_black
-    , to_blue_100
-    , to_blue_200
-    , to_blue_300
-    , to_blue_400
-    , to_blue_500
-    , to_blue_600
-    , to_blue_700
-    , to_blue_800
-    , to_blue_900
-    , to_current
-    , to_gray_100
-    , to_gray_200
-    , to_gray_300
-    , to_gray_400
-    , to_gray_500
-    , to_gray_600
-    , to_gray_700
-    , to_gray_800
-    , to_gray_900
-    , to_green_100
-    , to_green_200
-    , to_green_300
-    , to_green_400
-    , to_green_500
-    , to_green_600
-    , to_green_700
-    , to_green_800
-    , to_green_900
-    , to_indigo_100
-    , to_indigo_200
-    , to_indigo_300
-    , to_indigo_400
-    , to_indigo_500
-    , to_indigo_600
-    , to_indigo_700
-    , to_indigo_800
-    , to_indigo_900
-    , to_orange_100
-    , to_orange_200
-    , to_orange_300
-    , to_orange_400
-    , to_orange_500
-    , to_orange_600
-    , to_orange_700
-    , to_orange_800
-    , to_orange_900
-    , to_pink_100
-    , to_pink_200
-    , to_pink_300
-    , to_pink_400
-    , to_pink_500
-    , to_pink_600
-    , to_pink_700
-    , to_pink_800
-    , to_pink_900
-    , to_purple_100
-    , to_purple_200
-    , to_purple_300
-    , to_purple_400
-    , to_purple_500
-    , to_purple_600
-    , to_purple_700
-    , to_purple_800
-    , to_purple_900
-    , to_red_100
-    , to_red_200
-    , to_red_300
-    , to_red_400
-    , to_red_500
-    , to_red_600
-    , to_red_700
-    , to_red_800
-    , to_red_900
-    , to_teal_100
-    , to_teal_200
-    , to_teal_300
-    , to_teal_400
-    , to_teal_500
-    , to_teal_600
-    , to_teal_700
-    , to_teal_800
-    , to_teal_900
-    , to_transparent
-    , to_white
-    , to_yellow_100
-    , to_yellow_200
-    , to_yellow_300
-    , to_yellow_400
-    , to_yellow_500
-    , to_yellow_600
-    , to_yellow_700
-    , to_yellow_800
-    , to_yellow_900
+    , to_color
     , top_0
     , top_0_dot_5
     , top_1
@@ -3644,100 +3359,7 @@ module Tailwind.Utilities exposing
     , truncate
     , underline
     , uppercase
-    , via_black
-    , via_blue_100
-    , via_blue_200
-    , via_blue_300
-    , via_blue_400
-    , via_blue_500
-    , via_blue_600
-    , via_blue_700
-    , via_blue_800
-    , via_blue_900
-    , via_current
-    , via_gray_100
-    , via_gray_200
-    , via_gray_300
-    , via_gray_400
-    , via_gray_500
-    , via_gray_600
-    , via_gray_700
-    , via_gray_800
-    , via_gray_900
-    , via_green_100
-    , via_green_200
-    , via_green_300
-    , via_green_400
-    , via_green_500
-    , via_green_600
-    , via_green_700
-    , via_green_800
-    , via_green_900
-    , via_indigo_100
-    , via_indigo_200
-    , via_indigo_300
-    , via_indigo_400
-    , via_indigo_500
-    , via_indigo_600
-    , via_indigo_700
-    , via_indigo_800
-    , via_indigo_900
-    , via_orange_100
-    , via_orange_200
-    , via_orange_300
-    , via_orange_400
-    , via_orange_500
-    , via_orange_600
-    , via_orange_700
-    , via_orange_800
-    , via_orange_900
-    , via_pink_100
-    , via_pink_200
-    , via_pink_300
-    , via_pink_400
-    , via_pink_500
-    , via_pink_600
-    , via_pink_700
-    , via_pink_800
-    , via_pink_900
-    , via_purple_100
-    , via_purple_200
-    , via_purple_300
-    , via_purple_400
-    , via_purple_500
-    , via_purple_600
-    , via_purple_700
-    , via_purple_800
-    , via_purple_900
-    , via_red_100
-    , via_red_200
-    , via_red_300
-    , via_red_400
-    , via_red_500
-    , via_red_600
-    , via_red_700
-    , via_red_800
-    , via_red_900
-    , via_teal_100
-    , via_teal_200
-    , via_teal_300
-    , via_teal_400
-    , via_teal_500
-    , via_teal_600
-    , via_teal_700
-    , via_teal_800
-    , via_teal_900
-    , via_transparent
-    , via_white
-    , via_yellow_100
-    , via_yellow_200
-    , via_yellow_300
-    , via_yellow_400
-    , via_yellow_500
-    , via_yellow_600
-    , via_yellow_700
-    , via_yellow_800
-    , via_yellow_900
+    , via_color
     , visible
     , w_0
     , w_0_dot_5
@@ -3948,9 +3570,9 @@ This module contains
 @docs bg_clip_content
 @docs bg_clip_padding
 @docs bg_clip_text
+@docs bg_color
 @docs bg_contain
 @docs bg_cover
-@docs bg_current
 @docs bg_fixed
 @docs bg_gradient_to_b
 @docs bg_gradient_to_bl
@@ -4066,7 +3688,6 @@ This module contains
 @docs bg_teal_800
 @docs bg_teal_900
 @docs bg_top
-@docs bg_transparent
 @docs bg_white
 @docs bg_yellow_100
 @docs bg_yellow_200
@@ -4108,7 +3729,7 @@ This module contains
 @docs border_blue_800
 @docs border_blue_900
 @docs border_collapse
-@docs border_current
+@docs border_color
 @docs border_dashed
 @docs border_dotted
 @docs border_double
@@ -4217,7 +3838,6 @@ This module contains
 @docs border_teal_700
 @docs border_teal_800
 @docs border_teal_900
-@docs border_transparent
 @docs border_white
 @docs border_yellow_100
 @docs border_yellow_200
@@ -4378,7 +3998,7 @@ This module contains
 @docs divide_blue_700
 @docs divide_blue_800
 @docs divide_blue_900
-@docs divide_current
+@docs divide_color
 @docs divide_dashed
 @docs divide_dotted
 @docs divide_double
@@ -4471,7 +4091,6 @@ This module contains
 @docs divide_teal_700
 @docs divide_teal_800
 @docs divide_teal_900
-@docs divide_transparent
 @docs divide_white
 @docs divide_x
 @docs divide_x_0
@@ -4513,7 +4132,7 @@ This module contains
 @docs ease_in_out
 @docs ease_linear
 @docs ease_out
-@docs fill_current
+@docs fill_color
 @docs filter
 @docs filter_none
 @docs fixed
@@ -4549,100 +4168,7 @@ This module contains
 @docs font_semibold
 @docs font_serif
 @docs font_thin
-@docs from_black
-@docs from_blue_100
-@docs from_blue_200
-@docs from_blue_300
-@docs from_blue_400
-@docs from_blue_500
-@docs from_blue_600
-@docs from_blue_700
-@docs from_blue_800
-@docs from_blue_900
-@docs from_current
-@docs from_gray_100
-@docs from_gray_200
-@docs from_gray_300
-@docs from_gray_400
-@docs from_gray_500
-@docs from_gray_600
-@docs from_gray_700
-@docs from_gray_800
-@docs from_gray_900
-@docs from_green_100
-@docs from_green_200
-@docs from_green_300
-@docs from_green_400
-@docs from_green_500
-@docs from_green_600
-@docs from_green_700
-@docs from_green_800
-@docs from_green_900
-@docs from_indigo_100
-@docs from_indigo_200
-@docs from_indigo_300
-@docs from_indigo_400
-@docs from_indigo_500
-@docs from_indigo_600
-@docs from_indigo_700
-@docs from_indigo_800
-@docs from_indigo_900
-@docs from_orange_100
-@docs from_orange_200
-@docs from_orange_300
-@docs from_orange_400
-@docs from_orange_500
-@docs from_orange_600
-@docs from_orange_700
-@docs from_orange_800
-@docs from_orange_900
-@docs from_pink_100
-@docs from_pink_200
-@docs from_pink_300
-@docs from_pink_400
-@docs from_pink_500
-@docs from_pink_600
-@docs from_pink_700
-@docs from_pink_800
-@docs from_pink_900
-@docs from_purple_100
-@docs from_purple_200
-@docs from_purple_300
-@docs from_purple_400
-@docs from_purple_500
-@docs from_purple_600
-@docs from_purple_700
-@docs from_purple_800
-@docs from_purple_900
-@docs from_red_100
-@docs from_red_200
-@docs from_red_300
-@docs from_red_400
-@docs from_red_500
-@docs from_red_600
-@docs from_red_700
-@docs from_red_800
-@docs from_red_900
-@docs from_teal_100
-@docs from_teal_200
-@docs from_teal_300
-@docs from_teal_400
-@docs from_teal_500
-@docs from_teal_600
-@docs from_teal_700
-@docs from_teal_800
-@docs from_teal_900
-@docs from_transparent
-@docs from_white
-@docs from_yellow_100
-@docs from_yellow_200
-@docs from_yellow_300
-@docs from_yellow_400
-@docs from_yellow_500
-@docs from_yellow_600
-@docs from_yellow_700
-@docs from_yellow_800
-@docs from_yellow_900
+@docs from_color
 @docs gap_0
 @docs gap_0_dot_5
 @docs gap_1
@@ -6333,7 +5859,7 @@ This module contains
 @docs placeholder_blue_700
 @docs placeholder_blue_800
 @docs placeholder_blue_900
-@docs placeholder_current
+@docs placeholder_color
 @docs placeholder_gray_100
 @docs placeholder_gray_200
 @docs placeholder_gray_300
@@ -6421,7 +5947,6 @@ This module contains
 @docs placeholder_teal_700
 @docs placeholder_teal_800
 @docs placeholder_teal_900
-@docs placeholder_transparent
 @docs placeholder_white
 @docs placeholder_yellow_100
 @docs placeholder_yellow_200
@@ -6639,7 +6164,7 @@ This module contains
 @docs ring_blue_700
 @docs ring_blue_800
 @docs ring_blue_900
-@docs ring_current
+@docs ring_color
 @docs ring_gray_100
 @docs ring_gray_200
 @docs ring_gray_300
@@ -6673,100 +6198,7 @@ This module contains
 @docs ring_offset_2
 @docs ring_offset_4
 @docs ring_offset_8
-@docs ring_offset_black
-@docs ring_offset_blue_100
-@docs ring_offset_blue_200
-@docs ring_offset_blue_300
-@docs ring_offset_blue_400
-@docs ring_offset_blue_500
-@docs ring_offset_blue_600
-@docs ring_offset_blue_700
-@docs ring_offset_blue_800
-@docs ring_offset_blue_900
-@docs ring_offset_current
-@docs ring_offset_gray_100
-@docs ring_offset_gray_200
-@docs ring_offset_gray_300
-@docs ring_offset_gray_400
-@docs ring_offset_gray_500
-@docs ring_offset_gray_600
-@docs ring_offset_gray_700
-@docs ring_offset_gray_800
-@docs ring_offset_gray_900
-@docs ring_offset_green_100
-@docs ring_offset_green_200
-@docs ring_offset_green_300
-@docs ring_offset_green_400
-@docs ring_offset_green_500
-@docs ring_offset_green_600
-@docs ring_offset_green_700
-@docs ring_offset_green_800
-@docs ring_offset_green_900
-@docs ring_offset_indigo_100
-@docs ring_offset_indigo_200
-@docs ring_offset_indigo_300
-@docs ring_offset_indigo_400
-@docs ring_offset_indigo_500
-@docs ring_offset_indigo_600
-@docs ring_offset_indigo_700
-@docs ring_offset_indigo_800
-@docs ring_offset_indigo_900
-@docs ring_offset_orange_100
-@docs ring_offset_orange_200
-@docs ring_offset_orange_300
-@docs ring_offset_orange_400
-@docs ring_offset_orange_500
-@docs ring_offset_orange_600
-@docs ring_offset_orange_700
-@docs ring_offset_orange_800
-@docs ring_offset_orange_900
-@docs ring_offset_pink_100
-@docs ring_offset_pink_200
-@docs ring_offset_pink_300
-@docs ring_offset_pink_400
-@docs ring_offset_pink_500
-@docs ring_offset_pink_600
-@docs ring_offset_pink_700
-@docs ring_offset_pink_800
-@docs ring_offset_pink_900
-@docs ring_offset_purple_100
-@docs ring_offset_purple_200
-@docs ring_offset_purple_300
-@docs ring_offset_purple_400
-@docs ring_offset_purple_500
-@docs ring_offset_purple_600
-@docs ring_offset_purple_700
-@docs ring_offset_purple_800
-@docs ring_offset_purple_900
-@docs ring_offset_red_100
-@docs ring_offset_red_200
-@docs ring_offset_red_300
-@docs ring_offset_red_400
-@docs ring_offset_red_500
-@docs ring_offset_red_600
-@docs ring_offset_red_700
-@docs ring_offset_red_800
-@docs ring_offset_red_900
-@docs ring_offset_teal_100
-@docs ring_offset_teal_200
-@docs ring_offset_teal_300
-@docs ring_offset_teal_400
-@docs ring_offset_teal_500
-@docs ring_offset_teal_600
-@docs ring_offset_teal_700
-@docs ring_offset_teal_800
-@docs ring_offset_teal_900
-@docs ring_offset_transparent
-@docs ring_offset_white
-@docs ring_offset_yellow_100
-@docs ring_offset_yellow_200
-@docs ring_offset_yellow_300
-@docs ring_offset_yellow_400
-@docs ring_offset_yellow_500
-@docs ring_offset_yellow_600
-@docs ring_offset_yellow_700
-@docs ring_offset_yellow_800
-@docs ring_offset_yellow_900
+@docs ring_offset_color
 @docs ring_opacity_0
 @docs ring_opacity_10
 @docs ring_opacity_100
@@ -6827,7 +6259,6 @@ This module contains
 @docs ring_teal_700
 @docs ring_teal_800
 @docs ring_teal_900
-@docs ring_transparent
 @docs ring_white
 @docs ring_yellow_100
 @docs ring_yellow_200
@@ -7099,7 +6530,7 @@ This module contains
 @docs stroke_0
 @docs stroke_1
 @docs stroke_2
-@docs stroke_current
+@docs stroke_color
 @docs subpixel_antialiased
 @docs table
 @docs table_auto
@@ -7130,7 +6561,7 @@ This module contains
 @docs text_blue_800
 @docs text_blue_900
 @docs text_center
-@docs text_current
+@docs text_color
 @docs text_gray_100
 @docs text_gray_200
 @docs text_gray_300
@@ -7223,7 +6654,6 @@ This module contains
 @docs text_teal_700
 @docs text_teal_800
 @docs text_teal_900
-@docs text_transparent
 @docs text_white
 @docs text_xl
 @docs text_xs
@@ -7236,100 +6666,7 @@ This module contains
 @docs text_yellow_700
 @docs text_yellow_800
 @docs text_yellow_900
-@docs to_black
-@docs to_blue_100
-@docs to_blue_200
-@docs to_blue_300
-@docs to_blue_400
-@docs to_blue_500
-@docs to_blue_600
-@docs to_blue_700
-@docs to_blue_800
-@docs to_blue_900
-@docs to_current
-@docs to_gray_100
-@docs to_gray_200
-@docs to_gray_300
-@docs to_gray_400
-@docs to_gray_500
-@docs to_gray_600
-@docs to_gray_700
-@docs to_gray_800
-@docs to_gray_900
-@docs to_green_100
-@docs to_green_200
-@docs to_green_300
-@docs to_green_400
-@docs to_green_500
-@docs to_green_600
-@docs to_green_700
-@docs to_green_800
-@docs to_green_900
-@docs to_indigo_100
-@docs to_indigo_200
-@docs to_indigo_300
-@docs to_indigo_400
-@docs to_indigo_500
-@docs to_indigo_600
-@docs to_indigo_700
-@docs to_indigo_800
-@docs to_indigo_900
-@docs to_orange_100
-@docs to_orange_200
-@docs to_orange_300
-@docs to_orange_400
-@docs to_orange_500
-@docs to_orange_600
-@docs to_orange_700
-@docs to_orange_800
-@docs to_orange_900
-@docs to_pink_100
-@docs to_pink_200
-@docs to_pink_300
-@docs to_pink_400
-@docs to_pink_500
-@docs to_pink_600
-@docs to_pink_700
-@docs to_pink_800
-@docs to_pink_900
-@docs to_purple_100
-@docs to_purple_200
-@docs to_purple_300
-@docs to_purple_400
-@docs to_purple_500
-@docs to_purple_600
-@docs to_purple_700
-@docs to_purple_800
-@docs to_purple_900
-@docs to_red_100
-@docs to_red_200
-@docs to_red_300
-@docs to_red_400
-@docs to_red_500
-@docs to_red_600
-@docs to_red_700
-@docs to_red_800
-@docs to_red_900
-@docs to_teal_100
-@docs to_teal_200
-@docs to_teal_300
-@docs to_teal_400
-@docs to_teal_500
-@docs to_teal_600
-@docs to_teal_700
-@docs to_teal_800
-@docs to_teal_900
-@docs to_transparent
-@docs to_white
-@docs to_yellow_100
-@docs to_yellow_200
-@docs to_yellow_300
-@docs to_yellow_400
-@docs to_yellow_500
-@docs to_yellow_600
-@docs to_yellow_700
-@docs to_yellow_800
-@docs to_yellow_900
+@docs to_color
 @docs top_0
 @docs top_0_dot_5
 @docs top_1
@@ -7476,100 +6813,7 @@ This module contains
 @docs truncate
 @docs underline
 @docs uppercase
-@docs via_black
-@docs via_blue_100
-@docs via_blue_200
-@docs via_blue_300
-@docs via_blue_400
-@docs via_blue_500
-@docs via_blue_600
-@docs via_blue_700
-@docs via_blue_800
-@docs via_blue_900
-@docs via_current
-@docs via_gray_100
-@docs via_gray_200
-@docs via_gray_300
-@docs via_gray_400
-@docs via_gray_500
-@docs via_gray_600
-@docs via_gray_700
-@docs via_gray_800
-@docs via_gray_900
-@docs via_green_100
-@docs via_green_200
-@docs via_green_300
-@docs via_green_400
-@docs via_green_500
-@docs via_green_600
-@docs via_green_700
-@docs via_green_800
-@docs via_green_900
-@docs via_indigo_100
-@docs via_indigo_200
-@docs via_indigo_300
-@docs via_indigo_400
-@docs via_indigo_500
-@docs via_indigo_600
-@docs via_indigo_700
-@docs via_indigo_800
-@docs via_indigo_900
-@docs via_orange_100
-@docs via_orange_200
-@docs via_orange_300
-@docs via_orange_400
-@docs via_orange_500
-@docs via_orange_600
-@docs via_orange_700
-@docs via_orange_800
-@docs via_orange_900
-@docs via_pink_100
-@docs via_pink_200
-@docs via_pink_300
-@docs via_pink_400
-@docs via_pink_500
-@docs via_pink_600
-@docs via_pink_700
-@docs via_pink_800
-@docs via_pink_900
-@docs via_purple_100
-@docs via_purple_200
-@docs via_purple_300
-@docs via_purple_400
-@docs via_purple_500
-@docs via_purple_600
-@docs via_purple_700
-@docs via_purple_800
-@docs via_purple_900
-@docs via_red_100
-@docs via_red_200
-@docs via_red_300
-@docs via_red_400
-@docs via_red_500
-@docs via_red_600
-@docs via_red_700
-@docs via_red_800
-@docs via_red_900
-@docs via_teal_100
-@docs via_teal_200
-@docs via_teal_300
-@docs via_teal_400
-@docs via_teal_500
-@docs via_teal_600
-@docs via_teal_700
-@docs via_teal_800
-@docs via_teal_900
-@docs via_transparent
-@docs via_white
-@docs via_yellow_100
-@docs via_yellow_200
-@docs via_yellow_300
-@docs via_yellow_400
-@docs via_yellow_500
-@docs via_yellow_600
-@docs via_yellow_700
-@docs via_yellow_800
-@docs via_yellow_900
+@docs via_color
 @docs visible
 @docs w_0
 @docs w_0_dot_5
@@ -7656,6 +6900,8 @@ import Css
 import Css.Animations
 import Css.Global
 import Css.Media
+import Tailwind.Color as Tw
+import Tailwind.Theme exposing (Color)
 
 
 {-| This contains tailwind's style reset.
@@ -9879,22 +9125,6 @@ bg_cover =
 {-| This class has the effect of following css declaration:
 
 ```css
-.bg-current {
-  background-color: currentColor
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-bg_current : Css.Style
-bg_current =
-    Css.property "background-color" "currentColor"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
 .bg-fixed {
   background-attachment: fixed
 }
@@ -12023,22 +11253,6 @@ bg_top =
 {-| This class has the effect of following css declaration:
 
 ```css
-.bg-transparent {
-  background-color: transparent
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-bg_transparent : Css.Style
-bg_transparent =
-    Css.property "background-color" "transparent"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity))
@@ -12770,22 +11984,6 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 border_collapse : Css.Style
 border_collapse =
     Css.property "border-collapse" "collapse"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.border-current {
-  border-color: currentColor
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-border_current : Css.Style
-border_current =
-    Css.property "border-color" "currentColor"
 
 
 {-| This class has the effect of following css declaration:
@@ -14802,22 +14000,6 @@ border_teal_900 =
         [ Css.property "--tw-border-opacity" "1"
         , Css.property "border-color" "rgba(35, 78, 82, var(--tw-border-opacity))"
         ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.border-transparent {
-  border-color: transparent
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-border_transparent : Css.Style
-border_transparent =
-    Css.property "border-color" "transparent"
 
 
 {-| This class has the effect of following css declaration:
@@ -17327,12 +16509,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_black : Css.Style
 divide_black =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(0, 0, 0, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(0, 0, 0, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17351,12 +16531,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_blue_100 : Css.Style
 divide_blue_100 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(235, 248, 255, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(235, 248, 255, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17375,12 +16553,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_blue_200 : Css.Style
 divide_blue_200 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(190, 227, 248, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(190, 227, 248, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17399,12 +16575,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_blue_300 : Css.Style
 divide_blue_300 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(144, 205, 244, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(144, 205, 244, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17423,12 +16597,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_blue_400 : Css.Style
 divide_blue_400 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(99, 179, 237, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(99, 179, 237, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17447,12 +16619,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_blue_500 : Css.Style
 divide_blue_500 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(66, 153, 225, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(66, 153, 225, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17471,12 +16641,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_blue_600 : Css.Style
 divide_blue_600 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(49, 130, 206, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(49, 130, 206, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17495,12 +16663,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_blue_700 : Css.Style
 divide_blue_700 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(43, 108, 176, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(43, 108, 176, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17519,12 +16685,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_blue_800 : Css.Style
 divide_blue_800 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(44, 82, 130, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(44, 82, 130, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17543,34 +16707,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_blue_900 : Css.Style
 divide_blue_900 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(42, 67, 101, var(--tw-divide-opacity))"
-                ]
-            ]
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.divide-current > :not([hidden]) ~ :not([hidden]) {
-  border-color: currentColor
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-divide_current : Css.Style
-divide_current =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "border-color" "currentColor"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(42, 67, 101, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17588,11 +16728,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_dashed : Css.Style
 divide_dashed =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "border-style" "dashed"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "border-style" "dashed"
             ]
         ]
 
@@ -17610,11 +16748,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_dotted : Css.Style
 divide_dotted =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "border-style" "dotted"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "border-style" "dotted"
             ]
         ]
 
@@ -17632,11 +16768,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_double : Css.Style
 divide_double =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "border-style" "double"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "border-style" "double"
             ]
         ]
 
@@ -17655,12 +16789,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_gray_100 : Css.Style
 divide_gray_100 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(247, 250, 252, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(247, 250, 252, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17679,12 +16811,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_gray_200 : Css.Style
 divide_gray_200 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(237, 242, 247, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(237, 242, 247, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17703,12 +16833,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_gray_300 : Css.Style
 divide_gray_300 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(226, 232, 240, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(226, 232, 240, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17727,12 +16855,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_gray_400 : Css.Style
 divide_gray_400 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(203, 213, 224, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(203, 213, 224, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17751,12 +16877,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_gray_500 : Css.Style
 divide_gray_500 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(160, 174, 192, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(160, 174, 192, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17775,12 +16899,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_gray_600 : Css.Style
 divide_gray_600 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(113, 128, 150, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(113, 128, 150, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17799,12 +16921,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_gray_700 : Css.Style
 divide_gray_700 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(74, 85, 104, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(74, 85, 104, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17823,12 +16943,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_gray_800 : Css.Style
 divide_gray_800 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(45, 55, 72, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(45, 55, 72, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17847,12 +16965,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_gray_900 : Css.Style
 divide_gray_900 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(26, 32, 44, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(26, 32, 44, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17871,12 +16987,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_green_100 : Css.Style
 divide_green_100 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(240, 255, 244, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(240, 255, 244, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17895,12 +17009,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_green_200 : Css.Style
 divide_green_200 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(198, 246, 213, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(198, 246, 213, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17919,12 +17031,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_green_300 : Css.Style
 divide_green_300 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(154, 230, 180, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(154, 230, 180, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17943,12 +17053,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_green_400 : Css.Style
 divide_green_400 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(104, 211, 145, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(104, 211, 145, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17967,12 +17075,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_green_500 : Css.Style
 divide_green_500 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(72, 187, 120, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(72, 187, 120, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -17991,12 +17097,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_green_600 : Css.Style
 divide_green_600 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(56, 161, 105, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(56, 161, 105, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18015,12 +17119,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_green_700 : Css.Style
 divide_green_700 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(47, 133, 90, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(47, 133, 90, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18039,12 +17141,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_green_800 : Css.Style
 divide_green_800 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(39, 103, 73, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(39, 103, 73, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18063,12 +17163,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_green_900 : Css.Style
 divide_green_900 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(34, 84, 61, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(34, 84, 61, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18087,12 +17185,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_indigo_100 : Css.Style
 divide_indigo_100 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(235, 244, 255, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(235, 244, 255, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18111,12 +17207,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_indigo_200 : Css.Style
 divide_indigo_200 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(195, 218, 254, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(195, 218, 254, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18135,12 +17229,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_indigo_300 : Css.Style
 divide_indigo_300 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(163, 191, 250, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(163, 191, 250, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18159,12 +17251,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_indigo_400 : Css.Style
 divide_indigo_400 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(127, 156, 245, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(127, 156, 245, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18183,12 +17273,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_indigo_500 : Css.Style
 divide_indigo_500 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(102, 126, 234, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(102, 126, 234, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18207,12 +17295,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_indigo_600 : Css.Style
 divide_indigo_600 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(90, 103, 216, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(90, 103, 216, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18231,12 +17317,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_indigo_700 : Css.Style
 divide_indigo_700 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(76, 81, 191, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(76, 81, 191, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18255,12 +17339,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_indigo_800 : Css.Style
 divide_indigo_800 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(67, 65, 144, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(67, 65, 144, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18279,12 +17361,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_indigo_900 : Css.Style
 divide_indigo_900 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(60, 54, 107, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(60, 54, 107, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18302,11 +17382,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_none : Css.Style
 divide_none =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "border-style" "none"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "border-style" "none"
             ]
         ]
 
@@ -18324,11 +17402,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_0 : Css.Style
 divide_opacity_0 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0"
             ]
         ]
 
@@ -18346,11 +17422,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_10 : Css.Style
 divide_opacity_10 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.1"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.1"
             ]
         ]
 
@@ -18368,11 +17442,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_100 : Css.Style
 divide_opacity_100 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
             ]
         ]
 
@@ -18390,11 +17462,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_20 : Css.Style
 divide_opacity_20 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.2"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.2"
             ]
         ]
 
@@ -18412,11 +17482,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_25 : Css.Style
 divide_opacity_25 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.25"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.25"
             ]
         ]
 
@@ -18434,11 +17502,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_30 : Css.Style
 divide_opacity_30 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.3"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.3"
             ]
         ]
 
@@ -18456,11 +17522,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_40 : Css.Style
 divide_opacity_40 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.4"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.4"
             ]
         ]
 
@@ -18478,11 +17542,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_5 : Css.Style
 divide_opacity_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.05"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.05"
             ]
         ]
 
@@ -18500,11 +17562,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_50 : Css.Style
 divide_opacity_50 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.5"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.5"
             ]
         ]
 
@@ -18522,11 +17582,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_60 : Css.Style
 divide_opacity_60 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.6"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.6"
             ]
         ]
 
@@ -18544,11 +17602,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_70 : Css.Style
 divide_opacity_70 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.7"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.7"
             ]
         ]
 
@@ -18566,11 +17622,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_75 : Css.Style
 divide_opacity_75 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.75"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.75"
             ]
         ]
 
@@ -18588,11 +17642,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_80 : Css.Style
 divide_opacity_80 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.8"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.8"
             ]
         ]
 
@@ -18610,11 +17662,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_90 : Css.Style
 divide_opacity_90 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.9"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.9"
             ]
         ]
 
@@ -18632,11 +17682,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_opacity_95 : Css.Style
 divide_opacity_95 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "0.95"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "0.95"
             ]
         ]
 
@@ -18655,12 +17703,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_orange_100 : Css.Style
 divide_orange_100 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(255, 250, 240, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(255, 250, 240, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18679,12 +17725,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_orange_200 : Css.Style
 divide_orange_200 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(254, 235, 200, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(254, 235, 200, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18703,12 +17747,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_orange_300 : Css.Style
 divide_orange_300 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(251, 211, 141, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(251, 211, 141, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18727,12 +17769,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_orange_400 : Css.Style
 divide_orange_400 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(246, 173, 85, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(246, 173, 85, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18751,12 +17791,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_orange_500 : Css.Style
 divide_orange_500 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(237, 137, 54, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(237, 137, 54, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18775,12 +17813,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_orange_600 : Css.Style
 divide_orange_600 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(221, 107, 32, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(221, 107, 32, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18799,12 +17835,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_orange_700 : Css.Style
 divide_orange_700 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(192, 86, 33, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(192, 86, 33, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18823,12 +17857,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_orange_800 : Css.Style
 divide_orange_800 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(156, 66, 33, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(156, 66, 33, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18847,12 +17879,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_orange_900 : Css.Style
 divide_orange_900 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(123, 52, 30, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(123, 52, 30, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18871,12 +17901,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_pink_100 : Css.Style
 divide_pink_100 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(255, 245, 247, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(255, 245, 247, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18895,12 +17923,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_pink_200 : Css.Style
 divide_pink_200 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(254, 215, 226, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(254, 215, 226, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18919,12 +17945,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_pink_300 : Css.Style
 divide_pink_300 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(251, 182, 206, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(251, 182, 206, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18943,12 +17967,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_pink_400 : Css.Style
 divide_pink_400 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(246, 135, 179, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(246, 135, 179, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18967,12 +17989,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_pink_500 : Css.Style
 divide_pink_500 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(237, 100, 166, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(237, 100, 166, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -18991,12 +18011,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_pink_600 : Css.Style
 divide_pink_600 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(213, 63, 140, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(213, 63, 140, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19015,12 +18033,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_pink_700 : Css.Style
 divide_pink_700 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(184, 50, 128, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(184, 50, 128, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19039,12 +18055,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_pink_800 : Css.Style
 divide_pink_800 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(151, 38, 109, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(151, 38, 109, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19063,12 +18077,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_pink_900 : Css.Style
 divide_pink_900 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(112, 36, 89, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(112, 36, 89, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19087,12 +18099,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_purple_100 : Css.Style
 divide_purple_100 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(250, 245, 255, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(250, 245, 255, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19111,12 +18121,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_purple_200 : Css.Style
 divide_purple_200 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(233, 216, 253, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(233, 216, 253, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19135,12 +18143,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_purple_300 : Css.Style
 divide_purple_300 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(214, 188, 250, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(214, 188, 250, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19159,12 +18165,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_purple_400 : Css.Style
 divide_purple_400 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(183, 148, 244, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(183, 148, 244, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19183,12 +18187,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_purple_500 : Css.Style
 divide_purple_500 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(159, 122, 234, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(159, 122, 234, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19207,12 +18209,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_purple_600 : Css.Style
 divide_purple_600 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(128, 90, 213, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(128, 90, 213, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19231,12 +18231,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_purple_700 : Css.Style
 divide_purple_700 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(107, 70, 193, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(107, 70, 193, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19255,12 +18253,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_purple_800 : Css.Style
 divide_purple_800 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(85, 60, 154, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(85, 60, 154, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19279,12 +18275,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_purple_900 : Css.Style
 divide_purple_900 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(68, 51, 122, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(68, 51, 122, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19303,12 +18297,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_red_100 : Css.Style
 divide_red_100 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(255, 245, 245, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(255, 245, 245, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19327,12 +18319,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_red_200 : Css.Style
 divide_red_200 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(254, 215, 215, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(254, 215, 215, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19351,12 +18341,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_red_300 : Css.Style
 divide_red_300 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(254, 178, 178, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(254, 178, 178, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19375,12 +18363,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_red_400 : Css.Style
 divide_red_400 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(252, 129, 129, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(252, 129, 129, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19399,12 +18385,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_red_500 : Css.Style
 divide_red_500 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(245, 101, 101, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(245, 101, 101, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19423,12 +18407,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_red_600 : Css.Style
 divide_red_600 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(229, 62, 62, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(229, 62, 62, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19447,12 +18429,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_red_700 : Css.Style
 divide_red_700 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(197, 48, 48, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(197, 48, 48, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19471,12 +18451,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_red_800 : Css.Style
 divide_red_800 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(155, 44, 44, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(155, 44, 44, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19495,12 +18473,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_red_900 : Css.Style
 divide_red_900 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(116, 42, 42, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(116, 42, 42, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19518,11 +18494,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_solid : Css.Style
 divide_solid =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "border-style" "solid"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "border-style" "solid"
             ]
         ]
 
@@ -19541,12 +18515,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_teal_100 : Css.Style
 divide_teal_100 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(230, 255, 250, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(230, 255, 250, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19565,12 +18537,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_teal_200 : Css.Style
 divide_teal_200 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(178, 245, 234, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(178, 245, 234, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19589,12 +18559,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_teal_300 : Css.Style
 divide_teal_300 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(129, 230, 217, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(129, 230, 217, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19613,12 +18581,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_teal_400 : Css.Style
 divide_teal_400 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(79, 209, 197, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(79, 209, 197, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19637,12 +18603,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_teal_500 : Css.Style
 divide_teal_500 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(56, 178, 172, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(56, 178, 172, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19661,12 +18625,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_teal_600 : Css.Style
 divide_teal_600 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(49, 151, 149, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(49, 151, 149, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19685,12 +18647,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_teal_700 : Css.Style
 divide_teal_700 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(44, 122, 123, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(44, 122, 123, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19709,12 +18669,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_teal_800 : Css.Style
 divide_teal_800 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(40, 94, 97, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(40, 94, 97, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19733,34 +18691,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_teal_900 : Css.Style
 divide_teal_900 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(35, 78, 82, var(--tw-divide-opacity))"
-                ]
-            ]
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.divide-transparent > :not([hidden]) ~ :not([hidden]) {
-  border-color: transparent
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-divide_transparent : Css.Style
-divide_transparent =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "border-color" "transparent"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(35, 78, 82, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19779,12 +18713,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_white : Css.Style
 divide_white =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(255, 255, 255, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(255, 255, 255, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -19804,13 +18736,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_x : Css.Style
 divide_x =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-x-reverse" "0"
-                , Css.property "border-right-width" "calc(1px * var(--tw-divide-x-reverse))"
-                , Css.property "border-left-width" "calc(1px * calc(1 - var(--tw-divide-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-x-reverse" "0"
+            , Css.property "border-right-width" "calc(1px * var(--tw-divide-x-reverse))"
+            , Css.property "border-left-width" "calc(1px * calc(1 - var(--tw-divide-x-reverse)))"
             ]
         ]
 
@@ -19830,13 +18760,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_x_0 : Css.Style
 divide_x_0 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-x-reverse" "0"
-                , Css.property "border-right-width" "calc(0px * var(--tw-divide-x-reverse))"
-                , Css.property "border-left-width" "calc(0px * calc(1 - var(--tw-divide-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-x-reverse" "0"
+            , Css.property "border-right-width" "calc(0px * var(--tw-divide-x-reverse))"
+            , Css.property "border-left-width" "calc(0px * calc(1 - var(--tw-divide-x-reverse)))"
             ]
         ]
 
@@ -19856,13 +18784,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_x_2 : Css.Style
 divide_x_2 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-x-reverse" "0"
-                , Css.property "border-right-width" "calc(2px * var(--tw-divide-x-reverse))"
-                , Css.property "border-left-width" "calc(2px * calc(1 - var(--tw-divide-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-x-reverse" "0"
+            , Css.property "border-right-width" "calc(2px * var(--tw-divide-x-reverse))"
+            , Css.property "border-left-width" "calc(2px * calc(1 - var(--tw-divide-x-reverse)))"
             ]
         ]
 
@@ -19882,13 +18808,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_x_4 : Css.Style
 divide_x_4 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-x-reverse" "0"
-                , Css.property "border-right-width" "calc(4px * var(--tw-divide-x-reverse))"
-                , Css.property "border-left-width" "calc(4px * calc(1 - var(--tw-divide-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-x-reverse" "0"
+            , Css.property "border-right-width" "calc(4px * var(--tw-divide-x-reverse))"
+            , Css.property "border-left-width" "calc(4px * calc(1 - var(--tw-divide-x-reverse)))"
             ]
         ]
 
@@ -19908,13 +18832,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_x_8 : Css.Style
 divide_x_8 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-x-reverse" "0"
-                , Css.property "border-right-width" "calc(8px * var(--tw-divide-x-reverse))"
-                , Css.property "border-left-width" "calc(8px * calc(1 - var(--tw-divide-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-x-reverse" "0"
+            , Css.property "border-right-width" "calc(8px * var(--tw-divide-x-reverse))"
+            , Css.property "border-left-width" "calc(8px * calc(1 - var(--tw-divide-x-reverse)))"
             ]
         ]
 
@@ -19932,11 +18854,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_x_reverse : Css.Style
 divide_x_reverse =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-x-reverse" "1"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-x-reverse" "1"
             ]
         ]
 
@@ -19956,13 +18876,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_y : Css.Style
 divide_y =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-y-reverse" "0"
-                , Css.property "border-top-width" "calc(1px * calc(1 - var(--tw-divide-y-reverse)))"
-                , Css.property "border-bottom-width" "calc(1px * var(--tw-divide-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-y-reverse" "0"
+            , Css.property "border-top-width" "calc(1px * calc(1 - var(--tw-divide-y-reverse)))"
+            , Css.property "border-bottom-width" "calc(1px * var(--tw-divide-y-reverse))"
             ]
         ]
 
@@ -19982,13 +18900,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_y_0 : Css.Style
 divide_y_0 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-y-reverse" "0"
-                , Css.property "border-top-width" "calc(0px * calc(1 - var(--tw-divide-y-reverse)))"
-                , Css.property "border-bottom-width" "calc(0px * var(--tw-divide-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-y-reverse" "0"
+            , Css.property "border-top-width" "calc(0px * calc(1 - var(--tw-divide-y-reverse)))"
+            , Css.property "border-bottom-width" "calc(0px * var(--tw-divide-y-reverse))"
             ]
         ]
 
@@ -20008,13 +18924,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_y_2 : Css.Style
 divide_y_2 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-y-reverse" "0"
-                , Css.property "border-top-width" "calc(2px * calc(1 - var(--tw-divide-y-reverse)))"
-                , Css.property "border-bottom-width" "calc(2px * var(--tw-divide-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-y-reverse" "0"
+            , Css.property "border-top-width" "calc(2px * calc(1 - var(--tw-divide-y-reverse)))"
+            , Css.property "border-bottom-width" "calc(2px * var(--tw-divide-y-reverse))"
             ]
         ]
 
@@ -20034,13 +18948,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_y_4 : Css.Style
 divide_y_4 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-y-reverse" "0"
-                , Css.property "border-top-width" "calc(4px * calc(1 - var(--tw-divide-y-reverse)))"
-                , Css.property "border-bottom-width" "calc(4px * var(--tw-divide-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-y-reverse" "0"
+            , Css.property "border-top-width" "calc(4px * calc(1 - var(--tw-divide-y-reverse)))"
+            , Css.property "border-bottom-width" "calc(4px * var(--tw-divide-y-reverse))"
             ]
         ]
 
@@ -20060,13 +18972,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_y_8 : Css.Style
 divide_y_8 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-y-reverse" "0"
-                , Css.property "border-top-width" "calc(8px * calc(1 - var(--tw-divide-y-reverse)))"
-                , Css.property "border-bottom-width" "calc(8px * var(--tw-divide-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-y-reverse" "0"
+            , Css.property "border-top-width" "calc(8px * calc(1 - var(--tw-divide-y-reverse)))"
+            , Css.property "border-bottom-width" "calc(8px * var(--tw-divide-y-reverse))"
             ]
         ]
 
@@ -20084,11 +18994,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_y_reverse : Css.Style
 divide_y_reverse =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-y-reverse" "1"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-y-reverse" "1"
             ]
         ]
 
@@ -20107,12 +19015,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_yellow_100 : Css.Style
 divide_yellow_100 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(255, 255, 240, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(255, 255, 240, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -20131,12 +19037,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_yellow_200 : Css.Style
 divide_yellow_200 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(254, 252, 191, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(254, 252, 191, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -20155,12 +19059,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_yellow_300 : Css.Style
 divide_yellow_300 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(250, 240, 137, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(250, 240, 137, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -20179,12 +19081,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_yellow_400 : Css.Style
 divide_yellow_400 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(246, 224, 94, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(246, 224, 94, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -20203,12 +19103,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_yellow_500 : Css.Style
 divide_yellow_500 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(236, 201, 75, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(236, 201, 75, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -20227,12 +19125,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_yellow_600 : Css.Style
 divide_yellow_600 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(214, 158, 46, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(214, 158, 46, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -20251,12 +19147,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_yellow_700 : Css.Style
 divide_yellow_700 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(183, 121, 31, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(183, 121, 31, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -20275,12 +19169,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_yellow_800 : Css.Style
 divide_yellow_800 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(151, 90, 22, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(151, 90, 22, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -20299,12 +19191,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 divide_yellow_900 : Css.Style
 divide_yellow_900 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-divide-opacity" "1"
-                , Css.property "border-color" "rgba(116, 66, 16, var(--tw-divide-opacity))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-divide-opacity" "1"
+            , Css.property "border-color" "rgba(116, 66, 16, var(--tw-divide-opacity))"
             ]
         ]
 
@@ -20611,22 +19501,6 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 ease_out : Css.Style
 ease_out =
     Css.property "transition-timing-function" "cubic-bezier(0, 0, 0.2, 1)"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.fill-current {
-  fill: currentColor
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-fill_current : Css.Style
-fill_current =
-    Css.property "fill" "currentColor"
 
 
 {-| This class has the effect of following css declaration:
@@ -21207,1886 +20081,6 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 font_thin : Css.Style
 font_thin =
     Css.property "font-weight" "100"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-black {
-  --tw-gradient-from: #000;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_black : Css.Style
-from_black =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#000"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-blue-100 {
-  --tw-gradient-from: #ebf8ff;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(235, 248, 255, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_blue_100 : Css.Style
-from_blue_100 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#ebf8ff"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(235, 248, 255, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-blue-200 {
-  --tw-gradient-from: #bee3f8;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(190, 227, 248, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_blue_200 : Css.Style
-from_blue_200 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#bee3f8"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(190, 227, 248, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-blue-300 {
-  --tw-gradient-from: #90cdf4;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(144, 205, 244, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_blue_300 : Css.Style
-from_blue_300 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#90cdf4"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(144, 205, 244, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-blue-400 {
-  --tw-gradient-from: #63b3ed;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(99, 179, 237, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_blue_400 : Css.Style
-from_blue_400 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#63b3ed"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(99, 179, 237, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-blue-500 {
-  --tw-gradient-from: #4299e1;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(66, 153, 225, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_blue_500 : Css.Style
-from_blue_500 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#4299e1"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(66, 153, 225, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-blue-600 {
-  --tw-gradient-from: #3182ce;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(49, 130, 206, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_blue_600 : Css.Style
-from_blue_600 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#3182ce"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(49, 130, 206, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-blue-700 {
-  --tw-gradient-from: #2b6cb0;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(43, 108, 176, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_blue_700 : Css.Style
-from_blue_700 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#2b6cb0"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(43, 108, 176, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-blue-800 {
-  --tw-gradient-from: #2c5282;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(44, 82, 130, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_blue_800 : Css.Style
-from_blue_800 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#2c5282"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(44, 82, 130, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-blue-900 {
-  --tw-gradient-from: #2a4365;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(42, 67, 101, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_blue_900 : Css.Style
-from_blue_900 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#2a4365"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(42, 67, 101, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-current {
-  --tw-gradient-from: currentColor;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_current : Css.Style
-from_current =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "currentColor"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-gray-100 {
-  --tw-gradient-from: #f7fafc;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(247, 250, 252, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_gray_100 : Css.Style
-from_gray_100 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#f7fafc"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(247, 250, 252, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-gray-200 {
-  --tw-gradient-from: #edf2f7;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(237, 242, 247, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_gray_200 : Css.Style
-from_gray_200 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#edf2f7"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(237, 242, 247, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-gray-300 {
-  --tw-gradient-from: #e2e8f0;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(226, 232, 240, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_gray_300 : Css.Style
-from_gray_300 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#e2e8f0"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(226, 232, 240, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-gray-400 {
-  --tw-gradient-from: #cbd5e0;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(203, 213, 224, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_gray_400 : Css.Style
-from_gray_400 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#cbd5e0"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(203, 213, 224, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-gray-500 {
-  --tw-gradient-from: #a0aec0;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(160, 174, 192, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_gray_500 : Css.Style
-from_gray_500 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#a0aec0"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(160, 174, 192, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-gray-600 {
-  --tw-gradient-from: #718096;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(113, 128, 150, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_gray_600 : Css.Style
-from_gray_600 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#718096"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(113, 128, 150, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-gray-700 {
-  --tw-gradient-from: #4a5568;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(74, 85, 104, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_gray_700 : Css.Style
-from_gray_700 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#4a5568"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(74, 85, 104, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-gray-800 {
-  --tw-gradient-from: #2d3748;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(45, 55, 72, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_gray_800 : Css.Style
-from_gray_800 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#2d3748"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(45, 55, 72, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-gray-900 {
-  --tw-gradient-from: #1a202c;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(26, 32, 44, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_gray_900 : Css.Style
-from_gray_900 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#1a202c"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(26, 32, 44, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-green-100 {
-  --tw-gradient-from: #f0fff4;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(240, 255, 244, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_green_100 : Css.Style
-from_green_100 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#f0fff4"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(240, 255, 244, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-green-200 {
-  --tw-gradient-from: #c6f6d5;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(198, 246, 213, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_green_200 : Css.Style
-from_green_200 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#c6f6d5"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(198, 246, 213, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-green-300 {
-  --tw-gradient-from: #9ae6b4;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(154, 230, 180, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_green_300 : Css.Style
-from_green_300 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#9ae6b4"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(154, 230, 180, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-green-400 {
-  --tw-gradient-from: #68d391;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(104, 211, 145, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_green_400 : Css.Style
-from_green_400 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#68d391"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(104, 211, 145, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-green-500 {
-  --tw-gradient-from: #48bb78;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(72, 187, 120, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_green_500 : Css.Style
-from_green_500 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#48bb78"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(72, 187, 120, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-green-600 {
-  --tw-gradient-from: #38a169;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(56, 161, 105, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_green_600 : Css.Style
-from_green_600 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#38a169"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(56, 161, 105, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-green-700 {
-  --tw-gradient-from: #2f855a;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(47, 133, 90, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_green_700 : Css.Style
-from_green_700 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#2f855a"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(47, 133, 90, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-green-800 {
-  --tw-gradient-from: #276749;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(39, 103, 73, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_green_800 : Css.Style
-from_green_800 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#276749"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(39, 103, 73, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-green-900 {
-  --tw-gradient-from: #22543d;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(34, 84, 61, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_green_900 : Css.Style
-from_green_900 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#22543d"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(34, 84, 61, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-indigo-100 {
-  --tw-gradient-from: #ebf4ff;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(235, 244, 255, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_indigo_100 : Css.Style
-from_indigo_100 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#ebf4ff"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(235, 244, 255, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-indigo-200 {
-  --tw-gradient-from: #c3dafe;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(195, 218, 254, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_indigo_200 : Css.Style
-from_indigo_200 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#c3dafe"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(195, 218, 254, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-indigo-300 {
-  --tw-gradient-from: #a3bffa;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(163, 191, 250, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_indigo_300 : Css.Style
-from_indigo_300 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#a3bffa"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(163, 191, 250, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-indigo-400 {
-  --tw-gradient-from: #7f9cf5;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(127, 156, 245, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_indigo_400 : Css.Style
-from_indigo_400 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#7f9cf5"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(127, 156, 245, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-indigo-500 {
-  --tw-gradient-from: #667eea;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(102, 126, 234, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_indigo_500 : Css.Style
-from_indigo_500 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#667eea"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(102, 126, 234, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-indigo-600 {
-  --tw-gradient-from: #5a67d8;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(90, 103, 216, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_indigo_600 : Css.Style
-from_indigo_600 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#5a67d8"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(90, 103, 216, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-indigo-700 {
-  --tw-gradient-from: #4c51bf;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(76, 81, 191, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_indigo_700 : Css.Style
-from_indigo_700 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#4c51bf"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(76, 81, 191, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-indigo-800 {
-  --tw-gradient-from: #434190;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(67, 65, 144, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_indigo_800 : Css.Style
-from_indigo_800 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#434190"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(67, 65, 144, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-indigo-900 {
-  --tw-gradient-from: #3c366b;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(60, 54, 107, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_indigo_900 : Css.Style
-from_indigo_900 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#3c366b"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(60, 54, 107, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-orange-100 {
-  --tw-gradient-from: #fffaf0;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 250, 240, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_orange_100 : Css.Style
-from_orange_100 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#fffaf0"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 250, 240, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-orange-200 {
-  --tw-gradient-from: #feebc8;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(254, 235, 200, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_orange_200 : Css.Style
-from_orange_200 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#feebc8"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(254, 235, 200, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-orange-300 {
-  --tw-gradient-from: #fbd38d;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(251, 211, 141, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_orange_300 : Css.Style
-from_orange_300 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#fbd38d"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(251, 211, 141, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-orange-400 {
-  --tw-gradient-from: #f6ad55;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(246, 173, 85, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_orange_400 : Css.Style
-from_orange_400 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#f6ad55"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(246, 173, 85, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-orange-500 {
-  --tw-gradient-from: #ed8936;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(237, 137, 54, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_orange_500 : Css.Style
-from_orange_500 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#ed8936"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(237, 137, 54, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-orange-600 {
-  --tw-gradient-from: #dd6b20;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(221, 107, 32, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_orange_600 : Css.Style
-from_orange_600 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#dd6b20"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(221, 107, 32, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-orange-700 {
-  --tw-gradient-from: #c05621;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(192, 86, 33, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_orange_700 : Css.Style
-from_orange_700 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#c05621"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(192, 86, 33, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-orange-800 {
-  --tw-gradient-from: #9c4221;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(156, 66, 33, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_orange_800 : Css.Style
-from_orange_800 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#9c4221"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(156, 66, 33, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-orange-900 {
-  --tw-gradient-from: #7b341e;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(123, 52, 30, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_orange_900 : Css.Style
-from_orange_900 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#7b341e"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(123, 52, 30, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-pink-100 {
-  --tw-gradient-from: #fff5f7;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 245, 247, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_pink_100 : Css.Style
-from_pink_100 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#fff5f7"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 245, 247, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-pink-200 {
-  --tw-gradient-from: #fed7e2;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(254, 215, 226, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_pink_200 : Css.Style
-from_pink_200 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#fed7e2"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(254, 215, 226, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-pink-300 {
-  --tw-gradient-from: #fbb6ce;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(251, 182, 206, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_pink_300 : Css.Style
-from_pink_300 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#fbb6ce"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(251, 182, 206, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-pink-400 {
-  --tw-gradient-from: #f687b3;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(246, 135, 179, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_pink_400 : Css.Style
-from_pink_400 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#f687b3"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(246, 135, 179, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-pink-500 {
-  --tw-gradient-from: #ed64a6;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(237, 100, 166, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_pink_500 : Css.Style
-from_pink_500 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#ed64a6"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(237, 100, 166, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-pink-600 {
-  --tw-gradient-from: #d53f8c;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(213, 63, 140, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_pink_600 : Css.Style
-from_pink_600 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#d53f8c"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(213, 63, 140, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-pink-700 {
-  --tw-gradient-from: #b83280;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(184, 50, 128, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_pink_700 : Css.Style
-from_pink_700 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#b83280"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(184, 50, 128, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-pink-800 {
-  --tw-gradient-from: #97266d;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(151, 38, 109, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_pink_800 : Css.Style
-from_pink_800 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#97266d"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(151, 38, 109, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-pink-900 {
-  --tw-gradient-from: #702459;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(112, 36, 89, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_pink_900 : Css.Style
-from_pink_900 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#702459"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(112, 36, 89, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-purple-100 {
-  --tw-gradient-from: #faf5ff;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(250, 245, 255, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_purple_100 : Css.Style
-from_purple_100 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#faf5ff"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(250, 245, 255, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-purple-200 {
-  --tw-gradient-from: #e9d8fd;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(233, 216, 253, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_purple_200 : Css.Style
-from_purple_200 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#e9d8fd"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(233, 216, 253, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-purple-300 {
-  --tw-gradient-from: #d6bcfa;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(214, 188, 250, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_purple_300 : Css.Style
-from_purple_300 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#d6bcfa"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(214, 188, 250, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-purple-400 {
-  --tw-gradient-from: #b794f4;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(183, 148, 244, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_purple_400 : Css.Style
-from_purple_400 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#b794f4"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(183, 148, 244, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-purple-500 {
-  --tw-gradient-from: #9f7aea;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(159, 122, 234, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_purple_500 : Css.Style
-from_purple_500 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#9f7aea"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(159, 122, 234, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-purple-600 {
-  --tw-gradient-from: #805ad5;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(128, 90, 213, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_purple_600 : Css.Style
-from_purple_600 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#805ad5"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(128, 90, 213, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-purple-700 {
-  --tw-gradient-from: #6b46c1;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(107, 70, 193, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_purple_700 : Css.Style
-from_purple_700 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#6b46c1"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(107, 70, 193, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-purple-800 {
-  --tw-gradient-from: #553c9a;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(85, 60, 154, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_purple_800 : Css.Style
-from_purple_800 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#553c9a"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(85, 60, 154, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-purple-900 {
-  --tw-gradient-from: #44337a;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(68, 51, 122, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_purple_900 : Css.Style
-from_purple_900 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#44337a"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(68, 51, 122, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-red-100 {
-  --tw-gradient-from: #fff5f5;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 245, 245, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_red_100 : Css.Style
-from_red_100 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#fff5f5"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 245, 245, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-red-200 {
-  --tw-gradient-from: #fed7d7;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(254, 215, 215, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_red_200 : Css.Style
-from_red_200 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#fed7d7"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(254, 215, 215, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-red-300 {
-  --tw-gradient-from: #feb2b2;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(254, 178, 178, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_red_300 : Css.Style
-from_red_300 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#feb2b2"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(254, 178, 178, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-red-400 {
-  --tw-gradient-from: #fc8181;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(252, 129, 129, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_red_400 : Css.Style
-from_red_400 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#fc8181"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(252, 129, 129, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-red-500 {
-  --tw-gradient-from: #f56565;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(245, 101, 101, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_red_500 : Css.Style
-from_red_500 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#f56565"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(245, 101, 101, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-red-600 {
-  --tw-gradient-from: #e53e3e;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(229, 62, 62, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_red_600 : Css.Style
-from_red_600 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#e53e3e"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(229, 62, 62, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-red-700 {
-  --tw-gradient-from: #c53030;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(197, 48, 48, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_red_700 : Css.Style
-from_red_700 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#c53030"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(197, 48, 48, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-red-800 {
-  --tw-gradient-from: #9b2c2c;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(155, 44, 44, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_red_800 : Css.Style
-from_red_800 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#9b2c2c"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(155, 44, 44, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-red-900 {
-  --tw-gradient-from: #742a2a;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(116, 42, 42, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_red_900 : Css.Style
-from_red_900 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#742a2a"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(116, 42, 42, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-teal-100 {
-  --tw-gradient-from: #e6fffa;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(230, 255, 250, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_teal_100 : Css.Style
-from_teal_100 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#e6fffa"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(230, 255, 250, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-teal-200 {
-  --tw-gradient-from: #b2f5ea;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(178, 245, 234, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_teal_200 : Css.Style
-from_teal_200 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#b2f5ea"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(178, 245, 234, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-teal-300 {
-  --tw-gradient-from: #81e6d9;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(129, 230, 217, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_teal_300 : Css.Style
-from_teal_300 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#81e6d9"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(129, 230, 217, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-teal-400 {
-  --tw-gradient-from: #4fd1c5;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(79, 209, 197, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_teal_400 : Css.Style
-from_teal_400 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#4fd1c5"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(79, 209, 197, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-teal-500 {
-  --tw-gradient-from: #38b2ac;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(56, 178, 172, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_teal_500 : Css.Style
-from_teal_500 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#38b2ac"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(56, 178, 172, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-teal-600 {
-  --tw-gradient-from: #319795;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(49, 151, 149, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_teal_600 : Css.Style
-from_teal_600 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#319795"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(49, 151, 149, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-teal-700 {
-  --tw-gradient-from: #2c7a7b;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(44, 122, 123, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_teal_700 : Css.Style
-from_teal_700 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#2c7a7b"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(44, 122, 123, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-teal-800 {
-  --tw-gradient-from: #285e61;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(40, 94, 97, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_teal_800 : Css.Style
-from_teal_800 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#285e61"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(40, 94, 97, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-teal-900 {
-  --tw-gradient-from: #234e52;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(35, 78, 82, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_teal_900 : Css.Style
-from_teal_900 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#234e52"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(35, 78, 82, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-transparent {
-  --tw-gradient-from: transparent;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_transparent : Css.Style
-from_transparent =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "transparent"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-white {
-  --tw-gradient-from: #fff;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_white : Css.Style
-from_white =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#fff"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-yellow-100 {
-  --tw-gradient-from: #fffff0;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 240, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_yellow_100 : Css.Style
-from_yellow_100 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#fffff0"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 240, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-yellow-200 {
-  --tw-gradient-from: #fefcbf;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(254, 252, 191, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_yellow_200 : Css.Style
-from_yellow_200 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#fefcbf"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(254, 252, 191, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-yellow-300 {
-  --tw-gradient-from: #faf089;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(250, 240, 137, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_yellow_300 : Css.Style
-from_yellow_300 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#faf089"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(250, 240, 137, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-yellow-400 {
-  --tw-gradient-from: #f6e05e;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(246, 224, 94, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_yellow_400 : Css.Style
-from_yellow_400 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#f6e05e"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(246, 224, 94, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-yellow-500 {
-  --tw-gradient-from: #ecc94b;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(236, 201, 75, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_yellow_500 : Css.Style
-from_yellow_500 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#ecc94b"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(236, 201, 75, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-yellow-600 {
-  --tw-gradient-from: #d69e2e;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(214, 158, 46, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_yellow_600 : Css.Style
-from_yellow_600 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#d69e2e"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(214, 158, 46, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-yellow-700 {
-  --tw-gradient-from: #b7791f;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(183, 121, 31, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_yellow_700 : Css.Style
-from_yellow_700 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#b7791f"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(183, 121, 31, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-yellow-800 {
-  --tw-gradient-from: #975a16;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(151, 90, 22, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_yellow_800 : Css.Style
-from_yellow_800 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#975a16"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(151, 90, 22, 0))"
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.from-yellow-900 {
-  --tw-gradient-from: #744210;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(116, 66, 16, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-from_yellow_900 : Css.Style
-from_yellow_900 =
-    Css.batch
-        [ Css.property "--tw-gradient-from" "#744210"
-        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(116, 66, 16, 0))"
-        ]
 
 
 {-| This class has the effect of following css declaration:
@@ -45481,13 +42475,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_0 : Css.Style
 neg_space_x_0 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(0px * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(0px * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(0px * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(0px * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45507,13 +42499,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_0_dot_5 : Css.Style
 neg_space_x_0_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-0.125rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-0.125rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-0.125rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-0.125rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45533,13 +42523,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_1 : Css.Style
 neg_space_x_1 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-0.25rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-0.25rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-0.25rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-0.25rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45559,13 +42547,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_10 : Css.Style
 neg_space_x_10 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-2.5rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-2.5rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-2.5rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-2.5rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45585,13 +42571,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_11 : Css.Style
 neg_space_x_11 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-2.75rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-2.75rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-2.75rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-2.75rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45611,13 +42595,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_12 : Css.Style
 neg_space_x_12 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-3rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-3rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-3rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-3rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45637,13 +42619,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_14 : Css.Style
 neg_space_x_14 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-3.5rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-3.5rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-3.5rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-3.5rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45663,13 +42643,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_16 : Css.Style
 neg_space_x_16 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-4rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-4rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-4rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-4rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45689,13 +42667,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_1_dot_5 : Css.Style
 neg_space_x_1_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-0.375rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-0.375rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-0.375rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-0.375rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45715,13 +42691,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_2 : Css.Style
 neg_space_x_2 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-0.5rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-0.5rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-0.5rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-0.5rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45741,13 +42715,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_20 : Css.Style
 neg_space_x_20 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-5rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-5rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-5rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-5rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45767,13 +42739,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_24 : Css.Style
 neg_space_x_24 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-6rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-6rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-6rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-6rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45793,13 +42763,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_28 : Css.Style
 neg_space_x_28 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-7rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-7rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-7rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-7rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45819,13 +42787,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_2_dot_5 : Css.Style
 neg_space_x_2_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-0.625rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-0.625rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-0.625rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-0.625rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45845,13 +42811,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_3 : Css.Style
 neg_space_x_3 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-0.75rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-0.75rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-0.75rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-0.75rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45871,13 +42835,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_32 : Css.Style
 neg_space_x_32 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-8rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-8rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-8rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-8rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45897,13 +42859,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_36 : Css.Style
 neg_space_x_36 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-9rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-9rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-9rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-9rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45923,13 +42883,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_3_dot_5 : Css.Style
 neg_space_x_3_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-0.875rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-0.875rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-0.875rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-0.875rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45949,13 +42907,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_4 : Css.Style
 neg_space_x_4 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-1rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-1rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-1rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-1rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -45975,13 +42931,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_40 : Css.Style
 neg_space_x_40 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-10rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-10rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-10rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-10rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46001,13 +42955,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_44 : Css.Style
 neg_space_x_44 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-11rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-11rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-11rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-11rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46027,13 +42979,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_48 : Css.Style
 neg_space_x_48 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-12rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-12rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-12rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-12rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46053,13 +43003,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_5 : Css.Style
 neg_space_x_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-1.25rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-1.25rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-1.25rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-1.25rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46079,13 +43027,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_52 : Css.Style
 neg_space_x_52 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-13rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-13rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-13rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-13rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46105,13 +43051,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_56 : Css.Style
 neg_space_x_56 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-14rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-14rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-14rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-14rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46131,13 +43075,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_6 : Css.Style
 neg_space_x_6 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-1.5rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-1.5rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-1.5rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-1.5rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46157,13 +43099,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_60 : Css.Style
 neg_space_x_60 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-15rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-15rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-15rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-15rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46183,13 +43123,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_64 : Css.Style
 neg_space_x_64 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-16rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-16rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-16rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-16rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46209,13 +43147,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_7 : Css.Style
 neg_space_x_7 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-1.75rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-1.75rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-1.75rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-1.75rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46235,13 +43171,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_72 : Css.Style
 neg_space_x_72 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-18rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-18rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-18rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-18rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46261,13 +43195,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_8 : Css.Style
 neg_space_x_8 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-2rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-2rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-2rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-2rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46287,13 +43219,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_80 : Css.Style
 neg_space_x_80 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-20rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-20rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-20rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-20rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46313,13 +43243,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_9 : Css.Style
 neg_space_x_9 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-2.25rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-2.25rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-2.25rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-2.25rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46339,13 +43267,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_96 : Css.Style
 neg_space_x_96 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-24rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-24rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-24rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-24rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46365,13 +43291,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_x_px : Css.Style
 neg_space_x_px =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(-1px * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(-1px * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(-1px * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(-1px * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -46391,13 +43315,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_0 : Css.Style
 neg_space_y_0 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(0px * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(0px * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(0px * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(0px * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46417,13 +43339,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_0_dot_5 : Css.Style
 neg_space_y_0_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-0.125rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-0.125rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-0.125rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-0.125rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46443,13 +43363,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_1 : Css.Style
 neg_space_y_1 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-0.25rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-0.25rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-0.25rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-0.25rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46469,13 +43387,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_10 : Css.Style
 neg_space_y_10 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-2.5rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-2.5rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-2.5rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-2.5rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46495,13 +43411,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_11 : Css.Style
 neg_space_y_11 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-2.75rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-2.75rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-2.75rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-2.75rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46521,13 +43435,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_12 : Css.Style
 neg_space_y_12 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-3rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-3rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-3rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-3rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46547,13 +43459,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_14 : Css.Style
 neg_space_y_14 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-3.5rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-3.5rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-3.5rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-3.5rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46573,13 +43483,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_16 : Css.Style
 neg_space_y_16 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-4rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-4rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-4rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-4rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46599,13 +43507,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_1_dot_5 : Css.Style
 neg_space_y_1_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-0.375rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-0.375rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-0.375rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-0.375rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46625,13 +43531,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_2 : Css.Style
 neg_space_y_2 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-0.5rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-0.5rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-0.5rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-0.5rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46651,13 +43555,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_20 : Css.Style
 neg_space_y_20 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-5rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-5rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-5rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-5rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46677,13 +43579,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_24 : Css.Style
 neg_space_y_24 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-6rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-6rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-6rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-6rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46703,13 +43603,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_28 : Css.Style
 neg_space_y_28 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-7rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-7rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-7rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-7rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46729,13 +43627,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_2_dot_5 : Css.Style
 neg_space_y_2_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-0.625rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-0.625rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-0.625rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-0.625rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46755,13 +43651,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_3 : Css.Style
 neg_space_y_3 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-0.75rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-0.75rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-0.75rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-0.75rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46781,13 +43675,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_32 : Css.Style
 neg_space_y_32 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-8rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-8rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-8rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-8rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46807,13 +43699,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_36 : Css.Style
 neg_space_y_36 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-9rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-9rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-9rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-9rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46833,13 +43723,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_3_dot_5 : Css.Style
 neg_space_y_3_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-0.875rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-0.875rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-0.875rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-0.875rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46859,13 +43747,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_4 : Css.Style
 neg_space_y_4 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-1rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-1rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-1rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-1rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46885,13 +43771,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_40 : Css.Style
 neg_space_y_40 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-10rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-10rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-10rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-10rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46911,13 +43795,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_44 : Css.Style
 neg_space_y_44 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-11rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-11rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-11rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-11rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46937,13 +43819,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_48 : Css.Style
 neg_space_y_48 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-12rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-12rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-12rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-12rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46963,13 +43843,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_5 : Css.Style
 neg_space_y_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-1.25rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-1.25rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-1.25rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-1.25rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -46989,13 +43867,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_52 : Css.Style
 neg_space_y_52 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-13rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-13rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-13rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-13rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -47015,13 +43891,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_56 : Css.Style
 neg_space_y_56 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-14rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-14rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-14rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-14rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -47041,13 +43915,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_6 : Css.Style
 neg_space_y_6 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-1.5rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-1.5rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-1.5rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-1.5rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -47067,13 +43939,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_60 : Css.Style
 neg_space_y_60 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-15rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-15rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-15rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-15rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -47093,13 +43963,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_64 : Css.Style
 neg_space_y_64 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-16rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-16rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-16rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-16rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -47119,13 +43987,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_7 : Css.Style
 neg_space_y_7 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-1.75rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-1.75rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-1.75rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-1.75rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -47145,13 +44011,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_72 : Css.Style
 neg_space_y_72 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-18rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-18rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-18rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-18rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -47171,13 +44035,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_8 : Css.Style
 neg_space_y_8 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-2rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-2rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-2rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-2rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -47197,13 +44059,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_80 : Css.Style
 neg_space_y_80 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-20rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-20rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-20rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-20rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -47223,13 +44083,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_9 : Css.Style
 neg_space_y_9 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-2.25rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-2.25rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-2.25rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-2.25rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -47249,13 +44107,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_96 : Css.Style
 neg_space_y_96 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-24rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-24rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-24rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-24rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -47275,13 +44131,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 neg_space_y_px : Css.Style
 neg_space_y_px =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(-1px * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(-1px * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(-1px * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(-1px * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -52690,11 +49544,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_black : Css.Style
 placeholder_black =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(0, 0, 0, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(0, 0, 0, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52712,11 +49564,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_blue_100 : Css.Style
 placeholder_blue_100 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(235, 248, 255, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(235, 248, 255, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52734,11 +49584,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_blue_200 : Css.Style
 placeholder_blue_200 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(190, 227, 248, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(190, 227, 248, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52756,11 +49604,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_blue_300 : Css.Style
 placeholder_blue_300 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(144, 205, 244, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(144, 205, 244, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52778,11 +49624,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_blue_400 : Css.Style
 placeholder_blue_400 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(99, 179, 237, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(99, 179, 237, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52800,11 +49644,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_blue_500 : Css.Style
 placeholder_blue_500 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(66, 153, 225, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(66, 153, 225, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52822,11 +49664,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_blue_600 : Css.Style
 placeholder_blue_600 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(49, 130, 206, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(49, 130, 206, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52844,11 +49684,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_blue_700 : Css.Style
 placeholder_blue_700 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(43, 108, 176, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(43, 108, 176, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52866,11 +49704,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_blue_800 : Css.Style
 placeholder_blue_800 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(44, 82, 130, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(44, 82, 130, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52888,31 +49724,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_blue_900 : Css.Style
 placeholder_blue_900 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(42, 67, 101, var(--tw-placeholder-opacity))"
-            ]
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.placeholder-current::placeholder {
-  color: currentColor
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-placeholder_current : Css.Style
-placeholder_current =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "color" "currentColor"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(42, 67, 101, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52930,11 +49744,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_gray_100 : Css.Style
 placeholder_gray_100 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(247, 250, 252, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(247, 250, 252, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52952,11 +49764,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_gray_200 : Css.Style
 placeholder_gray_200 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(237, 242, 247, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(237, 242, 247, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52974,11 +49784,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_gray_300 : Css.Style
 placeholder_gray_300 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(226, 232, 240, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(226, 232, 240, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -52996,11 +49804,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_gray_400 : Css.Style
 placeholder_gray_400 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(203, 213, 224, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(203, 213, 224, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53018,11 +49824,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_gray_500 : Css.Style
 placeholder_gray_500 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(160, 174, 192, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(160, 174, 192, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53040,11 +49844,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_gray_600 : Css.Style
 placeholder_gray_600 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(113, 128, 150, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(113, 128, 150, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53062,11 +49864,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_gray_700 : Css.Style
 placeholder_gray_700 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(74, 85, 104, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(74, 85, 104, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53084,11 +49884,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_gray_800 : Css.Style
 placeholder_gray_800 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(45, 55, 72, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(45, 55, 72, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53106,11 +49904,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_gray_900 : Css.Style
 placeholder_gray_900 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(26, 32, 44, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(26, 32, 44, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53128,11 +49924,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_green_100 : Css.Style
 placeholder_green_100 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(240, 255, 244, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(240, 255, 244, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53150,11 +49944,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_green_200 : Css.Style
 placeholder_green_200 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(198, 246, 213, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(198, 246, 213, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53172,11 +49964,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_green_300 : Css.Style
 placeholder_green_300 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(154, 230, 180, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(154, 230, 180, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53194,11 +49984,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_green_400 : Css.Style
 placeholder_green_400 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(104, 211, 145, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(104, 211, 145, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53216,11 +50004,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_green_500 : Css.Style
 placeholder_green_500 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(72, 187, 120, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(72, 187, 120, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53238,11 +50024,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_green_600 : Css.Style
 placeholder_green_600 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(56, 161, 105, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(56, 161, 105, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53260,11 +50044,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_green_700 : Css.Style
 placeholder_green_700 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(47, 133, 90, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(47, 133, 90, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53282,11 +50064,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_green_800 : Css.Style
 placeholder_green_800 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(39, 103, 73, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(39, 103, 73, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53304,11 +50084,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_green_900 : Css.Style
 placeholder_green_900 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(34, 84, 61, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(34, 84, 61, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53326,11 +50104,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_indigo_100 : Css.Style
 placeholder_indigo_100 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(235, 244, 255, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(235, 244, 255, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53348,11 +50124,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_indigo_200 : Css.Style
 placeholder_indigo_200 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(195, 218, 254, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(195, 218, 254, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53370,11 +50144,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_indigo_300 : Css.Style
 placeholder_indigo_300 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(163, 191, 250, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(163, 191, 250, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53392,11 +50164,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_indigo_400 : Css.Style
 placeholder_indigo_400 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(127, 156, 245, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(127, 156, 245, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53414,11 +50184,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_indigo_500 : Css.Style
 placeholder_indigo_500 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(102, 126, 234, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(102, 126, 234, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53436,11 +50204,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_indigo_600 : Css.Style
 placeholder_indigo_600 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(90, 103, 216, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(90, 103, 216, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53458,11 +50224,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_indigo_700 : Css.Style
 placeholder_indigo_700 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(76, 81, 191, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(76, 81, 191, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53480,11 +50244,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_indigo_800 : Css.Style
 placeholder_indigo_800 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(67, 65, 144, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(67, 65, 144, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53502,11 +50264,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_indigo_900 : Css.Style
 placeholder_indigo_900 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(60, 54, 107, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(60, 54, 107, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53523,10 +50283,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_0 : Css.Style
 placeholder_opacity_0 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0"
         ]
 
 
@@ -53543,10 +50301,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_10 : Css.Style
 placeholder_opacity_10 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.1"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.1"
         ]
 
 
@@ -53563,10 +50319,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_100 : Css.Style
 placeholder_opacity_100 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
         ]
 
 
@@ -53583,10 +50337,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_20 : Css.Style
 placeholder_opacity_20 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.2"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.2"
         ]
 
 
@@ -53603,10 +50355,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_25 : Css.Style
 placeholder_opacity_25 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.25"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.25"
         ]
 
 
@@ -53623,10 +50373,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_30 : Css.Style
 placeholder_opacity_30 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.3"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.3"
         ]
 
 
@@ -53643,10 +50391,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_40 : Css.Style
 placeholder_opacity_40 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.4"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.4"
         ]
 
 
@@ -53663,10 +50409,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_5 : Css.Style
 placeholder_opacity_5 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.05"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.05"
         ]
 
 
@@ -53683,10 +50427,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_50 : Css.Style
 placeholder_opacity_50 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.5"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.5"
         ]
 
 
@@ -53703,10 +50445,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_60 : Css.Style
 placeholder_opacity_60 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.6"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.6"
         ]
 
 
@@ -53723,10 +50463,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_70 : Css.Style
 placeholder_opacity_70 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.7"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.7"
         ]
 
 
@@ -53743,10 +50481,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_75 : Css.Style
 placeholder_opacity_75 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.75"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.75"
         ]
 
 
@@ -53763,10 +50499,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_80 : Css.Style
 placeholder_opacity_80 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.8"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.8"
         ]
 
 
@@ -53783,10 +50517,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_90 : Css.Style
 placeholder_opacity_90 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.9"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.9"
         ]
 
 
@@ -53803,10 +50535,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_opacity_95 : Css.Style
 placeholder_opacity_95 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "0.95"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "0.95"
         ]
 
 
@@ -53824,11 +50554,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_orange_100 : Css.Style
 placeholder_orange_100 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(255, 250, 240, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(255, 250, 240, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53846,11 +50574,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_orange_200 : Css.Style
 placeholder_orange_200 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(254, 235, 200, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(254, 235, 200, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53868,11 +50594,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_orange_300 : Css.Style
 placeholder_orange_300 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(251, 211, 141, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(251, 211, 141, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53890,11 +50614,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_orange_400 : Css.Style
 placeholder_orange_400 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(246, 173, 85, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(246, 173, 85, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53912,11 +50634,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_orange_500 : Css.Style
 placeholder_orange_500 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(237, 137, 54, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(237, 137, 54, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53934,11 +50654,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_orange_600 : Css.Style
 placeholder_orange_600 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(221, 107, 32, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(221, 107, 32, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53956,11 +50674,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_orange_700 : Css.Style
 placeholder_orange_700 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(192, 86, 33, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(192, 86, 33, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -53978,11 +50694,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_orange_800 : Css.Style
 placeholder_orange_800 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(156, 66, 33, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(156, 66, 33, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54000,11 +50714,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_orange_900 : Css.Style
 placeholder_orange_900 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(123, 52, 30, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(123, 52, 30, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54022,11 +50734,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_pink_100 : Css.Style
 placeholder_pink_100 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(255, 245, 247, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(255, 245, 247, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54044,11 +50754,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_pink_200 : Css.Style
 placeholder_pink_200 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(254, 215, 226, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(254, 215, 226, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54066,11 +50774,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_pink_300 : Css.Style
 placeholder_pink_300 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(251, 182, 206, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(251, 182, 206, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54088,11 +50794,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_pink_400 : Css.Style
 placeholder_pink_400 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(246, 135, 179, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(246, 135, 179, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54110,11 +50814,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_pink_500 : Css.Style
 placeholder_pink_500 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(237, 100, 166, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(237, 100, 166, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54132,11 +50834,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_pink_600 : Css.Style
 placeholder_pink_600 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(213, 63, 140, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(213, 63, 140, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54154,11 +50854,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_pink_700 : Css.Style
 placeholder_pink_700 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(184, 50, 128, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(184, 50, 128, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54176,11 +50874,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_pink_800 : Css.Style
 placeholder_pink_800 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(151, 38, 109, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(151, 38, 109, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54198,11 +50894,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_pink_900 : Css.Style
 placeholder_pink_900 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(112, 36, 89, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(112, 36, 89, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54220,11 +50914,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_purple_100 : Css.Style
 placeholder_purple_100 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(250, 245, 255, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(250, 245, 255, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54242,11 +50934,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_purple_200 : Css.Style
 placeholder_purple_200 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(233, 216, 253, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(233, 216, 253, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54264,11 +50954,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_purple_300 : Css.Style
 placeholder_purple_300 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(214, 188, 250, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(214, 188, 250, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54286,11 +50974,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_purple_400 : Css.Style
 placeholder_purple_400 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(183, 148, 244, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(183, 148, 244, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54308,11 +50994,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_purple_500 : Css.Style
 placeholder_purple_500 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(159, 122, 234, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(159, 122, 234, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54330,11 +51014,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_purple_600 : Css.Style
 placeholder_purple_600 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(128, 90, 213, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(128, 90, 213, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54352,11 +51034,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_purple_700 : Css.Style
 placeholder_purple_700 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(107, 70, 193, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(107, 70, 193, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54374,11 +51054,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_purple_800 : Css.Style
 placeholder_purple_800 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(85, 60, 154, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(85, 60, 154, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54396,11 +51074,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_purple_900 : Css.Style
 placeholder_purple_900 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(68, 51, 122, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(68, 51, 122, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54418,11 +51094,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_red_100 : Css.Style
 placeholder_red_100 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(255, 245, 245, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(255, 245, 245, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54440,11 +51114,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_red_200 : Css.Style
 placeholder_red_200 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(254, 215, 215, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(254, 215, 215, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54462,11 +51134,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_red_300 : Css.Style
 placeholder_red_300 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(254, 178, 178, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(254, 178, 178, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54484,11 +51154,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_red_400 : Css.Style
 placeholder_red_400 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(252, 129, 129, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(252, 129, 129, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54506,11 +51174,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_red_500 : Css.Style
 placeholder_red_500 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(245, 101, 101, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(245, 101, 101, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54528,11 +51194,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_red_600 : Css.Style
 placeholder_red_600 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(229, 62, 62, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(229, 62, 62, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54550,11 +51214,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_red_700 : Css.Style
 placeholder_red_700 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(197, 48, 48, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(197, 48, 48, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54572,11 +51234,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_red_800 : Css.Style
 placeholder_red_800 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(155, 44, 44, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(155, 44, 44, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54594,11 +51254,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_red_900 : Css.Style
 placeholder_red_900 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(116, 42, 42, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(116, 42, 42, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54616,11 +51274,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_teal_100 : Css.Style
 placeholder_teal_100 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(230, 255, 250, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(230, 255, 250, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54638,11 +51294,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_teal_200 : Css.Style
 placeholder_teal_200 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(178, 245, 234, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(178, 245, 234, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54660,11 +51314,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_teal_300 : Css.Style
 placeholder_teal_300 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(129, 230, 217, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(129, 230, 217, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54682,11 +51334,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_teal_400 : Css.Style
 placeholder_teal_400 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(79, 209, 197, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(79, 209, 197, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54704,11 +51354,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_teal_500 : Css.Style
 placeholder_teal_500 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(56, 178, 172, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(56, 178, 172, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54726,11 +51374,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_teal_600 : Css.Style
 placeholder_teal_600 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(49, 151, 149, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(49, 151, 149, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54748,11 +51394,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_teal_700 : Css.Style
 placeholder_teal_700 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(44, 122, 123, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(44, 122, 123, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54770,11 +51414,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_teal_800 : Css.Style
 placeholder_teal_800 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(40, 94, 97, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(40, 94, 97, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54792,31 +51434,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_teal_900 : Css.Style
 placeholder_teal_900 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(35, 78, 82, var(--tw-placeholder-opacity))"
-            ]
-        ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.placeholder-transparent::placeholder {
-  color: transparent
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-placeholder_transparent : Css.Style
-placeholder_transparent =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "color" "transparent"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(35, 78, 82, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54834,11 +51454,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_white : Css.Style
 placeholder_white =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(255, 255, 255, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(255, 255, 255, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54856,11 +51474,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_yellow_100 : Css.Style
 placeholder_yellow_100 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(255, 255, 240, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(255, 255, 240, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54878,11 +51494,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_yellow_200 : Css.Style
 placeholder_yellow_200 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(254, 252, 191, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(254, 252, 191, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54900,11 +51514,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_yellow_300 : Css.Style
 placeholder_yellow_300 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(250, 240, 137, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(250, 240, 137, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54922,11 +51534,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_yellow_400 : Css.Style
 placeholder_yellow_400 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(246, 224, 94, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(246, 224, 94, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54944,11 +51554,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_yellow_500 : Css.Style
 placeholder_yellow_500 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(236, 201, 75, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(236, 201, 75, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54966,11 +51574,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_yellow_600 : Css.Style
 placeholder_yellow_600 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(214, 158, 46, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(214, 158, 46, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -54988,11 +51594,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_yellow_700 : Css.Style
 placeholder_yellow_700 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(183, 121, 31, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(183, 121, 31, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -55010,11 +51614,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_yellow_800 : Css.Style
 placeholder_yellow_800 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(151, 90, 22, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(151, 90, 22, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -55032,11 +51634,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 placeholder_yellow_900 : Css.Style
 placeholder_yellow_900 =
-    Css.batch
-        [ Css.pseudoElement "placeholder"
-            [ Css.property "--tw-placeholder-opacity" "1"
-            , Css.property "color" "rgba(116, 66, 16, var(--tw-placeholder-opacity))"
-            ]
+    Css.pseudoElement "placeholder"
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Css.property "color" "rgba(116, 66, 16, var(--tw-placeholder-opacity))"
         ]
 
 
@@ -58728,22 +55328,6 @@ ring_blue_900 =
 {-| This class has the effect of following css declaration:
 
 ```css
-.ring-current {
-  --tw-ring-color: currentColor
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_current : Css.Style
-ring_current =
-    Css.property "--tw-ring-color" "currentColor"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
 .ring-gray-100 {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgba(247, 250, 252, var(--tw-ring-opacity))
@@ -59375,1510 +55959,6 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 ring_offset_8 : Css.Style
 ring_offset_8 =
     Css.property "--tw-ring-offset-width" "8px"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-black {
-  --tw-ring-offset-color: #000
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_black : Css.Style
-ring_offset_black =
-    Css.property "--tw-ring-offset-color" "#000"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-blue-100 {
-  --tw-ring-offset-color: #ebf8ff
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_blue_100 : Css.Style
-ring_offset_blue_100 =
-    Css.property "--tw-ring-offset-color" "#ebf8ff"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-blue-200 {
-  --tw-ring-offset-color: #bee3f8
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_blue_200 : Css.Style
-ring_offset_blue_200 =
-    Css.property "--tw-ring-offset-color" "#bee3f8"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-blue-300 {
-  --tw-ring-offset-color: #90cdf4
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_blue_300 : Css.Style
-ring_offset_blue_300 =
-    Css.property "--tw-ring-offset-color" "#90cdf4"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-blue-400 {
-  --tw-ring-offset-color: #63b3ed
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_blue_400 : Css.Style
-ring_offset_blue_400 =
-    Css.property "--tw-ring-offset-color" "#63b3ed"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-blue-500 {
-  --tw-ring-offset-color: #4299e1
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_blue_500 : Css.Style
-ring_offset_blue_500 =
-    Css.property "--tw-ring-offset-color" "#4299e1"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-blue-600 {
-  --tw-ring-offset-color: #3182ce
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_blue_600 : Css.Style
-ring_offset_blue_600 =
-    Css.property "--tw-ring-offset-color" "#3182ce"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-blue-700 {
-  --tw-ring-offset-color: #2b6cb0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_blue_700 : Css.Style
-ring_offset_blue_700 =
-    Css.property "--tw-ring-offset-color" "#2b6cb0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-blue-800 {
-  --tw-ring-offset-color: #2c5282
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_blue_800 : Css.Style
-ring_offset_blue_800 =
-    Css.property "--tw-ring-offset-color" "#2c5282"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-blue-900 {
-  --tw-ring-offset-color: #2a4365
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_blue_900 : Css.Style
-ring_offset_blue_900 =
-    Css.property "--tw-ring-offset-color" "#2a4365"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-current {
-  --tw-ring-offset-color: currentColor
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_current : Css.Style
-ring_offset_current =
-    Css.property "--tw-ring-offset-color" "currentColor"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-gray-100 {
-  --tw-ring-offset-color: #f7fafc
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_gray_100 : Css.Style
-ring_offset_gray_100 =
-    Css.property "--tw-ring-offset-color" "#f7fafc"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-gray-200 {
-  --tw-ring-offset-color: #edf2f7
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_gray_200 : Css.Style
-ring_offset_gray_200 =
-    Css.property "--tw-ring-offset-color" "#edf2f7"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-gray-300 {
-  --tw-ring-offset-color: #e2e8f0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_gray_300 : Css.Style
-ring_offset_gray_300 =
-    Css.property "--tw-ring-offset-color" "#e2e8f0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-gray-400 {
-  --tw-ring-offset-color: #cbd5e0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_gray_400 : Css.Style
-ring_offset_gray_400 =
-    Css.property "--tw-ring-offset-color" "#cbd5e0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-gray-500 {
-  --tw-ring-offset-color: #a0aec0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_gray_500 : Css.Style
-ring_offset_gray_500 =
-    Css.property "--tw-ring-offset-color" "#a0aec0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-gray-600 {
-  --tw-ring-offset-color: #718096
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_gray_600 : Css.Style
-ring_offset_gray_600 =
-    Css.property "--tw-ring-offset-color" "#718096"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-gray-700 {
-  --tw-ring-offset-color: #4a5568
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_gray_700 : Css.Style
-ring_offset_gray_700 =
-    Css.property "--tw-ring-offset-color" "#4a5568"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-gray-800 {
-  --tw-ring-offset-color: #2d3748
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_gray_800 : Css.Style
-ring_offset_gray_800 =
-    Css.property "--tw-ring-offset-color" "#2d3748"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-gray-900 {
-  --tw-ring-offset-color: #1a202c
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_gray_900 : Css.Style
-ring_offset_gray_900 =
-    Css.property "--tw-ring-offset-color" "#1a202c"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-green-100 {
-  --tw-ring-offset-color: #f0fff4
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_green_100 : Css.Style
-ring_offset_green_100 =
-    Css.property "--tw-ring-offset-color" "#f0fff4"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-green-200 {
-  --tw-ring-offset-color: #c6f6d5
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_green_200 : Css.Style
-ring_offset_green_200 =
-    Css.property "--tw-ring-offset-color" "#c6f6d5"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-green-300 {
-  --tw-ring-offset-color: #9ae6b4
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_green_300 : Css.Style
-ring_offset_green_300 =
-    Css.property "--tw-ring-offset-color" "#9ae6b4"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-green-400 {
-  --tw-ring-offset-color: #68d391
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_green_400 : Css.Style
-ring_offset_green_400 =
-    Css.property "--tw-ring-offset-color" "#68d391"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-green-500 {
-  --tw-ring-offset-color: #48bb78
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_green_500 : Css.Style
-ring_offset_green_500 =
-    Css.property "--tw-ring-offset-color" "#48bb78"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-green-600 {
-  --tw-ring-offset-color: #38a169
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_green_600 : Css.Style
-ring_offset_green_600 =
-    Css.property "--tw-ring-offset-color" "#38a169"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-green-700 {
-  --tw-ring-offset-color: #2f855a
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_green_700 : Css.Style
-ring_offset_green_700 =
-    Css.property "--tw-ring-offset-color" "#2f855a"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-green-800 {
-  --tw-ring-offset-color: #276749
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_green_800 : Css.Style
-ring_offset_green_800 =
-    Css.property "--tw-ring-offset-color" "#276749"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-green-900 {
-  --tw-ring-offset-color: #22543d
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_green_900 : Css.Style
-ring_offset_green_900 =
-    Css.property "--tw-ring-offset-color" "#22543d"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-indigo-100 {
-  --tw-ring-offset-color: #ebf4ff
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_indigo_100 : Css.Style
-ring_offset_indigo_100 =
-    Css.property "--tw-ring-offset-color" "#ebf4ff"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-indigo-200 {
-  --tw-ring-offset-color: #c3dafe
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_indigo_200 : Css.Style
-ring_offset_indigo_200 =
-    Css.property "--tw-ring-offset-color" "#c3dafe"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-indigo-300 {
-  --tw-ring-offset-color: #a3bffa
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_indigo_300 : Css.Style
-ring_offset_indigo_300 =
-    Css.property "--tw-ring-offset-color" "#a3bffa"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-indigo-400 {
-  --tw-ring-offset-color: #7f9cf5
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_indigo_400 : Css.Style
-ring_offset_indigo_400 =
-    Css.property "--tw-ring-offset-color" "#7f9cf5"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-indigo-500 {
-  --tw-ring-offset-color: #667eea
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_indigo_500 : Css.Style
-ring_offset_indigo_500 =
-    Css.property "--tw-ring-offset-color" "#667eea"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-indigo-600 {
-  --tw-ring-offset-color: #5a67d8
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_indigo_600 : Css.Style
-ring_offset_indigo_600 =
-    Css.property "--tw-ring-offset-color" "#5a67d8"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-indigo-700 {
-  --tw-ring-offset-color: #4c51bf
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_indigo_700 : Css.Style
-ring_offset_indigo_700 =
-    Css.property "--tw-ring-offset-color" "#4c51bf"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-indigo-800 {
-  --tw-ring-offset-color: #434190
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_indigo_800 : Css.Style
-ring_offset_indigo_800 =
-    Css.property "--tw-ring-offset-color" "#434190"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-indigo-900 {
-  --tw-ring-offset-color: #3c366b
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_indigo_900 : Css.Style
-ring_offset_indigo_900 =
-    Css.property "--tw-ring-offset-color" "#3c366b"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-orange-100 {
-  --tw-ring-offset-color: #fffaf0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_orange_100 : Css.Style
-ring_offset_orange_100 =
-    Css.property "--tw-ring-offset-color" "#fffaf0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-orange-200 {
-  --tw-ring-offset-color: #feebc8
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_orange_200 : Css.Style
-ring_offset_orange_200 =
-    Css.property "--tw-ring-offset-color" "#feebc8"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-orange-300 {
-  --tw-ring-offset-color: #fbd38d
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_orange_300 : Css.Style
-ring_offset_orange_300 =
-    Css.property "--tw-ring-offset-color" "#fbd38d"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-orange-400 {
-  --tw-ring-offset-color: #f6ad55
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_orange_400 : Css.Style
-ring_offset_orange_400 =
-    Css.property "--tw-ring-offset-color" "#f6ad55"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-orange-500 {
-  --tw-ring-offset-color: #ed8936
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_orange_500 : Css.Style
-ring_offset_orange_500 =
-    Css.property "--tw-ring-offset-color" "#ed8936"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-orange-600 {
-  --tw-ring-offset-color: #dd6b20
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_orange_600 : Css.Style
-ring_offset_orange_600 =
-    Css.property "--tw-ring-offset-color" "#dd6b20"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-orange-700 {
-  --tw-ring-offset-color: #c05621
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_orange_700 : Css.Style
-ring_offset_orange_700 =
-    Css.property "--tw-ring-offset-color" "#c05621"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-orange-800 {
-  --tw-ring-offset-color: #9c4221
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_orange_800 : Css.Style
-ring_offset_orange_800 =
-    Css.property "--tw-ring-offset-color" "#9c4221"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-orange-900 {
-  --tw-ring-offset-color: #7b341e
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_orange_900 : Css.Style
-ring_offset_orange_900 =
-    Css.property "--tw-ring-offset-color" "#7b341e"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-pink-100 {
-  --tw-ring-offset-color: #fff5f7
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_pink_100 : Css.Style
-ring_offset_pink_100 =
-    Css.property "--tw-ring-offset-color" "#fff5f7"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-pink-200 {
-  --tw-ring-offset-color: #fed7e2
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_pink_200 : Css.Style
-ring_offset_pink_200 =
-    Css.property "--tw-ring-offset-color" "#fed7e2"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-pink-300 {
-  --tw-ring-offset-color: #fbb6ce
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_pink_300 : Css.Style
-ring_offset_pink_300 =
-    Css.property "--tw-ring-offset-color" "#fbb6ce"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-pink-400 {
-  --tw-ring-offset-color: #f687b3
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_pink_400 : Css.Style
-ring_offset_pink_400 =
-    Css.property "--tw-ring-offset-color" "#f687b3"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-pink-500 {
-  --tw-ring-offset-color: #ed64a6
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_pink_500 : Css.Style
-ring_offset_pink_500 =
-    Css.property "--tw-ring-offset-color" "#ed64a6"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-pink-600 {
-  --tw-ring-offset-color: #d53f8c
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_pink_600 : Css.Style
-ring_offset_pink_600 =
-    Css.property "--tw-ring-offset-color" "#d53f8c"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-pink-700 {
-  --tw-ring-offset-color: #b83280
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_pink_700 : Css.Style
-ring_offset_pink_700 =
-    Css.property "--tw-ring-offset-color" "#b83280"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-pink-800 {
-  --tw-ring-offset-color: #97266d
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_pink_800 : Css.Style
-ring_offset_pink_800 =
-    Css.property "--tw-ring-offset-color" "#97266d"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-pink-900 {
-  --tw-ring-offset-color: #702459
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_pink_900 : Css.Style
-ring_offset_pink_900 =
-    Css.property "--tw-ring-offset-color" "#702459"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-purple-100 {
-  --tw-ring-offset-color: #faf5ff
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_purple_100 : Css.Style
-ring_offset_purple_100 =
-    Css.property "--tw-ring-offset-color" "#faf5ff"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-purple-200 {
-  --tw-ring-offset-color: #e9d8fd
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_purple_200 : Css.Style
-ring_offset_purple_200 =
-    Css.property "--tw-ring-offset-color" "#e9d8fd"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-purple-300 {
-  --tw-ring-offset-color: #d6bcfa
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_purple_300 : Css.Style
-ring_offset_purple_300 =
-    Css.property "--tw-ring-offset-color" "#d6bcfa"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-purple-400 {
-  --tw-ring-offset-color: #b794f4
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_purple_400 : Css.Style
-ring_offset_purple_400 =
-    Css.property "--tw-ring-offset-color" "#b794f4"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-purple-500 {
-  --tw-ring-offset-color: #9f7aea
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_purple_500 : Css.Style
-ring_offset_purple_500 =
-    Css.property "--tw-ring-offset-color" "#9f7aea"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-purple-600 {
-  --tw-ring-offset-color: #805ad5
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_purple_600 : Css.Style
-ring_offset_purple_600 =
-    Css.property "--tw-ring-offset-color" "#805ad5"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-purple-700 {
-  --tw-ring-offset-color: #6b46c1
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_purple_700 : Css.Style
-ring_offset_purple_700 =
-    Css.property "--tw-ring-offset-color" "#6b46c1"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-purple-800 {
-  --tw-ring-offset-color: #553c9a
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_purple_800 : Css.Style
-ring_offset_purple_800 =
-    Css.property "--tw-ring-offset-color" "#553c9a"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-purple-900 {
-  --tw-ring-offset-color: #44337a
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_purple_900 : Css.Style
-ring_offset_purple_900 =
-    Css.property "--tw-ring-offset-color" "#44337a"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-red-100 {
-  --tw-ring-offset-color: #fff5f5
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_red_100 : Css.Style
-ring_offset_red_100 =
-    Css.property "--tw-ring-offset-color" "#fff5f5"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-red-200 {
-  --tw-ring-offset-color: #fed7d7
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_red_200 : Css.Style
-ring_offset_red_200 =
-    Css.property "--tw-ring-offset-color" "#fed7d7"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-red-300 {
-  --tw-ring-offset-color: #feb2b2
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_red_300 : Css.Style
-ring_offset_red_300 =
-    Css.property "--tw-ring-offset-color" "#feb2b2"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-red-400 {
-  --tw-ring-offset-color: #fc8181
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_red_400 : Css.Style
-ring_offset_red_400 =
-    Css.property "--tw-ring-offset-color" "#fc8181"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-red-500 {
-  --tw-ring-offset-color: #f56565
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_red_500 : Css.Style
-ring_offset_red_500 =
-    Css.property "--tw-ring-offset-color" "#f56565"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-red-600 {
-  --tw-ring-offset-color: #e53e3e
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_red_600 : Css.Style
-ring_offset_red_600 =
-    Css.property "--tw-ring-offset-color" "#e53e3e"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-red-700 {
-  --tw-ring-offset-color: #c53030
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_red_700 : Css.Style
-ring_offset_red_700 =
-    Css.property "--tw-ring-offset-color" "#c53030"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-red-800 {
-  --tw-ring-offset-color: #9b2c2c
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_red_800 : Css.Style
-ring_offset_red_800 =
-    Css.property "--tw-ring-offset-color" "#9b2c2c"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-red-900 {
-  --tw-ring-offset-color: #742a2a
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_red_900 : Css.Style
-ring_offset_red_900 =
-    Css.property "--tw-ring-offset-color" "#742a2a"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-teal-100 {
-  --tw-ring-offset-color: #e6fffa
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_teal_100 : Css.Style
-ring_offset_teal_100 =
-    Css.property "--tw-ring-offset-color" "#e6fffa"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-teal-200 {
-  --tw-ring-offset-color: #b2f5ea
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_teal_200 : Css.Style
-ring_offset_teal_200 =
-    Css.property "--tw-ring-offset-color" "#b2f5ea"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-teal-300 {
-  --tw-ring-offset-color: #81e6d9
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_teal_300 : Css.Style
-ring_offset_teal_300 =
-    Css.property "--tw-ring-offset-color" "#81e6d9"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-teal-400 {
-  --tw-ring-offset-color: #4fd1c5
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_teal_400 : Css.Style
-ring_offset_teal_400 =
-    Css.property "--tw-ring-offset-color" "#4fd1c5"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-teal-500 {
-  --tw-ring-offset-color: #38b2ac
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_teal_500 : Css.Style
-ring_offset_teal_500 =
-    Css.property "--tw-ring-offset-color" "#38b2ac"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-teal-600 {
-  --tw-ring-offset-color: #319795
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_teal_600 : Css.Style
-ring_offset_teal_600 =
-    Css.property "--tw-ring-offset-color" "#319795"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-teal-700 {
-  --tw-ring-offset-color: #2c7a7b
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_teal_700 : Css.Style
-ring_offset_teal_700 =
-    Css.property "--tw-ring-offset-color" "#2c7a7b"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-teal-800 {
-  --tw-ring-offset-color: #285e61
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_teal_800 : Css.Style
-ring_offset_teal_800 =
-    Css.property "--tw-ring-offset-color" "#285e61"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-teal-900 {
-  --tw-ring-offset-color: #234e52
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_teal_900 : Css.Style
-ring_offset_teal_900 =
-    Css.property "--tw-ring-offset-color" "#234e52"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-transparent {
-  --tw-ring-offset-color: transparent
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_transparent : Css.Style
-ring_offset_transparent =
-    Css.property "--tw-ring-offset-color" "transparent"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-white {
-  --tw-ring-offset-color: #fff
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_white : Css.Style
-ring_offset_white =
-    Css.property "--tw-ring-offset-color" "#fff"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-yellow-100 {
-  --tw-ring-offset-color: #fffff0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_yellow_100 : Css.Style
-ring_offset_yellow_100 =
-    Css.property "--tw-ring-offset-color" "#fffff0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-yellow-200 {
-  --tw-ring-offset-color: #fefcbf
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_yellow_200 : Css.Style
-ring_offset_yellow_200 =
-    Css.property "--tw-ring-offset-color" "#fefcbf"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-yellow-300 {
-  --tw-ring-offset-color: #faf089
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_yellow_300 : Css.Style
-ring_offset_yellow_300 =
-    Css.property "--tw-ring-offset-color" "#faf089"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-yellow-400 {
-  --tw-ring-offset-color: #f6e05e
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_yellow_400 : Css.Style
-ring_offset_yellow_400 =
-    Css.property "--tw-ring-offset-color" "#f6e05e"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-yellow-500 {
-  --tw-ring-offset-color: #ecc94b
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_yellow_500 : Css.Style
-ring_offset_yellow_500 =
-    Css.property "--tw-ring-offset-color" "#ecc94b"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-yellow-600 {
-  --tw-ring-offset-color: #d69e2e
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_yellow_600 : Css.Style
-ring_offset_yellow_600 =
-    Css.property "--tw-ring-offset-color" "#d69e2e"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-yellow-700 {
-  --tw-ring-offset-color: #b7791f
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_yellow_700 : Css.Style
-ring_offset_yellow_700 =
-    Css.property "--tw-ring-offset-color" "#b7791f"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-yellow-800 {
-  --tw-ring-offset-color: #975a16
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_yellow_800 : Css.Style
-ring_offset_yellow_800 =
-    Css.property "--tw-ring-offset-color" "#975a16"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-offset-yellow-900 {
-  --tw-ring-offset-color: #744210
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_offset_yellow_900 : Css.Style
-ring_offset_yellow_900 =
-    Css.property "--tw-ring-offset-color" "#744210"
 
 
 {-| This class has the effect of following css declaration:
@@ -62019,22 +57099,6 @@ ring_teal_900 =
         [ Css.property "--tw-ring-opacity" "1"
         , Css.property "--tw-ring-color" "rgba(35, 78, 82, var(--tw-ring-opacity))"
         ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.ring-transparent {
-  --tw-ring-color: transparent
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-ring_transparent : Css.Style
-ring_transparent =
-    Css.property "--tw-ring-color" "transparent"
 
 
 {-| This class has the effect of following css declaration:
@@ -65397,13 +60461,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_0 : Css.Style
 space_x_0 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(0px * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(0px * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(0px * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(0px * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65423,13 +60485,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_0_dot_5 : Css.Style
 space_x_0_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(0.125rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(0.125rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(0.125rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(0.125rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65449,13 +60509,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_1 : Css.Style
 space_x_1 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(0.25rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(0.25rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(0.25rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(0.25rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65475,13 +60533,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_10 : Css.Style
 space_x_10 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(2.5rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(2.5rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(2.5rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(2.5rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65501,13 +60557,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_11 : Css.Style
 space_x_11 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(2.75rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(2.75rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(2.75rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(2.75rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65527,13 +60581,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_12 : Css.Style
 space_x_12 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(3rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(3rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(3rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(3rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65553,13 +60605,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_14 : Css.Style
 space_x_14 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(3.5rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(3.5rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(3.5rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(3.5rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65579,13 +60629,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_16 : Css.Style
 space_x_16 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(4rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(4rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(4rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(4rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65605,13 +60653,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_1_dot_5 : Css.Style
 space_x_1_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(0.375rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(0.375rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(0.375rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(0.375rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65631,13 +60677,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_2 : Css.Style
 space_x_2 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(0.5rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(0.5rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65657,13 +60701,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_20 : Css.Style
 space_x_20 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(5rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(5rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(5rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(5rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65683,13 +60725,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_24 : Css.Style
 space_x_24 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(6rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(6rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(6rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(6rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65709,13 +60749,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_28 : Css.Style
 space_x_28 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(7rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(7rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(7rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(7rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65735,13 +60773,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_2_dot_5 : Css.Style
 space_x_2_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(0.625rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(0.625rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(0.625rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(0.625rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65761,13 +60797,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_3 : Css.Style
 space_x_3 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(0.75rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(0.75rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65787,13 +60821,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_32 : Css.Style
 space_x_32 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(8rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(8rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(8rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(8rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65813,13 +60845,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_36 : Css.Style
 space_x_36 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(9rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(9rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(9rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(9rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65839,13 +60869,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_3_dot_5 : Css.Style
 space_x_3_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(0.875rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(0.875rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(0.875rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(0.875rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65865,13 +60893,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_4 : Css.Style
 space_x_4 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(1rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(1rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(1rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(1rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65891,13 +60917,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_40 : Css.Style
 space_x_40 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(10rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(10rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(10rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(10rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65917,13 +60941,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_44 : Css.Style
 space_x_44 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(11rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(11rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(11rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(11rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65943,13 +60965,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_48 : Css.Style
 space_x_48 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(12rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(12rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(12rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(12rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65969,13 +60989,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_5 : Css.Style
 space_x_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(1.25rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(1.25rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(1.25rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(1.25rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -65995,13 +61013,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_52 : Css.Style
 space_x_52 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(13rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(13rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(13rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(13rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66021,13 +61037,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_56 : Css.Style
 space_x_56 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(14rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(14rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(14rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(14rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66047,13 +61061,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_6 : Css.Style
 space_x_6 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(1.5rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(1.5rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66073,13 +61085,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_60 : Css.Style
 space_x_60 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(15rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(15rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(15rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(15rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66099,13 +61109,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_64 : Css.Style
 space_x_64 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(16rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(16rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(16rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(16rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66125,13 +61133,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_7 : Css.Style
 space_x_7 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(1.75rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(1.75rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(1.75rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(1.75rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66151,13 +61157,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_72 : Css.Style
 space_x_72 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(18rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(18rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(18rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(18rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66177,13 +61181,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_8 : Css.Style
 space_x_8 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(2rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(2rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(2rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(2rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66203,13 +61205,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_80 : Css.Style
 space_x_80 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(20rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(20rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(20rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(20rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66229,13 +61229,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_9 : Css.Style
 space_x_9 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(2.25rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(2.25rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(2.25rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(2.25rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66255,13 +61253,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_96 : Css.Style
 space_x_96 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(24rem * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(24rem * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(24rem * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(24rem * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66281,13 +61277,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_px : Css.Style
 space_x_px =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "0"
-                , Css.property "margin-right" "calc(1px * var(--tw-space-x-reverse))"
-                , Css.property "margin-left" "calc(1px * calc(1 - var(--tw-space-x-reverse)))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "0"
+            , Css.property "margin-right" "calc(1px * var(--tw-space-x-reverse))"
+            , Css.property "margin-left" "calc(1px * calc(1 - var(--tw-space-x-reverse)))"
             ]
         ]
 
@@ -66305,11 +61299,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_x_reverse : Css.Style
 space_x_reverse =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-x-reverse" "1"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-x-reverse" "1"
             ]
         ]
 
@@ -66329,13 +61321,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_0 : Css.Style
 space_y_0 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(0px * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(0px * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(0px * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(0px * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66355,13 +61345,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_0_dot_5 : Css.Style
 space_y_0_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(0.125rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(0.125rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(0.125rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(0.125rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66381,13 +61369,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_1 : Css.Style
 space_y_1 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(0.25rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(0.25rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(0.25rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(0.25rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66407,13 +61393,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_10 : Css.Style
 space_y_10 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(2.5rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(2.5rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(2.5rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(2.5rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66433,13 +61417,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_11 : Css.Style
 space_y_11 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(2.75rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(2.75rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(2.75rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(2.75rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66459,13 +61441,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_12 : Css.Style
 space_y_12 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(3rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(3rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(3rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(3rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66485,13 +61465,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_14 : Css.Style
 space_y_14 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(3.5rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(3.5rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(3.5rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(3.5rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66511,13 +61489,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_16 : Css.Style
 space_y_16 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(4rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(4rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(4rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(4rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66537,13 +61513,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_1_dot_5 : Css.Style
 space_y_1_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(0.375rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(0.375rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(0.375rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(0.375rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66563,13 +61537,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_2 : Css.Style
 space_y_2 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(0.5rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(0.5rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(0.5rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(0.5rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66589,13 +61561,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_20 : Css.Style
 space_y_20 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(5rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(5rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(5rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(5rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66615,13 +61585,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_24 : Css.Style
 space_y_24 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(6rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(6rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(6rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(6rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66641,13 +61609,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_28 : Css.Style
 space_y_28 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(7rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(7rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(7rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(7rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66667,13 +61633,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_2_dot_5 : Css.Style
 space_y_2_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(0.625rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(0.625rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(0.625rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(0.625rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66693,13 +61657,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_3 : Css.Style
 space_y_3 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(0.75rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(0.75rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(0.75rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(0.75rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66719,13 +61681,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_32 : Css.Style
 space_y_32 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(8rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(8rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(8rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(8rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66745,13 +61705,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_36 : Css.Style
 space_y_36 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(9rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(9rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(9rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(9rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66771,13 +61729,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_3_dot_5 : Css.Style
 space_y_3_dot_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(0.875rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(0.875rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(0.875rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(0.875rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66797,13 +61753,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_4 : Css.Style
 space_y_4 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(1rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(1rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(1rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(1rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66823,13 +61777,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_40 : Css.Style
 space_y_40 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(10rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(10rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(10rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(10rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66849,13 +61801,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_44 : Css.Style
 space_y_44 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(11rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(11rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(11rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(11rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66875,13 +61825,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_48 : Css.Style
 space_y_48 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(12rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(12rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(12rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(12rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66901,13 +61849,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_5 : Css.Style
 space_y_5 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(1.25rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(1.25rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(1.25rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(1.25rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66927,13 +61873,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_52 : Css.Style
 space_y_52 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(13rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(13rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(13rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(13rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66953,13 +61897,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_56 : Css.Style
 space_y_56 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(14rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(14rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(14rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(14rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -66979,13 +61921,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_6 : Css.Style
 space_y_6 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(1.5rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(1.5rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(1.5rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(1.5rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -67005,13 +61945,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_60 : Css.Style
 space_y_60 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(15rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(15rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(15rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(15rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -67031,13 +61969,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_64 : Css.Style
 space_y_64 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(16rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(16rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(16rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(16rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -67057,13 +61993,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_7 : Css.Style
 space_y_7 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(1.75rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(1.75rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(1.75rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(1.75rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -67083,13 +62017,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_72 : Css.Style
 space_y_72 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(18rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(18rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(18rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(18rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -67109,13 +62041,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_8 : Css.Style
 space_y_8 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(2rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(2rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(2rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(2rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -67135,13 +62065,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_80 : Css.Style
 space_y_80 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(20rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(20rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(20rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(20rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -67161,13 +62089,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_9 : Css.Style
 space_y_9 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(2.25rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(2.25rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(2.25rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(2.25rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -67187,13 +62113,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_96 : Css.Style
 space_y_96 =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(24rem * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(24rem * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(24rem * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(24rem * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -67213,13 +62137,11 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_px : Css.Style
 space_y_px =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "0"
-                , Css.property "margin-top" "calc(1px * calc(1 - var(--tw-space-y-reverse)))"
-                , Css.property "margin-bottom" "calc(1px * var(--tw-space-y-reverse))"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "0"
+            , Css.property "margin-top" "calc(1px * calc(1 - var(--tw-space-y-reverse)))"
+            , Css.property "margin-bottom" "calc(1px * var(--tw-space-y-reverse))"
             ]
         ]
 
@@ -67237,11 +62159,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 space_y_reverse : Css.Style
 space_y_reverse =
-    Css.batch
-        [ Css.Global.children
-            [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-                [ Css.property "--tw-space-y-reverse" "1"
-                ]
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Css.property "--tw-space-y-reverse" "1"
             ]
         ]
 
@@ -67391,22 +62311,6 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 stroke_2 : Css.Style
 stroke_2 =
     Css.property "stroke-width" "2"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.stroke-current {
-  stroke: currentColor
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-stroke_current : Css.Style
-stroke_current =
-    Css.property "stroke" "currentColor"
 
 
 {-| This class has the effect of following css declaration:
@@ -67948,22 +62852,6 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 text_center : Css.Style
 text_center =
     Css.property "text-align" "center"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.text-current {
-  color: currentColor
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-text_current : Css.Style
-text_current =
-    Css.property "color" "currentColor"
 
 
 {-| This class has the effect of following css declaration:
@@ -69729,22 +64617,6 @@ text_teal_900 =
 {-| This class has the effect of following css declaration:
 
 ```css
-.text-transparent {
-  color: transparent
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-text_transparent : Css.Style
-text_transparent =
-    Css.property "color" "transparent"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
 .text-white {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity))
@@ -69972,1510 +64844,6 @@ text_yellow_900 =
         [ Css.property "--tw-text-opacity" "1"
         , Css.property "color" "rgba(116, 66, 16, var(--tw-text-opacity))"
         ]
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-black {
-  --tw-gradient-to: #000
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_black : Css.Style
-to_black =
-    Css.property "--tw-gradient-to" "#000"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-blue-100 {
-  --tw-gradient-to: #ebf8ff
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_blue_100 : Css.Style
-to_blue_100 =
-    Css.property "--tw-gradient-to" "#ebf8ff"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-blue-200 {
-  --tw-gradient-to: #bee3f8
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_blue_200 : Css.Style
-to_blue_200 =
-    Css.property "--tw-gradient-to" "#bee3f8"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-blue-300 {
-  --tw-gradient-to: #90cdf4
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_blue_300 : Css.Style
-to_blue_300 =
-    Css.property "--tw-gradient-to" "#90cdf4"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-blue-400 {
-  --tw-gradient-to: #63b3ed
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_blue_400 : Css.Style
-to_blue_400 =
-    Css.property "--tw-gradient-to" "#63b3ed"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-blue-500 {
-  --tw-gradient-to: #4299e1
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_blue_500 : Css.Style
-to_blue_500 =
-    Css.property "--tw-gradient-to" "#4299e1"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-blue-600 {
-  --tw-gradient-to: #3182ce
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_blue_600 : Css.Style
-to_blue_600 =
-    Css.property "--tw-gradient-to" "#3182ce"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-blue-700 {
-  --tw-gradient-to: #2b6cb0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_blue_700 : Css.Style
-to_blue_700 =
-    Css.property "--tw-gradient-to" "#2b6cb0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-blue-800 {
-  --tw-gradient-to: #2c5282
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_blue_800 : Css.Style
-to_blue_800 =
-    Css.property "--tw-gradient-to" "#2c5282"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-blue-900 {
-  --tw-gradient-to: #2a4365
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_blue_900 : Css.Style
-to_blue_900 =
-    Css.property "--tw-gradient-to" "#2a4365"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-current {
-  --tw-gradient-to: currentColor
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_current : Css.Style
-to_current =
-    Css.property "--tw-gradient-to" "currentColor"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-gray-100 {
-  --tw-gradient-to: #f7fafc
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_gray_100 : Css.Style
-to_gray_100 =
-    Css.property "--tw-gradient-to" "#f7fafc"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-gray-200 {
-  --tw-gradient-to: #edf2f7
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_gray_200 : Css.Style
-to_gray_200 =
-    Css.property "--tw-gradient-to" "#edf2f7"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-gray-300 {
-  --tw-gradient-to: #e2e8f0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_gray_300 : Css.Style
-to_gray_300 =
-    Css.property "--tw-gradient-to" "#e2e8f0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-gray-400 {
-  --tw-gradient-to: #cbd5e0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_gray_400 : Css.Style
-to_gray_400 =
-    Css.property "--tw-gradient-to" "#cbd5e0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-gray-500 {
-  --tw-gradient-to: #a0aec0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_gray_500 : Css.Style
-to_gray_500 =
-    Css.property "--tw-gradient-to" "#a0aec0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-gray-600 {
-  --tw-gradient-to: #718096
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_gray_600 : Css.Style
-to_gray_600 =
-    Css.property "--tw-gradient-to" "#718096"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-gray-700 {
-  --tw-gradient-to: #4a5568
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_gray_700 : Css.Style
-to_gray_700 =
-    Css.property "--tw-gradient-to" "#4a5568"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-gray-800 {
-  --tw-gradient-to: #2d3748
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_gray_800 : Css.Style
-to_gray_800 =
-    Css.property "--tw-gradient-to" "#2d3748"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-gray-900 {
-  --tw-gradient-to: #1a202c
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_gray_900 : Css.Style
-to_gray_900 =
-    Css.property "--tw-gradient-to" "#1a202c"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-green-100 {
-  --tw-gradient-to: #f0fff4
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_green_100 : Css.Style
-to_green_100 =
-    Css.property "--tw-gradient-to" "#f0fff4"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-green-200 {
-  --tw-gradient-to: #c6f6d5
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_green_200 : Css.Style
-to_green_200 =
-    Css.property "--tw-gradient-to" "#c6f6d5"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-green-300 {
-  --tw-gradient-to: #9ae6b4
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_green_300 : Css.Style
-to_green_300 =
-    Css.property "--tw-gradient-to" "#9ae6b4"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-green-400 {
-  --tw-gradient-to: #68d391
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_green_400 : Css.Style
-to_green_400 =
-    Css.property "--tw-gradient-to" "#68d391"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-green-500 {
-  --tw-gradient-to: #48bb78
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_green_500 : Css.Style
-to_green_500 =
-    Css.property "--tw-gradient-to" "#48bb78"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-green-600 {
-  --tw-gradient-to: #38a169
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_green_600 : Css.Style
-to_green_600 =
-    Css.property "--tw-gradient-to" "#38a169"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-green-700 {
-  --tw-gradient-to: #2f855a
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_green_700 : Css.Style
-to_green_700 =
-    Css.property "--tw-gradient-to" "#2f855a"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-green-800 {
-  --tw-gradient-to: #276749
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_green_800 : Css.Style
-to_green_800 =
-    Css.property "--tw-gradient-to" "#276749"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-green-900 {
-  --tw-gradient-to: #22543d
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_green_900 : Css.Style
-to_green_900 =
-    Css.property "--tw-gradient-to" "#22543d"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-indigo-100 {
-  --tw-gradient-to: #ebf4ff
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_indigo_100 : Css.Style
-to_indigo_100 =
-    Css.property "--tw-gradient-to" "#ebf4ff"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-indigo-200 {
-  --tw-gradient-to: #c3dafe
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_indigo_200 : Css.Style
-to_indigo_200 =
-    Css.property "--tw-gradient-to" "#c3dafe"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-indigo-300 {
-  --tw-gradient-to: #a3bffa
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_indigo_300 : Css.Style
-to_indigo_300 =
-    Css.property "--tw-gradient-to" "#a3bffa"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-indigo-400 {
-  --tw-gradient-to: #7f9cf5
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_indigo_400 : Css.Style
-to_indigo_400 =
-    Css.property "--tw-gradient-to" "#7f9cf5"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-indigo-500 {
-  --tw-gradient-to: #667eea
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_indigo_500 : Css.Style
-to_indigo_500 =
-    Css.property "--tw-gradient-to" "#667eea"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-indigo-600 {
-  --tw-gradient-to: #5a67d8
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_indigo_600 : Css.Style
-to_indigo_600 =
-    Css.property "--tw-gradient-to" "#5a67d8"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-indigo-700 {
-  --tw-gradient-to: #4c51bf
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_indigo_700 : Css.Style
-to_indigo_700 =
-    Css.property "--tw-gradient-to" "#4c51bf"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-indigo-800 {
-  --tw-gradient-to: #434190
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_indigo_800 : Css.Style
-to_indigo_800 =
-    Css.property "--tw-gradient-to" "#434190"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-indigo-900 {
-  --tw-gradient-to: #3c366b
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_indigo_900 : Css.Style
-to_indigo_900 =
-    Css.property "--tw-gradient-to" "#3c366b"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-orange-100 {
-  --tw-gradient-to: #fffaf0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_orange_100 : Css.Style
-to_orange_100 =
-    Css.property "--tw-gradient-to" "#fffaf0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-orange-200 {
-  --tw-gradient-to: #feebc8
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_orange_200 : Css.Style
-to_orange_200 =
-    Css.property "--tw-gradient-to" "#feebc8"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-orange-300 {
-  --tw-gradient-to: #fbd38d
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_orange_300 : Css.Style
-to_orange_300 =
-    Css.property "--tw-gradient-to" "#fbd38d"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-orange-400 {
-  --tw-gradient-to: #f6ad55
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_orange_400 : Css.Style
-to_orange_400 =
-    Css.property "--tw-gradient-to" "#f6ad55"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-orange-500 {
-  --tw-gradient-to: #ed8936
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_orange_500 : Css.Style
-to_orange_500 =
-    Css.property "--tw-gradient-to" "#ed8936"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-orange-600 {
-  --tw-gradient-to: #dd6b20
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_orange_600 : Css.Style
-to_orange_600 =
-    Css.property "--tw-gradient-to" "#dd6b20"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-orange-700 {
-  --tw-gradient-to: #c05621
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_orange_700 : Css.Style
-to_orange_700 =
-    Css.property "--tw-gradient-to" "#c05621"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-orange-800 {
-  --tw-gradient-to: #9c4221
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_orange_800 : Css.Style
-to_orange_800 =
-    Css.property "--tw-gradient-to" "#9c4221"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-orange-900 {
-  --tw-gradient-to: #7b341e
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_orange_900 : Css.Style
-to_orange_900 =
-    Css.property "--tw-gradient-to" "#7b341e"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-pink-100 {
-  --tw-gradient-to: #fff5f7
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_pink_100 : Css.Style
-to_pink_100 =
-    Css.property "--tw-gradient-to" "#fff5f7"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-pink-200 {
-  --tw-gradient-to: #fed7e2
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_pink_200 : Css.Style
-to_pink_200 =
-    Css.property "--tw-gradient-to" "#fed7e2"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-pink-300 {
-  --tw-gradient-to: #fbb6ce
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_pink_300 : Css.Style
-to_pink_300 =
-    Css.property "--tw-gradient-to" "#fbb6ce"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-pink-400 {
-  --tw-gradient-to: #f687b3
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_pink_400 : Css.Style
-to_pink_400 =
-    Css.property "--tw-gradient-to" "#f687b3"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-pink-500 {
-  --tw-gradient-to: #ed64a6
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_pink_500 : Css.Style
-to_pink_500 =
-    Css.property "--tw-gradient-to" "#ed64a6"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-pink-600 {
-  --tw-gradient-to: #d53f8c
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_pink_600 : Css.Style
-to_pink_600 =
-    Css.property "--tw-gradient-to" "#d53f8c"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-pink-700 {
-  --tw-gradient-to: #b83280
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_pink_700 : Css.Style
-to_pink_700 =
-    Css.property "--tw-gradient-to" "#b83280"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-pink-800 {
-  --tw-gradient-to: #97266d
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_pink_800 : Css.Style
-to_pink_800 =
-    Css.property "--tw-gradient-to" "#97266d"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-pink-900 {
-  --tw-gradient-to: #702459
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_pink_900 : Css.Style
-to_pink_900 =
-    Css.property "--tw-gradient-to" "#702459"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-purple-100 {
-  --tw-gradient-to: #faf5ff
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_purple_100 : Css.Style
-to_purple_100 =
-    Css.property "--tw-gradient-to" "#faf5ff"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-purple-200 {
-  --tw-gradient-to: #e9d8fd
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_purple_200 : Css.Style
-to_purple_200 =
-    Css.property "--tw-gradient-to" "#e9d8fd"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-purple-300 {
-  --tw-gradient-to: #d6bcfa
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_purple_300 : Css.Style
-to_purple_300 =
-    Css.property "--tw-gradient-to" "#d6bcfa"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-purple-400 {
-  --tw-gradient-to: #b794f4
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_purple_400 : Css.Style
-to_purple_400 =
-    Css.property "--tw-gradient-to" "#b794f4"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-purple-500 {
-  --tw-gradient-to: #9f7aea
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_purple_500 : Css.Style
-to_purple_500 =
-    Css.property "--tw-gradient-to" "#9f7aea"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-purple-600 {
-  --tw-gradient-to: #805ad5
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_purple_600 : Css.Style
-to_purple_600 =
-    Css.property "--tw-gradient-to" "#805ad5"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-purple-700 {
-  --tw-gradient-to: #6b46c1
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_purple_700 : Css.Style
-to_purple_700 =
-    Css.property "--tw-gradient-to" "#6b46c1"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-purple-800 {
-  --tw-gradient-to: #553c9a
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_purple_800 : Css.Style
-to_purple_800 =
-    Css.property "--tw-gradient-to" "#553c9a"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-purple-900 {
-  --tw-gradient-to: #44337a
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_purple_900 : Css.Style
-to_purple_900 =
-    Css.property "--tw-gradient-to" "#44337a"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-red-100 {
-  --tw-gradient-to: #fff5f5
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_red_100 : Css.Style
-to_red_100 =
-    Css.property "--tw-gradient-to" "#fff5f5"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-red-200 {
-  --tw-gradient-to: #fed7d7
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_red_200 : Css.Style
-to_red_200 =
-    Css.property "--tw-gradient-to" "#fed7d7"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-red-300 {
-  --tw-gradient-to: #feb2b2
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_red_300 : Css.Style
-to_red_300 =
-    Css.property "--tw-gradient-to" "#feb2b2"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-red-400 {
-  --tw-gradient-to: #fc8181
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_red_400 : Css.Style
-to_red_400 =
-    Css.property "--tw-gradient-to" "#fc8181"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-red-500 {
-  --tw-gradient-to: #f56565
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_red_500 : Css.Style
-to_red_500 =
-    Css.property "--tw-gradient-to" "#f56565"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-red-600 {
-  --tw-gradient-to: #e53e3e
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_red_600 : Css.Style
-to_red_600 =
-    Css.property "--tw-gradient-to" "#e53e3e"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-red-700 {
-  --tw-gradient-to: #c53030
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_red_700 : Css.Style
-to_red_700 =
-    Css.property "--tw-gradient-to" "#c53030"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-red-800 {
-  --tw-gradient-to: #9b2c2c
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_red_800 : Css.Style
-to_red_800 =
-    Css.property "--tw-gradient-to" "#9b2c2c"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-red-900 {
-  --tw-gradient-to: #742a2a
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_red_900 : Css.Style
-to_red_900 =
-    Css.property "--tw-gradient-to" "#742a2a"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-teal-100 {
-  --tw-gradient-to: #e6fffa
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_teal_100 : Css.Style
-to_teal_100 =
-    Css.property "--tw-gradient-to" "#e6fffa"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-teal-200 {
-  --tw-gradient-to: #b2f5ea
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_teal_200 : Css.Style
-to_teal_200 =
-    Css.property "--tw-gradient-to" "#b2f5ea"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-teal-300 {
-  --tw-gradient-to: #81e6d9
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_teal_300 : Css.Style
-to_teal_300 =
-    Css.property "--tw-gradient-to" "#81e6d9"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-teal-400 {
-  --tw-gradient-to: #4fd1c5
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_teal_400 : Css.Style
-to_teal_400 =
-    Css.property "--tw-gradient-to" "#4fd1c5"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-teal-500 {
-  --tw-gradient-to: #38b2ac
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_teal_500 : Css.Style
-to_teal_500 =
-    Css.property "--tw-gradient-to" "#38b2ac"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-teal-600 {
-  --tw-gradient-to: #319795
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_teal_600 : Css.Style
-to_teal_600 =
-    Css.property "--tw-gradient-to" "#319795"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-teal-700 {
-  --tw-gradient-to: #2c7a7b
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_teal_700 : Css.Style
-to_teal_700 =
-    Css.property "--tw-gradient-to" "#2c7a7b"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-teal-800 {
-  --tw-gradient-to: #285e61
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_teal_800 : Css.Style
-to_teal_800 =
-    Css.property "--tw-gradient-to" "#285e61"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-teal-900 {
-  --tw-gradient-to: #234e52
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_teal_900 : Css.Style
-to_teal_900 =
-    Css.property "--tw-gradient-to" "#234e52"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-transparent {
-  --tw-gradient-to: transparent
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_transparent : Css.Style
-to_transparent =
-    Css.property "--tw-gradient-to" "transparent"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-white {
-  --tw-gradient-to: #fff
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_white : Css.Style
-to_white =
-    Css.property "--tw-gradient-to" "#fff"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-yellow-100 {
-  --tw-gradient-to: #fffff0
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_yellow_100 : Css.Style
-to_yellow_100 =
-    Css.property "--tw-gradient-to" "#fffff0"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-yellow-200 {
-  --tw-gradient-to: #fefcbf
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_yellow_200 : Css.Style
-to_yellow_200 =
-    Css.property "--tw-gradient-to" "#fefcbf"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-yellow-300 {
-  --tw-gradient-to: #faf089
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_yellow_300 : Css.Style
-to_yellow_300 =
-    Css.property "--tw-gradient-to" "#faf089"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-yellow-400 {
-  --tw-gradient-to: #f6e05e
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_yellow_400 : Css.Style
-to_yellow_400 =
-    Css.property "--tw-gradient-to" "#f6e05e"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-yellow-500 {
-  --tw-gradient-to: #ecc94b
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_yellow_500 : Css.Style
-to_yellow_500 =
-    Css.property "--tw-gradient-to" "#ecc94b"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-yellow-600 {
-  --tw-gradient-to: #d69e2e
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_yellow_600 : Css.Style
-to_yellow_600 =
-    Css.property "--tw-gradient-to" "#d69e2e"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-yellow-700 {
-  --tw-gradient-to: #b7791f
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_yellow_700 : Css.Style
-to_yellow_700 =
-    Css.property "--tw-gradient-to" "#b7791f"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-yellow-800 {
-  --tw-gradient-to: #975a16
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_yellow_800 : Css.Style
-to_yellow_800 =
-    Css.property "--tw-gradient-to" "#975a16"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.to-yellow-900 {
-  --tw-gradient-to: #744210
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-to_yellow_900 : Css.Style
-to_yellow_900 =
-    Css.property "--tw-gradient-to" "#744210"
 
 
 {-| This class has the effect of following css declaration:
@@ -73891,1510 +67259,6 @@ uppercase =
 {-| This class has the effect of following css declaration:
 
 ```css
-.via-black {
-  --tw-gradient-stops: var(--tw-gradient-from), #000, var(--tw-gradient-to, rgba(0, 0, 0, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_black : Css.Style
-via_black =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #000, var(--tw-gradient-to, rgba(0, 0, 0, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-blue-100 {
-  --tw-gradient-stops: var(--tw-gradient-from), #ebf8ff, var(--tw-gradient-to, rgba(235, 248, 255, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_blue_100 : Css.Style
-via_blue_100 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #ebf8ff, var(--tw-gradient-to, rgba(235, 248, 255, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-blue-200 {
-  --tw-gradient-stops: var(--tw-gradient-from), #bee3f8, var(--tw-gradient-to, rgba(190, 227, 248, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_blue_200 : Css.Style
-via_blue_200 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #bee3f8, var(--tw-gradient-to, rgba(190, 227, 248, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-blue-300 {
-  --tw-gradient-stops: var(--tw-gradient-from), #90cdf4, var(--tw-gradient-to, rgba(144, 205, 244, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_blue_300 : Css.Style
-via_blue_300 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #90cdf4, var(--tw-gradient-to, rgba(144, 205, 244, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-blue-400 {
-  --tw-gradient-stops: var(--tw-gradient-from), #63b3ed, var(--tw-gradient-to, rgba(99, 179, 237, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_blue_400 : Css.Style
-via_blue_400 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #63b3ed, var(--tw-gradient-to, rgba(99, 179, 237, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-blue-500 {
-  --tw-gradient-stops: var(--tw-gradient-from), #4299e1, var(--tw-gradient-to, rgba(66, 153, 225, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_blue_500 : Css.Style
-via_blue_500 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #4299e1, var(--tw-gradient-to, rgba(66, 153, 225, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-blue-600 {
-  --tw-gradient-stops: var(--tw-gradient-from), #3182ce, var(--tw-gradient-to, rgba(49, 130, 206, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_blue_600 : Css.Style
-via_blue_600 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #3182ce, var(--tw-gradient-to, rgba(49, 130, 206, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-blue-700 {
-  --tw-gradient-stops: var(--tw-gradient-from), #2b6cb0, var(--tw-gradient-to, rgba(43, 108, 176, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_blue_700 : Css.Style
-via_blue_700 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #2b6cb0, var(--tw-gradient-to, rgba(43, 108, 176, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-blue-800 {
-  --tw-gradient-stops: var(--tw-gradient-from), #2c5282, var(--tw-gradient-to, rgba(44, 82, 130, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_blue_800 : Css.Style
-via_blue_800 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #2c5282, var(--tw-gradient-to, rgba(44, 82, 130, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-blue-900 {
-  --tw-gradient-stops: var(--tw-gradient-from), #2a4365, var(--tw-gradient-to, rgba(42, 67, 101, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_blue_900 : Css.Style
-via_blue_900 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #2a4365, var(--tw-gradient-to, rgba(42, 67, 101, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-current {
-  --tw-gradient-stops: var(--tw-gradient-from), currentColor, var(--tw-gradient-to, rgba(255, 255, 255, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_current : Css.Style
-via_current =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), currentColor, var(--tw-gradient-to, rgba(255, 255, 255, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-gray-100 {
-  --tw-gradient-stops: var(--tw-gradient-from), #f7fafc, var(--tw-gradient-to, rgba(247, 250, 252, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_gray_100 : Css.Style
-via_gray_100 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #f7fafc, var(--tw-gradient-to, rgba(247, 250, 252, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-gray-200 {
-  --tw-gradient-stops: var(--tw-gradient-from), #edf2f7, var(--tw-gradient-to, rgba(237, 242, 247, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_gray_200 : Css.Style
-via_gray_200 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #edf2f7, var(--tw-gradient-to, rgba(237, 242, 247, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-gray-300 {
-  --tw-gradient-stops: var(--tw-gradient-from), #e2e8f0, var(--tw-gradient-to, rgba(226, 232, 240, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_gray_300 : Css.Style
-via_gray_300 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #e2e8f0, var(--tw-gradient-to, rgba(226, 232, 240, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-gray-400 {
-  --tw-gradient-stops: var(--tw-gradient-from), #cbd5e0, var(--tw-gradient-to, rgba(203, 213, 224, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_gray_400 : Css.Style
-via_gray_400 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #cbd5e0, var(--tw-gradient-to, rgba(203, 213, 224, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-gray-500 {
-  --tw-gradient-stops: var(--tw-gradient-from), #a0aec0, var(--tw-gradient-to, rgba(160, 174, 192, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_gray_500 : Css.Style
-via_gray_500 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #a0aec0, var(--tw-gradient-to, rgba(160, 174, 192, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-gray-600 {
-  --tw-gradient-stops: var(--tw-gradient-from), #718096, var(--tw-gradient-to, rgba(113, 128, 150, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_gray_600 : Css.Style
-via_gray_600 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #718096, var(--tw-gradient-to, rgba(113, 128, 150, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-gray-700 {
-  --tw-gradient-stops: var(--tw-gradient-from), #4a5568, var(--tw-gradient-to, rgba(74, 85, 104, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_gray_700 : Css.Style
-via_gray_700 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #4a5568, var(--tw-gradient-to, rgba(74, 85, 104, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-gray-800 {
-  --tw-gradient-stops: var(--tw-gradient-from), #2d3748, var(--tw-gradient-to, rgba(45, 55, 72, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_gray_800 : Css.Style
-via_gray_800 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #2d3748, var(--tw-gradient-to, rgba(45, 55, 72, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-gray-900 {
-  --tw-gradient-stops: var(--tw-gradient-from), #1a202c, var(--tw-gradient-to, rgba(26, 32, 44, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_gray_900 : Css.Style
-via_gray_900 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #1a202c, var(--tw-gradient-to, rgba(26, 32, 44, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-green-100 {
-  --tw-gradient-stops: var(--tw-gradient-from), #f0fff4, var(--tw-gradient-to, rgba(240, 255, 244, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_green_100 : Css.Style
-via_green_100 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #f0fff4, var(--tw-gradient-to, rgba(240, 255, 244, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-green-200 {
-  --tw-gradient-stops: var(--tw-gradient-from), #c6f6d5, var(--tw-gradient-to, rgba(198, 246, 213, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_green_200 : Css.Style
-via_green_200 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #c6f6d5, var(--tw-gradient-to, rgba(198, 246, 213, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-green-300 {
-  --tw-gradient-stops: var(--tw-gradient-from), #9ae6b4, var(--tw-gradient-to, rgba(154, 230, 180, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_green_300 : Css.Style
-via_green_300 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #9ae6b4, var(--tw-gradient-to, rgba(154, 230, 180, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-green-400 {
-  --tw-gradient-stops: var(--tw-gradient-from), #68d391, var(--tw-gradient-to, rgba(104, 211, 145, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_green_400 : Css.Style
-via_green_400 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #68d391, var(--tw-gradient-to, rgba(104, 211, 145, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-green-500 {
-  --tw-gradient-stops: var(--tw-gradient-from), #48bb78, var(--tw-gradient-to, rgba(72, 187, 120, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_green_500 : Css.Style
-via_green_500 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #48bb78, var(--tw-gradient-to, rgba(72, 187, 120, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-green-600 {
-  --tw-gradient-stops: var(--tw-gradient-from), #38a169, var(--tw-gradient-to, rgba(56, 161, 105, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_green_600 : Css.Style
-via_green_600 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #38a169, var(--tw-gradient-to, rgba(56, 161, 105, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-green-700 {
-  --tw-gradient-stops: var(--tw-gradient-from), #2f855a, var(--tw-gradient-to, rgba(47, 133, 90, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_green_700 : Css.Style
-via_green_700 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #2f855a, var(--tw-gradient-to, rgba(47, 133, 90, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-green-800 {
-  --tw-gradient-stops: var(--tw-gradient-from), #276749, var(--tw-gradient-to, rgba(39, 103, 73, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_green_800 : Css.Style
-via_green_800 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #276749, var(--tw-gradient-to, rgba(39, 103, 73, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-green-900 {
-  --tw-gradient-stops: var(--tw-gradient-from), #22543d, var(--tw-gradient-to, rgba(34, 84, 61, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_green_900 : Css.Style
-via_green_900 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #22543d, var(--tw-gradient-to, rgba(34, 84, 61, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-indigo-100 {
-  --tw-gradient-stops: var(--tw-gradient-from), #ebf4ff, var(--tw-gradient-to, rgba(235, 244, 255, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_indigo_100 : Css.Style
-via_indigo_100 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #ebf4ff, var(--tw-gradient-to, rgba(235, 244, 255, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-indigo-200 {
-  --tw-gradient-stops: var(--tw-gradient-from), #c3dafe, var(--tw-gradient-to, rgba(195, 218, 254, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_indigo_200 : Css.Style
-via_indigo_200 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #c3dafe, var(--tw-gradient-to, rgba(195, 218, 254, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-indigo-300 {
-  --tw-gradient-stops: var(--tw-gradient-from), #a3bffa, var(--tw-gradient-to, rgba(163, 191, 250, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_indigo_300 : Css.Style
-via_indigo_300 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #a3bffa, var(--tw-gradient-to, rgba(163, 191, 250, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-indigo-400 {
-  --tw-gradient-stops: var(--tw-gradient-from), #7f9cf5, var(--tw-gradient-to, rgba(127, 156, 245, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_indigo_400 : Css.Style
-via_indigo_400 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #7f9cf5, var(--tw-gradient-to, rgba(127, 156, 245, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-indigo-500 {
-  --tw-gradient-stops: var(--tw-gradient-from), #667eea, var(--tw-gradient-to, rgba(102, 126, 234, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_indigo_500 : Css.Style
-via_indigo_500 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #667eea, var(--tw-gradient-to, rgba(102, 126, 234, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-indigo-600 {
-  --tw-gradient-stops: var(--tw-gradient-from), #5a67d8, var(--tw-gradient-to, rgba(90, 103, 216, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_indigo_600 : Css.Style
-via_indigo_600 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #5a67d8, var(--tw-gradient-to, rgba(90, 103, 216, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-indigo-700 {
-  --tw-gradient-stops: var(--tw-gradient-from), #4c51bf, var(--tw-gradient-to, rgba(76, 81, 191, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_indigo_700 : Css.Style
-via_indigo_700 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #4c51bf, var(--tw-gradient-to, rgba(76, 81, 191, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-indigo-800 {
-  --tw-gradient-stops: var(--tw-gradient-from), #434190, var(--tw-gradient-to, rgba(67, 65, 144, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_indigo_800 : Css.Style
-via_indigo_800 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #434190, var(--tw-gradient-to, rgba(67, 65, 144, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-indigo-900 {
-  --tw-gradient-stops: var(--tw-gradient-from), #3c366b, var(--tw-gradient-to, rgba(60, 54, 107, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_indigo_900 : Css.Style
-via_indigo_900 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #3c366b, var(--tw-gradient-to, rgba(60, 54, 107, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-orange-100 {
-  --tw-gradient-stops: var(--tw-gradient-from), #fffaf0, var(--tw-gradient-to, rgba(255, 250, 240, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_orange_100 : Css.Style
-via_orange_100 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #fffaf0, var(--tw-gradient-to, rgba(255, 250, 240, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-orange-200 {
-  --tw-gradient-stops: var(--tw-gradient-from), #feebc8, var(--tw-gradient-to, rgba(254, 235, 200, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_orange_200 : Css.Style
-via_orange_200 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #feebc8, var(--tw-gradient-to, rgba(254, 235, 200, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-orange-300 {
-  --tw-gradient-stops: var(--tw-gradient-from), #fbd38d, var(--tw-gradient-to, rgba(251, 211, 141, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_orange_300 : Css.Style
-via_orange_300 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #fbd38d, var(--tw-gradient-to, rgba(251, 211, 141, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-orange-400 {
-  --tw-gradient-stops: var(--tw-gradient-from), #f6ad55, var(--tw-gradient-to, rgba(246, 173, 85, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_orange_400 : Css.Style
-via_orange_400 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #f6ad55, var(--tw-gradient-to, rgba(246, 173, 85, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-orange-500 {
-  --tw-gradient-stops: var(--tw-gradient-from), #ed8936, var(--tw-gradient-to, rgba(237, 137, 54, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_orange_500 : Css.Style
-via_orange_500 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #ed8936, var(--tw-gradient-to, rgba(237, 137, 54, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-orange-600 {
-  --tw-gradient-stops: var(--tw-gradient-from), #dd6b20, var(--tw-gradient-to, rgba(221, 107, 32, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_orange_600 : Css.Style
-via_orange_600 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #dd6b20, var(--tw-gradient-to, rgba(221, 107, 32, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-orange-700 {
-  --tw-gradient-stops: var(--tw-gradient-from), #c05621, var(--tw-gradient-to, rgba(192, 86, 33, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_orange_700 : Css.Style
-via_orange_700 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #c05621, var(--tw-gradient-to, rgba(192, 86, 33, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-orange-800 {
-  --tw-gradient-stops: var(--tw-gradient-from), #9c4221, var(--tw-gradient-to, rgba(156, 66, 33, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_orange_800 : Css.Style
-via_orange_800 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #9c4221, var(--tw-gradient-to, rgba(156, 66, 33, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-orange-900 {
-  --tw-gradient-stops: var(--tw-gradient-from), #7b341e, var(--tw-gradient-to, rgba(123, 52, 30, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_orange_900 : Css.Style
-via_orange_900 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #7b341e, var(--tw-gradient-to, rgba(123, 52, 30, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-pink-100 {
-  --tw-gradient-stops: var(--tw-gradient-from), #fff5f7, var(--tw-gradient-to, rgba(255, 245, 247, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_pink_100 : Css.Style
-via_pink_100 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #fff5f7, var(--tw-gradient-to, rgba(255, 245, 247, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-pink-200 {
-  --tw-gradient-stops: var(--tw-gradient-from), #fed7e2, var(--tw-gradient-to, rgba(254, 215, 226, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_pink_200 : Css.Style
-via_pink_200 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #fed7e2, var(--tw-gradient-to, rgba(254, 215, 226, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-pink-300 {
-  --tw-gradient-stops: var(--tw-gradient-from), #fbb6ce, var(--tw-gradient-to, rgba(251, 182, 206, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_pink_300 : Css.Style
-via_pink_300 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #fbb6ce, var(--tw-gradient-to, rgba(251, 182, 206, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-pink-400 {
-  --tw-gradient-stops: var(--tw-gradient-from), #f687b3, var(--tw-gradient-to, rgba(246, 135, 179, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_pink_400 : Css.Style
-via_pink_400 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #f687b3, var(--tw-gradient-to, rgba(246, 135, 179, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-pink-500 {
-  --tw-gradient-stops: var(--tw-gradient-from), #ed64a6, var(--tw-gradient-to, rgba(237, 100, 166, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_pink_500 : Css.Style
-via_pink_500 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #ed64a6, var(--tw-gradient-to, rgba(237, 100, 166, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-pink-600 {
-  --tw-gradient-stops: var(--tw-gradient-from), #d53f8c, var(--tw-gradient-to, rgba(213, 63, 140, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_pink_600 : Css.Style
-via_pink_600 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #d53f8c, var(--tw-gradient-to, rgba(213, 63, 140, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-pink-700 {
-  --tw-gradient-stops: var(--tw-gradient-from), #b83280, var(--tw-gradient-to, rgba(184, 50, 128, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_pink_700 : Css.Style
-via_pink_700 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #b83280, var(--tw-gradient-to, rgba(184, 50, 128, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-pink-800 {
-  --tw-gradient-stops: var(--tw-gradient-from), #97266d, var(--tw-gradient-to, rgba(151, 38, 109, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_pink_800 : Css.Style
-via_pink_800 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #97266d, var(--tw-gradient-to, rgba(151, 38, 109, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-pink-900 {
-  --tw-gradient-stops: var(--tw-gradient-from), #702459, var(--tw-gradient-to, rgba(112, 36, 89, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_pink_900 : Css.Style
-via_pink_900 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #702459, var(--tw-gradient-to, rgba(112, 36, 89, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-purple-100 {
-  --tw-gradient-stops: var(--tw-gradient-from), #faf5ff, var(--tw-gradient-to, rgba(250, 245, 255, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_purple_100 : Css.Style
-via_purple_100 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #faf5ff, var(--tw-gradient-to, rgba(250, 245, 255, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-purple-200 {
-  --tw-gradient-stops: var(--tw-gradient-from), #e9d8fd, var(--tw-gradient-to, rgba(233, 216, 253, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_purple_200 : Css.Style
-via_purple_200 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #e9d8fd, var(--tw-gradient-to, rgba(233, 216, 253, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-purple-300 {
-  --tw-gradient-stops: var(--tw-gradient-from), #d6bcfa, var(--tw-gradient-to, rgba(214, 188, 250, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_purple_300 : Css.Style
-via_purple_300 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #d6bcfa, var(--tw-gradient-to, rgba(214, 188, 250, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-purple-400 {
-  --tw-gradient-stops: var(--tw-gradient-from), #b794f4, var(--tw-gradient-to, rgba(183, 148, 244, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_purple_400 : Css.Style
-via_purple_400 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #b794f4, var(--tw-gradient-to, rgba(183, 148, 244, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-purple-500 {
-  --tw-gradient-stops: var(--tw-gradient-from), #9f7aea, var(--tw-gradient-to, rgba(159, 122, 234, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_purple_500 : Css.Style
-via_purple_500 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #9f7aea, var(--tw-gradient-to, rgba(159, 122, 234, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-purple-600 {
-  --tw-gradient-stops: var(--tw-gradient-from), #805ad5, var(--tw-gradient-to, rgba(128, 90, 213, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_purple_600 : Css.Style
-via_purple_600 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #805ad5, var(--tw-gradient-to, rgba(128, 90, 213, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-purple-700 {
-  --tw-gradient-stops: var(--tw-gradient-from), #6b46c1, var(--tw-gradient-to, rgba(107, 70, 193, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_purple_700 : Css.Style
-via_purple_700 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #6b46c1, var(--tw-gradient-to, rgba(107, 70, 193, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-purple-800 {
-  --tw-gradient-stops: var(--tw-gradient-from), #553c9a, var(--tw-gradient-to, rgba(85, 60, 154, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_purple_800 : Css.Style
-via_purple_800 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #553c9a, var(--tw-gradient-to, rgba(85, 60, 154, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-purple-900 {
-  --tw-gradient-stops: var(--tw-gradient-from), #44337a, var(--tw-gradient-to, rgba(68, 51, 122, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_purple_900 : Css.Style
-via_purple_900 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #44337a, var(--tw-gradient-to, rgba(68, 51, 122, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-red-100 {
-  --tw-gradient-stops: var(--tw-gradient-from), #fff5f5, var(--tw-gradient-to, rgba(255, 245, 245, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_red_100 : Css.Style
-via_red_100 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #fff5f5, var(--tw-gradient-to, rgba(255, 245, 245, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-red-200 {
-  --tw-gradient-stops: var(--tw-gradient-from), #fed7d7, var(--tw-gradient-to, rgba(254, 215, 215, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_red_200 : Css.Style
-via_red_200 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #fed7d7, var(--tw-gradient-to, rgba(254, 215, 215, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-red-300 {
-  --tw-gradient-stops: var(--tw-gradient-from), #feb2b2, var(--tw-gradient-to, rgba(254, 178, 178, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_red_300 : Css.Style
-via_red_300 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #feb2b2, var(--tw-gradient-to, rgba(254, 178, 178, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-red-400 {
-  --tw-gradient-stops: var(--tw-gradient-from), #fc8181, var(--tw-gradient-to, rgba(252, 129, 129, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_red_400 : Css.Style
-via_red_400 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #fc8181, var(--tw-gradient-to, rgba(252, 129, 129, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-red-500 {
-  --tw-gradient-stops: var(--tw-gradient-from), #f56565, var(--tw-gradient-to, rgba(245, 101, 101, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_red_500 : Css.Style
-via_red_500 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #f56565, var(--tw-gradient-to, rgba(245, 101, 101, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-red-600 {
-  --tw-gradient-stops: var(--tw-gradient-from), #e53e3e, var(--tw-gradient-to, rgba(229, 62, 62, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_red_600 : Css.Style
-via_red_600 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #e53e3e, var(--tw-gradient-to, rgba(229, 62, 62, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-red-700 {
-  --tw-gradient-stops: var(--tw-gradient-from), #c53030, var(--tw-gradient-to, rgba(197, 48, 48, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_red_700 : Css.Style
-via_red_700 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #c53030, var(--tw-gradient-to, rgba(197, 48, 48, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-red-800 {
-  --tw-gradient-stops: var(--tw-gradient-from), #9b2c2c, var(--tw-gradient-to, rgba(155, 44, 44, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_red_800 : Css.Style
-via_red_800 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #9b2c2c, var(--tw-gradient-to, rgba(155, 44, 44, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-red-900 {
-  --tw-gradient-stops: var(--tw-gradient-from), #742a2a, var(--tw-gradient-to, rgba(116, 42, 42, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_red_900 : Css.Style
-via_red_900 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #742a2a, var(--tw-gradient-to, rgba(116, 42, 42, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-teal-100 {
-  --tw-gradient-stops: var(--tw-gradient-from), #e6fffa, var(--tw-gradient-to, rgba(230, 255, 250, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_teal_100 : Css.Style
-via_teal_100 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #e6fffa, var(--tw-gradient-to, rgba(230, 255, 250, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-teal-200 {
-  --tw-gradient-stops: var(--tw-gradient-from), #b2f5ea, var(--tw-gradient-to, rgba(178, 245, 234, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_teal_200 : Css.Style
-via_teal_200 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #b2f5ea, var(--tw-gradient-to, rgba(178, 245, 234, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-teal-300 {
-  --tw-gradient-stops: var(--tw-gradient-from), #81e6d9, var(--tw-gradient-to, rgba(129, 230, 217, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_teal_300 : Css.Style
-via_teal_300 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #81e6d9, var(--tw-gradient-to, rgba(129, 230, 217, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-teal-400 {
-  --tw-gradient-stops: var(--tw-gradient-from), #4fd1c5, var(--tw-gradient-to, rgba(79, 209, 197, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_teal_400 : Css.Style
-via_teal_400 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #4fd1c5, var(--tw-gradient-to, rgba(79, 209, 197, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-teal-500 {
-  --tw-gradient-stops: var(--tw-gradient-from), #38b2ac, var(--tw-gradient-to, rgba(56, 178, 172, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_teal_500 : Css.Style
-via_teal_500 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #38b2ac, var(--tw-gradient-to, rgba(56, 178, 172, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-teal-600 {
-  --tw-gradient-stops: var(--tw-gradient-from), #319795, var(--tw-gradient-to, rgba(49, 151, 149, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_teal_600 : Css.Style
-via_teal_600 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #319795, var(--tw-gradient-to, rgba(49, 151, 149, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-teal-700 {
-  --tw-gradient-stops: var(--tw-gradient-from), #2c7a7b, var(--tw-gradient-to, rgba(44, 122, 123, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_teal_700 : Css.Style
-via_teal_700 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #2c7a7b, var(--tw-gradient-to, rgba(44, 122, 123, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-teal-800 {
-  --tw-gradient-stops: var(--tw-gradient-from), #285e61, var(--tw-gradient-to, rgba(40, 94, 97, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_teal_800 : Css.Style
-via_teal_800 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #285e61, var(--tw-gradient-to, rgba(40, 94, 97, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-teal-900 {
-  --tw-gradient-stops: var(--tw-gradient-from), #234e52, var(--tw-gradient-to, rgba(35, 78, 82, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_teal_900 : Css.Style
-via_teal_900 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #234e52, var(--tw-gradient-to, rgba(35, 78, 82, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-transparent {
-  --tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to, rgba(0, 0, 0, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_transparent : Css.Style
-via_transparent =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), transparent, var(--tw-gradient-to, rgba(0, 0, 0, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-white {
-  --tw-gradient-stops: var(--tw-gradient-from), #fff, var(--tw-gradient-to, rgba(255, 255, 255, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_white : Css.Style
-via_white =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #fff, var(--tw-gradient-to, rgba(255, 255, 255, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-yellow-100 {
-  --tw-gradient-stops: var(--tw-gradient-from), #fffff0, var(--tw-gradient-to, rgba(255, 255, 240, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_yellow_100 : Css.Style
-via_yellow_100 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #fffff0, var(--tw-gradient-to, rgba(255, 255, 240, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-yellow-200 {
-  --tw-gradient-stops: var(--tw-gradient-from), #fefcbf, var(--tw-gradient-to, rgba(254, 252, 191, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_yellow_200 : Css.Style
-via_yellow_200 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #fefcbf, var(--tw-gradient-to, rgba(254, 252, 191, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-yellow-300 {
-  --tw-gradient-stops: var(--tw-gradient-from), #faf089, var(--tw-gradient-to, rgba(250, 240, 137, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_yellow_300 : Css.Style
-via_yellow_300 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #faf089, var(--tw-gradient-to, rgba(250, 240, 137, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-yellow-400 {
-  --tw-gradient-stops: var(--tw-gradient-from), #f6e05e, var(--tw-gradient-to, rgba(246, 224, 94, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_yellow_400 : Css.Style
-via_yellow_400 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #f6e05e, var(--tw-gradient-to, rgba(246, 224, 94, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-yellow-500 {
-  --tw-gradient-stops: var(--tw-gradient-from), #ecc94b, var(--tw-gradient-to, rgba(236, 201, 75, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_yellow_500 : Css.Style
-via_yellow_500 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #ecc94b, var(--tw-gradient-to, rgba(236, 201, 75, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-yellow-600 {
-  --tw-gradient-stops: var(--tw-gradient-from), #d69e2e, var(--tw-gradient-to, rgba(214, 158, 46, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_yellow_600 : Css.Style
-via_yellow_600 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #d69e2e, var(--tw-gradient-to, rgba(214, 158, 46, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-yellow-700 {
-  --tw-gradient-stops: var(--tw-gradient-from), #b7791f, var(--tw-gradient-to, rgba(183, 121, 31, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_yellow_700 : Css.Style
-via_yellow_700 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #b7791f, var(--tw-gradient-to, rgba(183, 121, 31, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-yellow-800 {
-  --tw-gradient-stops: var(--tw-gradient-from), #975a16, var(--tw-gradient-to, rgba(151, 90, 22, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_yellow_800 : Css.Style
-via_yellow_800 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #975a16, var(--tw-gradient-to, rgba(151, 90, 22, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
-.via-yellow-900 {
-  --tw-gradient-stops: var(--tw-gradient-from), #744210, var(--tw-gradient-to, rgba(116, 66, 16, 0))
-}
-```
-
-Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
-
--}
-via_yellow_900 : Css.Style
-via_yellow_900 =
-    Css.property "--tw-gradient-stops" "var(--tw-gradient-from), #744210, var(--tw-gradient-to, rgba(116, 66, 16, 0))"
-
-
-{-| This class has the effect of following css declaration:
-
-```css
 .visible {
   visibility: visible
 }
@@ -76654,3 +68518,229 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 z_auto : Css.Style
 z_auto =
     Css.property "z-index" "auto"
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.bg-current {
+  background-color: <color>
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+bg_color : Color -> Css.Style
+bg_color color =
+    Tw.propertyWithColor "background-color" (\c -> c) Nothing color
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.border-current {
+  border-color: <color>
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+border_color : Color -> Css.Style
+border_color color =
+    Tw.propertyWithColor "border-color" (\c -> c) Nothing color
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.divide-current > :not([hidden]) ~ :not([hidden]) {
+  border-color: <color>
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+divide_color : Color -> Css.Style
+divide_color color =
+    Css.Global.children
+        [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
+            [ Tw.propertyWithColor "border-color" (\c -> c) Nothing color
+            ]
+        ]
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.fill-current {
+  fill: <color>
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+fill_color : Color -> Css.Style
+fill_color color =
+    Tw.propertyWithColor "fill" (\c -> c) Nothing color
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.from-pink-900 {
+  --tw-gradient-from: <color>;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(112, 36, 89, 0))
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+from_color : Color -> Css.Style
+from_color color =
+    Css.batch
+        [ Tw.propertyWithColor "--tw-gradient-from" (\c -> c) Nothing color
+        , Css.property "--tw-gradient-stops" "var(--tw-gradient-from), var(--tw-gradient-to, rgba(112, 36, 89, 0))"
+        ]
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.placeholder-current::placeholder {
+  color: <color>
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+placeholder_color : Color -> Css.Style
+placeholder_color color =
+    Css.pseudoElement "placeholder"
+        [ Tw.propertyWithColor "color" (\c -> c) Nothing color
+        ]
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.ring-current {
+  --tw-ring-color: <color>
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+ring_color : Color -> Css.Style
+ring_color color =
+    Tw.propertyWithColor "--tw-ring-color" (\c -> c) Nothing color
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.ring-offset-pink-900 {
+  --tw-ring-offset-color: <color>
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+ring_offset_color : Color -> Css.Style
+ring_offset_color color =
+    Tw.propertyWithColor "--tw-ring-offset-color" (\c -> c) Nothing color
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.stroke-current {
+  stroke: <color>
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+stroke_color : Color -> Css.Style
+stroke_color color =
+    Tw.propertyWithColor "stroke" (\c -> c) Nothing color
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.text-current {
+  color: <color>
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+text_color : Color -> Css.Style
+text_color color =
+    Tw.propertyWithColor "color" (\c -> c) Nothing color
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.to-pink-900 {
+  --tw-gradient-to: <color>
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+to_color : Color -> Css.Style
+to_color color =
+    Tw.propertyWithColor "--tw-gradient-to" (\c -> c) Nothing color
+
+
+{-| This class has effects of css declarations similar to the following:
+
+```css
+.via-pink-900 {
+  --tw-gradient-stops: var(--tw-gradient-from), <color>, var(--tw-gradient-to, rgba(112, 36, 89, 0))
+}
+```
+
+The `<color>` can be chosen with the first parameter.
+
+Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs)!
+
+-}
+via_color : Color -> Css.Style
+via_color color =
+    Tw.propertyWithColor "--tw-gradient-stops" (\c -> "var(--tw-gradient-from), " ++ c ++ ", var(--tw-gradient-to, rgba(112, 36, 89, 0))") Nothing color
