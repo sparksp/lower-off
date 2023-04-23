@@ -14,6 +14,7 @@ import Problem exposing (Problem)
 import Random
 import Svg.Styled.Attributes as SvgAttr
 import Tailwind.Breakpoints as Breakpoints
+import Tailwind.Theme as TwTheme
 import Tailwind.Utilities as Tw
 import Ui.Icons
 
@@ -162,8 +163,8 @@ pageTitle =
             [ Tw.w_full
             , Tw.p_1
             , Tw.border_b
-            , Tw.bg_orange_600
-            , Tw.text_white
+            , Tw.bg_color TwTheme.orange_600
+            , Tw.text_color TwTheme.white
             , Breakpoints.sm [ Tw.mb_3 ]
             ]
         ]
@@ -281,7 +282,7 @@ randomizeButton =
         [ Html.button
             [ Events.onClick Randomize
             , Attr.css
-                [ Tw.text_black
+                [ Tw.text_color TwTheme.black
                 , Tw.flex
                 , Tw.p_1
                 , Tw.w_full
@@ -324,7 +325,7 @@ viewRemoteScenario model =
         [ Attr.css
             [ Breakpoints.sm [ Tw.max_w_lg ]
             , Tw.w_full
-            , Tw.bg_white
+            , Tw.bg_color TwTheme.white
             , Tw.shadow_md
             , Tw.mb_3
             ]
@@ -353,7 +354,7 @@ view model =
             , Tw.items_center
             ]
         ]
-        [ Css.Global.global (Css.Global.body [ Tw.bg_orange_100 ] :: Tw.globalStyles)
+        [ Css.Global.global (Css.Global.body [ Tw.bg_color TwTheme.orange_100 ] :: Tw.globalStyles)
         , pageTitle
         , viewRemoteScenario model
         , viewRandomizeButton model
