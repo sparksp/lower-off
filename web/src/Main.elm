@@ -60,7 +60,7 @@ randomProblemList : Random.Generator (List Problem)
 randomProblemList =
     Random.weighted ( 100, 0 ) [ ( 10, 1 ) ]
         |> Random.andThen (\len -> Random.list len Problem.random)
-        |> Random.andThen (Random.constant << List.Extra.uniqueBy Problem.string)
+        |> Random.map (List.Extra.uniqueBy Problem.string)
 
 
 randomAnchor : List Anchor -> Random.Generator (Maybe Anchor)
@@ -73,7 +73,7 @@ randomAnchor anchors =
 randomListItem : List a -> Random.Generator (Maybe a)
 randomListItem list =
     Random.int 0 (List.length list - 1)
-        |> Random.andThen (Random.constant << (\n -> List.drop n list |> List.head))
+        |> Random.map (\n -> List.drop n list |> List.head)
 
 
 
