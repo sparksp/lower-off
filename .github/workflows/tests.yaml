@@ -45,7 +45,6 @@ jobs:
         run: npx --no-install elm-format --validate
 
 
-
   elm-tailwind-modules:
     runs-on: ubuntu-latest
     defaults:
@@ -93,7 +92,11 @@ jobs:
         run: echo "changed=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
       - name: Report changes
         if: steps.changes.outputs.changed == 1
-        run: echo "::error::Unstaged changes detected - it is likely that the Elm Tailwind Modules need updating."
+        run: |
+          echo "::error::Unstaged changes detected - it is likely that the Elm Tailwind Modules need updating."
+          git status --porcelain
+          exit 1
+
 
   api-md5:
     runs-on: ubuntu-latest
