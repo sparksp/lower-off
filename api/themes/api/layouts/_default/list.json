@@ -3,7 +3,7 @@
 {{- with eq .Kind  "section"}}
   "section" : {{ $.Section | jsonify }},
 {{- end }}
-{{- with eq .Kind  "taxonomyTerm" }}
+{{- with eq .Kind  "term" }}
   "taxonomy" : {{ $.Data.Singular | jsonify }},
 {{- end }}
 {{- with eq .Kind  "taxonomy"}}

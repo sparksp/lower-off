@@ -118,6 +118,6 @@ jobs:
       - name: Report changes
         if: steps.changes.outputs.changed == 1
         run: |
-          echo "::error::Unstaged changes detected - it is likely that the Elm Tailwind Modules need updating."
+          echo "::error::Unstaged changes detected - it is likely that the API MD5 needs updating."
           git status --porcelain
           exit 1
