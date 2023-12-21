@@ -3,9 +3,12 @@ languageCode = "en-gb"
 title = "Lower-off Scenarios"
 theme = ["api"]
 
+[taxonomies]
+  tag = "tags"
+
 [outputs]
   page = ["json"]
   section = ["json"]
   home = ["json"]
   taxonomy = ["json"]
-  taxonomyTerm = ["json"]
+  term = ["json"]
