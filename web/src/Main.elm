@@ -70,11 +70,11 @@ randomListItem list =
 
 main : Program () Model Msg
 main =
-    Browser.element
+    Browser.document
         { init = init
         , subscriptions = \_ -> Sub.none
         , update = update
-        , view = view >> Html.toUnstyled
+        , view = view
         }
 
 
@@ -332,17 +332,22 @@ viewRemoteScenario model =
         )
 
 
-view : Model -> Html Msg
+view : Model -> Browser.Document Msg
 view model =
-    Html.div
-        [ Attr.css
-            [ Tw.flex
-            , Tw.flex_col
-            , Tw.items_center
+    { title = "Lower-off Scenario"
+    , body =
+        [ Html.div
+            [ Attr.css
+                [ Tw.flex
+                , Tw.flex_col
+                , Tw.items_center
+                ]
             ]
+            [ Css.Global.global (Css.Global.body [ Tw.bg_color TwTheme.orange_100 ] :: Tw.globalStyles)
+            , pageTitle
+            , viewRemoteScenario model
+            , viewRandomizeButton model
+            ]
+            |> Html.toUnstyled
         ]
-        [ Css.Global.global (Css.Global.body [ Tw.bg_color TwTheme.orange_100 ] :: Tw.globalStyles)
-        , pageTitle
-        , viewRemoteScenario model
-        , viewRandomizeButton model
-        ]
+    }
