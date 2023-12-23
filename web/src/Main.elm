@@ -1,8 +1,9 @@
-module Main exposing (Model, Msg, main)
+module Main exposing (Model, Msg, State, main)
 
 import Anchor exposing (Anchor)
 import Anchor.API
 import Browser
+import Browser.Navigation as Nav
 import Climb exposing (Climb)
 import Css.Global
 import Html.Styled as Html exposing (Html)
@@ -18,6 +19,7 @@ import Tailwind.Breakpoints as Breakpoints
 import Tailwind.Theme as TwTheme
 import Tailwind.Utilities as Tw
 import Ui.Icons
+import Url
 
 
 
@@ -25,7 +27,10 @@ import Ui.Icons
 
 
 type alias Model =
-    State
+    { key : Nav.Key
+    , url : Url.Url
+    , state : State
+    }
 
 
 type State
@@ -70,24 +75,29 @@ randomListItem list =
 
 main : Program () Model Msg
 main =
-    Browser.document
+    Browser.application
         { init = init
+        , onUrlChange = UrlChanged
+        , onUrlRequest = LinkClicked
         , subscriptions = \_ -> Sub.none
         , update = update
         , view = view
         }
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( Loading
+init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
+init () url key =
+    ( { key = key
+      , url = url
+      , state = Loading
+      }
     , Anchor.API.fetch "./api" GotAnchors
     )
 
 
-withAnchors : (List Anchor -> r) -> (() -> r) -> Model -> r
-withAnchors mapper default model =
-    case model of
+withAnchors : (List Anchor -> r) -> (() -> r) -> State -> r
+withAnchors mapper default state =
+    case state of
         Loading ->
             default ()
 
@@ -103,25 +113,27 @@ withAnchors mapper default model =
 
 randomize : Model -> ( Model, Cmd Msg )
 randomize model =
-    model
+    model.state
         |> withAnchors
             (\anchors ->
-                ( AnchorsReady anchors, Random.generate NewScenario (randomScenario anchors) )
+                ( { model | state = AnchorsReady anchors }
+                , Random.generate NewScenario (randomScenario anchors)
+                )
             )
             (\() ->
                 ( model, Cmd.none )
             )
 
 
-setScenario : Scenario -> Model -> Model
-setScenario scenario model =
-    model
+setScenario : Scenario -> State -> State
+setScenario scenario state =
+    state
         |> withAnchors
             (\anchors ->
                 ScenarioPick anchors scenario
             )
             (\() ->
-                model
+                state
             )
 
 
@@ -129,22 +141,34 @@ type Msg
     = GotAnchors (Result Http.Error (List Anchor))
     | Randomize
     | NewScenario Scenario
+    | LinkClicked Browser.UrlRequest
+    | UrlChanged Url.Url
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         GotAnchors (Ok anchors) ->
-            randomize (AnchorsReady anchors)
+            randomize { model | state = AnchorsReady anchors }
 
         GotAnchors (Err _) ->
-            ( Failure, Cmd.none )
+            ( { model | state = Failure }
+            , Cmd.none
+            )
 
         Randomize ->
             randomize model
 
         NewScenario scenario ->
-            ( setScenario scenario model, Cmd.none )
+            ( { model | state = setScenario scenario model.state }
+            , Cmd.none
+            )
+
+        LinkClicked _ ->
+            ( model, Cmd.none )
+
+        UrlChanged _ ->
+            ( model, Cmd.none )
 
 
 pageTitle : Html Msg
@@ -239,9 +263,9 @@ viewScenario scenario =
     ]
 
 
-viewRandomizeButton : Model -> Html Msg
-viewRandomizeButton model =
-    case model of
+viewRandomizeButton : State -> Html Msg
+viewRandomizeButton state =
+    case state of
         Loading ->
             Html.text ""
 
@@ -306,8 +330,8 @@ viewStatusMessage message =
         [ viewTextLine message ]
 
 
-viewRemoteScenario : Model -> Html Msg
-viewRemoteScenario model =
+viewRemoteScenario : State -> Html Msg
+viewRemoteScenario state =
     Html.div
         [ Attr.css
             [ Breakpoints.sm [ Tw.max_w_lg ]
@@ -317,7 +341,7 @@ viewRemoteScenario model =
             , Tw.mb_3
             ]
         ]
-        (case model of
+        (case state of
             Loading ->
                 [ viewStatusMessage "Please wait: racking up..." ]
 
@@ -345,8 +369,8 @@ view model =
             ]
             [ Css.Global.global (Css.Global.body [ Tw.bg_color TwTheme.orange_100 ] :: Tw.globalStyles)
             , pageTitle
-            , viewRemoteScenario model
-            , viewRandomizeButton model
+            , viewRemoteScenario model.state
+            , viewRandomizeButton model.state
             ]
             |> Html.toUnstyled
         ]
