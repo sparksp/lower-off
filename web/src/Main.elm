@@ -12,6 +12,7 @@ import Http
 import List.Extra
 import Problem exposing (Problem)
 import Random
+import Scenario exposing (Scenario)
 import Svg.Styled.Attributes as SvgAttr
 import Tailwind.Breakpoints as Breakpoints
 import Tailwind.Theme as TwTheme
@@ -34,23 +35,10 @@ type State
     | ScenarioPick (List Anchor) Scenario
 
 
-type Scenario
-    = Scenario
-        { climb : Climb
-        , anchor : Maybe Anchor
-        , problems : List Problem
-        }
-
-
-newScenario : Climb -> Maybe Anchor -> List Problem -> Scenario
-newScenario climb anchor problems =
-    Scenario { climb = climb, anchor = anchor, problems = problems }
-
-
 randomScenario : List Anchor -> Random.Generator Scenario
 randomScenario anchors =
     Random.map3
-        newScenario
+        Scenario.new
         Climb.random
         (randomAnchor anchors)
         randomProblemList
@@ -100,14 +88,17 @@ init _ =
 withAnchors : (List Anchor -> r) -> (() -> r) -> Model -> r
 withAnchors mapper default model =
     case model of
+        Loading ->
+            default ()
+
+        Failure ->
+            default ()
+
         AnchorsReady anchors ->
             mapper anchors
 
         ScenarioPick anchors _ ->
             mapper anchors
-
-        _ ->
-            default ()
 
 
 randomize : Model -> ( Model, Cmd Msg )
@@ -226,39 +217,35 @@ viewProblem =
     Problem.string >> viewTextLine
 
 
-viewAnchor : Maybe Anchor -> Html Msg
-viewAnchor maybeAnchor =
-    case maybeAnchor of
-        Just anchor ->
-            Anchor.toHtml anchor
-
-        Nothing ->
-            viewTextLine "The anchor is missing."
+noAnchor : Html Msg
+noAnchor =
+    viewTextLine "The anchor is missing."
 
 
 viewScenario : Scenario -> List (Html Msg)
-viewScenario (Scenario s) =
+viewScenario scenario =
     [ Html.div
         [ Attr.css
             [ Tw.px_3
             , Tw.w_full
             ]
         ]
-        (viewClimb s.climb
-            :: List.map viewProblem s.problems
+        (Scenario.mapClimb viewClimb scenario
+            :: Scenario.mapProblems viewProblem scenario
             ++ [ viewTextLine "When get to the top of your climb you find..." ]
         )
-    , viewAnchor s.anchor
+    , Scenario.mapAnchor Anchor.toHtml scenario
+        |> Maybe.withDefault noAnchor
     ]
 
 
 viewRandomizeButton : Model -> Html Msg
 viewRandomizeButton model =
     case model of
-        Failure ->
+        Loading ->
             Html.text ""
 
-        Loading ->
+        Failure ->
             Html.text ""
 
         AnchorsReady _ ->
@@ -334,11 +321,11 @@ viewRemoteScenario model =
             Loading ->
                 [ viewStatusMessage "Please wait: racking up..." ]
 
-            AnchorsReady _ ->
-                [ viewStatusMessage "Please wait: racking up..." ]
-
             Failure ->
                 [ viewStatusMessage "Oops! Something went wrong." ]
+
+            AnchorsReady _ ->
+                [ viewStatusMessage "Please wait: racking up..." ]
 
             ScenarioPick _ scenario ->
                 viewScenario scenario
