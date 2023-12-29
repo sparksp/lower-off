@@ -13,6 +13,7 @@ import Url.Parser as Parser exposing (Parser, oneOf, s)
 
 type Route
     = Home
+    | Gallery
     | Scenario
 
 
@@ -36,6 +37,9 @@ toUrl page =
         Home ->
             Url.Builder.absolute [] []
 
+        Gallery ->
+            Url.Builder.absolute [ "gallery" ] []
+
         Scenario ->
             Url.Builder.absolute [ "scenario" ] []
 
@@ -48,5 +52,6 @@ parser : Parser (Route -> a) a
 parser =
     oneOf
         [ Parser.map Home Parser.top
+        , Parser.map Gallery (s "gallery")
         , Parser.map Scenario (s "scenario")
         ]

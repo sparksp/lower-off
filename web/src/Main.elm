@@ -7,6 +7,7 @@ import Browser.Styled as Browser exposing (Document)
 import Html.Styled as Html
 import Page exposing (Page)
 import Page.Blank as Blank
+import Page.Gallery as Gallery
 import Page.Menu as Home
 import Page.NotFound as NotFound
 import Page.Scenario as Scenario
@@ -19,6 +20,7 @@ type Model
     = Redirect Session
     | NotFound Session
     | Home Session
+    | Gallery Gallery.Model
     | Scenario Scenario.Model
 
 
@@ -39,6 +41,9 @@ view model =
         Home _ ->
             Page.view Page.Home Home.view
 
+        Gallery gallery ->
+            viewPage Page.Gallery GotGalleryMsg (Gallery.view gallery)
+
         Scenario scenario ->
             viewPage Page.Scenario GotScenarioMsg (Scenario.view scenario)
 
@@ -57,6 +62,7 @@ viewPage page toMsg doc =
 type Msg
     = ClickedLink UrlRequest
     | ChangedUrl Url
+    | GotGalleryMsg Gallery.Msg
     | GotScenarioMsg Scenario.Msg
 
 
@@ -71,6 +77,9 @@ toSession page =
 
         Home session ->
             session
+
+        Gallery gallery ->
+            Gallery.toSession gallery
 
         Scenario scenario ->
             Scenario.toSession scenario
@@ -89,6 +98,10 @@ changeRouteTo maybeRoute model =
 
         Just Route.Home ->
             ( Home session, Cmd.none )
+
+        Just Route.Gallery ->
+            Gallery.init session
+                |> updateWith Gallery GotGalleryMsg
 
         Just Route.Scenario ->
             Scenario.init session
@@ -112,6 +125,13 @@ update msg model =
 
         ( ChangedUrl url, _ ) ->
             changeRouteTo (Route.fromUrl url) model
+
+        ( GotGalleryMsg galleryMsg, Gallery gallery ) ->
+            Gallery.update galleryMsg gallery
+                |> updateWith Gallery GotGalleryMsg
+
+        ( GotGalleryMsg _, _ ) ->
+            ( model, Cmd.none )
 
         ( GotScenarioMsg scenarioMsg, Scenario scenario ) ->
             Scenario.update scenarioMsg scenario

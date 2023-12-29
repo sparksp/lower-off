@@ -19,6 +19,7 @@ import Ui.Icons
 type Page
     = Other
     | Home
+    | Gallery
     | Scenario
 
 
