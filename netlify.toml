@@ -11,3 +11,8 @@
 
 [context.branch-deploy]
   command = "URL=$DEPLOY_PRIME_URL yarn build"
+
+[[redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200
