@@ -41,7 +41,7 @@ type Msg
 init : Session -> ( Model, Cmd Msg )
 init session =
     ( Model session Loading
-    , Anchor.API.fetch "./api" GotAnchors
+    , Anchor.API.fetch "/api" GotAnchors
     )
 
 
@@ -96,17 +96,17 @@ withAnchors mapper default state =
 
 
 randomize : Model -> ( Model, Cmd Msg )
-randomize ((Model session state) as model) =
-    state
+randomize ((Model _ state) as model) =
+    ( model
+    , state
         |> withAnchors
             (\anchors ->
-                ( Model session (AnchorsReady anchors)
-                , Random.generate NewScenario (randomScenario anchors)
-                )
+                Random.generate NewScenario (randomScenario anchors)
             )
             (\() ->
-                ( model, Cmd.none )
+                Cmd.none
             )
+    )
 
 
 setScenario : Scenario -> State -> State
