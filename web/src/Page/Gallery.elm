@@ -1,12 +1,13 @@
-module Page.Gallery exposing (Model, init, toSession, view)
+module Page.Gallery exposing (view)
 
 import Action exposing (Action)
 import Anchor exposing (Anchor)
 import Browser.Styled exposing (Document)
 import Html.Styled as Html exposing (Html)
 import Html.Styled.Attributes as Attr
+import List.Extra
+import Page.NotFound
 import Route
-import Session exposing (Session)
 import Svg.Styled.Attributes as SvgAttr
 import Tailwind.Breakpoints as Breakpoints
 import Tailwind.Theme as TwTheme
@@ -14,85 +15,8 @@ import Tailwind.Utilities as Tw
 import Ui.Icons
 
 
-type Model
-    = Model Session State
-
-
-type State
-    = NoAnchors
-    | ShowAnchor (List Anchor) Anchor (List Anchor)
-
-
-init : Session -> List Anchor -> Int -> Model
-init session anchors id =
-    case anchors of
-        [] ->
-            Model session NoAnchors
-
-        firstAnchor :: remainingAnchors ->
-            Model session (showId id (ShowAnchor [] firstAnchor remainingAnchors))
-
-
-toSession : Model -> Session
-toSession (Model session _) =
-    session
-
-
-showId : Int -> State -> State
-showId id state =
-    case state of
-        NoAnchors ->
-            NoAnchors
-
-        ShowAnchor prev curr next ->
-            let
-                allAnchors : List Anchor
-                allAnchors =
-                    List.reverse (curr :: prev) ++ next
-            in
-            case List.take id allAnchors |> List.reverse of
-                newCurrent :: newPrevious ->
-                    ShowAnchor newPrevious newCurrent (List.drop id allAnchors)
-
-                [] ->
-                    NoAnchors
-
-
-stateToId : State -> Int
-stateToId state =
-    case state of
-        NoAnchors ->
-            0
-
-        ShowAnchor previous _ _ ->
-            List.length previous + 1
-
-
-viewTextLine : String -> Html msg
-viewTextLine =
-    Html.text >> List.singleton >> Html.p [ Attr.css [ Tw.my_2 ] ]
-
-
-viewStatusMessage : String -> Html msg
-viewStatusMessage message =
-    Html.div
-        [ Attr.css
-            [ Tw.px_3
-            , Tw.w_full
-            ]
-        ]
-        [ viewTextLine message ]
-
-
 viewAnchor : Anchor -> Html msg
 viewAnchor anchor =
-    Html.div []
-        [ Anchor.toHtml anchor
-        ]
-
-
-viewCurrentAnchor : State -> Html msg
-viewCurrentAnchor state =
     Html.div
         [ Attr.css
             [ Breakpoints.sm [ Tw.max_w_lg ]
@@ -102,26 +26,17 @@ viewCurrentAnchor state =
             , Tw.mb_3
             ]
         ]
-        (case state of
-            NoAnchors ->
-                [ viewStatusMessage "Oops! Something went wrong." ]
-
-            ShowAnchor _ anchor _ ->
-                [ viewAnchor anchor ]
-        )
+        [ Anchor.toHtml anchor
+        ]
 
 
-viewNextButton : State -> Html msg
-viewNextButton state =
-    case state of
-        NoAnchors ->
-            Html.text ""
+viewNextButton : { id : Int, count : Int } -> Html msg
+viewNextButton { id, count } =
+    if id == count then
+        Html.text ""
 
-        ShowAnchor _ _ [] ->
-            Html.text ""
-
-        ShowAnchor _ _ _ ->
-            nextButton (stateToId state)
+    else
+        nextButton id
 
 
 nextButton : Int -> Html msg
@@ -164,34 +79,41 @@ nextButton id =
         ]
 
 
-nextAction : State -> Action msg
-nextAction state =
-    case state of
-        NoAnchors ->
-            Action.None
+nextAction : { id : Int, count : Int } -> Action msg
+nextAction { id, count } =
+    if count == id then
+        Action.None
 
-        ShowAnchor _ _ [] ->
-            Action.None
-
-        ShowAnchor _ _ _ ->
-            Action.Link Ui.Icons.next (Route.GalleryItem (stateToId state + 1))
+    else
+        Action.Link Ui.Icons.next (Route.GalleryItem (id + 1))
 
 
-view : Model -> ( Document msg, Action msg )
-view (Model _ state) =
-    ( { title = "Lower-off Gallery"
-      , body =
-            [ Html.div
-                [ Attr.css
-                    [ Tw.flex
-                    , Tw.flex_col
-                    , Tw.items_center
+view : List Anchor -> Int -> ( Document msg, Action msg )
+view anchors id =
+    case List.Extra.getAt (id - 1) anchors of
+        Nothing ->
+            Page.NotFound.view
+
+        Just anchor ->
+            ( { title = "Lower-off Gallery"
+              , body =
+                    [ Html.div
+                        [ Attr.css
+                            [ Tw.flex
+                            , Tw.flex_col
+                            , Tw.items_center
+                            ]
+                        ]
+                        [ viewAnchor anchor
+                        , viewNextButton
+                            { id = id
+                            , count = List.length anchors
+                            }
+                        ]
                     ]
-                ]
-                [ viewCurrentAnchor state
-                , viewNextButton state
-                ]
-            ]
-      }
-    , nextAction state
-    )
+              }
+            , nextAction
+                { id = id
+                , count = List.length anchors
+                }
+            )

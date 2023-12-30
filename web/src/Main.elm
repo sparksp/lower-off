@@ -28,7 +28,7 @@ type Section
     | NotFound Session
     | Error Session
     | Menu Session
-    | Gallery Gallery.Model
+    | Gallery Session Int
     | Scenario Scenario.Model
 
 
@@ -40,7 +40,7 @@ init _ url navKey =
 
 
 view : Model -> Document Msg
-view (Model _ section) =
+view (Model anchors section) =
     case section of
         Loading _ _ ->
             Page.view Page.Other Blank.view
@@ -54,8 +54,8 @@ view (Model _ section) =
         Menu _ ->
             Page.view Page.Menu Home.view
 
-        Gallery gallery ->
-            Page.view Page.Gallery (Gallery.view gallery)
+        Gallery _ id ->
+            Page.view Page.Gallery (Gallery.view anchors id)
 
         Scenario scenario ->
             viewPage Page.Scenario GotScenarioMsg (Scenario.view scenario)
@@ -94,8 +94,8 @@ toSession (Model _ section) =
         Menu session ->
             session
 
-        Gallery gallery ->
-            Gallery.toSession gallery
+        Gallery session _ ->
+            session
 
         Scenario scenario ->
             Scenario.toSession scenario
@@ -115,12 +115,12 @@ changeRouteTo maybeRoute anchors session =
             )
 
         Just Route.Gallery ->
-            ( Gallery (Gallery.init session anchors 1)
+            ( Gallery session 1
             , Cmd.none
             )
 
         Just (Route.GalleryItem id) ->
-            ( Gallery (Gallery.init session anchors id)
+            ( Gallery session id
             , Cmd.none
             )
 
