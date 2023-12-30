@@ -6,8 +6,8 @@ import Anchor.API
 import Browser.Styled exposing (Document)
 import Html.Styled as Html exposing (Html)
 import Html.Styled.Attributes as Attr
-import Html.Styled.Events as Events
 import Http
+import Route
 import Session exposing (Session)
 import Svg.Styled.Attributes as SvgAttr
 import Tailwind.Breakpoints as Breakpoints
@@ -21,20 +21,19 @@ type Model
 
 
 type State
-    = Loading
+    = Loading Int
     | Failure
     | ShowAnchor (List Anchor) Anchor (List Anchor)
 
 
 type Msg
     = GotAnchors (Result Http.Error (List Anchor))
-    | ShowNext
 
 
-init : Session -> ( Model, Cmd Msg )
-init session =
-    ( Model session Loading
-    , Anchor.API.fetch "./api" GotAnchors
+init : Session -> Int -> ( Model, Cmd Msg )
+init session id =
+    ( Model session (Loading id)
+    , Anchor.API.fetch "/api" GotAnchors
     )
 
 
@@ -43,42 +42,62 @@ toSession (Model session _) =
     session
 
 
-showNext : State -> State
-showNext state =
+showId : Int -> State -> State
+showId id state =
     case state of
-        Loading ->
-            Loading
+        Loading _ ->
+            Loading id
 
         Failure ->
             Failure
 
-        ShowAnchor prev curr (next :: rest) ->
-            ShowAnchor (curr :: prev) next rest
+        ShowAnchor prev curr next ->
+            let
+                allAnchors : List Anchor
+                allAnchors =
+                    List.reverse (curr :: prev) ++ next
+            in
+            case List.take id allAnchors |> List.reverse of
+                newCurrent :: newPrevious ->
+                    ShowAnchor newPrevious newCurrent (List.drop id allAnchors)
 
-        ShowAnchor _ _ [] ->
-            state
+                [] ->
+                    Failure
+
+
+stateToId : State -> Int
+stateToId state =
+    case state of
+        Loading id ->
+            id
+
+        Failure ->
+            0
+
+        ShowAnchor previous _ _ ->
+            List.length previous + 1
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg (Model session state) =
-    case msg of
-        GotAnchors (Ok (firstAnchor :: anchors)) ->
+    case ( state, msg ) of
+        ( Loading id, GotAnchors (Ok (firstAnchor :: anchors)) ) ->
+            ( Model session (showId id (ShowAnchor [] firstAnchor anchors))
+            , Cmd.none
+            )
+
+        ( _, GotAnchors (Ok (firstAnchor :: anchors)) ) ->
             ( Model session (ShowAnchor [] firstAnchor anchors)
             , Cmd.none
             )
 
-        GotAnchors (Ok []) ->
+        ( _, GotAnchors (Ok []) ) ->
             ( Model session Failure
             , Cmd.none
             )
 
-        GotAnchors (Err _) ->
+        ( _, GotAnchors (Err _) ) ->
             ( Model session Failure
-            , Cmd.none
-            )
-
-        ShowNext ->
-            ( Model session (showNext state)
             , Cmd.none
             )
 
@@ -118,7 +137,7 @@ viewCurrentAnchor state =
             ]
         ]
         (case state of
-            Loading ->
+            Loading _ ->
                 [ viewStatusMessage "Please wait: racking up..." ]
 
             Failure ->
@@ -132,58 +151,63 @@ viewCurrentAnchor state =
 viewNextButton : State -> Html Msg
 viewNextButton state =
     case state of
-        Loading ->
-            Html.div [] []
+        Loading _ ->
+            Html.text ""
 
         Failure ->
-            Html.div [] []
+            Html.text ""
 
         ShowAnchor _ _ [] ->
-            Html.div [] []
+            Html.text ""
 
         ShowAnchor _ _ _ ->
-            Html.div
+            nextButton (stateToId state)
+
+
+nextButton : Int -> Html Msg
+nextButton id =
+    Html.div
+        [ Attr.css
+            [ Tw.pb_3
+            , Tw.flex
+            , Tw.flex_col
+            , Tw.w_full
+            , Breakpoints.sm [ Tw.max_w_lg ]
+            ]
+        ]
+        [ Html.a
+            [ Route.GalleryItem (id + 1) |> Route.href
+            , Attr.css
+                [ Tw.text_color TwTheme.black
+                , Tw.flex
+                , Tw.p_1
+                , Tw.w_full
+                ]
+            ]
+            [ Html.div
                 [ Attr.css
-                    [ Tw.pb_3
-                    , Tw.flex
-                    , Tw.flex_col
-                    , Tw.w_full
-                    , Breakpoints.sm [ Tw.max_w_lg ]
+                    [ Tw.flex_grow
+                    , Tw.text_right
                     ]
                 ]
-                [ Html.button
-                    [ Events.onClick ShowNext
-                    , Attr.css
-                        [ Tw.text_color TwTheme.black
-                        , Tw.flex
-                        , Tw.p_1
-                        , Tw.w_full
-                        ]
-                    ]
-                    [ Html.div
-                        [ Attr.css
-                            [ Tw.flex_grow
-                            , Tw.text_right
-                            ]
-                        ]
-                        [ Html.text "Next Anchor"
-                        ]
-                    , Ui.Icons.next
-                        [ SvgAttr.css
-                            [ Tw.w_6
-                            , Tw.h_6
-                            , Tw.ml_1
-                            , Tw.flex_none
-                            ]
-                        ]
+                [ Html.text "Next Anchor"
+                ]
+            , Ui.Icons.next
+                [ SvgAttr.css
+                    [ Tw.w_6
+                    , Tw.h_6
+                    , Tw.ml_1
+                    , Tw.flex_none
                     ]
                 ]
+            ]
+        ]
 
 
 nextAction : State -> Action Msg
 nextAction state =
     case state of
-        Loading ->
+        Loading _ ->
             Action.None
 
         Failure ->
@@ -193,7 +217,7 @@ nextAction state =
             Action.None
 
         ShowAnchor _ _ _ ->
-            Action.Icon Ui.Icons.next ShowNext
+            Action.Link Ui.Icons.next (Route.GalleryItem (stateToId state + 1))
 
 
 view : Model -> ( Document Msg, Action Msg )

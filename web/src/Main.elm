@@ -19,7 +19,7 @@ import Url exposing (Url)
 type Model
     = Redirect Session
     | NotFound Session
-    | Home Session
+    | Menu Session
     | Gallery Gallery.Model
     | Scenario Scenario.Model
 
@@ -38,8 +38,8 @@ view model =
         NotFound _ ->
             Page.view Page.Other NotFound.view
 
-        Home _ ->
-            Page.view Page.Home Home.view
+        Menu _ ->
+            Page.view Page.Menu Home.view
 
         Gallery gallery ->
             viewPage Page.Gallery GotGalleryMsg (Gallery.view gallery)
@@ -75,7 +75,7 @@ toSession page =
         NotFound session ->
             session
 
-        Home session ->
+        Menu session ->
             session
 
         Gallery gallery ->
@@ -97,10 +97,14 @@ changeRouteTo maybeRoute model =
             ( NotFound session, Cmd.none )
 
         Just Route.Home ->
-            ( Home session, Cmd.none )
+            ( Menu session, Cmd.none )
 
         Just Route.Gallery ->
-            Gallery.init session
+            Gallery.init session 1
+                |> updateWith Gallery GotGalleryMsg
+
+        Just (Route.GalleryItem id) ->
+            Gallery.init session id
                 |> updateWith Gallery GotGalleryMsg
 
         Just Route.Scenario ->

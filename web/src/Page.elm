@@ -18,7 +18,7 @@ import Ui.Icons
 -}
 type Page
     = Other
-    | Home
+    | Menu
     | Gallery
     | Scenario
 
@@ -45,7 +45,7 @@ view page ( { title, body }, action ) =
 
 
 viewHeader : Title -> Page -> Action msg -> Html msg
-viewHeader (Title title) _ action =
+viewHeader (Title title) page action =
     Html.h1
         [ Attr.css
             [ Tw.w_full
@@ -66,78 +66,86 @@ viewHeader (Title title) _ action =
                 , Tw.mx_auto
                 ]
             ]
-            [ Html.a
-                [ Route.href Route.Home
-                ]
-                [ Ui.Icons.back
-                    [ SvgAttr.css
-                        [ Tw.w_6
-                        , Tw.h_6
-                        , Tw.mr_1
-                        , Tw.flex_none
-                        ]
-                    ]
-                ]
-            , viewTitle title action
+            [ viewMenuButton page
+            , viewTitle title
             , viewAction action
             ]
         ]
 
 
-viewTitle : String -> Action msg -> Html msg
-viewTitle title action =
-    case action of
-        Action.Icon _ msg ->
-            Html.button
-                [ Attr.css
-                    [ Breakpoints.sm [ Tw.max_w_lg ]
-                    , Tw.w_full
-                    , Tw.flex
-                    , Tw.flex_row
-                    , Tw.items_center
-                    , Tw.mx_auto
-                    , Tw.text_center
-                    ]
-                , Events.onClick msg
-                ]
-                [ Html.span
-                    [ Attr.css [ Tw.flex_grow ]
-                    ]
-                    [ Html.text title
+viewMenuButton : Page -> Html msg
+viewMenuButton page =
+    case page of
+        Menu ->
+            Ui.Icons.empty
+                [ SvgAttr.css
+                    [ Tw.w_6
+                    , Tw.h_6
+                    , Tw.mx_1
+                    , Tw.flex_none
                     ]
                 ]
 
-        Action.None ->
-            Html.div
-                [ Attr.css
-                    [ Breakpoints.sm [ Tw.max_w_lg ]
-                    , Tw.w_full
-                    , Tw.flex
-                    , Tw.flex_row
-                    , Tw.items_center
-                    , Tw.mx_auto
-                    , Tw.text_center
+        _ ->
+            Html.a
+                [ Route.href Route.Home
+                ]
+                [ Ui.Icons.menu
+                    [ SvgAttr.css
+                        [ Tw.w_6
+                        , Tw.h_6
+                        , Tw.mx_1
+                        , Tw.flex_none
+                        ]
                     ]
                 ]
-                [ Html.span
-                    [ Attr.css [ Tw.flex_grow ]
-                    ]
-                    [ Html.text title
-                    ]
-                ]
+
+
+viewTitle : String -> Html msg
+viewTitle title =
+    Html.div
+        [ Attr.css
+            [ Breakpoints.sm [ Tw.max_w_lg ]
+            , Tw.w_full
+            , Tw.flex
+            , Tw.flex_row
+            , Tw.items_center
+            , Tw.mx_auto
+            , Tw.text_center
+            ]
+        ]
+        [ Html.span
+            [ Attr.css [ Tw.flex_grow ]
+            ]
+            [ Html.text title
+            ]
+        ]
 
 
 viewAction : Action msg -> Html msg
 viewAction action =
     case action of
-        Action.Icon icon msg ->
+        Action.Event icon msg ->
             Html.button
                 [ Events.onClick msg ]
                 [ icon
                     [ SvgAttr.css
                         [ Tw.w_6
                         , Tw.h_6
-                        , Tw.ml_1
+                        , Tw.mx_1
+                        , Tw.flex_none
+                        ]
+                    ]
+                ]
+
+        Action.Link icon route ->
+            Html.a
+                [ Route.href route ]
+                [ icon
+                    [ SvgAttr.css
+                        [ Tw.w_6
+                        , Tw.h_6
+                        , Tw.mx_1
                         , Tw.flex_none
                         ]
                     ]
@@ -148,7 +156,7 @@ viewAction action =
                 [ SvgAttr.css
                     [ Tw.w_6
                     , Tw.h_6
-                    , Tw.ml_1
+                    , Tw.mx_1
                     , Tw.flex_none
                     ]
                 ]

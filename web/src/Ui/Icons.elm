@@ -1,7 +1,7 @@
 module Ui.Icons exposing
     ( Icon
-    , back
     , empty
+    , menu
     , next
     , refresh
     )
@@ -20,22 +20,22 @@ type alias Icon msg =
     List (Svg.Attribute msg) -> Html msg
 
 
-{-| Back (cheveron-left)
-
-From [zondicons](https://www.zondicons.com/).
-
--}
-back : List (Svg.Attribute msg) -> Html msg
-back attributes =
-    Svg.svg attributes
-        [ Svg.path [ d "M7.05 9.293L6.343 10 12 15.657l1.414-1.414L9.172 10l4.242-4.243L12 4.343z" ] [] ]
-
-
 {-| Empty icon showing nothing
 -}
 empty : Icon msg
 empty attributes =
     Svg.svg (viewBox "0 0 20 20" :: attributes) []
+
+
+{-| Menu
+
+From [zondicons](https://www.zondicons.com/).
+
+-}
+menu : Icon msg
+menu attributes =
+    zondicon attributes
+        "M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
 
 
 {-| Skip (fast-forward)

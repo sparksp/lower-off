@@ -287,5 +287,5 @@ view (Model _ state) =
                 ]
             ]
       }
-    , Action.Icon Ui.Icons.refresh Randomize
+    , Action.Event Ui.Icons.refresh Randomize
     )
