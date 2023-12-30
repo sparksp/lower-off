@@ -1,12 +1,10 @@
-module Page.Gallery exposing (Model, Msg, init, toSession, update, view)
+module Page.Gallery exposing (Model, init, toSession, view)
 
 import Action exposing (Action)
 import Anchor exposing (Anchor)
-import Anchor.API
 import Browser.Styled exposing (Document)
 import Html.Styled as Html exposing (Html)
 import Html.Styled.Attributes as Attr
-import Http
 import Route
 import Session exposing (Session)
 import Svg.Styled.Attributes as SvgAttr
@@ -21,20 +19,18 @@ type Model
 
 
 type State
-    = Loading Int
-    | Failure
+    = NoAnchors
     | ShowAnchor (List Anchor) Anchor (List Anchor)
 
 
-type Msg
-    = GotAnchors (Result Http.Error (List Anchor))
+init : Session -> List Anchor -> Int -> Model
+init session anchors id =
+    case anchors of
+        [] ->
+            Model session NoAnchors
 
-
-init : Session -> Int -> ( Model, Cmd Msg )
-init session id =
-    ( Model session (Loading id)
-    , Anchor.API.fetch "/api" GotAnchors
-    )
+        firstAnchor :: remainingAnchors ->
+            Model session (showId id (ShowAnchor [] firstAnchor remainingAnchors))
 
 
 toSession : Model -> Session
@@ -45,11 +41,8 @@ toSession (Model session _) =
 showId : Int -> State -> State
 showId id state =
     case state of
-        Loading _ ->
-            Loading id
-
-        Failure ->
-            Failure
+        NoAnchors ->
+            NoAnchors
 
         ShowAnchor prev curr next ->
             let
@@ -62,44 +55,17 @@ showId id state =
                     ShowAnchor newPrevious newCurrent (List.drop id allAnchors)
 
                 [] ->
-                    Failure
+                    NoAnchors
 
 
 stateToId : State -> Int
 stateToId state =
     case state of
-        Loading id ->
-            id
-
-        Failure ->
+        NoAnchors ->
             0
 
         ShowAnchor previous _ _ ->
             List.length previous + 1
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg (Model session state) =
-    case ( state, msg ) of
-        ( Loading id, GotAnchors (Ok (firstAnchor :: anchors)) ) ->
-            ( Model session (showId id (ShowAnchor [] firstAnchor anchors))
-            , Cmd.none
-            )
-
-        ( _, GotAnchors (Ok (firstAnchor :: anchors)) ) ->
-            ( Model session (ShowAnchor [] firstAnchor anchors)
-            , Cmd.none
-            )
-
-        ( _, GotAnchors (Ok []) ) ->
-            ( Model session Failure
-            , Cmd.none
-            )
-
-        ( _, GotAnchors (Err _) ) ->
-            ( Model session Failure
-            , Cmd.none
-            )
 
 
 viewTextLine : String -> Html msg
@@ -118,14 +84,14 @@ viewStatusMessage message =
         [ viewTextLine message ]
 
 
-viewAnchor : Anchor -> Html Msg
+viewAnchor : Anchor -> Html msg
 viewAnchor anchor =
     Html.div []
         [ Anchor.toHtml anchor
         ]
 
 
-viewCurrentAnchor : State -> Html Msg
+viewCurrentAnchor : State -> Html msg
 viewCurrentAnchor state =
     Html.div
         [ Attr.css
@@ -137,10 +103,7 @@ viewCurrentAnchor state =
             ]
         ]
         (case state of
-            Loading _ ->
-                [ viewStatusMessage "Please wait: racking up..." ]
-
-            Failure ->
+            NoAnchors ->
                 [ viewStatusMessage "Oops! Something went wrong." ]
 
             ShowAnchor _ anchor _ ->
@@ -148,13 +111,10 @@ viewCurrentAnchor state =
         )
 
 
-viewNextButton : State -> Html Msg
+viewNextButton : State -> Html msg
 viewNextButton state =
     case state of
-        Loading _ ->
-            Html.text ""
-
-        Failure ->
+        NoAnchors ->
             Html.text ""
 
         ShowAnchor _ _ [] ->
@@ -164,7 +124,7 @@ viewNextButton state =
             nextButton (stateToId state)
 
 
-nextButton : Int -> Html Msg
+nextButton : Int -> Html msg
 nextButton id =
     Html.div
         [ Attr.css
@@ -204,13 +164,10 @@ nextButton id =
         ]
 
 
-nextAction : State -> Action Msg
+nextAction : State -> Action msg
 nextAction state =
     case state of
-        Loading _ ->
-            Action.None
-
-        Failure ->
+        NoAnchors ->
             Action.None
 
         ShowAnchor _ _ [] ->
@@ -220,7 +177,7 @@ nextAction state =
             Action.Link Ui.Icons.next (Route.GalleryItem (stateToId state + 1))
 
 
-view : Model -> ( Document Msg, Action Msg )
+view : Model -> ( Document msg, Action msg )
 view (Model _ state) =
     ( { title = "Lower-off Gallery"
       , body =

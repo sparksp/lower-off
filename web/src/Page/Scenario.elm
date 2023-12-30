@@ -2,13 +2,11 @@ module Page.Scenario exposing (Model, Msg, init, toSession, update, view)
 
 import Action exposing (Action)
 import Anchor exposing (Anchor)
-import Anchor.API
 import Browser.Styled exposing (Document)
 import Climb exposing (Climb)
 import Html.Styled as Html exposing (Html)
 import Html.Styled.Attributes as Attr
 import Html.Styled.Events as Events
-import Http
 import List.Extra
 import Problem exposing (Problem)
 import Random
@@ -26,23 +24,27 @@ type Model
 
 
 type State
-    = Loading
-    | Failure
+    = NoAnchors
     | AnchorsReady (List Anchor)
     | ScenarioPick (List Anchor) Scenario
 
 
 type Msg
-    = GotAnchors (Result Http.Error (List Anchor))
-    | Randomize
+    = Randomize
     | NewScenario Scenario
 
 
-init : Session -> ( Model, Cmd Msg )
-init session =
-    ( Model session Loading
-    , Anchor.API.fetch "/api" GotAnchors
-    )
+init : Session -> List Anchor -> ( Model, Cmd Msg )
+init session anchors =
+    case anchors of
+        [] ->
+            ( Model session NoAnchors
+            , Cmd.none
+            )
+
+        _ ->
+            Model session (AnchorsReady anchors)
+                |> randomize
 
 
 toSession : Model -> Session
@@ -82,10 +84,7 @@ randomListItem list =
 withAnchors : (List Anchor -> r) -> (() -> r) -> State -> r
 withAnchors mapper default state =
     case state of
-        Loading ->
-            default ()
-
-        Failure ->
+        NoAnchors ->
             default ()
 
         AnchorsReady anchors ->
@@ -124,14 +123,6 @@ setScenario scenario state =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg ((Model session state) as model) =
     case msg of
-        GotAnchors (Ok anchors) ->
-            randomize (Model session (AnchorsReady anchors))
-
-        GotAnchors (Err _) ->
-            ( Model session Failure
-            , Cmd.none
-            )
-
         Randomize ->
             randomize model
 
@@ -181,10 +172,7 @@ viewScenario scenario =
 viewRandomizeButton : State -> Html Msg
 viewRandomizeButton state =
     case state of
-        Loading ->
-            Html.text ""
-
-        Failure ->
+        NoAnchors ->
             Html.text ""
 
         AnchorsReady _ ->
@@ -257,10 +245,7 @@ viewRemoteScenario state =
             ]
         ]
         (case state of
-            Loading ->
-                [ viewStatusMessage "Please wait: racking up..." ]
-
-            Failure ->
+            NoAnchors ->
                 [ viewStatusMessage "Oops! Something went wrong." ]
 
             AnchorsReady _ ->

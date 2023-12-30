@@ -1,10 +1,13 @@
 module Main exposing (Model, Msg, main)
 
 import Action exposing (Action)
+import Anchor exposing (Anchor)
+import Anchor.API
 import Browser exposing (UrlRequest)
 import Browser.Navigation as Nav
 import Browser.Styled as Browser exposing (Document)
 import Html.Styled as Html
+import Http
 import Page exposing (Page)
 import Page.Blank as Blank
 import Page.Gallery as Gallery
@@ -17,8 +20,13 @@ import Url exposing (Url)
 
 
 type Model
-    = Redirect Session
+    = Model (List Anchor) Section
+
+
+type Section
+    = Loading Session (Maybe Route)
     | NotFound Session
+    | Error Session
     | Menu Session
     | Gallery Gallery.Model
     | Scenario Scenario.Model
@@ -26,23 +34,28 @@ type Model
 
 init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init _ url navKey =
-    changeRouteTo (Route.fromUrl url) (Redirect (Session.session navKey))
+    ( Model [] (Loading (Session.session navKey) (Route.fromUrl url))
+    , Anchor.API.fetch "/api" GotAnchors
+    )
 
 
 view : Model -> Document Msg
-view model =
-    case model of
-        Redirect _ ->
+view (Model _ section) =
+    case section of
+        Loading _ _ ->
             Page.view Page.Other Blank.view
 
         NotFound _ ->
+            Page.view Page.Other NotFound.view
+
+        Error _ ->
             Page.view Page.Other NotFound.view
 
         Menu _ ->
             Page.view Page.Menu Home.view
 
         Gallery gallery ->
-            viewPage Page.Gallery GotGalleryMsg (Gallery.view gallery)
+            Page.view Page.Gallery (Gallery.view gallery)
 
         Scenario scenario ->
             viewPage Page.Scenario GotScenarioMsg (Scenario.view scenario)
@@ -62,17 +75,20 @@ viewPage page toMsg doc =
 type Msg
     = ClickedLink UrlRequest
     | ChangedUrl Url
-    | GotGalleryMsg Gallery.Msg
+    | GotAnchors (Result Http.Error (List Anchor))
     | GotScenarioMsg Scenario.Msg
 
 
 toSession : Model -> Session
-toSession page =
-    case page of
-        Redirect session ->
+toSession (Model _ section) =
+    case section of
+        Loading session _ ->
             session
 
         NotFound session ->
+            session
+
+        Error session ->
             session
 
         Menu session ->
@@ -85,36 +101,37 @@ toSession page =
             Scenario.toSession scenario
 
 
-changeRouteTo : Maybe Route -> Model -> ( Model, Cmd Msg )
-changeRouteTo maybeRoute model =
-    let
-        session : Session
-        session =
-            toSession model
-    in
+changeRouteTo : Maybe Route -> List Anchor -> Session -> ( Section, Cmd Msg )
+changeRouteTo maybeRoute anchors session =
     case maybeRoute of
         Nothing ->
-            ( NotFound session, Cmd.none )
+            ( NotFound session
+            , Cmd.none
+            )
 
         Just Route.Home ->
-            ( Menu session, Cmd.none )
+            ( Menu session
+            , Cmd.none
+            )
 
         Just Route.Gallery ->
-            Gallery.init session 1
-                |> updateWith Gallery GotGalleryMsg
+            ( Gallery (Gallery.init session anchors 1)
+            , Cmd.none
+            )
 
         Just (Route.GalleryItem id) ->
-            Gallery.init session id
-                |> updateWith Gallery GotGalleryMsg
+            ( Gallery (Gallery.init session anchors id)
+            , Cmd.none
+            )
 
         Just Route.Scenario ->
-            Scenario.init session
+            Scenario.init session anchors
                 |> updateWith Scenario GotScenarioMsg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case ( msg, model ) of
+update msg ((Model anchors section) as model) =
+    case ( msg, section ) of
         ( ClickedLink urlRequest, _ ) ->
             case urlRequest of
                 Browser.Internal url ->
@@ -128,18 +145,27 @@ update msg model =
                     )
 
         ( ChangedUrl url, _ ) ->
-            changeRouteTo (Route.fromUrl url) model
+            changeRouteTo (Route.fromUrl url) anchors (toSession model)
+                |> Tuple.mapFirst (Model anchors)
 
-        ( GotGalleryMsg galleryMsg, Gallery gallery ) ->
-            Gallery.update galleryMsg gallery
-                |> updateWith Gallery GotGalleryMsg
+        ( GotAnchors (Ok gotAnchors), Loading session maybeRoute ) ->
+            changeRouteTo maybeRoute gotAnchors session
+                |> Tuple.mapFirst (Model gotAnchors)
 
-        ( GotGalleryMsg _, _ ) ->
-            ( model, Cmd.none )
+        ( GotAnchors (Ok gotAnchors), _ ) ->
+            ( Model gotAnchors section
+            , Cmd.none
+            )
+
+        ( GotAnchors (Err _), _ ) ->
+            ( Model anchors (Error (toSession model))
+            , Cmd.none
+            )
 
         ( GotScenarioMsg scenarioMsg, Scenario scenario ) ->
             Scenario.update scenarioMsg scenario
                 |> updateWith Scenario GotScenarioMsg
+                |> Tuple.mapFirst (Model anchors)
 
         ( GotScenarioMsg _, _ ) ->
             ( model, Cmd.none )
@@ -157,7 +183,7 @@ main =
         }
 
 
-updateWith : (subModel -> Model) -> (subMsg -> Msg) -> ( subModel, Cmd subMsg ) -> ( Model, Cmd Msg )
+updateWith : (subModel -> Section) -> (subMsg -> Msg) -> ( subModel, Cmd subMsg ) -> ( Section, Cmd Msg )
 updateWith toModel toMsg ( subModel, subCmd ) =
     ( toModel subModel
     , Cmd.map toMsg subCmd
