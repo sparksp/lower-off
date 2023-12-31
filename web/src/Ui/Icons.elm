@@ -1,6 +1,7 @@
 module Ui.Icons exposing
     ( Icon
     , empty
+    , menu
     , next
     , refresh
     )
@@ -26,8 +27,21 @@ empty attributes =
     Svg.svg (viewBox "0 0 20 20" :: attributes) []
 
 
-{-| Skip (fast-forward)
+{-| Menu
+
 From [zondicons](https://www.zondicons.com/).
+
+-}
+menu : Icon msg
+menu attributes =
+    zondicon attributes
+        "M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
+
+
+{-| Skip (fast-forward)
+
+From [zondicons](https://www.zondicons.com/).
+
 -}
 next : Icon msg
 next attributes =
@@ -36,7 +50,9 @@ next attributes =
 
 
 {-| Refresh
+
 From [zondicons](https://www.zpndicons.com/).
+
 -}
 refresh : Icon msg
 refresh attributes =

@@ -1,361 +1,201 @@
 module Main exposing (Model, Msg, main)
 
+import Action exposing (Action)
 import Anchor exposing (Anchor)
 import Anchor.API
-import Browser
-import Climb exposing (Climb)
-import Css.Global
-import Html.Styled as Html exposing (Html)
+import Browser exposing (UrlRequest)
+import Browser.Navigation as Nav
+import Browser.Styled as Browser exposing (Document)
+import Html.Styled as Html
 import Html.Styled.Attributes as Attr
-import Html.Styled.Events as Events
 import Http
-import List.Extra
-import Problem exposing (Problem)
-import Random
-import Svg.Styled.Attributes as SvgAttr
-import Tailwind.Breakpoints as Breakpoints
-import Tailwind.Theme as TwTheme
+import Page exposing (Page)
+import Page.Blank as Blank
+import Page.Gallery as Gallery
+import Page.Menu as Home
+import Page.NotFound as NotFound
+import Page.Scenario as Scenario
+import Route exposing (Route)
+import Session exposing (Session)
 import Tailwind.Utilities as Tw
-import Ui.Icons
+import Url exposing (Url)
 
 
-
---- SCENARIOS
-
-
-type alias Model =
-    State
+type Model
+    = Model (List Anchor) Section
 
 
-type State
-    = Loading
-    | Failure
-    | AnchorsReady (List Anchor)
-    | ScenarioPick (List Anchor) Scenario
+type Section
+    = Loading Session (Maybe Route)
+    | NotFound Session
+    | Error Session
+    | Menu Session
+    | Gallery Session Int
+    | Scenario Scenario.Model
 
 
-type Scenario
-    = Scenario
-        { climb : Climb
-        , anchor : Maybe Anchor
-        , problems : List Problem
-        }
+init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
+init _ url navKey =
+    ( Model [] (Loading (Session.session navKey) (Route.fromUrl url))
+    , Anchor.API.fetch "/api" GotAnchors
+    )
 
 
-newScenario : Climb -> Maybe Anchor -> List Problem -> Scenario
-newScenario climb anchor problems =
-    Scenario { climb = climb, anchor = anchor, problems = problems }
+view : Model -> Document Msg
+view (Model anchors section) =
+    case section of
+        Loading _ _ ->
+            Page.view Page.Menu Blank.view
+
+        NotFound _ ->
+            Page.view Page.Other NotFound.view
+
+        Error _ ->
+            Page.view Page.Other NotFound.view
+
+        Menu _ ->
+            Page.view Page.Menu Home.view
+                |> preloadAnchorImages anchors
+
+        Gallery _ id ->
+            Page.view Page.Gallery (Gallery.view anchors id)
+
+        Scenario scenario ->
+            viewPage Page.Scenario GotScenarioMsg (Scenario.view scenario)
+                |> preloadAnchorImages anchors
 
 
-randomScenario : List Anchor -> Random.Generator Scenario
-randomScenario anchors =
-    Random.map3
-        newScenario
-        Climb.random
-        (randomAnchor anchors)
-        randomProblemList
+viewPage : Page -> (msgA -> msgB) -> ( Document msgA, Action msgA ) -> Document msgB
+viewPage page toMsg doc =
+    let
+        { title, body } =
+            Page.view page doc
+    in
+    { title = title
+    , body = List.map (Html.map toMsg) body
+    }
 
 
-randomProblemList : Random.Generator (List Problem)
-randomProblemList =
-    Random.weighted ( 100, 0 ) [ ( 10, 1 ) ]
-        |> Random.andThen (\len -> Random.list len Problem.random)
-        |> Random.map (List.Extra.uniqueBy Problem.string)
+preloadAnchorImages : List Anchor -> Document Msg -> Document Msg
+preloadAnchorImages anchors { title, body } =
+    { title = title
+    , body = body ++ [ Html.div [ Attr.css [ Tw.hidden ] ] (List.map Anchor.toHtml anchors) ]
+    }
 
 
-randomAnchor : List Anchor -> Random.Generator (Maybe Anchor)
-randomAnchor anchors =
-    randomListItem anchors
+type Msg
+    = ClickedLink UrlRequest
+    | ChangedUrl Url
+    | GotAnchors (Result Http.Error (List Anchor))
+    | GotScenarioMsg Scenario.Msg
 
 
-{-| Generate a random item from the given list. Returns `Nothing` if the list is empty.
--}
-randomListItem : List a -> Random.Generator (Maybe a)
-randomListItem list =
-    Random.int 0 (List.length list - 1)
-        |> Random.map (\n -> List.drop n list |> List.head)
+toSession : Model -> Session
+toSession (Model _ section) =
+    case section of
+        Loading session _ ->
+            session
+
+        NotFound session ->
+            session
+
+        Error session ->
+            session
+
+        Menu session ->
+            session
+
+        Gallery session _ ->
+            session
+
+        Scenario scenario ->
+            Scenario.toSession scenario
 
 
+changeRouteTo : Maybe Route -> List Anchor -> Session -> ( Section, Cmd Msg )
+changeRouteTo maybeRoute anchors session =
+    case maybeRoute of
+        Nothing ->
+            ( NotFound session
+            , Cmd.none
+            )
 
---- PROGRAM
+        Just Route.Home ->
+            ( Menu session
+            , Cmd.none
+            )
+
+        Just Route.Gallery ->
+            ( Gallery session 1
+            , Session.replaceUrl session (Route.GalleryItem 1 |> Route.toUrl)
+            )
+
+        Just (Route.GalleryItem id) ->
+            ( Gallery session id
+            , Cmd.none
+            )
+
+        Just Route.Scenario ->
+            Scenario.init session anchors
+                |> updateWith Scenario GotScenarioMsg
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg ((Model anchors section) as model) =
+    case ( msg, section ) of
+        ( ClickedLink urlRequest, _ ) ->
+            case urlRequest of
+                Browser.Internal url ->
+                    ( model
+                    , Session.pushUrl (toSession model) (Url.toString url)
+                    )
+
+                Browser.External href ->
+                    ( model
+                    , Nav.load href
+                    )
+
+        ( ChangedUrl url, _ ) ->
+            changeRouteTo (Route.fromUrl url) anchors (toSession model)
+                |> Tuple.mapFirst (Model anchors)
+
+        ( GotAnchors (Ok gotAnchors), Loading session maybeRoute ) ->
+            changeRouteTo maybeRoute gotAnchors session
+                |> Tuple.mapFirst (Model gotAnchors)
+
+        ( GotAnchors (Ok gotAnchors), _ ) ->
+            ( Model gotAnchors section
+            , Cmd.none
+            )
+
+        ( GotAnchors (Err _), _ ) ->
+            ( Model anchors (Error (toSession model))
+            , Cmd.none
+            )
+
+        ( GotScenarioMsg scenarioMsg, Scenario scenario ) ->
+            Scenario.update scenarioMsg scenario
+                |> updateWith Scenario GotScenarioMsg
+                |> Tuple.mapFirst (Model anchors)
+
+        ( GotScenarioMsg _, _ ) ->
+            ( model, Cmd.none )
 
 
 main : Program () Model Msg
 main =
-    Browser.element
+    Browser.application
         { init = init
-        , subscriptions = \_ -> Sub.none
+        , view = view >> Browser.toUnstyled
         , update = update
-        , view = view >> Html.toUnstyled
+        , subscriptions = \_ -> Sub.none
+        , onUrlRequest = ClickedLink
+        , onUrlChange = ChangedUrl
         }
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( Loading
-    , Anchor.API.fetch "./api" GotAnchors
+updateWith : (subModel -> Section) -> (subMsg -> Msg) -> ( subModel, Cmd subMsg ) -> ( Section, Cmd Msg )
+updateWith toModel toMsg ( subModel, subCmd ) =
+    ( toModel subModel
+    , Cmd.map toMsg subCmd
     )
-
-
-withAnchors : (List Anchor -> r) -> (() -> r) -> Model -> r
-withAnchors mapper default model =
-    case model of
-        AnchorsReady anchors ->
-            mapper anchors
-
-        ScenarioPick anchors _ ->
-            mapper anchors
-
-        _ ->
-            default ()
-
-
-randomize : Model -> ( Model, Cmd Msg )
-randomize model =
-    model
-        |> withAnchors
-            (\anchors ->
-                ( AnchorsReady anchors, Random.generate NewScenario (randomScenario anchors) )
-            )
-            (\() ->
-                ( model, Cmd.none )
-            )
-
-
-setScenario : Scenario -> Model -> Model
-setScenario scenario model =
-    model
-        |> withAnchors
-            (\anchors ->
-                ScenarioPick anchors scenario
-            )
-            (\() ->
-                model
-            )
-
-
-type Msg
-    = GotAnchors (Result Http.Error (List Anchor))
-    | Randomize
-    | NewScenario Scenario
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case msg of
-        GotAnchors (Ok anchors) ->
-            randomize (AnchorsReady anchors)
-
-        GotAnchors (Err _) ->
-            ( Failure, Cmd.none )
-
-        Randomize ->
-            randomize model
-
-        NewScenario scenario ->
-            ( setScenario scenario model, Cmd.none )
-
-
-pageTitle : Html Msg
-pageTitle =
-    Html.h1
-        [ Attr.css
-            [ Tw.w_full
-            , Tw.p_1
-            , Tw.border_b
-            , Tw.bg_color TwTheme.orange_600
-            , Tw.text_color TwTheme.white
-            , Breakpoints.sm [ Tw.mb_3 ]
-            ]
-        ]
-        [ Html.button
-            [ Attr.css
-                [ Tw.w_full
-                , Tw.text_xl
-                ]
-            , Events.onClick Randomize
-            ]
-            [ Html.div
-                [ Attr.css
-                    [ Tw.w_full
-                    , Breakpoints.sm [ Tw.max_w_lg ]
-                    , Tw.flex
-                    , Tw.flex_row
-                    , Tw.items_center
-                    , Tw.mx_auto
-                    ]
-                ]
-                [ Ui.Icons.empty
-                    [ SvgAttr.css
-                        [ Tw.w_6
-                        , Tw.h_6
-                        , Tw.mr_1
-                        , Tw.flex_none
-                        ]
-                    ]
-                , Html.span
-                    [ Attr.css [ Tw.flex_grow ]
-                    ]
-                    [ Html.text "Lower-off Scenario"
-                    ]
-                , Ui.Icons.refresh
-                    [ SvgAttr.css
-                        [ Tw.w_6
-                        , Tw.h_6
-                        , Tw.ml_1
-                        , Tw.flex_none
-                        ]
-                    ]
-                ]
-            ]
-        ]
-
-
-viewTextLine : String -> Html msg
-viewTextLine =
-    Html.text >> List.singleton >> Html.p [ Attr.css [ Tw.my_2 ] ]
-
-
-viewClimb : Climb -> Html Msg
-viewClimb =
-    Climb.string >> viewTextLine
-
-
-viewProblem : Problem -> Html Msg
-viewProblem =
-    Problem.string >> viewTextLine
-
-
-viewAnchor : Maybe Anchor -> Html Msg
-viewAnchor maybeAnchor =
-    case maybeAnchor of
-        Just anchor ->
-            Anchor.toHtml anchor
-
-        Nothing ->
-            viewTextLine "The anchor is missing."
-
-
-viewScenario : Scenario -> List (Html Msg)
-viewScenario (Scenario s) =
-    [ Html.div
-        [ Attr.css
-            [ Tw.px_3
-            , Tw.w_full
-            ]
-        ]
-        (viewClimb s.climb
-            :: List.map viewProblem s.problems
-            ++ [ viewTextLine "When get to the top of your climb you find..." ]
-        )
-    , viewAnchor s.anchor
-    ]
-
-
-viewRandomizeButton : Model -> Html Msg
-viewRandomizeButton model =
-    case model of
-        Failure ->
-            Html.text ""
-
-        Loading ->
-            Html.text ""
-
-        AnchorsReady _ ->
-            randomizeButton
-
-        ScenarioPick _ _ ->
-            randomizeButton
-
-
-randomizeButton : Html Msg
-randomizeButton =
-    Html.div
-        [ Attr.css
-            [ Tw.pb_3
-            , Tw.flex
-            , Tw.flex_col
-            , Tw.w_full
-            , Breakpoints.sm [ Tw.max_w_lg ]
-            ]
-        ]
-        [ Html.button
-            [ Events.onClick Randomize
-            , Attr.css
-                [ Tw.text_color TwTheme.black
-                , Tw.flex
-                , Tw.p_1
-                , Tw.w_full
-                ]
-            ]
-            [ Html.div
-                [ Attr.css
-                    [ Tw.flex_grow
-                    , Tw.text_right
-                    ]
-                ]
-                [ Html.text "Next Scenario"
-                ]
-            , Ui.Icons.next
-                [ SvgAttr.css
-                    [ Tw.w_6
-                    , Tw.h_6
-                    , Tw.ml_1
-                    , Tw.flex_none
-                    ]
-                ]
-            ]
-        ]
-
-
-viewStatusMessage : String -> Html msg
-viewStatusMessage message =
-    Html.div
-        [ Attr.css
-            [ Tw.px_3
-            , Tw.w_full
-            ]
-        ]
-        [ viewTextLine message ]
-
-
-viewRemoteScenario : Model -> Html Msg
-viewRemoteScenario model =
-    Html.div
-        [ Attr.css
-            [ Breakpoints.sm [ Tw.max_w_lg ]
-            , Tw.w_full
-            , Tw.bg_color TwTheme.white
-            , Tw.shadow_md
-            , Tw.mb_3
-            ]
-        ]
-        (case model of
-            Loading ->
-                [ viewStatusMessage "Please wait: racking up..." ]
-
-            AnchorsReady _ ->
-                [ viewStatusMessage "Please wait: racking up..." ]
-
-            Failure ->
-                [ viewStatusMessage "Oops! Something went wrong." ]
-
-            ScenarioPick _ scenario ->
-                viewScenario scenario
-        )
-
-
-view : Model -> Html Msg
-view model =
-    Html.div
-        [ Attr.css
-            [ Tw.flex
-            , Tw.flex_col
-            , Tw.items_center
-            ]
-        ]
-        [ Css.Global.global (Css.Global.body [ Tw.bg_color TwTheme.orange_100 ] :: Tw.globalStyles)
-        , pageTitle
-        , viewRemoteScenario model
-        , viewRandomizeButton model
-        ]
