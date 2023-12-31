@@ -45,7 +45,7 @@ view : Model -> Document Msg
 view (Model anchors section) =
     case section of
         Loading _ _ ->
-            Page.view Page.Other Blank.view
+            Page.view Page.Menu Blank.view
 
         NotFound _ ->
             Page.view Page.Other NotFound.view
