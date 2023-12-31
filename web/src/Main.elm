@@ -7,6 +7,7 @@ import Browser exposing (UrlRequest)
 import Browser.Navigation as Nav
 import Browser.Styled as Browser exposing (Document)
 import Html.Styled as Html
+import Html.Styled.Attributes as Attr
 import Http
 import Page exposing (Page)
 import Page.Blank as Blank
@@ -16,6 +17,7 @@ import Page.NotFound as NotFound
 import Page.Scenario as Scenario
 import Route exposing (Route)
 import Session exposing (Session)
+import Tailwind.Utilities as Tw
 import Url exposing (Url)
 
 
@@ -53,12 +55,14 @@ view (Model anchors section) =
 
         Menu _ ->
             Page.view Page.Menu Home.view
+                |> preloadAnchorImages anchors
 
         Gallery _ id ->
             Page.view Page.Gallery (Gallery.view anchors id)
 
         Scenario scenario ->
             viewPage Page.Scenario GotScenarioMsg (Scenario.view scenario)
+                |> preloadAnchorImages anchors
 
 
 viewPage : Page -> (msgA -> msgB) -> ( Document msgA, Action msgA ) -> Document msgB
@@ -69,6 +73,13 @@ viewPage page toMsg doc =
     in
     { title = title
     , body = List.map (Html.map toMsg) body
+    }
+
+
+preloadAnchorImages : List Anchor -> Document Msg -> Document Msg
+preloadAnchorImages anchors { title, body } =
+    { title = title
+    , body = body ++ [ Html.div [ Attr.css [ Tw.hidden ] ] (List.map Anchor.toHtml anchors) ]
     }
 
 

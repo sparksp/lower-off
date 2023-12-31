@@ -30,6 +30,22 @@ viewAnchor anchor =
         ]
 
 
+preloadNextAnchor : List Anchor -> Int -> Html msg
+preloadNextAnchor anchors id =
+    case List.Extra.getAt id anchors of
+        Nothing ->
+            Html.text ""
+
+        Just anchor ->
+            Html.div
+                [ Attr.css
+                    [ Tw.hidden
+                    ]
+                ]
+                [ Anchor.toHtml anchor
+                ]
+
+
 viewNextButton : { id : Int, count : Int } -> Html msg
 viewNextButton { id, count } =
     if id == count then
@@ -110,6 +126,7 @@ view anchors id =
                             , count = List.length anchors
                             }
                         ]
+                    , preloadNextAnchor anchors id
                     ]
               }
             , nextAction
