@@ -125,11 +125,6 @@ changeRouteTo maybeRoute anchors session =
             , Cmd.none
             )
 
-        Just Route.Gallery ->
-            ( Gallery session 1
-            , Cmd.none
-            )
-
         Just (Route.GalleryItem id) ->
             ( Gallery session id
             , Cmd.none

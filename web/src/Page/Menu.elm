@@ -47,7 +47,7 @@ viewBody =
                     , Tw.rounded
                     ]
                 ]
-                [ button "Gallery" Route.Gallery
+                [ button "Gallery" (Route.GalleryItem 1)
                 , button "Scenarios" Route.Scenario
                 ]
             ]
