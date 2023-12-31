@@ -1,4 +1,4 @@
-module Session exposing (Session, pushUrl, session)
+module Session exposing (Session, pushUrl, replaceUrl, session)
 
 import Browser.Navigation as Nav
 
@@ -17,7 +17,6 @@ pushUrl (Session key) =
     Nav.pushUrl key
 
 
-
--- replaceUrl : Session -> String -> Cmd msg
--- replaceUrl (Session key) =
---     Nav.replaceUrl key
+replaceUrl : Session -> String -> Cmd msg
+replaceUrl (Session key) =
+    Nav.replaceUrl key

@@ -125,6 +125,11 @@ changeRouteTo maybeRoute anchors session =
             , Cmd.none
             )
 
+        Just Route.Gallery ->
+            ( Gallery session 1
+            , Session.replaceUrl session (Route.GalleryItem 1 |> Route.toUrl)
+            )
+
         Just (Route.GalleryItem id) ->
             ( Gallery session id
             , Cmd.none
