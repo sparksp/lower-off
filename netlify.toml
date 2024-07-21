@@ -5,6 +5,7 @@
 
 [build.environment]
   HUGO_VERSION = "0.121.1"
+  YARN_VERSION = "1.22.22"
 
 [context.deploy-preview]
   command = "URL=$DEPLOY_PRIME_URL yarn build"
