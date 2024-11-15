@@ -10435,7 +10435,113 @@ It only needs to be included once.
 -}
 globalStyles : List Css.Global.Snippet
 globalStyles =
-    [ Css.Global.selector "*,\n::before,\n::after"
+    [ Css.Global.selector "*, ::before, ::after"
+        [ Css.property "--tw-border-spacing-x" "0"
+        , Css.property "--tw-border-spacing-y" "0"
+        , Css.property "--tw-translate-x" "0"
+        , Css.property "--tw-translate-y" "0"
+        , Css.property "--tw-rotate" "0"
+        , Css.property "--tw-skew-x" "0"
+        , Css.property "--tw-skew-y" "0"
+        , Css.property "--tw-scale-x" "1"
+        , Css.property "--tw-scale-y" "1"
+        , Css.property "--tw-pan-x" " "
+        , Css.property "--tw-pan-y" " "
+        , Css.property "--tw-pinch-zoom" " "
+        , Css.property "--tw-scroll-snap-strictness" "proximity"
+        , Css.property "--tw-gradient-from-position" " "
+        , Css.property "--tw-gradient-via-position" " "
+        , Css.property "--tw-gradient-to-position" " "
+        , Css.property "--tw-ordinal" " "
+        , Css.property "--tw-slashed-zero" " "
+        , Css.property "--tw-numeric-figure" " "
+        , Css.property "--tw-numeric-spacing" " "
+        , Css.property "--tw-numeric-fraction" " "
+        , Css.property "--tw-ring-inset" " "
+        , Css.property "--tw-ring-offset-width" "0px"
+        , Css.property "--tw-ring-offset-color" "#fff"
+        , Css.property "--tw-ring-color" "rgb(59 130 246 / 0.5)"
+        , Css.property "--tw-ring-offset-shadow" "0 0 #0000"
+        , Css.property "--tw-ring-shadow" "0 0 #0000"
+        , Css.property "--tw-shadow" "0 0 #0000"
+        , Css.property "--tw-shadow-colored" "0 0 #0000"
+        , Css.property "--tw-blur" " "
+        , Css.property "--tw-brightness" " "
+        , Css.property "--tw-contrast" " "
+        , Css.property "--tw-grayscale" " "
+        , Css.property "--tw-hue-rotate" " "
+        , Css.property "--tw-invert" " "
+        , Css.property "--tw-saturate" " "
+        , Css.property "--tw-sepia" " "
+        , Css.property "--tw-drop-shadow" " "
+        , Css.property "--tw-backdrop-blur" " "
+        , Css.property "--tw-backdrop-brightness" " "
+        , Css.property "--tw-backdrop-contrast" " "
+        , Css.property "--tw-backdrop-grayscale" " "
+        , Css.property "--tw-backdrop-hue-rotate" " "
+        , Css.property "--tw-backdrop-invert" " "
+        , Css.property "--tw-backdrop-opacity" " "
+        , Css.property "--tw-backdrop-saturate" " "
+        , Css.property "--tw-backdrop-sepia" " "
+        , Css.property "--tw-contain-size" " "
+        , Css.property "--tw-contain-layout" " "
+        , Css.property "--tw-contain-paint" " "
+        , Css.property "--tw-contain-style" " "
+        ]
+    , Css.Global.selector "::backdrop"
+        [ Css.property "--tw-border-spacing-x" "0"
+        , Css.property "--tw-border-spacing-y" "0"
+        , Css.property "--tw-translate-x" "0"
+        , Css.property "--tw-translate-y" "0"
+        , Css.property "--tw-rotate" "0"
+        , Css.property "--tw-skew-x" "0"
+        , Css.property "--tw-skew-y" "0"
+        , Css.property "--tw-scale-x" "1"
+        , Css.property "--tw-scale-y" "1"
+        , Css.property "--tw-pan-x" " "
+        , Css.property "--tw-pan-y" " "
+        , Css.property "--tw-pinch-zoom" " "
+        , Css.property "--tw-scroll-snap-strictness" "proximity"
+        , Css.property "--tw-gradient-from-position" " "
+        , Css.property "--tw-gradient-via-position" " "
+        , Css.property "--tw-gradient-to-position" " "
+        , Css.property "--tw-ordinal" " "
+        , Css.property "--tw-slashed-zero" " "
+        , Css.property "--tw-numeric-figure" " "
+        , Css.property "--tw-numeric-spacing" " "
+        , Css.property "--tw-numeric-fraction" " "
+        , Css.property "--tw-ring-inset" " "
+        , Css.property "--tw-ring-offset-width" "0px"
+        , Css.property "--tw-ring-offset-color" "#fff"
+        , Css.property "--tw-ring-color" "rgb(59 130 246 / 0.5)"
+        , Css.property "--tw-ring-offset-shadow" "0 0 #0000"
+        , Css.property "--tw-ring-shadow" "0 0 #0000"
+        , Css.property "--tw-shadow" "0 0 #0000"
+        , Css.property "--tw-shadow-colored" "0 0 #0000"
+        , Css.property "--tw-blur" " "
+        , Css.property "--tw-brightness" " "
+        , Css.property "--tw-contrast" " "
+        , Css.property "--tw-grayscale" " "
+        , Css.property "--tw-hue-rotate" " "
+        , Css.property "--tw-invert" " "
+        , Css.property "--tw-saturate" " "
+        , Css.property "--tw-sepia" " "
+        , Css.property "--tw-drop-shadow" " "
+        , Css.property "--tw-backdrop-blur" " "
+        , Css.property "--tw-backdrop-brightness" " "
+        , Css.property "--tw-backdrop-contrast" " "
+        , Css.property "--tw-backdrop-grayscale" " "
+        , Css.property "--tw-backdrop-hue-rotate" " "
+        , Css.property "--tw-backdrop-invert" " "
+        , Css.property "--tw-backdrop-opacity" " "
+        , Css.property "--tw-backdrop-saturate" " "
+        , Css.property "--tw-backdrop-sepia" " "
+        , Css.property "--tw-contain-size" " "
+        , Css.property "--tw-contain-layout" " "
+        , Css.property "--tw-contain-paint" " "
+        , Css.property "--tw-contain-style" " "
+        ]
+    , Css.Global.selector "*,\n::before,\n::after"
         [ Css.property "box-sizing" "border-box"
         , Css.property "border-width" "0"
         , Css.property "border-style" "solid"
@@ -10588,114 +10694,8 @@ globalStyles =
         [ Css.property "max-width" "100%"
         , Css.property "height" "auto"
         ]
-    , Css.Global.selector "[hidden]"
+    , Css.Global.selector "[hidden]:where(:not([hidden=\"until-found\"]))"
         [ Css.property "display" "none"
-        ]
-    , Css.Global.selector "*, ::before, ::after"
-        [ Css.property "--tw-border-spacing-x" "0"
-        , Css.property "--tw-border-spacing-y" "0"
-        , Css.property "--tw-translate-x" "0"
-        , Css.property "--tw-translate-y" "0"
-        , Css.property "--tw-rotate" "0"
-        , Css.property "--tw-skew-x" "0"
-        , Css.property "--tw-skew-y" "0"
-        , Css.property "--tw-scale-x" "1"
-        , Css.property "--tw-scale-y" "1"
-        , Css.property "--tw-pan-x" " "
-        , Css.property "--tw-pan-y" " "
-        , Css.property "--tw-pinch-zoom" " "
-        , Css.property "--tw-scroll-snap-strictness" "proximity"
-        , Css.property "--tw-gradient-from-position" " "
-        , Css.property "--tw-gradient-via-position" " "
-        , Css.property "--tw-gradient-to-position" " "
-        , Css.property "--tw-ordinal" " "
-        , Css.property "--tw-slashed-zero" " "
-        , Css.property "--tw-numeric-figure" " "
-        , Css.property "--tw-numeric-spacing" " "
-        , Css.property "--tw-numeric-fraction" " "
-        , Css.property "--tw-ring-inset" " "
-        , Css.property "--tw-ring-offset-width" "0px"
-        , Css.property "--tw-ring-offset-color" "#fff"
-        , Css.property "--tw-ring-color" "rgb(59 130 246 / 0.5)"
-        , Css.property "--tw-ring-offset-shadow" "0 0 #0000"
-        , Css.property "--tw-ring-shadow" "0 0 #0000"
-        , Css.property "--tw-shadow" "0 0 #0000"
-        , Css.property "--tw-shadow-colored" "0 0 #0000"
-        , Css.property "--tw-blur" " "
-        , Css.property "--tw-brightness" " "
-        , Css.property "--tw-contrast" " "
-        , Css.property "--tw-grayscale" " "
-        , Css.property "--tw-hue-rotate" " "
-        , Css.property "--tw-invert" " "
-        , Css.property "--tw-saturate" " "
-        , Css.property "--tw-sepia" " "
-        , Css.property "--tw-drop-shadow" " "
-        , Css.property "--tw-backdrop-blur" " "
-        , Css.property "--tw-backdrop-brightness" " "
-        , Css.property "--tw-backdrop-contrast" " "
-        , Css.property "--tw-backdrop-grayscale" " "
-        , Css.property "--tw-backdrop-hue-rotate" " "
-        , Css.property "--tw-backdrop-invert" " "
-        , Css.property "--tw-backdrop-opacity" " "
-        , Css.property "--tw-backdrop-saturate" " "
-        , Css.property "--tw-backdrop-sepia" " "
-        , Css.property "--tw-contain-size" " "
-        , Css.property "--tw-contain-layout" " "
-        , Css.property "--tw-contain-paint" " "
-        , Css.property "--tw-contain-style" " "
-        ]
-    , Css.Global.selector "::backdrop"
-        [ Css.property "--tw-border-spacing-x" "0"
-        , Css.property "--tw-border-spacing-y" "0"
-        , Css.property "--tw-translate-x" "0"
-        , Css.property "--tw-translate-y" "0"
-        , Css.property "--tw-rotate" "0"
-        , Css.property "--tw-skew-x" "0"
-        , Css.property "--tw-skew-y" "0"
-        , Css.property "--tw-scale-x" "1"
-        , Css.property "--tw-scale-y" "1"
-        , Css.property "--tw-pan-x" " "
-        , Css.property "--tw-pan-y" " "
-        , Css.property "--tw-pinch-zoom" " "
-        , Css.property "--tw-scroll-snap-strictness" "proximity"
-        , Css.property "--tw-gradient-from-position" " "
-        , Css.property "--tw-gradient-via-position" " "
-        , Css.property "--tw-gradient-to-position" " "
-        , Css.property "--tw-ordinal" " "
-        , Css.property "--tw-slashed-zero" " "
-        , Css.property "--tw-numeric-figure" " "
-        , Css.property "--tw-numeric-spacing" " "
-        , Css.property "--tw-numeric-fraction" " "
-        , Css.property "--tw-ring-inset" " "
-        , Css.property "--tw-ring-offset-width" "0px"
-        , Css.property "--tw-ring-offset-color" "#fff"
-        , Css.property "--tw-ring-color" "rgb(59 130 246 / 0.5)"
-        , Css.property "--tw-ring-offset-shadow" "0 0 #0000"
-        , Css.property "--tw-ring-shadow" "0 0 #0000"
-        , Css.property "--tw-shadow" "0 0 #0000"
-        , Css.property "--tw-shadow-colored" "0 0 #0000"
-        , Css.property "--tw-blur" " "
-        , Css.property "--tw-brightness" " "
-        , Css.property "--tw-contrast" " "
-        , Css.property "--tw-grayscale" " "
-        , Css.property "--tw-hue-rotate" " "
-        , Css.property "--tw-invert" " "
-        , Css.property "--tw-saturate" " "
-        , Css.property "--tw-sepia" " "
-        , Css.property "--tw-drop-shadow" " "
-        , Css.property "--tw-backdrop-blur" " "
-        , Css.property "--tw-backdrop-brightness" " "
-        , Css.property "--tw-backdrop-contrast" " "
-        , Css.property "--tw-backdrop-grayscale" " "
-        , Css.property "--tw-backdrop-hue-rotate" " "
-        , Css.property "--tw-backdrop-invert" " "
-        , Css.property "--tw-backdrop-opacity" " "
-        , Css.property "--tw-backdrop-saturate" " "
-        , Css.property "--tw-backdrop-sepia" " "
-        , Css.property "--tw-contain-size" " "
-        , Css.property "--tw-contain-layout" " "
-        , Css.property "--tw-contain-paint" " "
-        , Css.property "--tw-contain-style" " "
         ]
     ]
 
@@ -100302,7 +100302,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 bg_color : Color -> Css.Style
 bg_color color =
-    Tw.propertyWithColor "background-color" (\c -> c) (Just "--tw-bg-opacity") color
+    Css.batch
+        [ Css.property "--tw-bg-opacity" "1"
+        , Tw.propertyWithColor "background-color" (\c -> c) (Just "--tw-bg-opacity, 1") color
+        ]
 
 
 {-| This class has effects of css declarations similar to the following:
@@ -100321,7 +100324,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 border_b_color : Color -> Css.Style
 border_b_color color =
-    Tw.propertyWithColor "border-bottom-color" (\c -> c) (Just "--tw-border-opacity") color
+    Css.batch
+        [ Css.property "--tw-border-opacity" "1"
+        , Tw.propertyWithColor "border-bottom-color" (\c -> c) (Just "--tw-border-opacity, 1") color
+        ]
 
 
 {-| This class has effects of css declarations similar to the following:
@@ -100340,7 +100346,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 border_color : Color -> Css.Style
 border_color color =
-    Tw.propertyWithColor "border-color" (\c -> c) (Just "--tw-border-opacity") color
+    Css.batch
+        [ Css.property "--tw-border-opacity" "1"
+        , Tw.propertyWithColor "border-color" (\c -> c) (Just "--tw-border-opacity, 1") color
+        ]
 
 
 {-| This class has effects of css declarations similar to the following:
@@ -100359,7 +100368,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 border_e_color : Color -> Css.Style
 border_e_color color =
-    Tw.propertyWithColor "border-inline-end-color" (\c -> c) (Just "--tw-border-opacity") color
+    Css.batch
+        [ Css.property "--tw-border-opacity" "1"
+        , Tw.propertyWithColor "border-inline-end-color" (\c -> c) (Just "--tw-border-opacity, 1") color
+        ]
 
 
 {-| This class has effects of css declarations similar to the following:
@@ -100378,7 +100390,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 border_l_color : Color -> Css.Style
 border_l_color color =
-    Tw.propertyWithColor "border-left-color" (\c -> c) (Just "--tw-border-opacity") color
+    Css.batch
+        [ Css.property "--tw-border-opacity" "1"
+        , Tw.propertyWithColor "border-left-color" (\c -> c) (Just "--tw-border-opacity, 1") color
+        ]
 
 
 {-| This class has effects of css declarations similar to the following:
@@ -100397,7 +100412,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 border_r_color : Color -> Css.Style
 border_r_color color =
-    Tw.propertyWithColor "border-right-color" (\c -> c) (Just "--tw-border-opacity") color
+    Css.batch
+        [ Css.property "--tw-border-opacity" "1"
+        , Tw.propertyWithColor "border-right-color" (\c -> c) (Just "--tw-border-opacity, 1") color
+        ]
 
 
 {-| This class has effects of css declarations similar to the following:
@@ -100416,7 +100434,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 border_s_color : Color -> Css.Style
 border_s_color color =
-    Tw.propertyWithColor "border-inline-start-color" (\c -> c) (Just "--tw-border-opacity") color
+    Css.batch
+        [ Css.property "--tw-border-opacity" "1"
+        , Tw.propertyWithColor "border-inline-start-color" (\c -> c) (Just "--tw-border-opacity, 1") color
+        ]
 
 
 {-| This class has effects of css declarations similar to the following:
@@ -100435,7 +100456,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 border_t_color : Color -> Css.Style
 border_t_color color =
-    Tw.propertyWithColor "border-top-color" (\c -> c) (Just "--tw-border-opacity") color
+    Css.batch
+        [ Css.property "--tw-border-opacity" "1"
+        , Tw.propertyWithColor "border-top-color" (\c -> c) (Just "--tw-border-opacity, 1") color
+        ]
 
 
 {-| This class has effects of css declarations similar to the following:
@@ -100456,8 +100480,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 border_x_color : Color -> Css.Style
 border_x_color color =
     Css.batch
-        [ Tw.propertyWithColor "border-left-color" (\c -> c) (Just "--tw-border-opacity") color
-        , Tw.propertyWithColor "border-right-color" (\c -> c) (Just "--tw-border-opacity") color
+        [ Css.property "--tw-border-opacity" "1"
+        , Tw.propertyWithColor "border-left-color" (\c -> c) (Just "--tw-border-opacity, 1") color
+        , Tw.propertyWithColor "border-right-color" (\c -> c) (Just "--tw-border-opacity, 1") color
         ]
 
 
@@ -100479,8 +100504,9 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 border_y_color : Color -> Css.Style
 border_y_color color =
     Css.batch
-        [ Tw.propertyWithColor "border-top-color" (\c -> c) (Just "--tw-border-opacity") color
-        , Tw.propertyWithColor "border-bottom-color" (\c -> c) (Just "--tw-border-opacity") color
+        [ Css.property "--tw-border-opacity" "1"
+        , Tw.propertyWithColor "border-top-color" (\c -> c) (Just "--tw-border-opacity, 1") color
+        , Tw.propertyWithColor "border-bottom-color" (\c -> c) (Just "--tw-border-opacity, 1") color
         ]
 
 
@@ -100538,7 +100564,8 @@ divide_color : Color -> Css.Style
 divide_color color =
     Css.Global.children
         [ Css.Global.selector ":not([hidden]) ~ :not([hidden])"
-            [ Tw.propertyWithColor "border-color" (\c -> c) (Just "--tw-divide-opacity") color
+            [ Css.property "--tw-divide-opacity" "1"
+            , Tw.propertyWithColor "border-color" (\c -> c) (Just "--tw-divide-opacity, 1") color
             ]
         ]
 
@@ -100621,7 +100648,8 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 placeholder_color : Color -> Css.Style
 placeholder_color color =
     Css.pseudoElement "placeholder"
-        [ Tw.propertyWithColor "color" (\c -> c) (Just "--tw-placeholder-opacity") color
+        [ Css.property "--tw-placeholder-opacity" "1"
+        , Tw.propertyWithColor "color" (\c -> c) (Just "--tw-placeholder-opacity, 1") color
         ]
 
 
@@ -100641,7 +100669,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 ring_color : Color -> Css.Style
 ring_color color =
-    Tw.propertyWithColor "--tw-ring-color" (\c -> c) (Just "--tw-ring-opacity") color
+    Css.batch
+        [ Css.property "--tw-ring-opacity" "1"
+        , Tw.propertyWithColor "--tw-ring-color" (\c -> c) (Just "--tw-ring-opacity, 1") color
+        ]
 
 
 {-| This class has effects of css declarations similar to the following:
@@ -100718,7 +100749,10 @@ Make sure to check out the [tailwind documentation](https://tailwindcss.com/docs
 -}
 text_color : Color -> Css.Style
 text_color color =
-    Tw.propertyWithColor "color" (\c -> c) (Just "--tw-text-opacity") color
+    Css.batch
+        [ Css.property "--tw-text-opacity" "1"
+        , Tw.propertyWithColor "color" (\c -> c) (Just "--tw-text-opacity, 1") color
+        ]
 
 
 {-| This class has effects of css declarations similar to the following:
