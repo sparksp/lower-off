@@ -1,4 +1,4 @@
-module Climb exposing (Climb(..), random, string)
+module Climb exposing (Climb, random, string)
 
 {-| Style of the climb.
 -}
