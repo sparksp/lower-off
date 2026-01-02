@@ -1,4 +1,4 @@
-module Problem exposing (Problem(..), random, string)
+module Problem exposing (Problem, random, string)
 
 {-| Extra problems that might occur.
 -}
