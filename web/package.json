@@ -32,7 +32,7 @@
     "@parcel/core": "^2.12",
     "@parcel/transformer-elm": "^2.12",
     "autoprefixer": "^10.5",
-    "elm": "^0.19.1-6",
+    "elm": "^0.19.2-0",
     "elm-hot": "^1.1.6",
     "elm-review": "^2.13.5",
     "elm-tailwind-modules": "^0.5.0",
